@@ -1,0 +1,56 @@
+.text-huge{
+  font-family: "FuturaPT-Demi";
+  font-size: 40px;
+  line-height: 48px;
+  @media (max-width:$md3+px) {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+
+.text-big{
+  font-family: "FuturaPT-Medium";
+  font-size: 28px;
+  line-height: 36px;
+  @media (max-width:$md3+px) {
+    font-size: 24px;
+    line-height: 30px;
+  } 
+}
+
+.text-medium{
+  font-family: "FuturaPT-Medium";
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.text-default{
+  font-family: "FuturaPT-Medium";
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.text-small{
+  font-family: "FuturaPT-Heavy";
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.text-extra-small{
+  font-family: "FuturaPT-Heavy";
+  font-size: 18px;
+  line-height: 24px;
+}
+
+
+.text-control{
+  font-family: "FuturaPT-Medium";
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.text-footnote{
+  font-family: "FuturaPT-Book";
+  font-size: 16px;
+  line-height: 18px;
+}

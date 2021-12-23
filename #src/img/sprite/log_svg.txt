@@ -1,0 +1,16 @@
+img/sprite/terms-sprite.svg#delivery
+img/sprite/terms-sprite.svg#revers
+img/sprite/terms-sprite.svg#security
+img/sprite/icons-sprite.svg#arrow
+img/sprite/icons-sprite.svg#bag
+img/sprite/icons-sprite.svg#chevrone
+img/sprite/icons-sprite.svg#close
+img/sprite/icons-sprite.svg#facebook
+img/sprite/icons-sprite.svg#instagram
+img/sprite/icons-sprite.svg#pause
+img/sprite/icons-sprite.svg#play
+img/sprite/icons-sprite.svg#plus
+img/sprite/icons-sprite.svg#star-fill
+img/sprite/icons-sprite.svg#star
+img/sprite/icons-sprite.svg#vector
+img/sprite/icons-sprite.svg#VK
