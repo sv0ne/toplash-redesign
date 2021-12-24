@@ -54,35 +54,6 @@ $(document).ready(function () {
 		}
 	});
 
-	let isInitSlick = false;
-	// Slick - слайдер
-	function initSlider() {
-		if(w < BREAKPOINT_md2){
-			if(isInitSlick === false){
-				isInitSlick = true;
-				$('.slider').slick({
-					slidesToShow: 2,
-					prevArrow: $('.useful__btn.btn-prev'),
-					nextArrow: $('.useful__btn.btn-next'),
-					responsive:[
-						{ 
-							breakpoint: BREAKPOINT_552,
-							settings: {
-								slidesToShow: 1,
-							}
-						}
-					]
-				});
-			}
-		}else{
-			if(isInitSlick === true){
-				isInitSlick = false;
-				$('.slider').slick('unslick');
-			}
-		}
-	}
-	initSlider();
-
 	// Узнать сколько картинок в отзывах и задать нужную grid-сетку
  	$(".js-detect-grid").each(function(){
  		let countChild = $(this).children().length;
@@ -105,5 +76,54 @@ $(document).ready(function () {
 	 		$(this).closest('button').append(html);
 	 	});
 	}, 2000);
+
+/////////////////////////////// Слайдеры //////////////////////////////////////
+
+	let isInitSlick = false;
+	// Slick - слайдер
+	function initSlider() {
+		if(w < BREAKPOINT_md2){
+			if(isInitSlick === false){
+				isInitSlick = true;
+				$('.slider').slick({
+					slidesToShow: 2,
+					prevArrow: $('.useful .sliderBtn.btn-prev'),
+					nextArrow: $('.useful .sliderBtn.btn-next'),
+					responsive:[
+						{ 
+							breakpoint: BREAKPOINT_552,
+							settings: {
+								slidesToShow: 1,
+							}
+						}
+					]
+				});
+			}
+		}else{
+			if(isInitSlick === true){
+				isInitSlick = false;
+				$('.slider').slick('unslick');
+			}
+		}
+	}
+	initSlider();
+
+	$('.sliderBig').slick({
+		prevArrow: $('.product .sliderBtn.btn-prev'),
+		nextArrow: $('.product .sliderBtn.btn-next'),
+		dots: true
+	});
+
+	$('.sliderPreview').slick({
+		arrows: false,
+		slidesToShow: 5,
+	});
+
+
+///////////////////////////////////////////////////////////////////////////////
+	
+	$(".burger").click(function(){
+		$(this).toggleClass('active');
+	});
 	
 });

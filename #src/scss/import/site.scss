@@ -1,8 +1,200 @@
+//////////////////////////// nav ////////////////////////////
+
+.nav{
+	&__body{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 16px;
+	}
+	&__content{}
+	&__menu{
+		display: flex;
+		align-items: center;
+		margin-right: 16px;
+		> *:not(:last-child){
+			margin-right: 16px;
+		}
+	}
+	&__logo{
+		.burger{display: none;}
+		@media (max-width:$md3+px) {
+		    display: flex;
+		    align-items: center;
+		    .burger{
+		    	display: block;
+		    	margin-right: 24px;
+		    }
+		}
+	}
+}
+
+//////////////////////////// rkl ////////////////////////////
+
+.rkl{
+	background-color: $red;
+	color: $white;
+}
+
+////////////////////////// product ///////////////////////////
+
+.product {
+	&__row {
+		display: flex;
+		padding-bottom: 16px;
+	}
+	&__col {
+		flex: 0 0 50%;
+		padding: 16px;
+		min-width: 0;
+	}
+	&__holder {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	&__content {}
+}
+
+.warranty {
+	border-radius: 24px;
+	padding: 16px;
+	background-color: $lightOrange;
+	display: flex;
+	align-items: center;
+	> img{
+		flex: 0 0 72px;
+		width: 72px;
+		height: 72px;
+		margin-right: 16px;
+	}
+	&__text {
+		.text-medium{
+			color: $orange;
+			margin-bottom: 8px;
+		}
+	}
+}
+
+.slideWhell{
+	&__sliderBig{
+		width: 100%;
+		padding-top: 100%;
+		position: relative;
+	}
+	&__scrollPreview{
+		margin-top: 8px;
+		max-width: 100%;
+		padding-bottom: 8px;
+		overflow-x: auto;
+		overflow-y: hidden;
+	}
+	::-webkit-scrollbar {
+    	width: 12px;
+    	height: 12px;
+   		background-color: $white;
+   		@media (max-width:$md3+px) {
+   		    display: none;
+   		}
+	}
+
+	::-webkit-scrollbar-thumb {
+	    background-color: rgba(136,136,158, 0.4);
+	    border-radius: 8px;
+	    @media (max-width:$md3+px) {
+   		    display: none;
+   		}
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+	    background-color: rgba(136,136,158, 0.5);
+	}
+
+	scrollbar-color: $darkGray #333;
+    scrollbar-width: thin;
+}
+
+.sliderBig{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 2px solid $divider;
+	border-radius: 24px;
+	overflow: hidden;
+	&__item{
+		position: relative;
+		max-height: 100%;
+		img{
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.slick-list {
+		overflow: hidden;
+		height: 100%;
+	}
+
+	.slick-track{
+		display: flex;
+		height: 100%;
+	}
+	.slick-dots{
+		position: absolute;
+		left: 0;
+		bottom: 8px;
+		padding: 16px;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		li{
+			margin: 0 4px;
+			flex: 1 1 auto;
+			height: 3px;
+			background-color: $lightGray;
+			border-radius: 99px;
+			cursor: pointer;
+			&.slick-active{
+				background-color: $red;
+			}
+			button{
+				display: none;
+			}
+		}
+	}
+}
+
+.scrollPreview {
+	display: flex;
+	margin: 0 -8px;
+	&__item {
+		flex: 0 0 80px;
+		width: 80px;
+		height: 80px;
+		border-radius: 12px;
+		overflow: hidden;
+		border: 2px solid $divider;
+		margin: 0 8px;
+		cursor: pointer;
+		&.active{
+			border-color: $red;
+		}
+		img{
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+
 ///////////////////////// feedback //////////////////////////
 
 .feedback {
 	&__item {
-		border-bottom: 1px solid #EAF0F6;
+		border-bottom: 1px solid $divider;
 	}
 	&__row {
 		display: flex;
@@ -27,12 +219,12 @@
 		}
 	}
 	&__initials {
-		background-color: var(--color-primary);
+		background-color: $red;
 		border-radius: 99px;
 		margin-right: 16px;
 		width: 40px;
 		height: 40px;
-		color: var(--color-text-contrast);
+		color: $white;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -115,8 +307,12 @@
 		left: 16px;
 		border-radius: 12px;
 		padding: 2px 8px;
-		background-color: var(--color-bg);
+		background-color: $white;
 		pointer-events: none;
+		@media (max-width:$md4+px) {
+		    bottom: 4px;
+		    left: 4px;
+		}
 	}
 	&__playVideo{
 		position: absolute;
@@ -126,6 +322,42 @@
 		padding: 10px;
 		svg{
 			transform: translate(1px, 1px);
+		}
+	}
+}
+
+.pagination-sv {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 16px;
+	&__list {
+		li{
+			border: 2px solid $divider;
+			border-radius: 8px;
+			list-style: none;
+			margin: 0 8px;
+			a{
+				display: inline-block;
+				padding: 2px 10px;
+				text-decoration: none;
+				color: $darkGray;
+				@extend .text-extra-small;
+			}
+			&.active{
+				background-color: $red;
+				a{
+					color: $white;
+				}
+			}
+			&:hover:not(.active){
+				background-color: $divider;
+			}
+			&.mob-hide{
+				@media (max-width:$md3+px) {
+				    display: none;
+				}
+			}
 		}
 	}
 }
@@ -146,7 +378,7 @@
 }
 
 .cardTerms{
-	background-color: #FFE6F1;
+	background-color: $lightRed;
 	border-radius: 24px;
 	display: flex;
 	flex-direction: column;
@@ -162,18 +394,18 @@
 	}
 	p{
 		@extend .text-medium;
-		color: var(--color-link);
+		color: $red;
 	}
 	&.v2{
-		background-color: #FFF4C7;
+		background-color: $lightYellow;
 		p{
-			color: #FCC201;
+			color: $yellow;
 		}
 	}
 	&.v3{
-		background-color: #FFF1E4;
+		background-color: $lightOrange;
 		p{
-			color: #FF8000;
+			color: $orange;
 		}
 	}
 }
@@ -196,7 +428,7 @@
 		}
 	}
 	&__card{
-		box-shadow: 0px 0px 40px rgba(69, 76, 84, 0.08);
+		box-shadow: $boxShadow;
 		border-radius: 16px;
 		height: 100%;
 		position: relative;
@@ -211,30 +443,17 @@
 	&__body{
 		position: relative;
 	}
-	&__btn{
-		z-index: 20;
-		position: absolute;
-		top: calc(50% - 20px);
-		left: 24px;
-		&.btn-next{
-			left: auto;
-			right: 24px;
-		}
-		@media (min-width:$md2+px) {
-		    display: none;
-		}
-	}
 	&__label{
 		position: absolute;
 		top: 16px;
 		left: 16px;
 		padding: 4px 16px;
 		border-radius: 8px;
-		background-color: var(--color-btn-accent);
-		color: var(--color-icon-light);
+		background-color: $red;
+		color: $white;
 		@extend .text-extra-small;
 		&.v2{
-			background-color: var(--color-icon);
+			background-color: $black;
 		}
 	}
 	&__image{
@@ -258,7 +477,7 @@
 ///////////////////////// footer //////////////////////////
 
 .footer{
-	background-color: var(--color-bg-secondary);
+	background-color: $lightGray;
 	&__row{
 		display: flex;
 		flex-wrap: wrap;
@@ -272,7 +491,7 @@
 		}
 		@media (max-width:$md4+px) {
 		    flex: 0 0 100%;
-		    border-bottom: 2px solid var(--color-divider);
+		    border-bottom: 2px solid $divider;
 		}
 	}
 	&__row2{
@@ -325,18 +544,18 @@
 			padding: 4px;
 			&:hover{
 				use{
-					fill: var( --color-icon);
+					fill: $black;
 				}
 			}
 		}
 		use{
-			fill: var(--color-icon-secondary);
+			fill: $darkGray;
 		}
 		margin-right: 16px;
 	}
 	&__links{
 		> *{
-			color: var(--color-text-secondary);
+			color: $darkGray;
 		}
 	}
 }

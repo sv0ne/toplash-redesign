@@ -4,7 +4,7 @@ body{
 	font-family: "FuturaPT-Book";
 	font-size: 19px;
 	line-height: 24px;
-	color: var(--color-text);
+	color: $black;
 	a{
 		color: inherit;
 		&:hover{
@@ -34,7 +34,7 @@ img, video{
 
 hr{
 	height: 1px;
-	background-color: var(--color-divider);
+	background-color: $divider;
 }
 
 ///////////////////// MARGIN-PADDING //////////////////////
@@ -122,7 +122,7 @@ hr{
 
 /////////////////////// COLORS ////////////////////////////
 
-.color-cts{color: var(--color-text-secondary);}
+.darkGray{color: $darkGray;}
 
 ///////////////////////// FLEX ////////////////////////////
 
@@ -177,29 +177,91 @@ hr{
 
 .btn{
 	padding: 10px 62px;
-	border: 2px solid var(--color-btn-accent);
-	background-color: var(--color-btn-accent);
-	color: var(--color-text-contrast);
+	border: 2px solid $red;
+	background-color: $red;
+	color: $white;
 	border-radius: 99px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	@extend .text-control;
 	svg use{
-		fill: var( --color-text-contrast);
+		fill: $white;
 	}
 	&:hover{
 		opacity: 0.8;
 	}
 	&.btn-inv{
-		background-color: var(--color-bg);
-		color: var(--color-text-btn-accent);
+		background-color: $white;
+		color: $red;
 		&:hover{
 			opacity: 1;
-			background-color: var(--color-btn-accent);
-			color: var(--color-text-contrast);
+			background-color: $red;
+			color: $white;
 		}
 	}
+}
+
+.burger{
+	background-color: transparent;
+	cursor: pointer;
+	.st-active{
+		display: none;
+	}
+	&.active{
+		.st-not-active{display: none;}
+		.st-active{
+			fill: $red;
+			display: block;
+		}
+	}
+}
+
+.btnSec{
+	padding: 8px 24px;
+	border-radius: 99px;
+	background-color: $lightGray;
+	color: $black;
+	svg{
+		fill: $black;
+	}
+	display: flex;
+	justify-content: center;
+	@extend .text-default;
+	&:hover{
+		background-color: $lightGrayHover;
+		text-decoration: none;
+	}
+	&.btnCart{
+		color: $darkGray;
+		svg{fill: $darkGray;}
+		.varticalDevider{
+			margin: 0 12px;
+		}
+		&.active{
+			background-color: $red;
+			color: $white;
+			svg{fill: $white;}
+			.varticalDevider{
+				background-color: $white;
+			}
+			&:hover{
+				opacity: 0.8;
+			}
+		}
+		@media (max-width:$md3+px) {
+		    .btnCartText{display: none;}
+		}
+	}
+}
+
+.varticalDevider{
+	position: relative;
+	height: 24px;
+	width: 2px;
+	background-color: $darkGray;
+	opacity: 0.5;
+	border-radius: 99px;
 }
 
 .btnRound{
@@ -207,14 +269,14 @@ hr{
 	justify-content: center;
 	align-items: center;
 	padding: 6px;
-	background-color: var(--color-icon-light);
-	border: 2px solid var(--color-divider);
-	box-shadow: 0px 0px 40px var(--shadow);
+	background-color: $white;
+	border: 2px solid $divider;
+	box-shadow: $boxShadow;
 	border-radius: 99px;
 	transform: scale(1);
 	transition: scale 0.2s ease 0s;
 	svg{
-		fill: var(--color-icon);
+		fill: $black;
 	}
 	&.btn-prev{
 		transform: rotate(180deg);
@@ -224,6 +286,19 @@ hr{
 		transform: scale(1.2);
 		&.btn-prev{
 			transform: rotate(180deg) scale(1.2);
+		}
+	}
+	&.sliderBtn{
+		z-index: 20;
+		position: absolute;
+		top: calc(50% - 20px);
+		left: 24px;
+		&.btn-next{
+			left: auto;
+			right: 24px;
+		}
+		@media (min-width:$md2+px) {
+		    display: none;
 		}
 	}
 }
@@ -240,7 +315,7 @@ hr{
 	position: relative;
 	span{
 		@extend .text-extra-small;
-		color: var(--color-text-secondary);
+		color: $darkGray;
 	}
 	svg{
 		position: absolute;
@@ -248,7 +323,7 @@ hr{
 		height: 10.93px;
 		left: calc(50% - 54px/2 - 7.69px);
 		top: calc(50% - 10.93px/2 + 2.6px);
-		fill: #E81F76;
+		fill: $red;
 		transform: rotate(-6.24deg);
 	}
 }
@@ -262,7 +337,34 @@ hr{
 	svg{
 		width: 12px;
 		height: 12px;
-		fill: var(--color-error);
+		fill: $red;
+	}
+}
+
+.switch {
+	display: flex;
+	margin: 0 -8px;
+	&__item {
+		padding: 0 8px;
+	}
+	input{
+		display: none;
+	}
+	label{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 6px;
+		border: 2px solid $divider;
+		cursor: pointer;
+		height: 100%;
+		border-radius: 12px;
+		> *:not(:last-child){
+			margin-bottom: 10px;
+		}
+	}
+	input[type="radio"]:checked + label{
+		border-color: $red;
 	}
 }
 
@@ -288,19 +390,19 @@ hr{
 }
 
 //---------------------- slick ------------------------//
+.slider{
+	.slick-track{
+		display: flex;
+	}
 
-.slick-track{
-	display: flex;
-}
+	.slick-list {
+		overflow: hidden;
+		padding: 16px 8px;
+	}
 
-.slick-list {
-	overflow: hidden;
-	padding: 16px 8px;
-}
-
-.slick-slide{
-	//margin-right: 16px;
-	@media (max-width:$md3+px) {
-	    margin-right: 0;
+	.slick-slide{
+		@media (max-width:$md3+px) {
+		    margin-right: 0;
+		}
 	}
 }
