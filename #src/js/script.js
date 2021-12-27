@@ -61,21 +61,29 @@ $(document).ready(function () {
  	});
 
 
+ 	let iterationsDetectVideoDuration = {count: 0, max: 25};
 	// Узнать есть ли видосики в блоке с отзывами
-	setTimeout(function() {
+	function detectDurationVideo() {
+		if(iterationsDetectVideoDuration.count > iterationsDetectVideoDuration.max){return false;}
+		iterationsDetectVideoDuration.count++;
 		$(".js-detect-grid .imageFeedback__item video").each(function(){
 			let duration = $(this)[0].duration.toFixed(0);
+			if(duration === "NaN"){
+				setTimeout(function() {detectDurationVideo();}, 1000);
+				return false;
+			}
 			let m = duration % 60;
 			let min = Math.floor(duration / 60);
 			let result = (min < 10 ? '0' : '') + min + ':' + (m < 10 ? '0' : '') + m;
-	 		
 	 		let html = '<span class="imageFeedback__duration">'+result+'</span>';
 	 		html += '<span class="btnRound imageFeedback__playVideo">';
 			html += '<svg class="w16"><use xlink:href="img/sprite/icons-sprite.svg#play"/></svg>';
 			html += '</span>';
 	 		$(this).closest('button').append(html);
 	 	});
-	}, 2000);
+	}
+	setTimeout(function() {detectDurationVideo();}, 10);
+
 
 /////////////////////////////// Слайдеры //////////////////////////////////////
 
@@ -108,15 +116,40 @@ $(document).ready(function () {
 	}
 	initSlider();
 
+	// Слайдер в начале страницы
 	$('.sliderBig').slick({
 		prevArrow: $('.product .sliderBtn.btn-prev'),
 		nextArrow: $('.product .sliderBtn.btn-next'),
 		dots: true
 	});
 
-	$('.sliderPreview').slick({
-		arrows: false,
-		slidesToShow: 5,
+	// Отслеживаем действие -> перелистывание слайда
+	$('.sliderBig').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+	  $('.scrollPreview .scrollPreview__item').removeClass('active');
+	  $('.scrollPreview .scrollPreview__item:eq('+nextSlide+')').addClass('active');
+	  let scrollLeft = $('.slideWhell__scrollPreview').scrollLeft();
+	  let widthScroll = parseInt($('.slideWhell__scrollPreview').width());
+	  nextSlide = parseFloat(nextSlide);
+
+	  let startVisibility = scrollLeft;
+	  let endVisibility = scrollLeft + widthScroll;
+
+	  let leftItem = nextSlide * 96;
+	  let rightItem = (nextSlide * 96) + 80;
+
+	  let setScroll = false;
+	  if(rightItem > endVisibility){setScroll = rightItem - endVisibility + scrollLeft;}
+	  if(leftItem < startVisibility){setScroll = leftItem;}
+
+	  if(setScroll !== false){
+	  	$('.slideWhell__scrollPreview').animate({scrollLeft: setScroll}, 300);
+	  }
+	});
+
+	// Клик по слайду в превью блоке
+	$(".scrollPreview .scrollPreview__item").click(function(){
+		var index = $(this).index();
+		$('.sliderBig').slick('goTo', index);
 	});
 
 

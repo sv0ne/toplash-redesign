@@ -15,6 +15,9 @@
 		> *:not(:last-child){
 			margin-right: 16px;
 		}
+		@media (max-width:$md2+px) {
+		    display: none;
+		}
 	}
 	&__logo{
 		.burger{display: none;}
@@ -42,11 +45,17 @@
 	&__row {
 		display: flex;
 		padding-bottom: 16px;
+		@media (max-width:$md3+px) {
+		    flex-wrap: wrap;
+		}
 	}
 	&__col {
 		flex: 0 0 50%;
 		padding: 16px;
 		min-width: 0;
+		@media (max-width:$md3+px) {
+		    flex: 0 0 100%;
+		}
 	}
 	&__holder {
 		height: 100%;
@@ -54,7 +63,13 @@
 		flex-direction: column;
 		justify-content: space-between;
 	}
-	&__content {}
+	&__content {
+		.f-jcsb-aic{
+			@media (max-width:$md2+px) {
+			    flex-wrap: wrap;
+			}
+		}
+	}
 }
 
 .warranty {
@@ -93,14 +108,15 @@
 	::-webkit-scrollbar {
     	width: 12px;
     	height: 12px;
-   		background-color: $white;
+   		background-color: $lightGray;
+   		border-radius: 8px;
    		@media (max-width:$md3+px) {
    		    display: none;
    		}
 	}
 
 	::-webkit-scrollbar-thumb {
-	    background-color: rgba(136,136,158, 0.4);
+	    background-color: rgba(171, 178, 186, 0.5);
 	    border-radius: 8px;
 	    @media (max-width:$md3+px) {
    		    display: none;
@@ -108,10 +124,10 @@
 	}
 
 	::-webkit-scrollbar-thumb:hover {
-	    background-color: rgba(136,136,158, 0.5);
+	    background-color: $darkGray;
 	}
 
-	scrollbar-color: $darkGray #333;
+	scrollbar-color: #999#333;
     scrollbar-width: thin;
 }
 
@@ -168,7 +184,7 @@
 }
 
 .scrollPreview {
-	display: flex;
+	display: inline-flex;
 	margin: 0 -8px;
 	&__item {
 		flex: 0 0 80px;
@@ -189,6 +205,267 @@
 	}
 }
 
+
+///////////////////////// result21 //////////////////////////
+
+.result21 {
+	background-color: $lightGray;
+	&__row {
+		padding: 16px 8px;
+		display: flex;
+		align-items: center;
+		@media (max-width:$md3+px) {
+		    flex-wrap: wrap;
+		}
+	}
+	&__col {
+		padding: 8px;
+		flex: 0 0 50%;
+		@media (max-width:$md3+px) {
+		    flex: 0 0 100%;
+		}
+	}
+	&__image {
+		border-radius: 24px;
+		overflow: hidden;
+		img{
+			width: 100%;
+		}
+	}
+	&__content {}
+}
+
+.topLil{
+	margin-bottom: 16px;
+	> svg{
+		display: block;
+		fill: $red;
+	}
+	&__1{
+		margin: 0 0 9px 25px;
+		width: 33.15px;
+		height: 32.73px;
+	}
+	&__2{
+		width: 23.12px;
+		height: 22.7px;
+		opacity: 0.5;
+		transform: rotate(38deg);
+	}
+}
+
+.bottomLil{
+	margin-top: 16px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	> svg{
+		display: block;
+		fill: $red;
+		opacity: 0.5;
+	}
+	&__1{
+		width: 18px;
+		height: 18px;
+		margin-bottom: 37px;
+	}
+	&__2{
+		width: 11px;
+		height: 11px;
+		margin-right: 51px;
+	}
+}
+
+//////////////////////// effectSerum /////////////////////////
+
+.effectSerum {
+	&__row {
+		padding: 0 16px 16px 16px;
+		display: flex;
+		@media (max-width:$md3+px) {
+		    flex-wrap: wrap;
+		}
+	}
+	&__col {
+		flex: 0 0 33.333%;
+		@media (max-width:$md3+px) {
+		    flex: 0 0 100%;
+		}
+		display: flex;
+		flex-direction: column;
+	}
+	&__label {
+		display: flex;
+		align-items: center;
+		.line{
+			flex: 1 1 auto;
+			height: 4px;
+		}
+		&.v1{
+			.line-1{background-color: $whiteBlue;}
+			.text-huge{color: $whiteBlue;}
+			.line-2{background: $lg1;}
+		}
+		&.v2{
+			.line-1{background-color: $violet2;}
+			.text-huge{color: $violet2;}
+			.line-2{background: $lg2;}
+		}
+		&.v3{
+			.line-1{background-color: $red;}
+			.text-huge{color: $red;}
+			.line-2{background: $red;}
+		}
+	}
+	&__content {
+		flex: 1;
+		padding: 10px 10px 0 10px;
+
+	}
+	&__text{
+		height: 100%;
+		padding: 16px;
+		box-shadow: $boxShadow;
+		border-radius: 24px;
+		display: flex;
+		align-items: center;
+		@media (min-width:$md3+px) and (max-width:$md2+px) {
+		    flex-direction: column;
+		}
+		@media (max-width:$md4+px) {
+		    flex-direction: column;
+		}
+		svg{
+			width: 112px;
+			flex: 0 0 112px;
+			height: 112px;
+			margin-right: 16px;
+			@media (min-width:$md3+px) and (max-width:$md2+px) {
+			    margin: 0 0 16px 0;
+			}
+			@media (max-width:$md4+px) {
+			    margin: 0 0 16px 0;
+			}
+		}
+	}
+}
+
+
+//////////////////////// warrantyWork /////////////////////////
+
+.warrantyWork {
+	&__body {
+		padding: 0 16px 32px 16px;
+	}
+	&__row{
+		background-color: $lightOrange;
+		border-radius: 24px;
+		overflow: hidden;
+		display: flex;
+		align-items: flex-end;
+		@media (max-width:$md3+px) {
+		    flex-wrap: wrap;
+		}
+	}
+	&__text{
+		flex: 0 0 53.7%;
+		padding: 32px;
+		img{
+			width: 72px;
+			height: 72px;
+		}
+		.text-huge{color: $orange;}
+		@media (max-width:$md3+px) {
+		    flex: 0 0 100%;
+		}
+	}
+	&__image{
+		flex: 1;
+		img{
+			width: 100%;
+		}
+		@media (max-width:$md3+px) {
+		    flex: 0 0 100%;
+		}
+	}
+}
+
+//////////////////////////// faq /////////////////////////////
+
+.dropdown{
+	padding: 0 16px;
+	&__head{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 32px 0px;
+		border-bottom: 2px solid $divider;
+		p{margin-right: 8px;}
+	}
+	&__body{
+		padding: 16px 0;
+	}
+}
+
+.js-dropdown-item .btnRound{
+		transition: all 0.3s ease 0s;
+	}
+.js-dropdown-item.active {
+	.dropdown__head{
+		color: $red;
+	}
+	.btnRound{
+		transform: rotate(45deg);
+		transition: all 0.3s ease 0s;
+	}
+}
+
+/////////////////////////// cost ////////////////////////////
+
+.cost {
+	background-color: $lightGray;
+	&__row {
+		padding: 8px;
+		display: flex;
+		@media (max-width:$md3+px) {
+		    flex-wrap: wrap;
+		}
+	}
+	&__col {
+		padding: 8px;
+		flex: 0 0 50%;
+		@media (max-width:$md3+px) {
+		    flex: 0 0 100%;
+		}
+	}
+	&__smart{
+		position: relative;
+		display: flex;
+		align-items: flex-end;
+		padding: 16.5px 8px 8px 8px;
+	}
+	&__col2{
+		padding: 8px;
+		flex: 0 0 50%;
+	}
+	&__stat1{
+		background-color: $white;
+		border-radius: 12px;
+		height: 406px;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		svg{
+			fill: $white;
+			margin: 0 auto;
+		}
+	}
+	&__stat2{
+		background-color: $red;
+		border-radius: 12px;
+		color: $white;
+	}
+}
 
 ///////////////////////// feedback //////////////////////////
 
@@ -222,6 +499,7 @@
 		background-color: $red;
 		border-radius: 99px;
 		margin-right: 16px;
+		flex: 0 0 40px;
 		width: 40px;
 		height: 40px;
 		color: $white;
@@ -371,6 +649,7 @@
 	}
 	&__col{
 		flex: 0 0 33.333%;
+		padding: 16px;
 		@media (max-width:$md3+px) {
 		    flex: 0 0 100%;
 		}
@@ -378,7 +657,6 @@
 }
 
 .cardTerms{
-	background-color: $lightRed;
 	border-radius: 24px;
 	display: flex;
 	flex-direction: column;
@@ -392,21 +670,39 @@
 		display: inline-block;
 		margin-bottom: 16px;
 	}
-	p{
-		@extend .text-medium;
-		color: $red;
+	&.v1{
+		background-color: $lightRed;
+		.text-medium{color: $red;}
 	}
 	&.v2{
 		background-color: $lightYellow;
-		p{
-			color: $yellow;
-		}
+		.text-medium{color: $yellow;}
 	}
 	&.v3{
 		background-color: $lightOrange;
-		p{
-			color: $orange;
-		}
+		.text-medium{color: $orange;}
+	}
+	&.v4{
+		background-color: $lightGreen;
+		.text-medium{color: $green;}
+	}
+	&.v5{
+		background-color: $lightBlue;
+		.text-medium{color: $blue;}
+	}
+	&.v6{
+		background-color: $lightViolet;
+		.text-medium{color: $violet;}
+	}
+}
+
+.terms.isClone{
+	.cardTerms{
+		align-items: flex-start;
+		justify-content: start;
+		padding: 16px;
+		img{margin-bottom: 8px;}
+		.text-medium{margin-bottom: 8px;}
 	}
 }
 
@@ -442,6 +738,11 @@
 	}
 	&__body{
 		position: relative;
+		.sliderBtn{
+			@media (min-width:$md2+px) {
+			    display: none;
+			}
+		}
 	}
 	&__label{
 		position: absolute;
@@ -525,13 +826,6 @@
 		    	display: inline-block;
 		    }
 		}
-	}
-	.js-dropdown-item .btnRound{
-		transition: all 0.3s ease 0s;
-	}
-	.js-dropdown-item.active .btnRound{
-		transform: rotate(45deg);
-		transition: all 0.3s ease 0s;
 	}
 }
 

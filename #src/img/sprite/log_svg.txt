@@ -1,3 +1,14 @@
+img/sprite/fill-sprite.svg#brow
+img/sprite/fill-sprite.svg#cost_no
+img/sprite/fill-sprite.svg#cost_ok
+img/sprite/fill-sprite.svg#delivery
+img/sprite/fill-sprite.svg#euro
+img/sprite/fill-sprite.svg#green-fire
+img/sprite/fill-sprite.svg#revers
+img/sprite/fill-sprite.svg#security
+img/sprite/fill-sprite.svg#serum10
+img/sprite/fill-sprite.svg#serum25
+img/sprite/fill-sprite.svg#serum60
 img/sprite/icons-sprite.svg#arrow
 img/sprite/icons-sprite.svg#bag
 img/sprite/icons-sprite.svg#burger-show
@@ -5,6 +16,9 @@ img/sprite/icons-sprite.svg#chevrone
 img/sprite/icons-sprite.svg#close
 img/sprite/icons-sprite.svg#facebook
 img/sprite/icons-sprite.svg#instagram
+img/sprite/icons-sprite.svg#lil-1
+img/sprite/icons-sprite.svg#lil-2
+img/sprite/icons-sprite.svg#lil-3
 img/sprite/icons-sprite.svg#pause
 img/sprite/icons-sprite.svg#play
 img/sprite/icons-sprite.svg#plus
@@ -12,6 +26,3 @@ img/sprite/icons-sprite.svg#star-fill
 img/sprite/icons-sprite.svg#star
 img/sprite/icons-sprite.svg#vector
 img/sprite/icons-sprite.svg#VK
-img/sprite/terms-sprite.svg#delivery
-img/sprite/terms-sprite.svg#revers
-img/sprite/terms-sprite.svg#security

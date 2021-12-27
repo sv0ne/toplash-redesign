@@ -9,6 +9,7 @@
 $minwidth: 320px;
 $mw: 1343;
 $md1: $mw;
+$md_1150: 1149.98;
 $md2: 992.98;
 $md3: 767.98;
 $md_552: 551.98;
@@ -17,6 +18,15 @@ $fontfamily: -apple-system, BlinkMacSystemFont, Roboto, 'Segoe UI', 'Segoe WP', 
 
 $black: #303438;
 $white: #FFFFFF;
+$darkGray: #ABB2BA;
+$lightGray: #F1F5F9;
+$lightGrayHover: #E3E8ED;
+$whiteBlue: #00D1FF;
+$violet2: #9029F8;
+
+$lg1: linear-gradient(90deg, #00D1FF -0.36%, #9029F8 100.12%);
+$lg2: linear-gradient(89.98deg, #9029F8 -0.11%, #E81F76 99.63%);
+
 $red: #E81F76;
 $lightRed: #FFE6F1;
 $orange: #FFA000;
@@ -24,9 +34,11 @@ $lightOrange: #FFF1E4;
 $yellow: #FCC201;
 $lightYellow: #FFF4C7;
 $green: #17CF7B;
-$darkGray: #ABB2BA;
-$lightGray: #F1F5F9;
-$lightGrayHover: #E3E8ED;
+$lightGreen: #DEFBEE;
+$blue: #3372FF;
+$lightBlue: #E4ECFF;
+$violet: #735CE6;
+$lightViolet: #EFECFF;
 
 $divider: #EAF0F6;
 $boxShadow: 0px 0px 40px rgba(69, 76, 84, 0.08);
