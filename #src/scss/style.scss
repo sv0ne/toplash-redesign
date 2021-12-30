@@ -10,6 +10,7 @@ $minwidth: 320px;
 $mw: 1343;
 $md1: $mw;
 $md_1150: 1149.98;
+$md_1045: 1044.98;
 $md2: 992.98;
 $md3: 767.98;
 $md_552: 551.98;
@@ -25,7 +26,9 @@ $whiteBlue: #00D1FF;
 $violet2: #9029F8;
 
 $lg1: linear-gradient(90deg, #00D1FF -0.36%, #9029F8 100.12%);
+$lg1_mob: linear-gradient(180deg, #00D1FF -0.36%, #9029F8 100.12%);
 $lg2: linear-gradient(89.98deg, #9029F8 -0.11%, #E81F76 99.63%);
+$lg2_mob: linear-gradient(180deg, #9029F8 -0.11%, #E81F76 99.63%);
 
 $red: #E81F76;
 $lightRed: #FFE6F1;
@@ -71,6 +74,8 @@ $boxShadow: 0px 0px 40px rgba(69, 76, 84, 0.08);
 @import "import/base"; // Вертска переиспользуемых блоков
 @import "import/site"; // Последовательная верстка всего сайта
 @import "import/text"; // Для теста
+@import "import/_select2-user"; // Изменения в стилях select2
+@import "import/_scroll"; // Изменения в стилях select2
 @import "import/test"; // Для теста
 
 // --------------------------------------------------------

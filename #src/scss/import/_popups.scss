@@ -1,0 +1,310 @@
+.popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	visibility: hidden;
+	background-color: rgba(0, 0, 0, 0.3);
+	z-index:0;
+	padding: 0 32px;
+	@media (max-width:$md3+px) {
+	    align-items: flex-end;
+	    padding: 0 16px;
+	}
+	@media (max-width:$md4+px) {
+	    padding: 0 8px;
+	}
+	&__wrap{
+		padding: 4px 4px 4px 0px;
+   		border-radius: 32px;
+   		overflow: hidden;
+   		box-shadow: 0px 0px 16px rgba(34, 35, 51, 0.1);
+   		position: relative;
+   		max-width: 640px;
+   		@media (max-width:$md3+px) {
+   		    border-radius: 32px 32px 0px 0px;
+   		}
+	}
+	&__body {
+		max-height: calc(100vh - 92px);
+		overflow-y: auto;
+		height: auto;
+		background-color: $white;
+		padding: 8px 0px 4px 8px;
+		position: relative;
+		z-index: 3;
+		@media (max-width:$md3+px) {
+		    padding: 8px 4px 4px 8px;
+		}
+		&.body-center{
+			width: 540px;
+			box-shadow: 0px 4px 16px rgba(34, 35, 51, 0.2);
+			border-radius: 32px;
+			padding: 32px;
+			@media (max-width:$md3+px) {
+			    border-radius: 32px 32px 0px 0px;
+			    padding: 32px;
+			}
+		}
+	}
+	&__closer{
+		position: absolute;
+		right: 16px;
+		top: 16px;
+		z-index: 20;
+		border: 2px solid $lightGrey;
+		&:hover{
+			opacity: 0.8;
+		}
+	}
+	&.p-ib{ 
+		@media (min-width:$md3+px) {
+			position: absolute;
+		    display: inline-block;
+			width: auto;
+			height: auto;
+			top: 24px;
+			left: 50px;
+			background-color: transparent;
+			padding: 0px;
+			.popup__body{
+				padding: 16px;
+				position: relative;
+				width: 100%;
+				transition: all 0s ease 0.1s;
+				box-shadow: 0px 0px 16px rgba(34, 35, 51, 0.1);
+			}
+			&.fixed{
+				position: fixed;
+			}
+		}
+	}
+	&.open{
+		opacity: 1;
+		visibility: visible;
+		z-index: 100;
+		@media (max-width:$md3+px) {
+			&.withWrap{
+				.popup__wrap{
+			    	animation: openerS 0.3s forwards 0s ease;
+			    }
+			}
+			&:not(.withWrap){
+				.popup__body{
+		    		animation: openerS 0.3s forwards 0s ease;
+		    	}
+			}
+		    
+		}
+	}
+
+	@keyframes openerS {
+		0% {transform: translateY(100%);}
+		100% {transform: translateY(0px);}
+	}
+
+	@extend .superScroller;
+}
+
+#top-tens-game{
+	.popup__wrap:after{
+		content: "";
+		position: absolute;
+		top: 228px;
+		left: 0;
+		width: 100%;
+		height: calc(100% - 228px);
+		background-color: $white;
+	}
+	&.scrolled{
+		.topTensGame__header{
+			transition: all 0.2s ease 0s;
+			height: 74px;
+			img{
+				transform: translateY(-100px);
+			}
+			p{
+				transform: translateY(-6.5px);
+			}
+		}
+		.topTensGame{
+			transition: all 0.2s ease 0s;
+			margin-top: 170px;
+		}
+		.popup__wrap:after{
+			top: 74px;
+			height: calc(100% - 74px);
+		}
+	}
+}
+
+.topTensGame{
+	transition: all 0.2s ease 0s;
+	margin-top: 228px;
+	&__header{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 10;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		transition: all 0.2s ease 0s;
+		height: 232px;
+		img{
+			width: 200px;
+			height: 200px;
+			display: inline-block;
+			margin: 16px auto -43px auto;
+		}
+		p{
+			position: sticky;
+			top: 0;
+			z-index: 1;
+		}
+	}
+	&__item{}
+}
+
+.topTensGame__item, .supercell__item{
+	.card-v9{
+		padding: 0px;
+		min-width: auto;
+		&__body{
+			border: none;
+			padding: 8px;
+			@media (min-width:$md3+px) {
+			    display: flex;
+			    flex-wrap: wrap;
+			}
+		}
+		&__description{
+			@media (min-width:$md3+px) {
+			    flex: 1;
+			    .mt-8{
+			    	margin-top: 0;
+			    }
+			}
+		}
+		&__image{
+			@media (min-width:$md3+px) {
+			    flex: 0 0 100px;
+			    height: 100px;
+			    margin-right: 16px;
+			}
+		}
+		&:hover{
+			background-color: $lightGrey;
+			.list-tag .list-tag-toggle button{
+				border: 2px solid #EAEAF3;
+			}
+			.list-tag li a{
+				border: 2px solid #EAEAF3;
+				background-color: #EAEAF3;
+			}
+		}
+	}
+	.list-tag{
+		margin-top: 12px !important;
+		@media (min-width:$md3+px) {
+		    flex: 0 0 100%;
+		    li{
+				&:nth-child(3){display: block;}
+				&:nth-child(4){display: block;}
+				&:nth-child(5){display: block;}
+			}
+		}
+	}
+}
+
+#preview{
+	.popup__body{
+		padding: 0;
+		border-radius: 32px;
+		@media (max-width:$md3+px) {
+		    border-radius: 32px 32px 0px 0px;
+		}
+	}
+	.card-v2{
+		border: 0;
+		width: 328px;
+		@media (max-width:$md3+px) {
+		    width: auto;
+		}
+	}
+	&.open{
+		@media (min-width:$md3+px) {
+		    transform: scale(0.8) translateY(-100px);
+			opacity: 0;
+			animation: preview 0.3s forwards 0s ease;
+		}
+		
+	}
+}
+
+@keyframes preview {
+	0{ transform: scale(0.8) translateY(-100px); opacity: 0;}
+	100%{transform: scale(1) translateY(0px); opacity: 1;}
+}
+
+#more{
+	width: 304px;
+	.popup__body{
+		box-shadow: 0px 4px 16px rgba(34, 35, 51, 0.2);
+		border-radius: 24px;
+		padding: 8px;
+		.menu__list a, .menu__list button{
+			padding: 18px 0px 18px 8px;
+		}
+	}
+	@media (max-width:$md3+px) {
+	    top: 0 !important;
+	    left: 0 !important;
+	    width: 100%;
+	    .popup__body{
+	    	width: 100%;
+	    	border-radius: 24px 24px 0px 0px;
+	    }
+	}
+}
+
+.instruction{
+	&__header{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-bottom: 8px;
+	}
+}
+
+.likeGame {
+	&__controls {
+		display: flex;
+		margin: 0 -8px;
+	}
+	&__btn {
+		flex: 1;
+		background-color: $white;
+		border: 2px solid rgba(139, 142, 193, 0.1);
+		border-radius: 32px;
+		padding: 16px;
+		margin: 0 8px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		img{
+			width: 64px;
+			height: 64px;
+			margin-bottom: 8px;
+		}
+		&:hover{
+			background-color: $lightGrey;
+		}
+	}
+}

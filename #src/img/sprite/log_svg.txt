@@ -4,6 +4,7 @@ img/sprite/fill-sprite.svg#cost_ok
 img/sprite/fill-sprite.svg#delivery
 img/sprite/fill-sprite.svg#euro
 img/sprite/fill-sprite.svg#green-fire
+img/sprite/fill-sprite.svg#left-triangle
 img/sprite/fill-sprite.svg#revers
 img/sprite/fill-sprite.svg#security
 img/sprite/fill-sprite.svg#serum10
@@ -19,6 +20,8 @@ img/sprite/icons-sprite.svg#instagram
 img/sprite/icons-sprite.svg#lil-1
 img/sprite/icons-sprite.svg#lil-2
 img/sprite/icons-sprite.svg#lil-3
+img/sprite/icons-sprite.svg#no
+img/sprite/icons-sprite.svg#ok
 img/sprite/icons-sprite.svg#pause
 img/sprite/icons-sprite.svg#play
 img/sprite/icons-sprite.svg#plus
