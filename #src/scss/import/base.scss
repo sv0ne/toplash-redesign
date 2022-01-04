@@ -365,6 +365,11 @@ a.btn{
 		    display: none !important;
 		}
 	}
+	&.btn-close{
+		top: 16px;
+		left: auto;
+		right: 16px;
+	}
 	&.btn-prev, &.btn-next{
 		overflow: 0;
 		visibility: hidden;

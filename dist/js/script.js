@@ -365,18 +365,49 @@ $(".scroll").each(function(){
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
+	let isInitStoriesSlider = false;
+	// Открыть истории
 	$('.js-stories').click(function(e){
-		var isItem = $(e.target).parent('.about__item').length;
-
+		let isItem = $(e.target).parent('.about__item').length;
+		console.log(isItem);
 		if(isItem === 1){ // Показать сторис
+			let id = $(e.target).parent('.about__item').data('id');
+			let idCount = $('.stories__item[data-id="'+id+'"]').not('.slick-cloned').length;
+			console.log("id: ", id, " idCount: ", idCount);
+
+
 			$('.js-stories').addClass('active');
 			$body.addClass('lock');
-			$('.js-sliderStories').slick({
-				arrows: false
-			});
+
+			if(isInitStoriesSlider === false){
+				$('.js-sliderStories').slick({
+					prevArrow: $('.stories__body .sliderBtn.btn-prev'),
+					nextArrow: $('.stories__body .sliderBtn.btn-next'),
+				});
+				$('.js-sliderStories').append(addTimescale(idCount));
+			}
+			isInitStoriesSlider = true;
 		}else{
 			//$('.js-stories').removeClass('active');
 			//$body.removeClass('lock');
 		}
+	});
+
+	function addTimescale(count) {
+		let oneLine = '<div class="timescale__item"><div class="timescale__left"></div></div>';
+
+		let html = '<div class="timescale">';
+		html += '<div class="timescale__lines">';
+		for (var i = 0; i < count; i++){html = html + oneLine;}
+		html += '</div>';
+		html += '<svg class="timescale__control w24 js-stories-pause"><use xlink:href="img/sprite/icons-sprite.svg#pause"/></svg>';
+		html += '<svg class="timescale__control volumn w24 js-stories-volumn"><use xlink:href="img/sprite/icons-sprite.svg#volumn"/></svg>';
+		html += '</div>';
+		return html;
+	}
+
+	// Закрыть истории
+	$(".js-close-stories").click(function(){
+		$('.js-stories').removeClass('active');
 	});
 });

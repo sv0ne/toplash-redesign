@@ -29,3 +29,4 @@ img/sprite/icons-sprite.svg#star-fill
 img/sprite/icons-sprite.svg#star
 img/sprite/icons-sprite.svg#vector
 img/sprite/icons-sprite.svg#VK
+img/sprite/icons-sprite.svg#volumn
