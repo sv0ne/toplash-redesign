@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
 @font-face {
-  font-family: "FuturaPT-Demi";
+  font-family: "FuturaPT-Book";
   font-display: swap;
-  src: url("../fonts/FuturaPT-Demi.woff") format("woff"), url("../fonts/FuturaPT-Demi.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Book.woff") format("woff"), url("../fonts/FuturaPT-Book.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -17,9 +17,9 @@
 }
 
 @font-face {
-  font-family: "FuturaPT-Book";
+  font-family: "FuturaPT-Demi";
   font-display: swap;
-  src: url("../fonts/FuturaPT-Book.woff") format("woff"), url("../fonts/FuturaPT-Book.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Demi.woff") format("woff"), url("../fonts/FuturaPT-Demi.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -33,9 +33,9 @@
 }
 
 @font-face {
-  font-family: "FuturaPT-Medium";
+  font-family: "FuturaPT-Bold";
   font-display: swap;
-  src: url("../fonts/FuturaPT-Medium.woff") format("woff"), url("../fonts/FuturaPT-Medium.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Bold.woff") format("woff"), url("../fonts/FuturaPT-Bold.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -49,9 +49,9 @@
 }
 
 @font-face {
-  font-family: "FuturaPT-Bold";
+  font-family: "FuturaPT-Medium";
   font-display: swap;
-  src: url("../fonts/FuturaPT-Bold.woff") format("woff"), url("../fonts/FuturaPT-Bold.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Medium.woff") format("woff"), url("../fonts/FuturaPT-Medium.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -530,7 +530,8 @@ hr {
 .cost__background,
 .about__text,
 .stories__body,
-.imageFeedback__item button,
+.timescale,
+.imageFeedback__wrap,
 .useful__imageWrap {
   position: absolute;
   top: 0;
@@ -581,6 +582,10 @@ hr {
   opacity: 1;
   background-color: #E81F76;
   color: #FFFFFF;
+}
+
+.btn.p10 {
+  padding: 10px;
 }
 
 a.btn {
@@ -752,6 +757,21 @@ a.btn:hover {
 .btnRound.open {
   opacity: 1;
   visibility: visible;
+}
+
+.svgWithState .st-2 {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.svgWithState.active .st-1 {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.svgWithState.active .st-2 {
+  visibility: visible;
+  opacity: 1;
 }
 
 .logoImage {
@@ -1996,12 +2016,22 @@ a.btn:hover {
 
 .stories__item {
   height: 100%;
+  position: relative;
 }
 
 .stories__item img,
 .stories__item video {
   width: 100%;
   height: 100%;
+}
+
+.stories__link {
+  z-index: 5;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  padding: 16px;
 }
 
 .stories .btnRound.btn-prev {
@@ -2026,16 +2056,16 @@ a.btn:hover {
   height: 100%;
 }
 
+.timescale {
+  height: auto;
+  padding: 16px;
+}
+
 .timescale__lines {
-  position: absolute;
-  width: calc(100% - 28px);
   height: 4px;
-  top: 16px;
-  left: 14px;
-  right: 14px;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .timescale__item {
@@ -2051,21 +2081,44 @@ a.btn:hover {
 
 .timescale__left {
   height: 100%;
-  background: #FFFFFF;
-  width: 50%;
+  background: #3372FF;
+  width: 0%;
+}
+
+.timescale__left.active {
+  -webkit-animation: stories var(--stories-duration) forwards 0s linear;
+          animation: stories var(--stories-duration) forwards 0s linear;
+}
+
+.timescale__left.complete {
+  width: 100%;
+}
+
+.timescale__left.pause {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
 }
 
 .timescale__control {
-  position: absolute;
   fill: #FFFFFF;
-  top: 36px;
-  left: 16px;
   cursor: pointer;
   opacity: 0.5;
 }
 
 .timescale__control.volumn {
-  left: 48px;
+  margin-left: 8px;
+}
+
+@-webkit-keyframes stories {
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes stories {
+  100% {
+    width: 100%;
+  }
 }
 
 .feedback__item {
@@ -2163,8 +2216,12 @@ a.btn:hover {
   height: 216px;
 }
 
-.imageFeedback__item button img,
-.imageFeedback__item button video {
+.imageFeedback__wrap {
+  cursor: pointer;
+}
+
+.imageFeedback__wrap img,
+.imageFeedback__wrap video {
   width: 100%;
   height: 100%;
 }
@@ -2178,6 +2235,62 @@ a.btn:hover {
   padding: 2px 8px;
   background-color: #FFFFFF;
   pointer-events: none;
+}
+
+.isSliderReviews {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100% !important;
+  display: block !important;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.3);
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+}
+
+.isSliderReviews .imageFeedback__item {
+  height: auto !important;
+  border-radius: 0px;
+  max-height: 95vh;
+}
+
+.isSliderReviews .imageFeedback__wrap {
+  position: static;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.isSliderReviews .imageFeedback__wrap img,
+.isSliderReviews .imageFeedback__wrap video {
+  width: auto;
+  height: auto;
+  max-height: 100%;
+}
+
+.isSliderReviews .slick-track {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.isSliderReviews .slick-list {
+  overflow: hidden;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .pagination-sv {
@@ -2839,6 +2952,12 @@ a.btn:hover {
   background: linear-gradient(180deg, #64FFB5 0%, #00A656 100%);
 }
 
+@media (min-width: 551.98px) {
+  .timescale__control.close {
+    display: none;
+  }
+}
+
 @media (min-width: 767.98px) {
   .cardReviews__button.js-hide-text {
     opacity: 0;
@@ -3193,6 +3312,10 @@ a.btn:hover {
     padding: 16px;
   }
 
+  .stories__slider {
+    left: 77px;
+  }
+
   .feedback__content {
     padding-left: 0px;
   }
@@ -3266,6 +3389,20 @@ a.btn:hover {
 
   .unique__table table td.image2 img {
     width: 100%;
+  }
+
+  .stories.active .stories__scroll {
+    display: none;
+  }
+
+  .stories__slider {
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .stories__slider .slick-list {
+    border-radius: 0px;
   }
 
   .feedback__info {

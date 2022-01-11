@@ -254,6 +254,9 @@ hr{
 			color: $white;
 		}
 	}
+	&.p10{
+		padding: 10px;
+	}
 }
 a.btn{
 	display: inline-flex;
@@ -377,6 +380,14 @@ a.btn{
 	&.open{
 		opacity: 1;
 		visibility: visible;
+	}
+}
+
+.svgWithState{
+	.st-2{visibility: hidden; opacity: 0;}
+	&.active{
+		.st-1{visibility: hidden; opacity: 0;}
+		.st-2{visibility: visible; opacity: 1;}
 	}
 }
 
