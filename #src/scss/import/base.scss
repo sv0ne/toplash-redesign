@@ -45,8 +45,8 @@ img, video{
 
 img{
 	&.w80{
-		width: 80px;
-		height: 80px;
+		max-width: 80px;
+		max-height: 80px;
 	}
 	&.h24{
 		height: 24px;
@@ -141,6 +141,12 @@ hr{
 .w-100{width: 100%;}
 .m0-auto{margin: 0 auto;}
 
+.nlc-mb-32{
+	> *:not(:last-child){
+		margin-bottom: 32px;
+	}
+}
+
 .nlc-mb-16{
 	> *:not(:last-child){
 		margin-bottom: 16px;
@@ -181,6 +187,11 @@ hr{
 .d-flex{display: flex;}
 .fww{flex-wrap: wrap;}
 .fdc{flex-direction: column;}
+.md3-fww{
+	@media (max-width:$md3+px) {
+    	flex-wrap: wrap;
+	}
+}
 
 .aic{align-items: center;}
 .aifs{align-items: flex-start;}
@@ -205,6 +216,14 @@ hr{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.col-3{flex: 0 0 33.333%;}
+
+.md3-colMax{
+	@media (max-width:$md3+px) {
+	    flex: 0 0 100%;
+	}
 }
 
 .flex-1{flex: 1;}
@@ -383,6 +402,17 @@ a.btn{
 	}
 }
 
+.label{
+	background-color: $black;
+	border-radius: 8px;
+	padding: 4px 16px;
+	color: $white;
+	@extend .text-extra-small;
+	&.bg-red{
+		background-color: $red;
+	}
+}
+
 .svgWithState{
 	.st-2{visibility: hidden; opacity: 0;}
 	&.active{
@@ -461,6 +491,28 @@ a.btn{
 	}
 }
 
+ol.list-ol{
+	> *:not(:last-child){
+		margin-bottom: 16px;
+	}
+	padding: 16px 16px 16px 0px;
+	counter-reset: myCounter;
+	li{
+		padding-left: 40px;
+		list-style: none;
+		position: relative;
+		&:before{
+			position: absolute;
+			top: 0;
+			left: 16px;
+			counter-increment: myCounter;
+			content: counter(myCounter)".";
+			color: $red;
+			@extend .text-extra-small;
+		}
+	}
+}
+
 //-------------------- breadcrumbs -----------------------//
 
 .breadcrumbs {
@@ -483,6 +535,7 @@ a.btn{
 }
 
 //---------------------- slick ------------------------//
+
 .slider{
 	.slick-track{
 		display: flex;
@@ -499,3 +552,40 @@ a.btn{
 		}
 	}
 }
+
+// ---------------- flex - разметки ------------------ //
+
+.flexCol3{
+	&__row{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	&__col{
+		flex: 0 0 33.333%;
+		padding: 16px;
+		@media (max-width:$md3+px) {
+		    flex: 0 0 100%;
+		}
+	}
+}
+
+.flexMod-1{
+	&__colMin{
+		flex: 0 0 447px;
+		@media (max-width:$md2+px) {
+		    flex: 0 0 352px;
+		}
+	}
+}
+
+//------------------ Карточки (card) -------------------//
+
+.card-v1{
+	box-shadow: $boxShadow;
+	border-radius: 24px;
+	background: $white;
+	padding: 32px;
+	height: 100%;
+}
+
+//--------------------------------------------------------

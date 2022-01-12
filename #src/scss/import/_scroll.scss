@@ -16,15 +16,19 @@
 	}
     -ms-overflow-style: none;  /* IE 10+ */
     scrollbar-width: none; /* Firefox */
+     @media (max-width:$mw+px) {
+        padding: 0px 0px 1px 0px;
+        margin: 0 -8px;
+    } 
 	&__body {
 		overflow-x: scroll;
 		overflow-y: hidden;
-		@media (max-width:$md3+px) {
-		    width: auto;
-		}
 	}
 	&__scroll {
 		display: inline-flex;
+		@media (max-width:$mw+px) {
+		    padding: 0 16px;
+		}
 	}
 	&__item {
 		list-style: none;

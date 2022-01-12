@@ -138,6 +138,141 @@ $(".scroll").each(function(){
 	}
 });
 ;
+	/////////////////// Скрипты для попапов ///////////////////////////
+
+var popup = $(".popup");
+var lastOpen = false;
+
+// Показать попапы при клике
+$(document).on("click", ".popup-click", function(e){
+	e.preventDefault();
+	if($(this).hasClass('disabled')){return false;}
+	openPopup($(this).data('popupid'), $(this));
+});
+
+// Открыть попап
+function openPopup(popupID, target) {
+	if(lastOpen !== popupID){
+		if(lastOpen !== false){close_popup();}
+		lastOpen = popupID;
+		if(popupID === 'more'){
+			calcPositionMore(popupID, target);
+		}
+		$('#'+popupID).addClass('open');
+		if($('#'+popupID).hasClass('p-ib') === false || popupID == 'preview'){
+			bodyLock();}
+	}else{
+		close_popup();
+	}
+}
+
+// Скрыть попапы при клике вне попапа и вне области вызова попапа
+$(document).on(isMobile ? "touchend" : "mousedown", function (e) {
+	var popupTarget = $(".popup-click").has(e.target).length;
+	// Если (клик вне попапа && попап имеет класс open)
+    if (popup.has(e.target).length === 0 && popup.hasClass('open') && popupTarget === 0){
+       	close_popup();
+    }
+});
+
+// Скрыть попап при нажатии на клавишу "Esc"
+$(document).on("keydown", function (e) {
+	if(e.which === 27){
+		close_popup();
+
+		// Закрыть слайдер отзывов 
+		if($activeSlidersReviews !== null){closeSliderReviews();}
+
+		// Закрыть сторисы
+		closeStories();
+	}
+});
+
+// Блокировка скролла при открытии попапа
+function bodyLock() {
+	$body.addClass('lock');
+}
+
+// Разблокировка скролла при закрытии попапа
+function bodyUnLock() {
+	$body.removeClass('lock');
+}
+
+// Закрыть popup
+function close_popup() {
+	$(".popup").removeClass('open');
+	bodyUnLock();
+	lastOpen = false;
+}
+
+// Закрыть попапа при нажатии на кнопки "Close"
+$(".js-popup-close").click(function(e){
+	e.preventDefault();
+	close_popup();
+});
+
+////////////////////////////////////////////////////////////////////////////////
+//////////////////////// Функции для hover попапов /////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+var closePopup = false;
+var popupH = false;
+var timeout1 = false;
+var timeout2 = false;
+var srcPopups = ".example";
+
+// Показать ховер попапы
+$(document).on(isMobile ? "click" : "mouseenter", srcPopups, function(e){
+	var coordinates = $(this).offset();
+	if($(this).hasClass('example')){
+		popupH = $('#example');
+		coordinates.left -= 0;
+		coordinates.top -= popupH.height() + 10;
+	}
+	if(isMobile === false){
+		clearTimeout(timeout2);
+		clearTimeout(timeout1);
+		timeout1 = setTimeout(function() {
+			showPopupHover(coordinates);
+		}, 0);
+	}else{
+		showPopupHover(coordinates);
+	}
+});
+
+// Показать hover попап
+function showPopupHover(coordinates){
+	if(closePopup !== false){
+		closePopup.offset({top: 0, left: 0}).removeClass('open');
+		closePopup = false;
+	}
+	if(popupH !== false){
+		closePopup = popupH;
+		popupH.offset(coordinates).addClass('open');
+	}
+}
+
+// Закрыть hover попап
+function closePopupHover(){
+	if(closePopup !== false){
+		closePopup.offset({top: 0, left: 0}).removeClass('open');
+		closePopup = false;
+	}
+}
+
+if(isMobile === false){
+	// Скрыть ховер попапы
+	$(document).on("mouseleave", srcPopups + ", .popup-live", function(){
+		timeout2 = setTimeout(function() {
+			closePopupHover();
+		}, 200);
+	});
+
+	// Переход на открытый попап
+	$(document).on("mouseenter", ".popup-live", function(){
+		clearTimeout(timeout2);
+	});
+};
 
 	let isLess_md4;
 	// Логика dropdown
@@ -228,321 +363,345 @@ $(".scroll").each(function(){
 	}
 	setTimeout(function() {detectDurationVideo();}, 10);
 
-
 //////////////////////// Показать картинки отзывов ////////////////////////////
 
-$(".js-detect-grid").click(function(){
-	$(this).removeClass('imageFeedback').addClass("isSliderReviews");
-	$(this).wrapAll('<div class="js-wrap-slider-reviews wrapSliderReviews"></div>');
-	$body.addClass('lock');
+let $activeSlidersReviews = null;
+// Открыть слайдер с картинками отзывов
+$(".js-detect-grid .imageFeedback__item").click(function(){
+	if($activeSlidersReviews === null){
+		let $parent = $(this).closest('.js-detect-grid');
+		let index = $(this).index();
 
-	let html = '';
-	html += '<button class="btnRound sliderBtn btn-close">';
-		html += '<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#close"/></svg>';				
-	html += '</button>';
-	html += '<button class="btnRound sliderBtn btn-prev">';				
-		html += '<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>';				
-	html += '</button>';
-	html += '<button class="btnRound sliderBtn btn-next">';				
-		html += '<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>';				
-	html += '</button>';
+		$parent.removeClass('imageFeedback').addClass("isSliderReviews");
+		$parent.find('video').prop('muted', false).prop('controls', true);
+		$body.addClass('lock');
+		$('.feedbackSliderControls').addClass('active');
+		$activeSlidersReviews = $parent;
 
-	$('.js-wrap-slider-reviews').append(html);
-
-	$(this).slick({
-		arrows: false
-	});
+		$parent.slick({
+			prevArrow: $('.feedbackSliderControls .sliderBtn.btn-prev'),
+			nextArrow: $('.feedbackSliderControls .sliderBtn.btn-next'),
+			initialSlide: index
+		});
+		/*$parent.on('beforeChange', function(event, slick, currentSlide, nextSlide){
+			$parent.find('video').get(0).pause();
+		});*/
+	}
 });
+
+// Действие для закрытия слайдера
+$(".js-close-SliderReviews").click(function(){
+	closeSliderReviews();
+});
+
+// Действие для закрытия слайдера
+$(document).on("click", function(e){
+	if($activeSlidersReviews !== null && $(e.target).hasClass('imageFeedback__wrap')){
+		closeSliderReviews();
+	}
+});
+
+// Закрыть слайдер с картинками отзывов
+function closeSliderReviews() {
+	$activeSlidersReviews.slick('unslick');
+	$activeSlidersReviews.removeClass('isSliderReviews').addClass("imageFeedback");
+	$activeSlidersReviews.find('video').prop('muted', true).prop('controls', false);
+	$activeSlidersReviews.find('video').get(0).pause();
+	$('.feedbackSliderControls').removeClass('active');
+	$body.removeClass('lock');
+	$activeSlidersReviews = null;
+}
 
 /////////////////////////////// Слайдеры //////////////////////////////////////
 
-	let isInitSlick = false;
-	// Slick - слайдер
-	function initSlider() {
-		if(w < BREAKPOINT_md2){
-			if(isInitSlick === false){
-				isInitSlick = true;
-				$('.slider').slick({
-					slidesToShow: 2,
-					prevArrow: $('.useful .sliderBtn.btn-prev'),
-					nextArrow: $('.useful .sliderBtn.btn-next'),
-					responsive:[
-						{ 
-							breakpoint: BREAKPOINT_552,
-							settings: {
-								slidesToShow: 1,
-							}
+let isInitSlick = false;
+// Slick - слайдер
+function initSlider() {
+	if(w < BREAKPOINT_md2){
+		if(isInitSlick === false){
+			isInitSlick = true;
+			$('.slider').slick({
+				slidesToShow: 2,
+				prevArrow: $('.useful .sliderBtn.btn-prev'),
+				nextArrow: $('.useful .sliderBtn.btn-next'),
+				responsive:[
+					{ 
+						breakpoint: BREAKPOINT_552,
+						settings: {
+							slidesToShow: 1,
 						}
-					]
-				});
-			}
-		}else{
-			if(isInitSlick === true){
-				isInitSlick = false;
-				$('.slider').slick('unslick');
-			}
+					}
+				]
+			});
+		}
+	}else{
+		if(isInitSlick === true){
+			isInitSlick = false;
+			$('.slider').slick('unslick');
 		}
 	}
-	initSlider();
+}
+initSlider();
 
-	// Узнать ID слайда с презентацией
-	let slidePresentationID = $('.sliderBig__item .js-presentation-video').parent().index();
+// Узнать ID слайда с презентацией
+let slidePresentationID = $('.sliderBig__item .js-presentation-video').parent().index();
 
-	// Слайдер в начале страницы
-	$('.js-sliderBig').slick({
-		prevArrow: $('.product .sliderBtn.btn-prev'),
-		nextArrow: $('.product .sliderBtn.btn-next'),
-		//autoplay: true,
-		//autoplaySpeed: 3500,
-		dots: true
-	});
+// Слайдер в начале страницы
+$('.js-sliderBig').slick({
+	prevArrow: $('.product .sliderBtn.btn-prev'),
+	nextArrow: $('.product .sliderBtn.btn-next'),
+	//autoplay: true,
+	//autoplaySpeed: 3500,
+	dots: true
+});
 
-	// Отслеживаем действие -> перелистывание слайда
-	$('.js-sliderBig').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-	  $('.js-scrollPreview .scrollPreview__item').removeClass('active');
-	  $('.js-scrollPreview .scrollPreview__item:eq('+nextSlide+')').addClass('active');
-	  let scrollLeft = $('.js-scrollPreview').scrollLeft();
-	  let widthScroll = parseInt($('.js-scrollPreview').width());
-	  nextSlide = parseFloat(nextSlide);
+// Отслеживаем действие -> перелистывание слайда
+$('.js-sliderBig').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+  $('.js-scrollPreview .scrollPreview__item').removeClass('active');
+  $('.js-scrollPreview .scrollPreview__item:eq('+nextSlide+')').addClass('active');
+  let scrollLeft = $('.js-scrollPreview').scrollLeft();
+  let widthScroll = parseInt($('.js-scrollPreview').width());
+  nextSlide = parseFloat(nextSlide);
 
-	  let startVisibility = scrollLeft;
-	  let endVisibility = scrollLeft + widthScroll;
+  let startVisibility = scrollLeft;
+  let endVisibility = scrollLeft + widthScroll;
 
-	  let leftItem = nextSlide * 96;
-	  let rightItem = (nextSlide * 96) + 80;
+  let leftItem = nextSlide * 96;
+  let rightItem = (nextSlide * 96) + 80;
 
-	  let setScroll = false;
-	  if(rightItem > endVisibility){setScroll = rightItem - endVisibility + scrollLeft;}
-	  if(leftItem < startVisibility){setScroll = leftItem;}
+  let setScroll = false;
+  if(rightItem > endVisibility){setScroll = rightItem - endVisibility + scrollLeft;}
+  if(leftItem < startVisibility){setScroll = leftItem;}
 
-	  if(setScroll !== false){
-	  	$('.js-scrollPreview').animate({scrollLeft: setScroll}, 300);
-	  }
+  if(setScroll !== false){
+  	$('.js-scrollPreview').animate({scrollLeft: setScroll}, 300);
+  }
 
-	  // Логика автовоспроизведения видео
-	  let $video = $(slick.$slides.get(nextSlide)).find('video');
-	  let isSlideWithVideo = $video.length;
-	  if(isSlideWithVideo === 1){
-	  	$video.trigger('play');
-	  }else{
-	  	$('.sliderBig__item video').trigger('pause');
-	  }
-	});
+  // Логика автовоспроизведения видео
+  let $video = $(slick.$slides.get(nextSlide)).find('video');
+  let isSlideWithVideo = $video.length;
+  if(isSlideWithVideo === 1){
+  	$video.trigger('play');
+  }else{
+  	$('.sliderBig__item video').trigger('pause');
+  }
+});
 
-	// Клик по слайду в превью блоке
-	$(".js-scrollPreview .scrollPreview__item").click(function(){
-		var index = $(this).index();
-		$('.js-sliderBig').slick('goTo', index);
-	});
+// Клик по слайду в превью блоке
+$(".js-scrollPreview .scrollPreview__item").click(function(){
+	var index = $(this).index();
+	$('.js-sliderBig').slick('goTo', index);
+});
 
-	// Клик по "как пользоваться", тоесть открыть презентационное видео
-	$(".js-view-presentation-video").click(function(){
-		$('.js-sliderBig').slick('goTo', slidePresentationID);
-	});
+// Клик по "как пользоваться", тоесть открыть презентационное видео
+$(".js-view-presentation-video").click(function(){
+	$('.js-sliderBig').slick('goTo', slidePresentationID);
+});
 
 /////////////////////////////////////// Отзывы //////////////////////////////////////////
 
-	// Просчитываем где отображать кнопку показать больше
-	$(".cardReviews__text .textLay").each(function(){
-		var lh = parseFloat($(this).css('line-height'));
-		if($(this).height() > (lh * 4)){
-			$(this).closest(".cardReviews__text").addClass('hidden');
-			$(this).closest(".cardReviews").find('.cardReviews__button').addClass('js-hide-text');
-		}
-	});
+// Просчитываем где отображать кнопку показать больше
+$(".cardReviews__text .textLay").each(function(){
+	var lh = parseFloat($(this).css('line-height'));
+	if($(this).height() > (lh * 4)){
+		$(this).closest(".cardReviews__text").addClass('hidden');
+		$(this).closest(".cardReviews").find('.cardReviews__button').addClass('js-hide-text');
+	}
+});
 
-	// Нажатие на кнопку показать больше
-	$(document).on("click", ".cardReviews .js-hide-text", function(){
-		$(this).toggleClass('active');
-		$(this).closest(".cardReviews__content").find(".cardReviews__text").toggleClass('hidden');
-	});
+// Нажатие на кнопку показать больше
+$(document).on("click", ".cardReviews .js-hide-text", function(){
+	$(this).toggleClass('active');
+	$(this).closest(".cardReviews__content").find(".cardReviews__text").toggleClass('hidden');
+});
 
 
 ///////////////////////////// Логика бургер-меню ///////////////////////////////////////
 
-	const $burger = $(".js-burger");
-	const $menu = $(".js-menu");
-	const $overlayMenu = $(".js-overlayMenu");
-	let isActiveMenu = false;
-	// Открыть/закрыть меню / Скрыть меню при клике вне блока меню
-	$(document).on(isMobile ? "touchend" : "mousedown", function (e) {
-		let isBurger = $burger.has(e.target).length === 1 ? true : false;
-		let isChildMenu = $menu.has(e.target).length === 1 ? true : false;
-		let isMenu = $(e.target).hasClass("js-menu");
-		
-		let newStateMenu = isActiveMenu;
-		if(isBurger){
-			newStateMenu = !newStateMenu;
-		}else if(isBurger === false && isMenu === false && isChildMenu === false){
-			newStateMenu = false;
-		}
+const $burger = $(".js-burger");
+const $menu = $(".js-menu");
+const $overlayMenu = $(".js-overlayMenu");
+let isActiveMenu = false;
+// Открыть/закрыть меню / Скрыть меню при клике вне блока меню
+$(document).on(isMobile ? "touchend" : "mousedown", function (e) {
+	let isBurger = $burger.has(e.target).length === 1 ? true : false;
+	let isChildMenu = $menu.has(e.target).length === 1 ? true : false;
+	let isMenu = $(e.target).hasClass("js-menu");
+	
+	let newStateMenu = isActiveMenu;
+	if(isBurger){
+		newStateMenu = !newStateMenu;
+	}else if(isBurger === false && isMenu === false && isChildMenu === false){
+		newStateMenu = false;
+	}
 
-		if(newStateMenu !== isActiveMenu){
-			isActiveMenu = newStateMenu;
-			$burger.toggleClass('active', isActiveMenu);
-			$menu.toggleClass('active', isActiveMenu);
-			$overlayMenu.toggleClass('active', isActiveMenu);
-			if(w < BREAKPOINT_md4){$body.toggleClass('lock', isActiveMenu);}
-		}
-	});
+	if(newStateMenu !== isActiveMenu){
+		isActiveMenu = newStateMenu;
+		$burger.toggleClass('active', isActiveMenu);
+		$menu.toggleClass('active', isActiveMenu);
+		$overlayMenu.toggleClass('active', isActiveMenu);
+		if(w < BREAKPOINT_md4){$body.toggleClass('lock', isActiveMenu);}
+	}
+});
 
 /////////////////////// Блок историй (подобие инстаграм) ///////////////////////////
 
-	const TIME_SLIDE_DURATION = 5000; // Длительность слайда с картинкой
-	let isInitStoriesSlider = false;
-	// Открыть истории
-	$('.js-stories').click(function(e){
-		let isItem = $(e.target).closest('.about__item').length;
-		if(isItem === 1){ // Показать сторис
-			let id = $(e.target).closest('.about__item').data('id');
-			let idCount = $('.stories__item[data-id="'+id+'"]').not('.slick-cloned').length;
-			let index = $('.stories__item[data-id="'+id+'"]').not('.slick-cloned').index();
+const TIME_SLIDE_DURATION = 5000; // Длительность слайда с картинкой
+let isInitStoriesSlider = false;
+// Открыть истории
+$('.js-stories').click(function(e){
+	let isItem = $(e.target).closest('.about__item').length;
+	if(isItem === 1){ // Показать сторис
+		let id = $(e.target).closest('.about__item').data('id');
+		let idCount = $('.stories__item[data-id="'+id+'"]').not('.slick-cloned').length;
+		let index = $('.stories__item[data-id="'+id+'"]').not('.slick-cloned').index();
 
-			$('.js-stories').addClass('active');
-			$body.addClass('lock');
-			
-			if(isInitStoriesSlider === false){
-				$('.js-sliderStories').slick({
-					prevArrow: $('.stories__body .sliderBtn.btn-prev'),
-					nextArrow: $('.stories__body .sliderBtn.btn-next'),
-					initialSlide: index
-				})
-				$('.js-sliderStories').slick('goTo', index);
-			}else{
-				$('.js-sliderStories').slick('goTo', index-1);
-			}
-			isInitStoriesSlider = true;
-		}else{ // Скрыть сторисы
-			console.log(e.target);
-			if($(e.target).hasClass("stories__body")){
-				$('.js-stories').removeClass('active');
-			    $body.removeClass('lock');
-			}
+		$('.js-stories').addClass('active');
+		$body.addClass('lock');
+		
+		if(isInitStoriesSlider === false){
+			$('.js-sliderStories').slick({
+				prevArrow: $('.stories__body .sliderBtn.btn-prev'),
+				nextArrow: $('.stories__body .sliderBtn.btn-next'),
+				initialSlide: index,
+			})
+			$('.js-sliderStories').slick('goTo', index);
+		}else{
+			$('.js-sliderStories').slick('goTo', index-1);
 		}
-	});
-	
-	let $lastVideoPlaying = null;
-	// Переключение на новый слайд
-	$('.js-stories').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-		let currentID = $(slick.$slides.get(nextSlide)).data('id');
-		let subslideCount = $('.stories__item[data-id="'+currentID+'"]').not('.slick-cloned').length;
-		let subSlideID = 0;
-		if(subslideCount !== 1){subSlideID = $(slick.$slides.get(nextSlide)).data('sub-id');}
-
-		// Определяем наличие видео в слайде
-		let $video = $(slick.$slides.get(nextSlide)).find('video');
-		let isSlideWithVideo = $video.length;
-		let duration = null;
-		if($lastVideoPlaying !== null){
-			$lastVideoPlaying.get(0).pause();
-		    $lastVideoPlaying = null;
+		isInitStoriesSlider = true;
+	}else{ // Скрыть сторисы
+		if($(e.target).hasClass("stories__body")){
+			closeStories();
 		}
-		if(isSlideWithVideo === 1){
-			duration = $video[0].duration * 1000;
-			$video.get(0).currentTime = 0;
-			$video.get(0).play();
-			$lastVideoPlaying = $video;
-		}
+	}
+});
 
-		let delay = duration > 0 ? duration : TIME_SLIDE_DURATION;
-		isStoped = false;
-		$('.js-timescale').remove();
-		$('.js-sliderStories').append(addTimescale(subslideCount, subSlideID, delay));
-		calcScrollbarStories(currentID);
-		autoSlide(delay);
-	});
+let $lastVideoPlaying = null;
+// Переключение на новый слайд
+$('.js-stories').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+	let currentID = $(slick.$slides.get(nextSlide)).data('id');
+	let subslideCount = $('.stories__item[data-id="'+currentID+'"]').not('.slick-cloned').length;
+	let subSlideID = 0;
+	if(subslideCount !== 1){subSlideID = $(slick.$slides.get(nextSlide)).data('sub-id');}
 
-	// Логика вертикального скроллбара
-	function calcScrollbarStories(currentID) {
-		let h = $(window).height();
-		let heightItem = $('.about__item[data-id="'+currentID+'"]').outerHeight();
-		let marginTop = heightItem * currentID;
-		let itemStart = (h / 2) - (heightItem / 2) - 8;
-		let setScroll = marginTop - itemStart;
-		$('.js-stories .scroll__body').animate({scrollTop: setScroll}, 300);
+	// Определяем наличие видео в слайде
+	let $video = $(slick.$slides.get(nextSlide)).find('video');
+	let isSlideWithVideo = $video.length;
+	let duration = null;
+	if($lastVideoPlaying !== null){
+		$lastVideoPlaying.get(0).pause();
+	    $lastVideoPlaying = null;
+	}
+	if(isSlideWithVideo === 1){
+		duration = $video[0].duration * 1000;
+		$video.get(0).currentTime = 0;
+		$video.get(0).play();
+		$lastVideoPlaying = $video;
 	}
 
-	let timeoutNextSlide = null, startSlideTime;
-	// Автопереключение слайдов
-	function autoSlide(delay = TIME_SLIDE_DURATION) {
-		startSlideTime = new Date().getTime();
-		clearTimeout(timeoutNextSlide);
-		timeoutNextSlide = setTimeout(function() {
-			$('.js-sliderStories').slick('slickNext');
-		}, delay);
-	}
+	let delay = duration > 0 ? duration : TIME_SLIDE_DURATION;
+	isStoped = false;
+	$('.js-timescale').remove();
+	$('.js-sliderStories').append(addTimescale(subslideCount, subSlideID, delay));
+	calcScrollbarStories(currentID);
+	autoSlide(delay);
+});
 
-	// Создание панели управления слайдом
-	function addTimescale(count, itemActive, duration = TIME_SLIDE_DURATION) {
-		let isMuted = storiesVideoMuted === false ? "" : "active";
+// Логика вертикального скроллбара
+function calcScrollbarStories(currentID) {
+	let h = $(window).height();
+	let heightItem = $('.about__item[data-id="'+currentID+'"]').outerHeight();
+	let marginTop = heightItem * currentID;
+	let itemStart = (h / 2) - (heightItem / 2) - 8;
+	let setScroll = marginTop - itemStart;
+	$('.js-stories .scroll__body').animate({scrollTop: setScroll}, 300);
+}
 
-		let html = '<div class="timescale js-timescale" style="--stories-duration: '+duration+'ms;">';
-			html += '<div class="timescale__lines">';
-				for (var i = 0; i < count; i++){
-					let timescale_leftClass = i === itemActive ? "active" : i < itemActive ? "complete" : "";
-					html = html + '<div class="timescale__item"><div class="timescale__left '+timescale_leftClass+'"></div></div>';
-				}
-			html += '</div>';
-			html += '<div class="f-jcsb-aic mt-16">';
-				html += '<div class="d-flex">';
-					html += '<svg class="timescale__control svgWithState w24 js-stories-pause">';
-						html += '<use class="st-1" xlink:href="img/sprite/icons-sprite.svg#pause"/>';
-						html += '<use class="st-2" xlink:href="img/sprite/icons-sprite.svg#play_w16in24"/>';
-					html += '</svg>';
+let timeoutNextSlide = null, startSlideTime;
+// Автопереключение слайдов
+function autoSlide(delay = TIME_SLIDE_DURATION) {
+	startSlideTime = new Date().getTime();
+	clearTimeout(timeoutNextSlide);
+	timeoutNextSlide = setTimeout(function() {
+		$('.js-sliderStories').slick('slickNext');
+	}, delay);
+}
 
-					html += '<svg class="timescale__control svgWithState volumn w24 js-stories-volumn '+isMuted+'">';
-						html += '<use class="st-1" xlink:href="img/sprite/icons-sprite.svg#volumn-on"/>';
-						html += '<use class="st-2" xlink:href="img/sprite/icons-sprite.svg#volumn-off"/>';
-					html += '</svg>';
-				html += '</div>';
-				html += '<svg class="timescale__control close w24 js-close-stories">';
-					html += '<use xlink:href="img/sprite/icons-sprite.svg#close"/>';
+// Создание панели управления слайдом
+function addTimescale(count, itemActive, duration = TIME_SLIDE_DURATION) {
+	let isMuted = storiesVideoMuted === false ? "" : "active";
+
+	let html = '<div class="timescale js-timescale" style="--stories-duration: '+duration+'ms;">';
+		html += '<div class="timescale__lines">';
+			for (var i = 0; i < count; i++){
+				let timescale_leftClass = i === itemActive ? "active" : i < itemActive ? "complete" : "";
+				html = html + '<div class="timescale__item"><div class="timescale__left '+timescale_leftClass+'"></div></div>';
+			}
+		html += '</div>';
+		html += '<div class="f-jcsb-aic mt-16">';
+			html += '<div class="d-flex">';
+				html += '<svg class="timescale__control svgWithState w24 js-stories-pause">';
+					html += '<use class="st-1" xlink:href="img/sprite/icons-sprite.svg#pause"/>';
+					html += '<use class="st-2" xlink:href="img/sprite/icons-sprite.svg#play_w16in24"/>';
+				html += '</svg>';
+
+				html += '<svg class="timescale__control svgWithState volumn w24 js-stories-volumn '+isMuted+'">';
+					html += '<use class="st-1" xlink:href="img/sprite/icons-sprite.svg#volumn-on"/>';
+					html += '<use class="st-2" xlink:href="img/sprite/icons-sprite.svg#volumn-off"/>';
 				html += '</svg>';
 			html += '</div>';
+			html += '<svg class="timescale__control close w24 js-close-stories">';
+				html += '<use xlink:href="img/sprite/icons-sprite.svg#close"/>';
+			html += '</svg>';
 		html += '</div>';
-		return html;
-	}
-		
-	// Закрыть истории
-	$(document).on("click", ".js-close-stories", function(){
-		console.log(22);
-		$('.js-stories').removeClass('active');
-		$body.removeClass('lock');
-	});
+	html += '</div>';
+	return html;
+}
+	
+// Закрыть сторисы
+$(document).on("click", ".js-close-stories", function(){
+	closeStories();
+});
 
-	let isStoped = false, leftTimeSlide;
-	// Остановить автопрокрутку сторисов
-	$(document).on("mousedown", ".js-stories-pause", function(e){
-		if(isStoped === false){
-			isStoped = true;
-			$(this).addClass('active');
-			$('.timescale__left').addClass('pause');
-			let nowTime = new Date().getTime();
-			leftTimeSlide = nowTime - startSlideTime;
-			clearTimeout(timeoutNextSlide);
-			if($lastVideoPlaying !== null){
-				$lastVideoPlaying.get(0).pause();
-			}
-		}else{
-			isStoped = false;
-			$(this).removeClass('active');
-			$('.timescale__left').removeClass('pause');
-			if($lastVideoPlaying !== null){
-				$lastVideoPlaying.get(0).play();
-			}
-			let durationSlide = $lastVideoPlaying !== null ? $lastVideoPlaying.get(0).duration * 1000 : TIME_SLIDE_DURATION;
-			autoSlide(durationSlide - leftTimeSlide);
+// Закрыть сторисы
+function closeStories() {
+	$('.js-stories').removeClass('active');
+	$body.removeClass('lock');
+}
+
+let isStoped = false, leftTimeSlide;
+// Остановить автопрокрутку сторисов
+$(document).on("mousedown", ".js-stories-pause", function(e){
+	if(isStoped === false){
+		isStoped = true;
+		$(this).addClass('active');
+		$('.timescale__left').addClass('pause');
+		let nowTime = new Date().getTime();
+		leftTimeSlide = nowTime - startSlideTime;
+		clearTimeout(timeoutNextSlide);
+		if($lastVideoPlaying !== null){
+			$lastVideoPlaying.get(0).pause();
 		}
-	});
+	}else{
+		isStoped = false;
+		$(this).removeClass('active');
+		$('.timescale__left').removeClass('pause');
+		if($lastVideoPlaying !== null){
+			$lastVideoPlaying.get(0).play();
+		}
+		let durationSlide = $lastVideoPlaying !== null ? $lastVideoPlaying.get(0).duration * 1000 : TIME_SLIDE_DURATION;
+		autoSlide(durationSlide - leftTimeSlide);
+	}
+});
 
-	let storiesVideoMuted = false;
-	// Включение/Отключение звука на видео
-	$(document).on("click", ".js-stories-volumn", function(e){
-		storiesVideoMuted = !storiesVideoMuted;
-		$('.stories__item video').prop('muted', storiesVideoMuted);
-		$(this).toggleClass('active');
-	});
-
+let storiesVideoMuted = false;
+// Включение/Отключение звука на видео
+$(document).on("click", ".js-stories-volumn", function(e){
+	storiesVideoMuted = !storiesVideoMuted;
+	$('.stories__item video').prop('muted', storiesVideoMuted);
+	$(this).toggleClass('active');
+});
 
 /////////////////////////////////////////////////////////////////////////////////////////
 

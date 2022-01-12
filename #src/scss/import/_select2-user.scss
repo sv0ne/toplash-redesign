@@ -23,6 +23,7 @@
 		&:hover{
 			color: $black;
 			background: rgba(136, 136, 158, 0.05) !important;
+			border-radius: 12px !important;
 		}
 	}
 }
@@ -90,7 +91,7 @@
 		}
 	}
 	&.modify-selection{
-		flex: 0 0 240px;
+		flex: 0 0 264px;
 		.select2-selection{
 			border: none !important;
 			.select2-selection__rendered{

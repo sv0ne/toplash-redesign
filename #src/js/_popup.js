@@ -39,6 +39,12 @@ $(document).on(isMobile ? "touchend" : "mousedown", function (e) {
 $(document).on("keydown", function (e) {
 	if(e.which === 27){
 		close_popup();
+
+		// Закрыть слайдер отзывов 
+		if($activeSlidersReviews !== null){closeSliderReviews();}
+
+		// Закрыть сторисы
+		closeStories();
 	}
 });
 
