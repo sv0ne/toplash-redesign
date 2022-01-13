@@ -306,9 +306,17 @@
 ////////////////////////// review ///////////////////////////
 
 .reviews{
-	padding-bottom: 64px;
-	@media (max-width:$md3+px) {
-	    padding-bottom: 32px;
+	&__row{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	&__item{
+		flex: 0 0 25%;
+		padding: 8px;
+		@media (max-width:$md_1150+px) {flex: 0 0 33.333%;}
+		@media (max-width:$md_872+px) {flex: 0 0 50%;}
+		@media (max-width:$md_608+px) {flex: 0 0 100%;}
+		.cardReviews{width: 100%;}
 	}
 }
 
@@ -388,6 +396,11 @@
 	scrollbar-color: #999 #ccc;
   	scrollbar-width: thin !important;
 
+  	&:hover{
+		.cardReviews__button.js-hide-text{
+			opacity: 1;
+		}
+	}
 	&__content{
 		position: relative;
 		z-index: 20;
@@ -420,11 +433,6 @@
 			}
 		}
 	}
-	&:hover{
-		.cardReviews__button.js-hide-text{
-			opacity: 1;
-		}
-	}
 	&__button {
 		margin-bottom: 16px;
 		text-align: left;
@@ -444,6 +452,9 @@
 		.show-less{
 			display: none;
 		}
+	}
+	&__footer{
+		height: 80px;
 	}
 }
 
@@ -494,6 +505,10 @@
 		img{
 			width: 100%;
 		}
+	}
+	&__imageItem{
+		width: 100%;
+		min-height: 100%;
 	}
 	&__content {}
 }
@@ -1505,6 +1520,7 @@
 		position: relative;
 		display: flex;
 		flex-direction: column;
+		justify-content: space-between;
 		@media (max-width:$md3+px) {
 		    .btn{
 		    	padding: 10px 14px;
@@ -1543,13 +1559,28 @@
 			max-height: 100%;
 		}
 	}
+	&__text{
+		padding: 16px 16px 12px 16px;
+	}
 	&__btn{
-		margin-top: -20px;
+		padding: 0 16px 16px 16px;
 	}
 
 	.slick-list {
 		overflow: hidden;
 		padding: 16px 32px 16px 8px;
+	}
+}
+
+//////////// регистрация, вход, забыли пароль /////////////
+
+.auth{
+	&__body{
+		width: 540px;
+		@media (max-width:$md_608+px) {
+		    border-radius: 0px;
+		    box-shadow: none;
+		}
 	}
 }
 

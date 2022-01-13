@@ -18,6 +18,7 @@ $(document).ready(function () {
 	@@include('_select2-user.js');
 	@@include('_scroll.js');
 	@@include('_popup.js');
+	@@include('_validation.js');
 
 	let isLess_md4;
 	// Логика dropdown
@@ -73,6 +74,7 @@ $(document).ready(function () {
 	// Задаем рейтинг продукта в звездочках
 	$(".js-rating").each(function(){
 		let rating = $(this).data('rating');
+		console.log(rating);
 		for(let i = 1; i < 6; i++){
 			let icon = i <= rating ? "star-fill" : "star";
 			$(this).append('<svg><use xlink:href="'+pathSprite+'#'+icon+'"/></svg>');
@@ -165,7 +167,7 @@ function initSlider() {
 	if(w < BREAKPOINT_md2){
 		if(isInitSlick === false){
 			isInitSlick = true;
-			$('.slider').slick({
+			$('.js-slider-useful').slick({
 				slidesToShow: 2,
 				prevArrow: $('.useful .sliderBtn.btn-prev'),
 				nextArrow: $('.useful .sliderBtn.btn-next'),
@@ -182,7 +184,7 @@ function initSlider() {
 	}else{
 		if(isInitSlick === true){
 			isInitSlick = false;
-			$('.slider').slick('unslick');
+			$('.js-slider-useful').slick('unslick');
 		}
 	}
 }
@@ -191,7 +193,16 @@ initSlider();
 // Узнать ID слайда с презентацией
 let slidePresentationID = $('.sliderBig__item .js-presentation-video').parent().index();
 
-// Слайдер в начале страницы
+// Слайдер в начале страницы "страница отзывы"
+$('.js-sliderBig-reviews').slick({
+	prevArrow: $('.js-sliderBig-reviews-parent .sliderBtn.btn-prev'),
+	nextArrow: $('.js-sliderBig-reviews-parent .sliderBtn.btn-next'),
+	//autoplay: true,
+	//autoplaySpeed: 3500,
+	dots: true
+});
+
+// Слайдер в начале страницы "СТРАНИЦА ТОВАРА"
 $('.js-sliderBig').slick({
 	prevArrow: $('.product .sliderBtn.btn-prev'),
 	nextArrow: $('.product .sliderBtn.btn-next'),

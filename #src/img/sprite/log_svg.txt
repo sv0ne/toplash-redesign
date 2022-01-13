@@ -13,6 +13,8 @@ img/sprite/fill-sprite.svg#serum60
 img/sprite/icons-sprite.svg#arrow
 img/sprite/icons-sprite.svg#bag
 img/sprite/icons-sprite.svg#burger-show
+img/sprite/icons-sprite.svg#checkbox-active
+img/sprite/icons-sprite.svg#checkbox
 img/sprite/icons-sprite.svg#chevrone
 img/sprite/icons-sprite.svg#close
 img/sprite/icons-sprite.svg#facebook
@@ -27,6 +29,8 @@ img/sprite/icons-sprite.svg#play-2
 img/sprite/icons-sprite.svg#play
 img/sprite/icons-sprite.svg#play_w16in24
 img/sprite/icons-sprite.svg#plus
+img/sprite/icons-sprite.svg#show-off
+img/sprite/icons-sprite.svg#show-on
 img/sprite/icons-sprite.svg#star-fill
 img/sprite/icons-sprite.svg#star
 img/sprite/icons-sprite.svg#vector

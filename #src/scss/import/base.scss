@@ -94,6 +94,7 @@ hr{
 .p-0-8{padding: 0 8px;}
 .p-32-0{padding: 32px 0;}
 .p-32{padding: 32px;}
+.p-16-0-32-0{padding: 16px 0 32px 0;}
 
 .main-p-32-16{
 	padding: 32px 16px;
@@ -101,22 +102,32 @@ hr{
 	    padding: 16px;
 	}
 }
+
 .main-p-32-8{
 	padding: 32px 8px;
 	@media (max-width:$md3+px) {
 	    padding: 16px 8px;
 	}
 }
+
 .main-p-32-0{
 	padding: 32px 0;
 	@media (max-width:$md3+px) {
 	    padding: 16px 0;
 	}
 }
+
 .main-p-64-0{
 	padding: 64px 0;
 	@media (max-width:$md3+px) {
 	    padding: 32px 0;
+	}
+}
+
+.main-pb-64{
+	padding-bottom: 64px;
+	@media (max-width:$md3+px) {
+	    padding-bottom: 32px;
 	}
 }
 
@@ -247,6 +258,15 @@ hr{
 
 //////////////////// БЛОКИ СЛОЖНЫЕ ////////////////////////
 
+.error{
+	color: $red;
+}
+
+.link{
+	color: $red;
+	@extend .text-default;
+}
+
 .btn{
 	padding: 10px 62px;
 	display: flex;
@@ -276,6 +296,10 @@ hr{
 	&.p10{
 		padding: 10px;
 	}
+	&.disabled{
+		opacity: 0.5;
+		cursor: default;
+	}
 }
 a.btn{
 	display: inline-flex;
@@ -284,9 +308,26 @@ a.btn{
 	}
 }
 
-.link{
+.btn-2{
+	text-decoration: none !important;
+	border-radius: 8px;
+	display: inline-block;
+	padding: 2px 14px;
+	border: 2px solid $red;
 	color: $red;
-	@extend .text-default;
+	@extend .text-extra-small;
+	&:hover{
+		background-color: $red;
+		color: $white;
+	}
+	&_gray{
+		border-color: $divider;
+		color: $darkGray;
+		&:hover{
+			background-color: $divider;
+			color: $darkGray;
+		}
+	}
 }
 
 .btnSec{
@@ -406,10 +447,12 @@ a.btn{
 	background-color: $black;
 	border-radius: 8px;
 	padding: 4px 16px;
+	display: inline-block;
 	color: $white;
 	@extend .text-extra-small;
-	&.bg-red{
+	&_red{
 		background-color: $red;
+		border-color: $red;
 	}
 }
 
@@ -512,6 +555,86 @@ ol.list-ol{
 		}
 	}
 }
+// --------------------- inputs --------------------------//
+
+.inputText{
+	position: relative;
+	input[type="text"], input[type="password"], textarea{
+		border: 2px solid $divider;
+		border-radius: 12px;
+		padding: 14px;
+		width: 100%;
+		font-size: 20px;
+		line-height: 24px;
+		outline: none;
+		-webkit-appearance: none;
+	    -moz-appearance: none;
+		position: relative;
+		&._error{
+			border: 2px solid $lightRed;
+		}
+	}
+	input[type="text"] + label, input[type="password"] + label, textarea + label{
+		position: absolute;
+		left: 12px;
+		top: calc(50% - 12px);
+		padding: 0 4px;
+		background-color: $white;
+		pointer-events: none;
+		font-size: 20px;
+		line-height: 24px;
+		color: $darkGray;
+		transition: all 0.2s ease 0s;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	input:focus, textarea:focus, input:not(:placeholder-shown), textarea:not(:placeholder-shown){
+		//padding: 26px 16px 6px 16px;
+	}
+	input:focus + label, textarea:focus + label, input:not(:placeholder-shown) + label, textarea:not(:placeholder-shown) + label{
+		@extend .text-footnote;
+		top: -8px;
+	}
+	textarea{
+		resize: none;
+		height: 112px;
+	}
+	textarea + label{
+		top: 8px;
+	}
+	::-webkit-input-placeholder {
+	  opacity: 0;
+	}
+}
+
+.showHidePassword{
+	position: absolute;
+	right: 16px;
+	top: 16px;
+	fill: $darkGray;
+	cursor: pointer;
+}
+
+.inputCheckbox{
+	input[type="checkbox"]{
+		visibility: hidden;
+		display: none;
+	}
+	input[type="checkbox"] + label{
+		display: flex;
+		align-items: center;
+		span{
+			padding-left: 8px;
+		}
+		.st-1{fill: $darkGray;}
+		.st-2{visibility: hidden;}
+	}
+	input[type="checkbox"]:checked + label{
+		.st-1{visibility: hidden;}
+		.st-2{visibility: visible; fill: $red;}
+	}
+}
 
 //-------------------- breadcrumbs -----------------------//
 
@@ -536,7 +659,7 @@ ol.list-ol{
 
 //---------------------- slick ------------------------//
 
-.slider{
+.slider-style-default{
 	.slick-track{
 		display: flex;
 	}
