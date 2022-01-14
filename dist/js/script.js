@@ -429,7 +429,6 @@ let errorMessage = {
 	// Задаем рейтинг продукта в звездочках
 	$(".js-rating").each(function(){
 		let rating = $(this).data('rating');
-		console.log(rating);
 		for(let i = 1; i < 6; i++){
 			let icon = i <= rating ? "star-fill" : "star";
 			$(this).append('<svg><use xlink:href="'+pathSprite+'#'+icon+'"/></svg>');
@@ -777,6 +776,7 @@ $(document).on("click", ".js-close-stories", function(){
 
 // Закрыть сторисы
 function closeStories() {
+	clearTimeout(timeoutNextSlide);
 	$('.js-stories').removeClass('active');
 	$body.removeClass('lock');
 }
