@@ -31,6 +31,12 @@ svg{
 		height: 24px;
 		display: block;
 	}
+	&.w32{
+		flex: 0 0 32px;
+		width: 32px;
+		height: 32px;
+		display: block;
+	}
 	&.w124{
 		flex: 0 0 124px;
 		width: 124px;
@@ -136,10 +142,24 @@ hr{
 	}
 }
 
+.main-pt-32-pb-128{
+	padding: 32px 0 128px 0;
+	@media (max-width:$md3+px) {
+	    padding: 16px 0 64px 0;
+	}
+}
+
 .main-pt-32-pb-16{
 	padding: 32px 0 16px 0;
 	@media (max-width:$md3+px) {
-	    padding: 16px 0 8px 0;
+	    padding: 16px 0 16px 0;
+	}
+}
+
+.main-pt-64-pb-16{
+	padding: 64px 0 16px 0;
+	@media (max-width:$md3+px) {
+	    padding: 16px 0 16px 0;
 	}
 }
 
@@ -193,6 +213,7 @@ hr{
 ///////////////////////// FLEX ////////////////////////////
 
 .d-flex{display: flex;}
+.d-inline-flex{display: inline-flex;}
 .fww{flex-wrap: wrap;}
 .fdc{flex-direction: column;}
 .md3-fww{
@@ -213,6 +234,11 @@ hr{
 	align-items: center;
 }
 
+.f-jcsb{
+	display: flex;
+	justify-content: space-between;
+}
+
 
 .f-jcsb-aic{
 	display: flex;
@@ -226,7 +252,27 @@ hr{
 	align-items: center;
 }
 
-.col-3{flex: 0 0 33.333%;}
+.d-flex-w{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.col-3{
+	flex: 0 0 33.333%;
+	@media (max-width:$md3+px) {
+	    flex: 0 0 100%;
+	}
+}
+
+.col-4{
+	flex: 0 0 25%;
+	@media (max-width:$md2+px) {
+	    flex: 0 0 50%;
+	}
+	@media (max-width:$md3+px) {
+	    flex: 0 0 100%;
+	}
+}
 
 .md3-colMax{
 	@media (max-width:$md3+px) {
@@ -236,6 +282,17 @@ hr{
 
 .flex-1{flex: 1;}
 .m0--8{margin: 0 -8px;}
+
+// ---------------- flex - разметки ------------------ //
+
+.flexMod-1{
+	&__colMin{
+		flex: 0 0 447px;
+		@media (max-width:$md2+px) {
+		    flex: 0 0 352px;
+		}
+	}
+}
 
 ///////////////////// БЛОКИ ЛЕГКИЕ ////////////////////////
 
@@ -335,19 +392,19 @@ a.btn{
 	border-radius: 8px;
 	display: inline-block;
 	padding: 2px 14px;
-	border: 2px solid $red;
-	color: $red;
+	border: 2px solid $divider;
+	color: $darkGray;
 	@extend .text-extra-small;
 	&:hover{
-		background-color: $red;
-		color: $white;
-	}
-	&_gray{
-		border-color: $divider;
+		background-color: $divider;
 		color: $darkGray;
+	}
+	&_active{
+		color: $red;
+		border-color: $red;
 		&:hover{
-			background-color: $divider;
-			color: $darkGray;
+			background-color: $red;
+			color: $white;
 		}
 	}
 }
@@ -463,6 +520,16 @@ a.btn{
 		opacity: 1;
 		visibility: visible;
 	}
+}
+
+.iconRound{
+	background-color: $lightGray;
+	border-radius: 99px;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .label{
@@ -727,31 +794,6 @@ ul.list-ul{
 	}
 }
 
-// ---------------- flex - разметки ------------------ //
-
-.flexCol3{
-	&__row{
-		display: flex;
-		flex-wrap: wrap;
-	}
-	&__col{
-		flex: 0 0 33.333%;
-		padding: 16px;
-		@media (max-width:$md3+px) {
-		    flex: 0 0 100%;
-		}
-	}
-}
-
-.flexMod-1{
-	&__colMin{
-		flex: 0 0 447px;
-		@media (max-width:$md2+px) {
-		    flex: 0 0 352px;
-		}
-	}
-}
-
 //------------------ Карточки (card) -------------------//
 
 .card-v1{
@@ -769,12 +811,12 @@ ul.list-ul{
 
 .cardImage{
 	height: 415px;
+	position: relative;
 	border-radius: 24px;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: flex-end;
-	position: relative;
 	overflow: hidden;
 	text-decoration: none !important;
 	transition: all 0.2s ease 0s;

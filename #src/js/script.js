@@ -3,6 +3,7 @@ $(document).ready(function () {
 	var isMobile = ('ontouchstart' in window);
 	const $body = $('body');
 	const BREAKPOINT_md1 = 1343;
+	const BREAKPOINT_1045 = 1044.98;
 	const BREAKPOINT_md2 = 992.98;
 	const BREAKPOINT_md3 = 767.98;
 	const BREAKPOINT_552 = 551.98;
@@ -109,6 +110,17 @@ $(document).ready(function () {
 	}
 	setTimeout(function() {detectDurationVideo();}, 10);
 
+	// Показать нужный набор
+	$(".js-goto-set").click(function(e){
+		e.preventDefault();
+		$(".js-goto-set").removeClass('btn-2_active');
+		$(this).addClass('btn-2_active');
+		let setId = $(this).data('set-id');
+
+		$('.set').removeClass('active');
+		$('.set[data-id="'+setId+'"]').addClass('active');
+	});
+
 //////////////////////// Показать картинки отзывов ////////////////////////////
 
 let $activeSlidersReviews = null;
@@ -188,6 +200,27 @@ function initSlider() {
 	}
 }
 initSlider();
+
+
+$('.js-slider-popular').slick({
+	slidesToShow: 3,
+	prevArrow: $('.popular .sliderBtn.btn-prev'),
+	nextArrow: $('.popular .sliderBtn.btn-next'),
+	responsive:[
+		{ 
+			breakpoint: BREAKPOINT_1045,
+			settings: {
+				slidesToShow: 2,
+			}
+		},{ 
+			breakpoint: BREAKPOINT_552,
+			settings: {
+				slidesToShow: 1,
+			}
+		}
+	]
+});
+
 
 // Узнать ID слайда с презентацией
 let slidePresentationID = $('.sliderBig__item .js-presentation-video').parent().index();
