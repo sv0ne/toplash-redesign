@@ -14,9 +14,23 @@ setHeightWrapScroll();
 	для .scroll__button.btn-next.
 */
 var ScrollElement = function(elem) {
+	let isResponsive = elem.hasClass('responsive');
 	var body = elem.find('.scroll__body');
-	var scroll = elem.find('.scroll__scroll');
 	var wBody = body.width();
+	if(isResponsive === true){
+		let oneElementWidth;
+		if(w > BREAKPOINT_md1){
+			oneElementWidth = (wBody - (3*16)) / 4;
+		}else if(w > BREAKPOINT_872){
+			oneElementWidth = (wBody - (4*16)) / 3;
+		}else if(w > BREAKPOINT_552){
+			oneElementWidth = (wBody - (3*16)) / 2;
+		}else{
+			oneElementWidth = (wBody - (2*16)) / 1;
+		}
+		elem.find('.cardReviews').css('width', oneElementWidth+'px');
+	}
+	var scroll = elem.find('.scroll__scroll');
 	var wScroll = scroll.width();
 	var scrollID = elem.data('scroll-id');
 	if(scrollID == undefined){ // Если кнопки управления лежат внутри .scroll
@@ -29,14 +43,25 @@ var ScrollElement = function(elem) {
 	
 	var overlay_prev = elem.find('.overlayArea-prev');
 	var overlay_next = elem.find('.overlayArea-next');
+	var paddingLeft = parseFloat(scroll.css('padding-left'));
+	var paddingRight = parseFloat(scroll.css('padding-right'));
 
 	// Просчитываем количество проскролла и выдаем scrollPosition
 	var calcPosition = function (action, direction) {
-		var diff = Math.round(scroll.width() - body.width());
+		var diff = Math.round(scroll.width() +  paddingLeft + paddingRight - body.width());
 		var scrollLeft = Math.round(body.scrollLeft());
 
 		if(action === 'buttonClick'){
-			var stepScroll = elem.width() * 80 / 100;
+			if(isResponsive){
+				if(w > BREAKPOINT_md1){
+					var stepScroll = (elem.width()+16) * 1;
+				}else{
+					var stepScroll = (elem.width()-16) * 1;
+				}
+			}else{
+				var stepScroll = elem.width() * 0.8;
+			}
+			
 			if(direction === 'next'){
 				scrollLeft += stepScroll;
 				if(scrollLeft > diff){scrollLeft = diff;}

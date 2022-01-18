@@ -53,21 +53,21 @@
 		<p class="p-16 text-huge">Самые популярные продукты Toplash:</p>
 		<div class="scroll mod-anchor" data-scroll-id="4">
 			<div class="scroll__body">
-				<ul class="scroll__scroll">
+				<ul class="scroll__scroll js-filter-slider">
 					<li class="scroll__item">
-						<a href="" class="btn-2 btn-2_active">Все сразу</a>
+						<a href="" class="btn-2 btn-2_active" data-filter="all">Все сразу</a>
 					</li>
 					<li class="scroll__item">
-						<a href="" class="btn-2">Для ресниц</a>
+						<a href="" class="btn-2" data-filter="filter-group-1">Для ресниц</a>
 					</li>
 					<li class="scroll__item">
-						<a href="" class="btn-2">Для бровей</a>
+						<a href="" class="btn-2" data-filter="filter-group-2">Для бровей</a>
 					</li>
 					<li class="scroll__item">
-						<a href="" class="btn-2">Для лица</a>
+						<a href="" class="btn-2" data-filter="filter-group-3">Для лица</a>
 					</li>
 					<li class="scroll__item">
-						<a href="" class="btn-2">Наборы</a>
+						<a href="" class="btn-2" data-filter="filter-group-4">Наборы</a>
 					</li>
 				</ul>
 			</div>
@@ -80,13 +80,15 @@
 				<button class="btnRound sliderBtn btn-next">
 					<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
 				</button>
-				<div class="useful__row js-slider-popular slider-style-default">
-					<div class="useful__col">
+				<div class="useful__row js-slider-popular slider-style-default js-hover-image-slider">
+					<div class="useful__col filter-group-1">
 						<div class="useful__card">
 							<a href="https://site.com">
 								<div class="useful__image">
 									<div class="useful__imageWrap">
 										<img src="img/card/Mascara.jpg" alt="">
+										<img src="img/card/Mascara_v2.jpg" alt="">
+										<img src="img/card/Mascara_v3.jpg" alt="">
 									</div>
 								</div>
 								<div class="useful__text nlc-mb-12 d-flex fdc flex-1">
@@ -109,7 +111,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="useful__col">
+					<div class="useful__col filter-group-3">
 						<div class="useful__card">
 							<p class="useful__label label label_red">Распродажа</p>
 							<a href="https://site2.com">
@@ -142,13 +144,15 @@
 							</div>
 						</div>
 					</div>
-					<div class="useful__col">
+					<div class="useful__col filter-group-1">
 						<div class="useful__card">
 							<p class="useful__label label">Набор</p>
 							<a href="https://site3.com">
 								<div class="useful__image">
 									<div class="useful__imageWrap">
 										<img src="img/set/03.jpg" alt="">
+										<img src="img/set/03_v2.jpg" alt="">
+										<img src="img/set/03_v3.jpg" alt="">
 									</div>
 								</div>
 								<div class="useful__text nlc-mb-12 d-flex fdc flex-1">
@@ -175,12 +179,13 @@
 							</div>
 						</div>
 					</div>
-					<div class="useful__col">
+					<div class="useful__col filter-group-4">
 						<div class="useful__card">
 							<a href="https://site.com">
 								<div class="useful__image">
 									<div class="useful__imageWrap">
-										<img src="img/card/Mascara.jpg" alt="">
+										<img src="img/card/01.png" alt="">
+										<img src="img/card/01_v2.png" alt="">
 									</div>
 								</div>
 								<div class="useful__text nlc-mb-12 d-flex fdc flex-1">
@@ -203,13 +208,13 @@
 							</div>
 						</div>
 					</div>
-					<div class="useful__col">
+					<div class="useful__col filter-group-4">
 						<div class="useful__card">
 							<p class="useful__label label label_red">Распродажа</p>
 							<a href="https://site2.com">
 								<div class="useful__image">
 									<div class="useful__imageWrap">
-										<img src="img/card/Eyeliner.jpg" alt="">
+										<img src="img/card/Rose.jpg" alt="">
 									</div>
 								</div>
 								<div class="useful__text nlc-mb-12 d-flex fdc flex-1">
@@ -236,14 +241,16 @@
 							</div>
 						</div>
 					</div>
-					<div class="useful__col">
+					<div class="useful__col filter-group-4">
 						<div class="useful__card">
 							<p class="useful__label label label_red">-25%</p>
 							<p class="useful__label label">Набор</p>
 							<a href="https://site3.com">
 								<div class="useful__image">
 									<div class="useful__imageWrap">
-										<img src="img/set/03.jpg" alt="">
+										<img src="img/set/01.jpg" alt="">
+										<img src="img/set/01_v2.jpg" alt="">
+										<img src="img/set/01_v3.jpg" alt="">
 									</div>
 								</div>
 								<div class="useful__text nlc-mb-12 d-flex fdc flex-1">
@@ -268,6 +275,118 @@
 									<span>В корзину</span>
 								</a>
 							</div>
+						</div>
+					</div>
+					<div class="useful__col filter-group-3">
+						<div class="useful__card">
+							<p class="useful__label label label_red">Распродажа</p>
+							<a href="https://site2.com">
+								<div class="useful__image">
+									<div class="useful__imageWrap">
+										<img src="img/card/02.png" alt="">
+										<img src="img/card/02_v2.png" alt="">
+										<img src="img/card/02_v3.png" alt="">
+									</div>
+								</div>
+								<div class="useful__text nlc-mb-12 d-flex fdc flex-1">
+									<div class="f-jcsb-aic">
+										<div class="js-rating rating" data-rating="2"></div>
+										<p class="text-footnote darkGray">295 отзывов</p>
+									</div>
+									<p class="text-medium">Toplash Stamp</p>
+									<p class="text-footnote flex-1">Подводка и штамп для стрелок</p>
+									<div class="f-aic">
+										<div class="oldPrice mr-8">
+											<svg><use xlink:href="img/sprite/icons-sprite.svg#vector"/></svg>
+											<span>950 ₽</span>
+										</div>
+										<p class="text-extra-small">590 ₽</p>
+									</div>
+								</div>
+							</a>
+							<div class="useful__btn">
+								<button class="btn w-100">
+									<svg class="w24 mr-8"><use xlink:href="img/sprite/icons-sprite.svg#bag"/></svg>
+									<span>В корзину</span>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="useful__col filter-group-2">
+						<div class="useful__card">
+							<p class="useful__label label label_red">Распродажа</p>
+							<a href="https://site2.com">
+								<div class="useful__image">
+									<div class="useful__imageWrap">
+										<img src="img/card/03.png" alt="">
+										<img src="img/card/03_v2.png" alt="">
+									</div>
+								</div>
+								<div class="useful__text nlc-mb-12 d-flex fdc flex-1">
+									<div class="f-jcsb-aic">
+										<div class="js-rating rating" data-rating="2"></div>
+										<p class="text-footnote darkGray">295 отзывов</p>
+									</div>
+									<p class="text-medium">Stamp Toplash</p>
+									<p class="text-footnote flex-1">Подводка и штамп для стрелок</p>
+									<div class="f-aic">
+										<div class="oldPrice mr-8">
+											<svg><use xlink:href="img/sprite/icons-sprite.svg#vector"/></svg>
+											<span>2 150 ₽</span>
+										</div>
+										<p class="text-extra-small">890 ₽</p>
+									</div>
+								</div>
+							</a>
+							<div class="useful__btn">
+								<button class="btn w-100">
+									<svg class="w24 mr-8"><use xlink:href="img/sprite/icons-sprite.svg#bag"/></svg>
+									<span>В корзину</span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="serum js-animate-item">
+		<div class="container">
+			<div class="serum__body">
+				<div class="serum__col mod-col-1">
+					<div class="serum__video">
+						<video src="video/v-05.mp4" muted disablepictureinpicture loop class="js-video-serum"></video>
+					</div>
+					<button class="serum__control js-toggle-video-serum">
+						<span class="text-extra-small mr-8">Воспроизвести</span>
+						<svg class="w24 svgWithState">
+							<use class="st-1" xlink:href="img/sprite/icons-sprite.svg#play_w16in24"></use>
+							<use class="st-2" xlink:href="img/sprite/icons-sprite.svg#pause"></use>
+						</svg>
+					</button>
+				</div>
+				<div class="serum__col mod-col-2">
+					<div class="serum__text nlc-mb-16">
+						<div class="topLil">
+							<svg class="topLil__1"><use xlink:href="img/sprite/icons-sprite.svg#lil-1"></use></svg>
+							<svg class="topLil__2"><use xlink:href="img/sprite/icons-sprite.svg#lil-1"></use></svg>
+						</div>
+						<div class="nlc-mb-32">
+							<p class="text-huge">Действие сыворотки для ресниц и бровей Toplash:</p>
+							<div class="nlc-mb-16">
+								<p>Действие высокотехнологичной формулы Toplash направлено на три фазы роста ресниц и бровей, она активизирует процессы регенерации и роcта волосков и обеспечивает им бережный уход.</p>
+								<ol class="list-ol">
+									<li>Увеличивает продолжительности фазы роста.</li>
+									<li>Ресницы и брови становятся сильнее и достигают своей максимальной длины.</li>
+									<li>Препятствует выпадению и ломкости.</li>
+								</ol>
+								<p>Всего через 21 день вызаметите результат. А если через 90 дней использования сыворотки вы не заметите роста — мы вернём деньги за покупку.</p>
+							</div>
+							<button class="btn md4-w-100">Узнать больше</button>
+						</div>
+						<div class="bottomLil">
+							<svg class="bottomLil__1"><use xlink:href="img/sprite/icons-sprite.svg#lil-2"></use></svg>
+							<svg class="bottomLil__2"><use xlink:href="img/sprite/icons-sprite.svg#lil-3"></use></svg>
 						</div>
 					</div>
 				</div>
@@ -782,7 +901,7 @@
 					<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
 				</button>
 			</div>
-			<div class="scroll" data-scroll-id="2">
+			<div class="scroll responsive" data-scroll-id="2">
 				<div class="scroll__body">
 					<ul class="scroll__scroll">
 						<li class="scroll__item">

@@ -1692,8 +1692,11 @@
 		    	padding: 10px 14px;
 		    }
 		}
-		a{
+		> a{
+			flex: 1;
 			text-decoration: none !important;
+			display: flex;
+			flex-direction: column;
 		}
 	}
 	&__body{
@@ -1729,6 +1732,36 @@
 			max-height: 100%;
 		}
 	}
+	&__hoverArea{
+		@extend .posa;
+		z-index: 120;
+		display: flex;
+		span{
+			flex: 1;
+			height: 100%;
+		}
+	}
+	&__dots{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: auto;
+		padding: 16px 12px;
+		z-index: 122;
+		display: flex;
+		span{
+			height: 3px;
+			flex: 1;
+			border-radius: 99px;
+			background-color: $lightGray;
+			margin: 0 4px;
+			&.active{
+				background-color: $red;
+			}
+		}
+
+	}
 	&__text{
 		padding: 16px 16px 12px 16px;
 	}
@@ -1746,6 +1779,9 @@
 
 .popular{
 	position: relative;
+	.useful__row{
+		display: block !important;
+	}
 	.useful__col{
 		flex: auto !important;
 		padding: 16px !important;
@@ -1755,6 +1791,24 @@
 	}
 	.useful__card{
 		box-shadow: 0px 0px 40px rgba(69, 76, 84, 0.08);
+	}
+	.useful__imageWrap{
+		&:not(.initImage){
+			img{
+				display: none;
+				&:first-child{
+					display: block;
+				}
+			}
+		}
+		&.initImage{
+			img{
+				display: none;
+				&.active{
+					display: block;
+				}
+			}
+		}
 	}
 	.slick-list {
 		padding: 16px 64px 16px 0px;
@@ -2037,6 +2091,58 @@
 		position: sticky;
 		top: 16px;
 	}
+}
+
+///////////////////////// serum ///////////////////////////
+
+.serum{
+	background-color: $lightGray;
+	&__body {
+		padding: 8px;
+		display: flex;
+		@media (max-width:$md_872+px) {
+		    flex-wrap: wrap;
+		}
+	}
+	&__col {
+		padding: 8px;
+		&.mod-col-1{
+			flex: 0 0 383px;
+			@media (max-width:$md_872+px) {
+				flex: 0 0 100%;
+			}
+		}
+		&.mod-col-2{
+			padding: 8px 8px 8px 56px;
+			flex: 1;
+			@media (max-width:$md_872+px) {
+				padding: 8px;
+			}
+		}
+	}
+	&__video {
+		width: 367px;
+		padding-top: 652px;
+		margin: -88px auto 0px auto;
+		position: relative;
+		@media (max-width:$md4+px) {
+			width: 100%;
+			padding-top: 177.65%;
+		}
+		video{
+			@extend .posa;
+			border-radius: 24px;
+		}
+	}
+	&__control{
+		display: flex;
+		align-items: center;
+		margin: 20px auto 8px auto;
+		svg{
+			fill: $black;
+		}
+	}
+	&__text {}
 }
 
 ///////////////////////// footer //////////////////////////

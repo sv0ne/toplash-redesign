@@ -328,6 +328,11 @@ hr{
 	    display: none !important;
 	}
 }
+.md4-w-100{
+	@media (max-width:$md4+px) {
+	    width: 100%;
+	}
+}
 .op-0{opacity: 0 !important;}
 .o-h{overflow: hidden;}
 .ws-n{white-space: nowrap;}
