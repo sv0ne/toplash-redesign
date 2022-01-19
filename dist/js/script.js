@@ -56,7 +56,7 @@ var ScrollElement = function(elem) {
 		}else{
 			oneElementWidth = (wBody - (2*16)) / 1;
 		}
-		elem.find('.cardReviews').css('width', oneElementWidth+'px');
+		if(w > BREAKPOINT_md3){elem.find('.cardReviews').css('width', oneElementWidth+'px');}
 	}
 	var scroll = elem.find('.scroll__scroll');
 	var wScroll = scroll.width();
@@ -83,6 +83,8 @@ var ScrollElement = function(elem) {
 			if(isResponsive){
 				if(w > BREAKPOINT_md1){
 					var stepScroll = (elem.width()+16) * 1;
+				}else if(w < BREAKPOINT_md3){
+					var stepScroll = elem.width() * 0.8;
 				}else{
 					var stepScroll = (elem.width()-16) * 1;
 				}
@@ -453,10 +455,28 @@ function closeSliderReviews() {
 	$activeSlidersReviews = null;
 }
 
-/////////////////////////////// Слайдеры //////////////////////////////////////
+/////////////////////////////// Простые слайдеры  //////////////////////////////////////
+
+// Слайдер-банер на главной странице
+$('.js-slider-baner').slick({
+	prevArrow: $('.js-slider-baner-parent .sliderBtn.btn-prev'),
+	nextArrow: $('.js-slider-baner-parent .sliderBtn.btn-next'),
+	dots: true,
+	autoplay: true,
+	autoplaySpeed: 3500
+});
+
+// Слайдер в начале страницы "страница отзывы"
+$('.js-sliderBig-reviews').slick({
+	prevArrow: $('.js-sliderBig-reviews-parent .sliderBtn.btn-prev'),
+	nextArrow: $('.js-sliderBig-reviews-parent .sliderBtn.btn-next'),
+	//autoplay: true,
+	//autoplaySpeed: 3500,
+	dots: true
+});
 
 let isInitSlick = false;
-// Slick - слайдер
+// Слайдер в блоке useful
 function initSlider() {
 	if(w < BREAKPOINT_md2){
 		if(isInitSlick === false){
@@ -484,7 +504,9 @@ function initSlider() {
 }
 initSlider();
 
-// Слайдер на главной странице: Самые популярные продукты Toplash
+//////////////// Слайдер на главной странице: Самые популярные продукты Toplash ////////////////////
+
+// Инициализация слайдера
 $('.js-slider-popular').slick({
 	slidesToShow: 3,
 	prevArrow: $('.popular .sliderBtn.btn-prev'),
@@ -557,19 +579,12 @@ $(".js-filter-slider .scroll__item a").click(function(e){
 	}
 });
 
+//////////////////// Слайдер в начале страницы "СТРАНИЦА ТОВАРА" ////////////////////////
+
 // Узнать ID слайда с презентацией
 let slidePresentationID = $('.sliderBig__item .js-presentation-video').parent().index();
 
-// Слайдер в начале страницы "страница отзывы"
-$('.js-sliderBig-reviews').slick({
-	prevArrow: $('.js-sliderBig-reviews-parent .sliderBtn.btn-prev'),
-	nextArrow: $('.js-sliderBig-reviews-parent .sliderBtn.btn-next'),
-	//autoplay: true,
-	//autoplaySpeed: 3500,
-	dots: true
-});
-
-// Слайдер в начале страницы "СТРАНИЦА ТОВАРА"
+// Инициализация слайдера
 $('.js-sliderBig').slick({
 	prevArrow: $('.product .sliderBtn.btn-prev'),
 	nextArrow: $('.product .sliderBtn.btn-next'),
@@ -714,11 +729,11 @@ $('.js-stories').on('beforeChange', function(event, slick, currentSlide, nextSli
 	let duration = null;
 	if($lastVideoPlaying !== null){
 		$lastVideoPlaying.get(0).pause();
-	    $lastVideoPlaying = null;
+	  $lastVideoPlaying = null;
 	}
 	if(isSlideWithVideo === 1){
 		duration = $video[0].duration * 1000;
-		$video.get(0).currentTime = 0;
+		$video[0].currentTime = 0;
 		$video.get(0).play();
 		$lastVideoPlaying = $video;
 	}
@@ -790,6 +805,10 @@ $(document).on("click", ".js-close-stories", function(){
 // Закрыть сторисы
 function closeStories() {
 	clearTimeout(timeoutNextSlide);
+	if($lastVideoPlaying !== null){
+		$lastVideoPlaying.get(0).pause();
+	  $lastVideoPlaying = null;
+	}
 	$('.js-stories').removeClass('active');
 	$body.removeClass('lock');
 }

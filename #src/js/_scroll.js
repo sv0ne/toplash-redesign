@@ -28,7 +28,7 @@ var ScrollElement = function(elem) {
 		}else{
 			oneElementWidth = (wBody - (2*16)) / 1;
 		}
-		elem.find('.cardReviews').css('width', oneElementWidth+'px');
+		if(w > BREAKPOINT_md3){elem.find('.cardReviews').css('width', oneElementWidth+'px');}
 	}
 	var scroll = elem.find('.scroll__scroll');
 	var wScroll = scroll.width();
@@ -55,6 +55,8 @@ var ScrollElement = function(elem) {
 			if(isResponsive){
 				if(w > BREAKPOINT_md1){
 					var stepScroll = (elem.width()+16) * 1;
+				}else if(w < BREAKPOINT_md3){
+					var stepScroll = elem.width() * 0.8;
 				}else{
 					var stepScroll = (elem.width()-16) * 1;
 				}
