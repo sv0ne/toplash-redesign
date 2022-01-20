@@ -141,6 +141,9 @@
 			}
 		}
 	}
+	.totalPrice{
+		padding: 0;
+	}
 }
 
 .warranty {
@@ -453,11 +456,6 @@
 			width: 100%;
 		}
 	}
-	&__imageItem{
-		width: 100%;
-		min-height: 100%;
-	}
-	&__content {}
 }
 
 .topLil{
@@ -689,12 +687,6 @@
 				}
 				background-color: $white;
 				padding: 16px 16px 0px 16px;
-				&.bg-red{
-					background-color: $red;
-				}
-				&.bg-lightGray{
-					background-color: $lightGray;
-				}
 				&.image1{
 					text-align: center;
 					padding: 0;
@@ -708,6 +700,8 @@
 					}
 				}
 				&.image2{
+					height: 100%;
+					vertical-align: bottom;
 					text-align: center;
 					img{
 						max-width: 107px;
@@ -1431,7 +1425,10 @@
 		background-color: $lightViolet;
 		.text-medium{color: $violet;}
 	}
-
+	&.v7{
+		background-color: $lightPink;
+		.text-medium{color: $pink;}
+	}
 	&.mod-v2{
 		align-items: flex-start;
 		justify-content: start;

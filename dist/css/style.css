@@ -358,6 +358,10 @@ hr {
   padding: 16px 0;
 }
 
+.p-16-8 {
+  padding: 16px 8px;
+}
+
 .p-0-8 {
   padding: 0 8px;
 }
@@ -446,20 +450,28 @@ hr {
   color: #ABB2BA;
 }
 
-.fillDarkGray {
-  fill: #ABB2BA !important;
+.white {
+  color: #FFFFFF;
 }
 
 .green {
   color: #17CF7B;
 }
 
-.bg-bgeen {
+.fillDarkGray {
+  fill: #ABB2BA !important;
+}
+
+.bg-green {
   background-color: #17CF7B !important;
 }
 
-.white {
-  color: #FFFFFF;
+.bg-red {
+  background-color: #E81F76 !important;
+}
+
+.bg-lightGray {
+  background-color: #F1F5F9 !important;
 }
 
 .d-flex {
@@ -671,6 +683,15 @@ hr {
 .imageArea img {
   max-width: 100%;
   max-height: 100%;
+}
+
+.imageRad24 {
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.imageRad24 img {
+  width: 100%;
 }
 
 .ta-c {
@@ -1115,6 +1136,14 @@ ol.list-ol li:before {
   counter-increment: myCounter;
   content: counter(myCounter) ".";
   color: #E81F76;
+}
+
+ol.list-ol.mod-pl-0 li {
+  padding-left: 24px;
+}
+
+ol.list-ol.mod-pl-0 li:before {
+  left: 0px;
 }
 
 ul.list-ul > *:not(:last-child) {
@@ -1649,6 +1678,10 @@ ul.list-ul li:before {
           justify-content: space-between;
 }
 
+.product .totalPrice {
+  padding: 0;
+}
+
 .warranty {
   border-radius: 24px;
   padding: 16px;
@@ -1997,11 +2030,6 @@ ul.list-ul li:before {
   width: 100%;
 }
 
-.result21__imageItem {
-  width: 100%;
-  min-height: 100%;
-}
-
 .topLil {
   margin-bottom: 16px;
 }
@@ -2227,14 +2255,6 @@ ul.list-ul li:before {
   padding: 16px 16px 0px 16px;
 }
 
-.unique__table table td.bg-red {
-  background-color: #E81F76;
-}
-
-.unique__table table td.bg-lightGray {
-  background-color: #F1F5F9;
-}
-
 .unique__table table td.image1 {
   text-align: center;
   padding: 0;
@@ -2247,6 +2267,8 @@ ul.list-ul li:before {
 }
 
 .unique__table table td.image2 {
+  height: 100%;
+  vertical-align: bottom;
   text-align: center;
 }
 
@@ -3046,6 +3068,14 @@ ul.list-ul li:before {
   color: #735CE6;
 }
 
+.cardTerms.v7 {
+  background-color: #FFEAF3;
+}
+
+.cardTerms.v7 .text-medium {
+  color: #FF93C1;
+}
+
 .cardTerms.mod-v2 {
   -webkit-box-align: start;
       -ms-flex-align: start;
@@ -3639,6 +3669,7 @@ ul.list-ul li:before {
 }
 
 .stickyBlock > * {
+  position: -webkit-sticky;
   position: sticky;
   top: 16px;
 }

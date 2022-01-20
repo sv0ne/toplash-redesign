@@ -9,7 +9,7 @@
 	<script src="js/slick.min.js"></script>
 	<script src="js/select2.min.js"></script>
 	<script src="js/script.js"></script>
-	<title>Toplash</title>
+	<title>Страница товара</title>
 </head>
 <body>
 	<header>
@@ -50,683 +50,690 @@
 	</nav>
 </header>
 	<div class="product">
-		<div class="container">
-			<div class="product__row">
-				<div class="product__col">
-					<div class="horizontalScroller">
-						<div class="sliderBig">
-							<button class="btnRound sliderBtn btn-prev">
-								<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
+	<div class="container">
+		<div class="product__row">
+			<div class="product__col">
+				<div class="horizontalScroller">
+					<div class="sliderBig">
+						<button class="btnRound sliderBtn btn-prev">
+							<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
+						</button>
+						<button class="btnRound sliderBtn btn-next">
+							<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
+						</button>
+						<div class="sliderBig__body js-sliderBig">
+							<div class="sliderBig__item">
+								<img data-lazy="img/other/01.jpg" src="" alt="">
+							</div>
+							<div class="sliderBig__item">
+								<img data-lazy="img/other/02.jpg" src="" alt="">
+							</div>
+							<div class="sliderBig__item">
+								<img data-lazy="img/other/04.jpg" src="" alt="">
+							</div>
+							<div class="sliderBig__item">
+								<img data-lazy="img/other/05.jpg" src="" alt="">
+							</div>
+							<div class="sliderBig__item">
+								<img data-lazy="img/other/06.jpg" src="" alt="">
+							</div>
+							<div class="sliderBig__item">
+								<video disablepictureinpicture src="video/v-04.mp4" mute></video>
+							</div>
+							<div class="sliderBig__item">
+								<img data-lazy="img/other/08.jpg" src="" alt="">
+							</div>
+							<div class="sliderBig__item">
+								<img data-lazy="img/other/10.jpg" src="" alt="">
+							</div>
+							<div class="sliderBig__item">
+								<img data-lazy="img/other/11.jpg" src="" alt="">
+							</div>
+							<div class="sliderBig__item">
+								<img data-lazy="img/other/12.jpg" src="" alt="">
+							</div>
+							<div class="sliderBig__item">
+								<img data-lazy="img/other/13.jpg" src="" alt="">
+							</div>
+							<div class="sliderBig__item">
+								<video class="js-presentation-video" disablepictureinpicture src="video/6.mp4" mute></video>
+							</div>
+						</div>
+					</div>
+					<div class="scrollPreview js-scrollPreview">
+						<div class="scrollPreview__body">
+							<div class="scrollPreview__item active">
+								<img src="img/other/01.jpg" alt="">
+							</div>
+							<div class="scrollPreview__item">
+								<img src="img/other/02.jpg" alt="">
+							</div>
+							<div class="scrollPreview__item">
+								<img src="img/other/04.jpg" alt="">
+							</div>
+							<div class="scrollPreview__item">
+								<img src="img/other/05.jpg" alt="">
+							</div>
+							<div class="scrollPreview__item">
+								<img src="img/other/06.jpg" alt="">
+							</div>
+							<div class="scrollPreview__item">
+								<img src="img/other/07.jpg" alt="">
+								<span class="btnRound btnPlayVideo"><svg class="w16"><use xlink:href="img/sprite/icons-sprite.svg#play"></use></svg></span>
+							</div>
+							<div class="scrollPreview__item">
+								<img src="img/other/08.jpg" alt="">
+							</div>
+							<div class="scrollPreview__item">
+								<img src="img/other/10.jpg" alt="">
+							</div>
+							<div class="scrollPreview__item">
+								<img src="img/other/11.jpg" alt="">
+							</div>
+							<div class="scrollPreview__item">
+								<img src="img/other/12.jpg" alt="">
+							</div>
+							<div class="scrollPreview__item">
+								<img src="img/other/13.jpg" alt="">
+							</div>
+							<div class="scrollPreview__item">
+								<img src="img/other/08.webp" alt="">
+								<span class="btnRound btnPlayVideo"><svg class="w16"><use xlink:href="img/sprite/icons-sprite.svg#play"></use></svg></span>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+			<div class="product__col">
+				<div class="product__holder">
+					<div class="product__content">
+						<div class="mb-16">
+							<p class="text-huge">Toplash Lash & Brow</p>
+							<p class="text-medium">Средство для роста ресниц и бровей</p>
+						</div>
+						<div class="f-jcsb-aic">
+							<button class="btnSec mb-16 mr-16 js-view-presentation-video">
+								<svg class="w16 mr-8"><use xlink:href="img/sprite/icons-sprite.svg#play"/></svg>
+								<span>Как пользоваться</span>
 							</button>
-							<button class="btnRound sliderBtn btn-next">
-								<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
-							</button>
-							<div class="sliderBig__body js-sliderBig">
-								<div class="sliderBig__item">
-									<img data-lazy="img/other/01.jpg" src="" alt="">
-								</div>
-								<div class="sliderBig__item">
-									<img data-lazy="img/other/02.jpg" src="" alt="">
-								</div>
-								<div class="sliderBig__item">
-									<img data-lazy="img/other/04.jpg" src="" alt="">
-								</div>
-								<div class="sliderBig__item">
-									<img data-lazy="img/other/05.jpg" src="" alt="">
-								</div>
-								<div class="sliderBig__item">
-									<img data-lazy="img/other/06.jpg" src="" alt="">
-								</div>
-								<div class="sliderBig__item">
-									<video disablepictureinpicture src="video/v-04.mp4" mute></video>
-								</div>
-								<div class="sliderBig__item">
-									<img data-lazy="img/other/08.jpg" src="" alt="">
-								</div>
-								<div class="sliderBig__item">
-									<img data-lazy="img/other/10.jpg" src="" alt="">
-								</div>
-								<div class="sliderBig__item">
-									<img data-lazy="img/other/11.jpg" src="" alt="">
-								</div>
-								<div class="sliderBig__item">
-									<img data-lazy="img/other/12.jpg" src="" alt="">
-								</div>
-								<div class="sliderBig__item">
-									<img data-lazy="img/other/13.jpg" src="" alt="">
-								</div>
-								<div class="sliderBig__item">
-									<video class="js-presentation-video" disablepictureinpicture src="video/6.mp4" mute></video>
-								</div>
+							<div class="f-aic mb-16">
+								<div class="js-rating rating" data-rating="5"></div>
+								<p class="ml-16 text-footnote darkGray">1 368 отзывов</p>
 							</div>
-						</div>
-						<div class="scrollPreview js-scrollPreview">
-							<div class="scrollPreview__body">
-								<div class="scrollPreview__item active">
-									<img src="img/other/01.jpg" alt="">
-								</div>
-								<div class="scrollPreview__item">
-									<img src="img/other/02.jpg" alt="">
-								</div>
-								<div class="scrollPreview__item">
-									<img src="img/other/04.jpg" alt="">
-								</div>
-								<div class="scrollPreview__item">
-									<img src="img/other/05.jpg" alt="">
-								</div>
-								<div class="scrollPreview__item">
-									<img src="img/other/06.jpg" alt="">
-								</div>
-								<div class="scrollPreview__item">
-									<img src="img/other/07.jpg" alt="">
-									<span class="btnRound btnPlayVideo"><svg class="w16"><use xlink:href="img/sprite/icons-sprite.svg#play"></use></svg></span>
-								</div>
-								<div class="scrollPreview__item">
-									<img src="img/other/08.jpg" alt="">
-								</div>
-								<div class="scrollPreview__item">
-									<img src="img/other/10.jpg" alt="">
-								</div>
-								<div class="scrollPreview__item">
-									<img src="img/other/11.jpg" alt="">
-								</div>
-								<div class="scrollPreview__item">
-									<img src="img/other/12.jpg" alt="">
-								</div>
-								<div class="scrollPreview__item">
-									<img src="img/other/13.jpg" alt="">
-								</div>
-								<div class="scrollPreview__item">
-									<img src="img/other/08.webp" alt="">
-									<span class="btnRound btnPlayVideo"><svg class="w16"><use xlink:href="img/sprite/icons-sprite.svg#play"></use></svg></span>
-								</div>
-							</div>
-						</div>
-					</div>	
-				</div>
-				<div class="product__col">
-					<div class="product__holder">
-						<div class="product__content">
-							<div class="mb-16">
-								<p class="text-huge">Toplash Lash & Brow</p>
-								<p class="text-medium">Средство для роста ресниц и бровей</p>
-							</div>
-							<div class="f-jcsb-aic">
-								<button class="btnSec mb-16 mr-16 js-view-presentation-video">
-									<svg class="w16 mr-8"><use xlink:href="img/sprite/icons-sprite.svg#play"/></svg>
-									<span>Как пользоваться</span>
-								</button>
-								<div class="f-aic mb-16">
-									<div class="js-rating rating" data-rating="5"></div>
-									<p class="ml-16 text-footnote darkGray">1 368 отзывов</p>
-								</div>
-							</div>
-							<p>Toplash – это уникальное средство 2 в 1, созданное на основе инновационных разработок в области регенерации и роста ресниц и бровей. Стимулирует процесс активного роста волосков, увеличивает объем, усиливает пигментацию, а также обеспечивает их восстановление и защиту.</p>
-						</div>
-						<div class="product__content mt-16">
-							<div class="switch">
-								<div class="switch__item">
-									<input type="radio" name="countProduct" id="countProduct-1" class="switch__input" checked>
-									<label for="countProduct-1" class="switch__label">
-										<span class="text-big">1 шт.</span>
-										<span class="text-footnote">Хватит на 3 месяца</span>
-										<span class="text-extra-small">2 290 ₽/шт.</span>
-									</label>
-								</div>
-								<div class="switch__item">
-									<input type="radio" name="countProduct" id="countProduct-2" class="switch__input">
-									<label for="countProduct-2" class="switch__label">
-										<span class="text-big">2 шт.</span>
-										<span class="text-footnote">Хватит на 6 месяцев</span>
-										<span class="discountedItem">
-											<span class="text-footnote mr-4">2 290 ₽</span>
-											<span class="text-extra-small">2 190 ₽/шт.</span>
-										</span>
-									</label>
-								</div>
-								<div class="switch__item">
-									<input type="radio" name="countProduct" id="countProduct-3" class="switch__input">
-									<label for="countProduct-3" class="switch__label">
-										<span class="text-big">3 шт.</span>
-										<span class="text-footnote">Хватит на 9 месяцев</span>
-										<span class="discountedItem">
-											<span class="text-footnote mr-4">2 290 ₽</span>
-											<span class="text-extra-small">2 090 ₽/шт.</span>
-										</span>
-									</label>
-								</div>
-							</div>
-							<button class="btn w-100 mb-16">
-								<svg class="w24 mr-8"><use xlink:href="img/sprite/icons-sprite.svg#bag"/></svg>
-								<span>В корзину</span>
-							</button>
-							<div class="warranty">
-								<img src="img/sprite/fill-sprite.svg#security" alt="">
-								<div class="warranty__text">
-									<p class="text-medium">Гарантия 90 дней</p>
-									<p>Если за это время вы оказались недовольны результатом, мы вернём все деньги.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="main-pb-64">
-		<div class="container main-p-32-8">
-			<div class="p-8">
-				<p class="text-huge mb-8">Отзывы реальных девочек.</p>
-				<p class="text-medium darkGray">Все никак не можешь решиться? Начни отсюда.</p>
-			</div>
-			<div class="reviewCategory">
-				<div class="reviewCategory__row">
-					<div class="reviewCategory__col col-max">
-						<a href="" class="reviewCategory__item active">
-							<p class="text-big mb-8">Все отзывы</p>
-							<p class="text-extra-small">4 431</p>
-						</a>
-					</div>
-					<div class="reviewCategory__col">
-						<a href="" class="reviewCategory__item">
-							<img class="h24" src="img/reviewers/ozon.svg" alt="">
-							<p>4.8 <span class="darkGray">(479)</span></p>
-						</a>
-					</div>
-					<div class="reviewCategory__col">
-						<a href="" class="reviewCategory__item">
-							<img class="h24" src="img/reviewers/ym.svg" alt="">
-							<p>4.7 <span class="darkGray">(120)</span></p>
-						</a>
-					</div>
-					<div class="reviewCategory__col">
-						<a href="" class="reviewCategory__item">
-							<img class="h24" src="img/reviewers/WB.svg" alt="">
-							<p>4.7 <span class="darkGray">(94)</span></p>
-						</a>
-					</div>
-					<div class="reviewCategory__col">
-						<a href="" class="reviewCategory__item">
-							<img class="h24" src="img/reviewers/ir.png" alt="">
-							<p>4.4 <span class="darkGray">(739)</span></p>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="f-jcsb-aic p-8">
-				<button class="js-scroll-button btnRound btn-prev" data-scroll-id="2">
-					<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
-				</button>
-				<div class="user-select2-selection-once modify-selection">
-					<select class="js-select-once-modify" name="sortReviews" data-placeholder="">
-						<option value="rand">В случайном порядке</option>
-						<option value="series">Сначала последние</option>
-					</select>
-				</div>
-				<button class="js-scroll-button btnRound btn-next" data-scroll-id="2">
-					<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
-				</button>
-			</div>
-			<div class="scroll responsive" data-scroll-id="2">
-				<div class="scroll__body">
-					<ul class="scroll__scroll">
-						<li class="scroll__item">
-							<div class="cardReviews">
-								<div class="d-flex aifs jcsb">
-									<div class="f-aic">
-										<div class="userImage mr-16">
-											<img src="img/people/03.jpg" alt="">
-											<span>К</span>
-										</div>
-										<div class="text-footnote mr-4">
-											<p class="mb-4">Кристина Боломон</p>
-											<p class="darkGray">01 апреля 2020</p>
-										</div>
-									</div>
-									<div class="js-rating rating" data-rating="4"></div>
-								</div>
-								<div class="cardReviews__content">
-									<div class="cardReviews__text">
-										<div class="textLay">
-											<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolor aut odit maxime possimus explicabo perspiciatis. Nemo cum veniam quibusdam.</p>
-										</div>
-									</div>
-									<button class="cardReviews__button"><span class="show-more">Показать больше...</span><span class="show-less">Показать меньше...</span></button>
-									<div class="cardReviews__footer f-jcsb-aic">
-										<a href="https://ssilka-na-sait-s-otzivami">
-											<img class="h24" src="img/reviewers/ozon.svg" alt="">
-										</a>
-										<a href="https://ssilka-na-tovar">
-											<img class="w80" src="img/card/01.png" alt="">
-										</a>	
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="scroll__item">
-							<div class="cardReviews">
-								<div class="d-flex aifs jcsb">
-									<div class="f-aic">
-										<div class="userImage mr-16">
-											<img src="img/people/01.jpg" alt="">
-											<span>М</span>
-										</div>
-										<div class="text-footnote mr-4">
-											<p class="mb-4">Мирослава Курильская</p>
-											<p class="darkGray">22 мая 2021</p>
-										</div>
-									</div>
-									<div class="js-rating rating" data-rating="5"></div>
-								</div>
-								<div class="cardReviews__content">
-									<div class="cardReviews__text">
-										<div class="textLay">
-											<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi praesentium, iusto temporibus ratione pariatur voluptas quod non reiciendis voluptates omnis odit aliquam laudantium, soluta dignissimos facilis beatae necessitatibus nemo quam reprehenderit aperiam commodi atque animi tempora! Minus sit, vel molestias.</p>
-										</div>
-									</div>
-									<button class="cardReviews__button"><span class="show-more">Показать больше...</span><span class="show-less">Показать меньше...</span></button>
-									<div class="cardReviews__footer f-jcsb-aic">
-										<a href="https://ssilka-na-sait-s-otzivami">
-											<img class="h24" src="img/reviewers/WB.svg" alt="">
-										</a>
-										<a href="https://ssilka-na-tovar">
-											<img class="w80" src="img/card/02.png" alt="">
-										</a>	
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="scroll__item">
-							<div class="cardReviews">
-								<div class="d-flex aifs jcsb">
-									<div class="f-aic">
-										<div class="userImage mr-16">
-											<!-- <img src="img/people/03.jpg" alt=""> -->
-											<span>А</span>
-										</div>
-										<div class="text-footnote mr-4">
-											<p class="mb-4">Анна Хук</p>
-											<p class="darkGray">18 июля 2021</p>
-										</div>
-									</div>
-									<div class="js-rating rating" data-rating="2"></div>
-								</div>
-								<div class="cardReviews__content">
-									<div class="cardReviews__text">
-										<div class="textLay">
-											<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolor aut odit maxime possimus explicabo perspiciatis. Nemo cum veniam quibusdam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam beatae neque fugit vitae tempore ipsum natus atque commodi consequuntur, est hic ducimus voluptas suscipit id quibusdam laudantium et accusantium voluptates.</p>
-										</div>
-									</div>
-									<button class="cardReviews__button"><span class="show-more">Показать больше...</span><span class="show-less">Показать меньше...</span></button>
-									<div class="cardReviews__footer f-jcsb-aic">
-										<a href="https://ssilka-na-sait-s-otzivami">
-											<img class="h24" src="img/reviewers/ym.svg" alt="">
-										</a>
-										<a href="https://ssilka-na-tovar">
-											<img class="w80" src="img/card/03.png" alt="">
-										</a>	
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="scroll__item">
-							<div class="cardReviews">
-								<div class="d-flex aifs jcsb">
-									<div class="f-aic">
-										<div class="userImage mr-16">
-											<!-- <img src="img/people/03.jpg" alt=""> -->
-											<span>А</span>
-										</div>
-										<div class="text-footnote mr-4">
-											<p class="mb-4">Анаcтасия Кухаренко</p>
-											<p class="darkGray">07 сентября 2020</p>
-										</div>
-									</div>
-									<div class="js-rating rating" data-rating="3"></div>
-								</div>
-								<div class="cardReviews__content">
-									<div class="cardReviews__text">
-										<div class="textLay">
-											<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolor aut odit maxime possimus explicabo perspiciatis. Nemo cum veniam quibusdam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam beatae neque fugit vitae tempore ipsum natus atque commodi consequuntur, est hic ducimus voluptas suscipit id quibusdam laudantium et accusantium voluptates.</p>
-										</div>
-									</div>
-									<button class="cardReviews__button"><span class="show-more">Показать больше...</span><span class="show-less">Показать меньше...</span></button>
-									<div class="cardReviews__footer f-jcsb-aic">
-										<a href="https://ssilka-na-sait-s-otzivami">
-											<img class="h24" src="img/reviewers/ir.png" alt="">
-										</a>
-										<a href="https://ssilka-na-tovar">
-											<img class="w80" src="img/cart/c-01.png" alt="">
-										</a>	
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="scroll__item">
-							<div class="cardReviews">
-								<div class="d-flex aifs jcsb">
-									<div class="f-aic">
-										<div class="userImage mr-16">
-											<!-- <img src="img/people/03.jpg" alt=""> -->
-											<span>Н</span>
-										</div>
-										<div class="text-footnote mr-4">
-											<p class="mb-4">Николетта</p>
-											<p class="darkGray">15 сентября 2019</p>
-										</div>
-									</div>
-									<div class="js-rating rating" data-rating="3"></div>
-								</div>
-								<div class="cardReviews__content">
-									<div class="cardReviews__text">
-										<div class="textLay">
-											<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolor aut odit maxime possimus explicabo perspiciatis.</p>
-										</div>
-									</div>
-									<button class="cardReviews__button"><span class="show-more">Показать больше...</span><span class="show-less">Показать меньше...</span></button>
-									<div class="cardReviews__footer f-jcsb-aic">
-										<a href="https://ssilka-na-sait-s-otzivami">
-											<img class="h24" src="img/reviewers/ir.png" alt="">
-										</a>
-										<a href="https://ssilka-na-tovar">
-											<img class="w80" src="img/card/02.png" alt="">
-										</a>	
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="scroll__item">
-							<div class="cardReviews">
-								<div class="d-flex aifs jcsb">
-									<div class="f-aic">
-										<div class="userImage mr-16">
-											<img src="img/people/03.jpg" alt="">
-											<span>К</span>
-										</div>
-										<div class="text-footnote mr-4">
-											<p class="mb-4">Кристина Боломон</p>
-											<p class="darkGray">01 апреля 2020</p>
-										</div>
-									</div>
-									<div class="js-rating rating" data-rating="4"></div>
-								</div>
-								<div class="cardReviews__content">
-									<div class="cardReviews__text">
-										<div class="textLay">
-											<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolor aut odit maxime possimus explicabo perspiciatis. Nemo cum veniam quibusdam.</p>
-										</div>
-									</div>
-									<button class="cardReviews__button"><span class="show-more">Показать больше...</span><span class="show-less">Показать меньше...</span></button>
-									<div class="cardReviews__footer f-jcsb-aic">
-										<a href="https://ssilka-na-sait-s-otzivami">
-											<img class="h24" src="img/reviewers/ozon.svg" alt="">
-										</a>
-										<a href="https://ssilka-na-tovar">
-											<img class="w80" src="img/card/01.png" alt="">
-										</a>	
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="scroll__item">
-							<div class="cardReviews">
-								<div class="d-flex aifs jcsb">
-									<div class="f-aic">
-										<div class="userImage mr-16">
-											<img src="img/people/01.jpg" alt="">
-											<span>М</span>
-										</div>
-										<div class="text-footnote mr-4">
-											<p class="mb-4">Мирослава Курильская</p>
-											<p class="darkGray">22 мая 2021</p>
-										</div>
-									</div>
-									<div class="js-rating rating" data-rating="5"></div>
-								</div>
-								<div class="cardReviews__content">
-									<div class="cardReviews__text">
-										<div class="textLay">
-											<p>Lorem ipsum dolor sit.</p>
-										</div>
-									</div>
-									<button class="cardReviews__button"><span class="show-more">Показать больше...</span><span class="show-less">Показать меньше...</span></button>
-									<div class="cardReviews__footer f-jcsb-aic">
-										<a href="https://ssilka-na-sait-s-otzivami">
-											<img class="h24" src="img/reviewers/WB.svg" alt="">
-										</a>
-										<a href="https://ssilka-na-tovar">
-											<img class="w80" src="img/card/02.png" alt="">
-										</a>	
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="scroll__item">
-							<div class="cardReviews">
-								<div class="d-flex aifs jcsb">
-									<div class="f-aic">
-										<div class="userImage mr-16">
-											<!-- <img src="img/people/03.jpg" alt=""> -->
-											<span>А</span>
-										</div>
-										<div class="text-footnote mr-4">
-											<p class="mb-4">Ана Хук</p>
-											<p class="darkGray">18 июля 2021</p>
-										</div>
-									</div>
-									<div class="js-rating rating" data-rating="2"></div>
-								</div>
-								<div class="cardReviews__content">
-									<div class="cardReviews__text">
-										<div class="textLay">
-											<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-										</div>
-									</div>
-									<button class="cardReviews__button"><span class="show-more">Показать больше...</span><span class="show-less">Показать меньше...</span></button>
-									<div class="cardReviews__footer f-jcsb-aic">
-										<a href="https://ssilka-na-sait-s-otzivami">
-											<img class="h24" src="img/reviewers/ym.svg" alt="">
-										</a>
-										<a href="https://ssilka-na-tovar">
-											<img class="w80" src="img/card/03.png" alt="">
-										</a>	
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="scroll__item">
-							<div class="cardReviews">
-								<div class="d-flex aifs jcsb">
-									<div class="f-aic">
-										<div class="userImage mr-16">
-											<!-- <img src="img/people/03.jpg" alt=""> -->
-											<span>М</span>
-										</div>
-										<div class="text-footnote mr-4">
-											<p class="mb-4">Марина Таскова</p>
-											<p class="darkGray">07 сентября 2020</p>
-										</div>
-									</div>
-									<div class="js-rating rating" data-rating="3"></div>
-								</div>
-								<div class="cardReviews__content">
-									<div class="cardReviews__text">
-										<div class="textLay">
-											<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolor aut odit maxime possimus explicabo perspiciatis. Nemo cum veniam quibusdam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam beatae neque fugit vitae tempore ipsum natus atque commodi consequuntur, est hic ducimus voluptas suscipit id quibusdam laudantium et accusantium voluptates.</p>
-										</div>
-									</div>
-									<button class="cardReviews__button"><span class="show-more">Показать больше...</span><span class="show-less">Показать меньше...</span></button>
-									<div class="cardReviews__footer f-jcsb-aic">
-										<a href="https://ssilka-na-sait-s-otzivami">
-											<img class="h24" src="img/reviewers/ir.png" alt="">
-										</a>
-										<a href="https://ssilka-na-tovar">
-											<img class="w80" src="img/card/03.png" alt="">
-										</a>	
-									</div>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="p-8">
-				<a href="https://toplash.ru/reviews" class="btn btn-inv w-100">Читать все отзывы</a>
-			</div>
-		</div>
-	</div>
-	<div class="result21">
-		<div class="container">
-			<div class="result21__row">
-				<div class="result21__col">
-					<div class="result21__image">
-						<img src="img/other/10.jpg" alt="">
-					</div>
-				</div>
-				<div class="result21__col">
-					<div class="result21__content">
-						<div class="topLil">
-							<svg class="topLil__1"><use xlink:href="img/sprite/icons-sprite.svg#lil-1"/></svg>
-							<svg class="topLil__2"><use xlink:href="img/sprite/icons-sprite.svg#lil-1"/></svg>
 						</div>
 						<div class="nlc-mb-16">
-							<p class="text-huge">Результат за 21 день — это реально!</p>
-							<p>We are committed to creating thoughtful, modern hair care treatments that serve to empower and embrace natural beauty.</p>
-							<p>Always clean ingredients, backed by science and filled with passion.</p>
+							<p>Toplash – это уникальное средство 2 в 1, созданное на основе инновационных разработок в области регенерации и роста ресниц и бровей. Стимулирует процесс активного роста волосков, увеличивает объем, усиливает пигментацию, а также обеспечивает их восстановление и защиту.</p>
+							
 						</div>
-						<div class="bottomLil">
-							<svg class="bottomLil__1"><use xlink:href="img/sprite/icons-sprite.svg#lil-2"/></svg>
-							<svg class="bottomLil__2"><use xlink:href="img/sprite/icons-sprite.svg#lil-3"/></svg>
+					</div>
+					<div class="product__content mt-16">
+						<div class="switch">
+							<div class="switch__item">
+								<input type="radio" name="countProduct" id="countProduct-1" class="switch__input" checked>
+								<label for="countProduct-1" class="switch__label">
+									<span class="text-big">1 шт.</span>
+									<span class="text-footnote">Хватит на 3 месяца</span>
+									<span class="text-extra-small">2 290 ₽/шт.</span>
+								</label>
+							</div>
+							<div class="switch__item">
+								<input type="radio" name="countProduct" id="countProduct-2" class="switch__input">
+								<label for="countProduct-2" class="switch__label">
+									<span class="text-big">2 шт.</span>
+									<span class="text-footnote">Хватит на 6 месяцев</span>
+									<span class="discountedItem">
+										<span class="text-footnote mr-4">2 290 ₽</span>
+										<span class="text-extra-small">2 190 ₽/шт.</span>
+									</span>
+								</label>
+							</div>
+							<div class="switch__item">
+								<input type="radio" name="countProduct" id="countProduct-3" class="switch__input">
+								<label for="countProduct-3" class="switch__label">
+									<span class="text-big">3 шт.</span>
+									<span class="text-footnote">Хватит на 9 месяцев</span>
+									<span class="discountedItem">
+										<span class="text-footnote mr-4">2 290 ₽</span>
+										<span class="text-extra-small">2 090 ₽/шт.</span>
+									</span>
+								</label>
+							</div>
+						</div>
+						<button class="btn w-100 mb-16">
+							<svg class="w24 mr-8"><use xlink:href="img/sprite/icons-sprite.svg#bag"/></svg>
+							<span>В корзину</span>
+						</button>
+						<div class="warranty">
+							<img src="img/sprite/fill-sprite.svg#security" alt="">
+							<div class="warranty__text">
+								<p class="text-medium">Гарантия 90 дней</p>
+								<p>Если за это время вы оказались недовольны результатом, мы вернём все деньги.</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+	<div class="main-pb-64">
+		<div class="container main-p-32-8">
+	<div class="p-8">
+		<p class="text-huge mb-8">Отзывы реальных девочек.</p>
+		<p class="text-medium darkGray">Все никак не можешь решиться? Начни отсюда.</p>
+	</div>
+	<div class="reviewCategory">
+		<div class="reviewCategory__row">
+			<div class="reviewCategory__col col-max">
+				<a href="" class="reviewCategory__item active">
+					<p class="text-big mb-8">Все отзывы</p>
+					<p class="text-extra-small">4 431</p>
+				</a>
+			</div>
+			<div class="reviewCategory__col">
+				<a href="" class="reviewCategory__item">
+					<img class="h24" src="img/reviewers/ozon.svg" alt="">
+					<p>4.8 <span class="darkGray">(479)</span></p>
+				</a>
+			</div>
+			<div class="reviewCategory__col">
+				<a href="" class="reviewCategory__item">
+					<img class="h24" src="img/reviewers/ym.svg" alt="">
+					<p>4.7 <span class="darkGray">(120)</span></p>
+				</a>
+			</div>
+			<div class="reviewCategory__col">
+				<a href="" class="reviewCategory__item">
+					<img class="h24" src="img/reviewers/WB.svg" alt="">
+					<p>4.7 <span class="darkGray">(94)</span></p>
+				</a>
+			</div>
+			<div class="reviewCategory__col">
+				<a href="" class="reviewCategory__item">
+					<img class="h24" src="img/reviewers/ir.png" alt="">
+					<p>4.4 <span class="darkGray">(739)</span></p>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="f-jcsb-aic p-8">
+		<button class="js-scroll-button btnRound btn-prev" data-scroll-id="2">
+			<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
+		</button>
+		<div class="user-select2-selection-once modify-selection">
+			<select class="js-select-once-modify" name="sortReviews" data-placeholder="">
+				<option value="rand">В случайном порядке</option>
+				<option value="series">Сначала последние</option>
+			</select>
+		</div>
+		<button class="js-scroll-button btnRound btn-next" data-scroll-id="2">
+			<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
+		</button>
+	</div>
+	<div class="scroll responsive" data-scroll-id="2">
+		<div class="scroll__body">
+			<ul class="scroll__scroll">
+				<li class="scroll__item">
+					<div class="cardReviews">
+						<div class="d-flex aifs jcsb">
+							<div class="f-aic">
+								<div class="userImage mr-16">
+									<img src="img/people/03.jpg" alt="">
+									<span>К</span>
+								</div>
+								<div class="text-footnote mr-4">
+									<p class="mb-4">Кристина Боломон</p>
+									<p class="darkGray">01 апреля 2020</p>
+								</div>
+							</div>
+							<div class="js-rating rating" data-rating="4"></div>
+						</div>
+						<div class="cardReviews__content">
+							<div class="cardReviews__text">
+								<div class="textLay">
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolor aut odit maxime possimus explicabo perspiciatis. Nemo cum veniam quibusdam.</p>
+								</div>
+							</div>
+							<button class="cardReviews__button"><span class="show-more">Показать больше...</span><span class="show-less">Показать меньше...</span></button>
+							<div class="cardReviews__footer f-jcsb-aic">
+								<a href="https://ssilka-na-sait-s-otzivami">
+									<img class="h24" src="img/reviewers/ozon.svg" alt="">
+								</a>
+								<a href="https://ssilka-na-tovar">
+									<img class="w80" src="img/card/01.png" alt="">
+								</a>	
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="scroll__item">
+					<div class="cardReviews">
+						<div class="d-flex aifs jcsb">
+							<div class="f-aic">
+								<div class="userImage mr-16">
+									<img src="img/people/01.jpg" alt="">
+									<span>М</span>
+								</div>
+								<div class="text-footnote mr-4">
+									<p class="mb-4">Мирослава Курильская</p>
+									<p class="darkGray">22 мая 2021</p>
+								</div>
+							</div>
+							<div class="js-rating rating" data-rating="5"></div>
+						</div>
+						<div class="cardReviews__content">
+							<div class="cardReviews__text">
+								<div class="textLay">
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi praesentium, iusto temporibus ratione pariatur voluptas quod non reiciendis voluptates omnis odit aliquam laudantium, soluta dignissimos facilis beatae necessitatibus nemo quam reprehenderit aperiam commodi atque animi tempora! Minus sit, vel molestias.</p>
+								</div>
+							</div>
+							<button class="cardReviews__button"><span class="show-more">Показать больше...</span><span class="show-less">Показать меньше...</span></button>
+							<div class="cardReviews__footer f-jcsb-aic">
+								<a href="https://ssilka-na-sait-s-otzivami">
+									<img class="h24" src="img/reviewers/WB.svg" alt="">
+								</a>
+								<a href="https://ssilka-na-tovar">
+									<img class="w80" src="img/card/02.png" alt="">
+								</a>	
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="scroll__item">
+					<div class="cardReviews">
+						<div class="d-flex aifs jcsb">
+							<div class="f-aic">
+								<div class="userImage mr-16">
+									<!-- <img src="img/people/03.jpg" alt=""> -->
+									<span>А</span>
+								</div>
+								<div class="text-footnote mr-4">
+									<p class="mb-4">Анна Хук</p>
+									<p class="darkGray">18 июля 2021</p>
+								</div>
+							</div>
+							<div class="js-rating rating" data-rating="2"></div>
+						</div>
+						<div class="cardReviews__content">
+							<div class="cardReviews__text">
+								<div class="textLay">
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolor aut odit maxime possimus explicabo perspiciatis. Nemo cum veniam quibusdam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam beatae neque fugit vitae tempore ipsum natus atque commodi consequuntur, est hic ducimus voluptas suscipit id quibusdam laudantium et accusantium voluptates.</p>
+								</div>
+							</div>
+							<button class="cardReviews__button"><span class="show-more">Показать больше...</span><span class="show-less">Показать меньше...</span></button>
+							<div class="cardReviews__footer f-jcsb-aic">
+								<a href="https://ssilka-na-sait-s-otzivami">
+									<img class="h24" src="img/reviewers/ym.svg" alt="">
+								</a>
+								<a href="https://ssilka-na-tovar">
+									<img class="w80" src="img/card/03.png" alt="">
+								</a>	
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="scroll__item">
+					<div class="cardReviews">
+						<div class="d-flex aifs jcsb">
+							<div class="f-aic">
+								<div class="userImage mr-16">
+									<!-- <img src="img/people/03.jpg" alt=""> -->
+									<span>А</span>
+								</div>
+								<div class="text-footnote mr-4">
+									<p class="mb-4">Анаcтасия Кухаренко</p>
+									<p class="darkGray">07 сентября 2020</p>
+								</div>
+							</div>
+							<div class="js-rating rating" data-rating="3"></div>
+						</div>
+						<div class="cardReviews__content">
+							<div class="cardReviews__text">
+								<div class="textLay">
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolor aut odit maxime possimus explicabo perspiciatis. Nemo cum veniam quibusdam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam beatae neque fugit vitae tempore ipsum natus atque commodi consequuntur, est hic ducimus voluptas suscipit id quibusdam laudantium et accusantium voluptates.</p>
+								</div>
+							</div>
+							<button class="cardReviews__button"><span class="show-more">Показать больше...</span><span class="show-less">Показать меньше...</span></button>
+							<div class="cardReviews__footer f-jcsb-aic">
+								<a href="https://ssilka-na-sait-s-otzivami">
+									<img class="h24" src="img/reviewers/ir.png" alt="">
+								</a>
+								<a href="https://ssilka-na-tovar">
+									<img class="w80" src="img/cart/c-01.png" alt="">
+								</a>	
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="scroll__item">
+					<div class="cardReviews">
+						<div class="d-flex aifs jcsb">
+							<div class="f-aic">
+								<div class="userImage mr-16">
+									<!-- <img src="img/people/03.jpg" alt=""> -->
+									<span>Н</span>
+								</div>
+								<div class="text-footnote mr-4">
+									<p class="mb-4">Николетта</p>
+									<p class="darkGray">15 сентября 2019</p>
+								</div>
+							</div>
+							<div class="js-rating rating" data-rating="3"></div>
+						</div>
+						<div class="cardReviews__content">
+							<div class="cardReviews__text">
+								<div class="textLay">
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolor aut odit maxime possimus explicabo perspiciatis.</p>
+								</div>
+							</div>
+							<button class="cardReviews__button"><span class="show-more">Показать больше...</span><span class="show-less">Показать меньше...</span></button>
+							<div class="cardReviews__footer f-jcsb-aic">
+								<a href="https://ssilka-na-sait-s-otzivami">
+									<img class="h24" src="img/reviewers/ir.png" alt="">
+								</a>
+								<a href="https://ssilka-na-tovar">
+									<img class="w80" src="img/card/02.png" alt="">
+								</a>	
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="scroll__item">
+					<div class="cardReviews">
+						<div class="d-flex aifs jcsb">
+							<div class="f-aic">
+								<div class="userImage mr-16">
+									<img src="img/people/03.jpg" alt="">
+									<span>К</span>
+								</div>
+								<div class="text-footnote mr-4">
+									<p class="mb-4">Кристина Боломон</p>
+									<p class="darkGray">01 апреля 2020</p>
+								</div>
+							</div>
+							<div class="js-rating rating" data-rating="4"></div>
+						</div>
+						<div class="cardReviews__content">
+							<div class="cardReviews__text">
+								<div class="textLay">
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolor aut odit maxime possimus explicabo perspiciatis. Nemo cum veniam quibusdam.</p>
+								</div>
+							</div>
+							<button class="cardReviews__button"><span class="show-more">Показать больше...</span><span class="show-less">Показать меньше...</span></button>
+							<div class="cardReviews__footer f-jcsb-aic">
+								<a href="https://ssilka-na-sait-s-otzivami">
+									<img class="h24" src="img/reviewers/ozon.svg" alt="">
+								</a>
+								<a href="https://ssilka-na-tovar">
+									<img class="w80" src="img/card/01.png" alt="">
+								</a>	
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="scroll__item">
+					<div class="cardReviews">
+						<div class="d-flex aifs jcsb">
+							<div class="f-aic">
+								<div class="userImage mr-16">
+									<img src="img/people/01.jpg" alt="">
+									<span>М</span>
+								</div>
+								<div class="text-footnote mr-4">
+									<p class="mb-4">Мирослава Курильская</p>
+									<p class="darkGray">22 мая 2021</p>
+								</div>
+							</div>
+							<div class="js-rating rating" data-rating="5"></div>
+						</div>
+						<div class="cardReviews__content">
+							<div class="cardReviews__text">
+								<div class="textLay">
+									<p>Lorem ipsum dolor sit.</p>
+								</div>
+							</div>
+							<button class="cardReviews__button"><span class="show-more">Показать больше...</span><span class="show-less">Показать меньше...</span></button>
+							<div class="cardReviews__footer f-jcsb-aic">
+								<a href="https://ssilka-na-sait-s-otzivami">
+									<img class="h24" src="img/reviewers/WB.svg" alt="">
+								</a>
+								<a href="https://ssilka-na-tovar">
+									<img class="w80" src="img/card/02.png" alt="">
+								</a>	
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="scroll__item">
+					<div class="cardReviews">
+						<div class="d-flex aifs jcsb">
+							<div class="f-aic">
+								<div class="userImage mr-16">
+									<!-- <img src="img/people/03.jpg" alt=""> -->
+									<span>А</span>
+								</div>
+								<div class="text-footnote mr-4">
+									<p class="mb-4">Ана Хук</p>
+									<p class="darkGray">18 июля 2021</p>
+								</div>
+							</div>
+							<div class="js-rating rating" data-rating="2"></div>
+						</div>
+						<div class="cardReviews__content">
+							<div class="cardReviews__text">
+								<div class="textLay">
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+								</div>
+							</div>
+							<button class="cardReviews__button"><span class="show-more">Показать больше...</span><span class="show-less">Показать меньше...</span></button>
+							<div class="cardReviews__footer f-jcsb-aic">
+								<a href="https://ssilka-na-sait-s-otzivami">
+									<img class="h24" src="img/reviewers/ym.svg" alt="">
+								</a>
+								<a href="https://ssilka-na-tovar">
+									<img class="w80" src="img/card/03.png" alt="">
+								</a>	
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="scroll__item">
+					<div class="cardReviews">
+						<div class="d-flex aifs jcsb">
+							<div class="f-aic">
+								<div class="userImage mr-16">
+									<!-- <img src="img/people/03.jpg" alt=""> -->
+									<span>М</span>
+								</div>
+								<div class="text-footnote mr-4">
+									<p class="mb-4">Марина Таскова</p>
+									<p class="darkGray">07 сентября 2020</p>
+								</div>
+							</div>
+							<div class="js-rating rating" data-rating="3"></div>
+						</div>
+						<div class="cardReviews__content">
+							<div class="cardReviews__text">
+								<div class="textLay">
+									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolor aut odit maxime possimus explicabo perspiciatis. Nemo cum veniam quibusdam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam beatae neque fugit vitae tempore ipsum natus atque commodi consequuntur, est hic ducimus voluptas suscipit id quibusdam laudantium et accusantium voluptates.</p>
+								</div>
+							</div>
+							<button class="cardReviews__button"><span class="show-more">Показать больше...</span><span class="show-less">Показать меньше...</span></button>
+							<div class="cardReviews__footer f-jcsb-aic">
+								<a href="https://ssilka-na-sait-s-otzivami">
+									<img class="h24" src="img/reviewers/ir.png" alt="">
+								</a>
+								<a href="https://ssilka-na-tovar">
+									<img class="w80" src="img/card/03.png" alt="">
+								</a>	
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="p-8">
+		<a href="https://toplash.ru/reviews" class="btn btn-inv w-100">Читать все отзывы</a>
+	</div>
+</div>
+	</div>
+	<div class="bg-lightGray">
+	<div class="container">
+		<div class="d-flex-md3-w aic p-8">
+			<div class="col-2 p-8">
+				<div class="imageRad24">
+					<img src="img/result21/01.jpg" alt="">
+				</div>
+			</div>
+			<div class="col-2 p-8">
+				<div>
+					<div class="topLil">
+						<svg class="topLil__1"><use xlink:href="img/sprite/icons-sprite.svg#lil-1"/></svg>
+						<svg class="topLil__2"><use xlink:href="img/sprite/icons-sprite.svg#lil-1"/></svg>
+					</div>
+					<div class="nlc-mb-16">
+						<p class="text-huge">Результат за 21 день — это реально!</p>
+						
+						  <p>We are committed to creating thoughtful, modern hair care treatments that serve to empower and embrace natural beauty.</p>
+						
+						  <p>Always clean ingredients, backed by science and filled with passion.</p>
+						
+					</div>
+					<div class="bottomLil">
+						<svg class="bottomLil__1"><use xlink:href="img/sprite/icons-sprite.svg#lil-2"/></svg>
+						<svg class="bottomLil__2"><use xlink:href="img/sprite/icons-sprite.svg#lil-3"/></svg>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 	<div class="main-p-32-0">
 		<div class="stick main-p-32-0">
-			<div class="container">
-				<p class="p-16 text-huge mb-32">Только натуральные компоненты!</p>
-				<div class="stick__image">
-					<img class="stick__desc" src="img/composition/toplash-stick.jpg" alt="">
-					<img class="stick__mob" src="img/composition/toplash-stick-vertical.jpg" alt="">
-				</div>
-			</div>
+	<div class="container">
+		<p class="p-16 text-huge mb-32">Только натуральные компоненты!</p>
+		<div class="stick__image">
+			<img class="stick__desc" src="img/composition/01.jpg" alt="">
+			<img class="stick__mob" src="img/composition/01_v.jpg" alt="">
 		</div>
+	</div>
+</div>
 		<div class="main-p-32-0 mod-v2">
-			<div class="container">
-				<p class="text-huge p-16">Почему Toplash?</p>
-				<div class="d-flex-w">
-					<div class="col-3 p-16">
-						<div class="cardTerms v4 mod-v2">
-							<img src="img/sprite/fill-sprite.svg#green-fire" alt="">
-							<p class="text-medium">Натуральный состав</p>
-							<p>Препарат прошёл исследования. Все компоненты абсолютно безопасны и гепоалергенны.</p>
-						</div>
-					</div>
-					<div class="col-3 p-16">
-						<div class="cardTerms v5 mod-v2">
-							<img src="img/sprite/fill-sprite.svg#euro" alt="">
-							<p class="text-medium">Европейское качество</p>
-							<p>Топлаш прошёл все исследования Европейской комиссии и рекомендован к использованию.</p>
-						</div>
-					</div>
-					<div class="col-3 p-16">
-						<div class="cardTerms v6 mod-v2">
-							<img src="img/sprite/fill-sprite.svg#brow" alt="">
-							<p class="text-medium">Альтернатива наращиванию</p>
-							<p>Свои, настоящие ресницы всего за 21 день — наращивание попросту больше не нужно.</p>
-						</div>
-					</div>
+	<div class="container">
+		<p class="text-huge p-16">Почему Toplash?</p>
+		<div class="d-flex-w">
+			<div class="col-3 p-16">
+				<div class="cardTerms v4 mod-v2">
+					<img src="img/sprite/fill-sprite.svg#green-fire" alt="">
+					<p class="text-medium">Натуральный состав</p>
+					<p>Препарат прошёл исследования. Все компоненты абсолютно безопасны и гепоалергенны.</p>
+				</div>
+			</div>
+			<div class="col-3 p-16">
+				<div class="cardTerms v5 mod-v2">
+					<img src="img/sprite/fill-sprite.svg#euro" alt="">
+					<p class="text-medium">Европейское качество</p>
+					<p>Топлаш прошёл все исследования Европейской комиссии и рекомендован к использованию.</p>
+				</div>
+			</div>
+			<div class="col-3 p-16">
+				<div class="cardTerms v6 mod-v2">
+					<img src="img/sprite/fill-sprite.svg#brow" alt="">
+					<p class="text-medium">Альтернатива наращиванию</p>
+					<p>Свои, настоящие ресницы всего за 21 день — наращивание попросту больше не нужно.</p>
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
 		<div class="effectSerum main-p-32-0">
-			<div class="container">
-				<p class="text-huge p-16">Эффект от сыворотки Toplash:</p>
-				<div class="effectSerum__row">
-					<div class="effectSerum__col">
-						<div class="effectSerum__label v1">
-							<div class="line line-1"></div>
-							<p class="text-huge p-16">10 дней</p>
-							<div class="line line-2"></div>
-						</div>
-						<div class="effectSerum__content">
-							<div class="effectSerum__text">
-								<svg><use xlink:href="img/sprite/fill-sprite.svg#serum10"/></svg>
-								<p>Через 10 дней ресницы и брови получают питание и начинают активный рост.</p>
-								<svg class="effectSerum__triangle"><use xlink:href="img/sprite/fill-sprite.svg#left-triangle"/></svg>
-							</div>
-						</div>
+	<div class="container">
+		<p class="text-huge p-16">Эффект от сыворотки Toplash:</p>
+		<div class="effectSerum__row">
+			<div class="effectSerum__col">
+				<div class="effectSerum__label v1">
+					<div class="line line-1"></div>
+					<p class="text-huge p-16">10 дней</p>
+					<div class="line line-2"></div>
+				</div>
+				<div class="effectSerum__content">
+					<div class="effectSerum__text">
+						<svg><use xlink:href="img/sprite/fill-sprite.svg#serum10"/></svg>
+						<p>Через 10 дней ресницы и брови получают питание и начинают активный рост.</p>
+						<svg class="effectSerum__triangle"><use xlink:href="img/sprite/fill-sprite.svg#left-triangle"/></svg>
 					</div>
-					<div class="effectSerum__col">
-						<div class="effectSerum__label v2">
-							<div class="line line-1"></div>
-							<p class="text-huge p-16">25 дней</p>
-							<div class="line line-2"></div>
-						</div>
-						<div class="effectSerum__content">
-							<div class="effectSerum__text">
-								<svg><use xlink:href="img/sprite/fill-sprite.svg#serum25"/></svg>
-								<p>Через 25 дней ресницы и брови приобретают более насыщенный цвет.</p>
-								<svg class="effectSerum__triangle"><use xlink:href="img/sprite/fill-sprite.svg#left-triangle"/></svg>
-							</div>
-						</div>
+				</div>
+			</div>
+			<div class="effectSerum__col">
+				<div class="effectSerum__label v2">
+					<div class="line line-1"></div>
+					<p class="text-huge p-16">25 дней</p>
+					<div class="line line-2"></div>
+				</div>
+				<div class="effectSerum__content">
+					<div class="effectSerum__text">
+						<svg><use xlink:href="img/sprite/fill-sprite.svg#serum25"/></svg>
+						<p>Через 25 дней ресницы и брови приобретают более насыщенный цвет.</p>
+						<svg class="effectSerum__triangle"><use xlink:href="img/sprite/fill-sprite.svg#left-triangle"/></svg>
 					</div>
-					<div class="effectSerum__col">
-						<div class="effectSerum__label v3">
-							<div class="line line-1"></div>
-							<p class="text-huge p-16">60 дней</p>
-							<div class="line line-2"></div>
-						</div>
-						<div class="effectSerum__content">
-							<div class="effectSerum__text">
-								<svg><use xlink:href="img/sprite/fill-sprite.svg#serum60"/></svg>
-								<p>Через 60 дней ресницы и брови приобретают максимальную длину, объем и насыщенный цвет.</p>
-								<svg class="effectSerum__triangle"><use xlink:href="img/sprite/fill-sprite.svg#left-triangle"/></svg>
-							</div>
-						</div>
+				</div>
+			</div>
+			<div class="effectSerum__col">
+				<div class="effectSerum__label v3">
+					<div class="line line-1"></div>
+					<p class="text-huge p-16">60 дней</p>
+					<div class="line line-2"></div>
+				</div>
+				<div class="effectSerum__content">
+					<div class="effectSerum__text">
+						<svg><use xlink:href="img/sprite/fill-sprite.svg#serum60"/></svg>
+						<p>Через 60 дней ресницы и брови приобретают максимальную длину, объем и насыщенный цвет.</p>
+						<svg class="effectSerum__triangle"><use xlink:href="img/sprite/fill-sprite.svg#left-triangle"/></svg>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+	</div>
 	<div class="unique">
-		<div class="container">
-			<div class="unique__row">
-				<div class="unique__col col-1">
-					<div class="unique__content">
-						<div class="topLil">
-							<svg class="topLil__1"><use xlink:href="img/sprite/icons-sprite.svg#lil-1"/></svg>
-							<svg class="topLil__2"><use xlink:href="img/sprite/icons-sprite.svg#lil-1"/></svg>
-						</div>
-						<div>
-							<p class="text-huge mb-32">Что делает Toplash уникальным?</p>
-							<p>Наша формула на основе пептида поддерживает естественный цикл обновления, делающий ваши ресницы длиннее, гуще и здоровее.</p>
-						</div>
-						<div class="bottomLil">
-							<svg class="bottomLil__1"><use xlink:href="img/sprite/icons-sprite.svg#lil-2"/></svg>
-							<svg class="bottomLil__2"><use xlink:href="img/sprite/icons-sprite.svg#lil-3"/></svg>
-						</div>
+	<div class="container">
+		<div class="unique__row">
+			<div class="unique__col col-1">
+				<div class="unique__content">
+					<div class="topLil">
+						<svg class="topLil__1"><use xlink:href="img/sprite/icons-sprite.svg#lil-1"/></svg>
+						<svg class="topLil__2"><use xlink:href="img/sprite/icons-sprite.svg#lil-1"/></svg>
+					</div>
+					<div>
+						<p class="text-huge mb-32">Что делает Toplash уникальным?</p>
+						<p>Наша формула на основе пептида поддерживает естественный цикл обновления, делающий ваши ресницы длиннее, гуще и здоровее.</p>
+					</div>
+					<div class="bottomLil">
+						<svg class="bottomLil__1"><use xlink:href="img/sprite/icons-sprite.svg#lil-2"/></svg>
+						<svg class="bottomLil__2"><use xlink:href="img/sprite/icons-sprite.svg#lil-3"/></svg>
 					</div>
 				</div>
-				<div class="unique__col col-2">
-					<div class="unique__table">
-						<table>
-							<tr>
-								<td class="bg-lightGray"></td>
-								<td class="image1 bg-red brad-t">
-									<img src="img/card/02.png" alt="">
-								</td>
-								<td class="image2 bg-lightGray">
-									<img src="img/card/careprost.png" alt="">
-								</td>
-							</tr>
-							<tr>
-								<td class="brad-tl">Гипоаллергенный состав</td>
-								<td class="bg-red"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
-								<td class="brad-tr"><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
-							</tr>
+			</div>
+			<div class="unique__col col-2">
+				<div class="unique__table">
+					<table>
+						<tr>
+							<td class="bg-lightGray"></td>
+							<td class="image1 bg-red brad-t">
+								<img src="img/card/02.png" alt="">
+							</td>
+							<td class="image2 bg-lightGray">
+								<img src="img/card/careprost.png" alt="">
+							</td>
+						</tr>
+						<tr>
+							<td class="brad-tl">Гипоаллергенный состав</td>
+							<td class="bg-red"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
+							<td class="brad-tr"><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
+						</tr>
+						
 							<tr>
 								<td>Природный рост</td>
 								<td class="bg-red"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
@@ -737,173 +744,173 @@
 								<td class="bg-red"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
 								<td><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
 							</tr>
-							<tr>
-								<td>Долгосрочные результаты</td>
-								<td class="bg-red"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
-								<td><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
-							</tr>
-							<tr>
-								<td>Безвреден для глаз</td>
-								<td class="bg-red"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
-								<td><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
-							</tr>
-							<tr>
-								<td>Гарантия результата</td>
-								<td class="bg-red"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
-								<td><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
-							</tr>
-						</table>
-					</div>
+						
+						<tr>
+							<td>Долгосрочные результаты</td>
+							<td class="bg-red"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
+							<td><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
+						</tr>
+						<tr>
+							<td>Безвреден для глаз</td>
+							<td class="bg-red"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
+							<td><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
+						</tr>
+						<tr>
+							<td>Гарантия результата</td>
+							<td class="bg-red"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
+							<td><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
+						</tr>
+					</table>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 	<div class="main-p-64-0">
 		<div class="warrantyWork">
-			<div class="container">
-				<div class="warrantyWork__body">
-					<div class="warrantyWork__row">
-						<div class="warrantyWork__text nlc-mb-16">
-							<img src="img/sprite/fill-sprite.svg#security" alt="">
-							<p class="text-huge">Как работает гарантия 90 дней?</p>
-							<p>Все очень просто, если вам не понравился продукт, и вы не получили ожидаемый эффект, то мы со своей стороны гарантируем возврат всей суммы заказа.</p>
-							<p class="text-medium">Почему мы так делаем?</p>
-							<p>Все очень просто, для нас самое главное это довольный покупатель. Мы стараемся выпускать только те продукты, которые будут удовлетворять ваши потребности. Каждый ваш отзыв помогает нам становиться лучше.</p>
-							<a href="" class="link">Воспользоваться гарантией</a>
-						</div>
-						<div class="warrantyWork__image">
-							<img src="img/guarantee/01.jpg" alt="">
-						</div>
-					</div>
+	<div class="container">
+		<div class="warrantyWork__body">
+			<div class="warrantyWork__row">
+				<div class="warrantyWork__text nlc-mb-16">
+					<img src="img/sprite/fill-sprite.svg#security" alt="">
+					<p class="text-huge">Как работает гарантия 90 дней?</p>
+					<p>Все очень просто, если вам не понравился продукт, и вы не получили ожидаемый эффект, то мы со своей стороны гарантируем возврат всей суммы заказа.</p>
+					<p class="text-medium">Почему мы так делаем?</p>
+					<p>Все очень просто, для нас самое главное это довольный покупатель. Мы стараемся выпускать только те продукты, которые будут удовлетворять ваши потребности. Каждый ваш отзыв помогает нам становиться лучше.</p>
+					<a href="" class="link">Воспользоваться гарантией</a>
+				</div>
+				<div class="warrantyWork__image">
+					<img src="img/guarantee/01.jpg" alt="">
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
 		<div class="faq main-p-32-0">
-			<div class="container">
-				<p class="text-huge p-16">Ответы на вопросы, которые могут у вас возникнуть:</p>
-				<div class="dropdown">
-					<div class="js-dropdown-item">
-						<div class="js-dropdown-head dropdown__head">
-							<p class="text-extra-small">Как действует Toplash Lash and Brow?</p>
-							<button class="btnRound">
-								<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#plus"/></svg>
-							</button>
-						</div>
-						<div class="nlc-mb-8 js-dropdown-body dropdown__body">
-							<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum perferendis quae nihil itaque quia exercitationem illo assumenda quis. Libero, adipisci.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<p>Lorem ipsum, dolor sit amet consectetur adipisicing, elit. Perspiciatis voluptate temporibus consectetur.</p>
-						</div>
-					</div>
-					<div class="js-dropdown-item">
-						<div class="js-dropdown-head dropdown__head">
-							<p class="text-extra-small">Какой состав у Toplash Lash and Brow?</p>
-							<button class="btnRound">
-								<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#plus"/></svg>
-							</button>
-						</div>
-						<div class="nlc-mb-8 js-dropdown-body dropdown__body">
-							<p>Lorem ipsum dolor sit.</p>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, magni numquam sed quos ipsam omnis officiis perferendis ea iste. A debitis voluptas, tenetur, quibusdam aspernatur laboriosam molestias qui in, ab magnam vitae?</p>
-							<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur rem explicabo, quidem corporis labore iusto quos.</p>
-						</div>
-					</div>
-					<div class="js-dropdown-item">
-						<div class="js-dropdown-head dropdown__head">
-							<p class="text-extra-small">Что произойдет, если прекратить использовать сыворотку Toplash Lash and Brow?</p>
-							<button class="btnRound">
-								<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#plus"/></svg>
-							</button>
-						</div>
-						<div class="nlc-mb-8 js-dropdown-body dropdown__body">
-							<p>При отсутствии постоянной поддержки ресницы и брови обновятся и приобретут свой первоначальный вид. Этого можно избежать, если продолжать наносить сыворотку несколько раз в неделю для закрепления полученных результатов.</p>
-							<p>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Hic dolore, optio quis.</p>
-							<p>Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Dolor commodi dolorem quibusdam totam autem vero excepturi voluptatum laboriosam quidem optio? Perferendis quasi recusandae eius eveniet temporibus, ipsum consequuntur illum beatae possimus, nobis.</p>
-						</div>
-					</div>
-					<div class="js-dropdown-item">
-						<div class="js-dropdown-head dropdown__head">
-							<p class="text-extra-small">Что будет, если пропустить день использования сыворотки Toplash Lash and Brow?</p>
-							<button class="btnRound">
-								<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#plus"/></svg>
-							</button>
-						</div>
-						<div class="nlc-mb-8 js-dropdown-body dropdown__body">
-							<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum perferendis quae nihil itaque quia exercitationem illo assumenda quis. Libero, adipisci.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-							<p>Lorem ipsum, dolor sit amet consectetur adipisicing, elit. Perspiciatis voluptate temporibus consectetur.</p>
-						</div>
-					</div>
-					<div class="js-dropdown-item">
-						<div class="js-dropdown-head dropdown__head">
-							<p class="text-extra-small">Можно ли пользоваться сывороткой Toplash Lash and Brow и косметикой?</p>
-							<button class="btnRound">
-								<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#plus"/></svg>
-							</button>
-						</div>
-						<div class="nlc-mb-8 js-dropdown-body dropdown__body">
-							<p>Lorem ipsum dolor sit.</p>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, magni numquam sed quos ipsam omnis officiis perferendis ea iste. A debitis voluptas, tenetur, quibusdam aspernatur laboriosam molestias qui in, ab magnam vitae?</p>
-							<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur rem explicabo, quidem corporis labore iusto quos.</p>
-						</div>
-					</div>
+	<div class="container">
+		<p class="text-huge p-16">Ответы на вопросы, которые могут у вас возникнуть:</p>
+		<div class="dropdown">
+			<div class="js-dropdown-item">
+				<div class="js-dropdown-head dropdown__head">
+					<p class="text-extra-small">Как действует Toplash Lash and Brow?</p>
+					<button class="btnRound">
+						<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#plus"/></svg>
+					</button>
+				</div>
+				<div class="nlc-mb-8 js-dropdown-body dropdown__body">
+					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum perferendis quae nihil itaque quia exercitationem illo assumenda quis. Libero, adipisci.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+					<p>Lorem ipsum, dolor sit amet consectetur adipisicing, elit. Perspiciatis voluptate temporibus consectetur.</p>
+				</div>
+			</div>
+			<div class="js-dropdown-item">
+				<div class="js-dropdown-head dropdown__head">
+					<p class="text-extra-small">Какой состав у Toplash Lash and Brow?</p>
+					<button class="btnRound">
+						<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#plus"/></svg>
+					</button>
+				</div>
+				<div class="nlc-mb-8 js-dropdown-body dropdown__body">
+					<p>Lorem ipsum dolor sit.</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, magni numquam sed quos ipsam omnis officiis perferendis ea iste. A debitis voluptas, tenetur, quibusdam aspernatur laboriosam molestias qui in, ab magnam vitae?</p>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur rem explicabo, quidem corporis labore iusto quos.</p>
+				</div>
+			</div>
+			<div class="js-dropdown-item">
+				<div class="js-dropdown-head dropdown__head">
+					<p class="text-extra-small">Что произойдет, если прекратить использовать сыворотку Toplash Lash and Brow?</p>
+					<button class="btnRound">
+						<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#plus"/></svg>
+					</button>
+				</div>
+				<div class="nlc-mb-8 js-dropdown-body dropdown__body">
+					<p>При отсутствии постоянной поддержки ресницы и брови обновятся и приобретут свой первоначальный вид. Этого можно избежать, если продолжать наносить сыворотку несколько раз в неделю для закрепления полученных результатов.</p>
+					<p>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Hic dolore, optio quis.</p>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Dolor commodi dolorem quibusdam totam autem vero excepturi voluptatum laboriosam quidem optio? Perferendis quasi recusandae eius eveniet temporibus, ipsum consequuntur illum beatae possimus, nobis.</p>
+				</div>
+			</div>
+			<div class="js-dropdown-item">
+				<div class="js-dropdown-head dropdown__head">
+					<p class="text-extra-small">Что будет, если пропустить день использования сыворотки Toplash Lash and Brow?</p>
+					<button class="btnRound">
+						<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#plus"/></svg>
+					</button>
+				</div>
+				<div class="nlc-mb-8 js-dropdown-body dropdown__body">
+					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum perferendis quae nihil itaque quia exercitationem illo assumenda quis. Libero, adipisci.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+					<p>Lorem ipsum, dolor sit amet consectetur adipisicing, elit. Perspiciatis voluptate temporibus consectetur.</p>
+				</div>
+			</div>
+			<div class="js-dropdown-item">
+				<div class="js-dropdown-head dropdown__head">
+					<p class="text-extra-small">Можно ли пользоваться сывороткой Toplash Lash and Brow и косметикой?</p>
+					<button class="btnRound">
+						<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#plus"/></svg>
+					</button>
+				</div>
+				<div class="nlc-mb-8 js-dropdown-body dropdown__body">
+					<p>Lorem ipsum dolor sit.</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, magni numquam sed quos ipsam omnis officiis perferendis ea iste. A debitis voluptas, tenetur, quibusdam aspernatur laboriosam molestias qui in, ab magnam vitae?</p>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur rem explicabo, quidem corporis labore iusto quos.</p>
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
 	</div>
 	<div class="cost">
-		<div class="container main-p-32-0">
-			<p class="text-huge p-16">Сколько стоят красивые ресницы?</p>
-			<div class="cost__row">
-				<div class="cost__col">
-					<div class="cost__text nlc-mb-16">
-						<p class="text-default">При наращивании:</p>
-						<p>Классическое наращивание обойдется вам порядка 2000-3000 рублей.</p>
-						<p>Но каждые 2-3 недели нарощенным ресницам требуется коррекция:<br>
-							1500-2500 рублей — для классического наращивания;<br> 2200-3000 рублей — для объемного.</p>
-						<p>Итого наращивание ежемесячно обойдется порядка 5 000 рублей в среднем.</p>
-						<p class="text-default">При использовании сыворотки Toplash:</p>
-						<p>Одного флакона хватает аж на 3 месяца ежедневного использования. Если разделить цену, мы получаем стоимость равную менее 700 рублей ежемесячно. Что бесспорно гораздо меньше чем при наращивании.</p>
-						<a href="" class="btn">
-							<span>Попробовать Toplash</span>
-						</a>
-					</div>
+	<div class="container main-p-32-0">
+		<p class="text-huge p-16">Сколько стоят красивые ресницы?</p>
+		<div class="cost__row">
+			<div class="cost__col">
+				<div class="cost__text nlc-mb-16">
+					<p class="text-default">При наращивании:</p>
+					<p>Классическое наращивание обойдется вам порядка 2000-3000 рублей.</p>
+					<p>Но каждые 2-3 недели нарощенным ресницам требуется коррекция:<br>
+						1500-2500 рублей — для классического наращивания;<br> 2200-3000 рублей — для объемного.</p>
+					<p>Итого наращивание ежемесячно обойдется порядка 5 000 рублей в среднем.</p>
+					<p class="text-default">При использовании сыворотки Toplash:</p>
+					<p>Одного флакона хватает аж на 3 месяца ежедневного использования. Если разделить цену, мы получаем стоимость равную менее 700 рублей ежемесячно. Что бесспорно гораздо меньше чем при наращивании.</p>
+					<a href="" class="btn">
+						<span>Попробовать Toplash</span>
+					</a>
 				</div>
-				<div class="cost__col mod2">
-					<div class="cost__smart">
-						<div class="cost__background">
-							<div class="cost__bgItem"></div>
-							<div class="cost__bgItem"></div>
-							<div class="cost__bgItem"></div>
-							<div class="cost__bgItem"></div>
-							<div class="cost__bgItem"></div>
-							<div class="cost__bgItem"></div>
-							<div class="cost__bgItem"></div>
-							<div class="cost__bgItem"></div>
-							<div class="cost__bgItem"></div>
-							<div class="cost__bgItem"></div>
-							<div class="cost__bgItem"></div>
-						</div>
-						<div class="cost__col2">
-							<div class="cost__stat1">
-								<div class="cost__wrap">
-									<svg class="w124"><use xlink:href="img/sprite/fill-sprite.svg#cost_no"/></svg>
-								</div>
-								<div class="p-32">
-									<p>При наращивании:</p>
-									<p class="text-big">Более 5 000 ₽/мес.</p>
-								</div>
+			</div>
+			<div class="cost__col mod2">
+				<div class="cost__smart">
+					<div class="cost__background">
+						<div class="cost__bgItem"></div>
+						<div class="cost__bgItem"></div>
+						<div class="cost__bgItem"></div>
+						<div class="cost__bgItem"></div>
+						<div class="cost__bgItem"></div>
+						<div class="cost__bgItem"></div>
+						<div class="cost__bgItem"></div>
+						<div class="cost__bgItem"></div>
+						<div class="cost__bgItem"></div>
+						<div class="cost__bgItem"></div>
+						<div class="cost__bgItem"></div>
+					</div>
+					<div class="cost__col2">
+						<div class="cost__stat1">
+							<div class="cost__wrap">
+								<svg class="w124"><use xlink:href="img/sprite/fill-sprite.svg#cost_no"/></svg>
+							</div>
+							<div class="p-32">
+								<p>При наращивании:</p>
+								<p class="text-big">Более 5 000 ₽/мес.</p>
 							</div>
 						</div>
-						<div class="cost__col2">
-							<div class="cost__stat2">
-								<div class="cost__wrap">
-									<svg class="w124"><use xlink:href="img/sprite/fill-sprite.svg#cost_ok"/></svg>
-								</div>
-								<div class="p-32">
-									<p>При использование Toplash:</p>
-									<p class="text-big">Менее 700 ₽/мес.</p>
-								</div>
+					</div>
+					<div class="cost__col2">
+						<div class="cost__stat2">
+							<div class="cost__wrap">
+								<svg class="w124"><use xlink:href="img/sprite/fill-sprite.svg#cost_ok"/></svg>
+							</div>
+							<div class="p-32">
+								<p>При использование Toplash:</p>
+								<p class="text-big">Менее 700 ₽/мес.</p>
 							</div>
 						</div>
 					</div>
@@ -911,6 +918,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 	<div class="main-pt-32-pb-16">
 		<div class="about main-p-32-0">
 	<div class="container">
@@ -1061,279 +1069,279 @@
 	</div>
 </div>
 		<div class="feedback">
-			<div class="container main-p-32-16">
-				<p class="p-16-0 text-huge">Отзывы и обзоры:</p>
-				<div class="feedback__item p-32-0">
-					<div class="f-jcsb-aic mb-16">
-						<div class="f-aic">
-							<div class="userImage mr-16">
-								<img src="img/people/03.jpg" alt="">
-								<span>К</span>
-							</div>
-							<p class="text-extra-small">Кристина Желяскова</p>
-						</div>
-						<div class="feedback__info">
-							<p class="darkGray mr-16 ws-n">01 апреля 2020</p>
-							<div class="js-rating rating" data-rating="5"></div>
-						</div>
+	<div class="container main-p-32-16">
+		<p class="p-16-0 text-huge">Отзывы и обзоры:</p>
+		<div class="feedback__item p-32-0">
+			<div class="f-jcsb-aic mb-16">
+				<div class="f-aic">
+					<div class="userImage mr-16">
+						<img src="img/people/03.jpg" alt="">
+						<span>К</span>
 					</div>
-					<div class="feedback__content nlc-mb-16">
-						<div>
-							<p class="text-extra-small mb-8">Достоинства</p>
-							<p>Отличный состав. Отличный вариант для подарка подружкам.</p>
-						</div>
-						<div>
-							<p class="text-extra-small mb-8">Недостатки</p>
-							<p>Не обнаружила</p>
-						</div>
-						<div>
-							<p>Сыворотка действительно работает, уже через месяц мои ресницы стали заметно длиннее, крепче. Сыворотку заказываю уже второй раз, тушь заказала впервые.</p>
-						</div>
-						<div class="imageFeedback js-detect-grid">
-							<div class="imageFeedback__item">
-								<div class="imageFeedback__wrap">
-									<img src="img/reviews/01.webp" alt="">
-								</div>
-							</div>
-							<div class="imageFeedback__item">
-								<div class="imageFeedback__wrap">
-									<img src="img/reviews/v-05.jpg" alt="">
-								</div>
-							</div>
-							<div class="imageFeedback__item">
-								<div class="imageFeedback__wrap">
-									<img src="img/reviews/04.webp" alt="">
-								</div>
-							</div>
-							<div class="imageFeedback__item">
-								<div class="imageFeedback__wrap">
-									<img src="img/reviews/05.webp" alt="">
-								</div>
-							</div>
-							<div class="imageFeedback__item">
-								<div class="imageFeedback__wrap">
-									<img src="img/reviews/03.webp" alt="">
-								</div>
-							</div>
-							<div class="imageFeedback__item">
-								<div class="imageFeedback__wrap">
-									<video playsinline poster="img/other/p-01.jpg" disablepictureinpicture src="video/v-01.mp4" mute></video>
-								</div>
-							</div>
-						</div>
-					</div>
+					<p class="text-extra-small">Кристина Желяскова</p>
 				</div>
-				<div class="feedback__item p-32-0">
-					<div class="f-jcsb-aic mb-16">
-						<div class="f-aic">
-							<div class="userImage mr-16">
-								<!-- <img src="img/people/02.jpg" alt=""> -->
-								<span>О</span>
-							</div>
-							<p class="text-extra-small">Ольга Димитриченко</p>
-						</div>
-						<div class="feedback__info">
-							<p class="darkGray mr-16 ws-n">22 ноября 2020</p>
-							<div class="js-rating rating" data-rating="4"></div>
+				<div class="feedback__info">
+					<p class="darkGray mr-16 ws-n">01 апреля 2020</p>
+					<div class="js-rating rating" data-rating="5"></div>
+				</div>
+			</div>
+			<div class="feedback__content nlc-mb-16">
+				<div>
+					<p class="text-extra-small mb-8">Достоинства</p>
+					<p>Отличный состав. Отличный вариант для подарка подружкам.</p>
+				</div>
+				<div>
+					<p class="text-extra-small mb-8">Недостатки</p>
+					<p>Не обнаружила</p>
+				</div>
+				<div>
+					<p>Сыворотка действительно работает, уже через месяц мои ресницы стали заметно длиннее, крепче. Сыворотку заказываю уже второй раз, тушь заказала впервые.</p>
+				</div>
+				<div class="imageFeedback js-detect-grid">
+					<div class="imageFeedback__item">
+						<div class="imageFeedback__wrap">
+							<img src="img/reviews/01.webp" alt="">
 						</div>
 					</div>
-					<div class="feedback__content nlc-mb-16">
-						<div>
-							<p class="text-extra-small mb-8">Достоинства</p>
-							<p>Отличный состав. Отличный вариант для подарка подружкам.</p>
-						</div>
-						<div>
-							<p class="text-extra-small mb-8">Недостатки</p>
-							<p>Нет</p>
-						</div>
-						<div>
-							<p>Купила сыворотку по рекомендации коллеги. У неё ресницы заметно стали длиннее и гуще. Я только начала пользоваться. Набор понравился, все подробно описано, есть линеечка, с помощью которой можно увидеть изменения в росте ресниц. Нужно приложить к ресницам и сфоткать до начала пользования. Ну и после курса использования так же. В наборе есть тушь для ресниц.</p>
-						</div>
-						<div class="imageFeedback js-detect-grid">
-							<div class="imageFeedback__item">
-								<div class="imageFeedback__wrap">
-									<img src="img/reviews/01.webp" alt="">
-								</div>
-							</div>
-							<div class="imageFeedback__item">
-								<div class="imageFeedback__wrap">
-									<video playsinline poster="img/other/p-02.jpg" disablepictureinpicture src="video/v-02.mp4" mute></video>
-								</div>
-							</div>
-							<div class="imageFeedback__item">
-								<div class="imageFeedback__wrap">
-									<img src="img/reviews/02.webp" alt="">
-								</div>
-							</div>
-							<div class="imageFeedback__item">
-								<div class="imageFeedback__wrap">
-									<img src="img/reviews/07.webp" alt="">
-								</div>
-							</div>
+					<div class="imageFeedback__item">
+						<div class="imageFeedback__wrap">
+							<img src="img/reviews/v-05.jpg" alt="">
 						</div>
 					</div>
-				</div>
-				<div class="feedbackSliderControls">
-					<button class="btnRound sliderBtn btn-close js-close-SliderReviews">
-						<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#close"/></svg>
-					</button>
-					<button class="btnRound sliderBtn btn-prev">	
-						<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
-					</button>
-					<button class="btnRound sliderBtn btn-next">
-						<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
-					</button>
-				</div>
-				<div class="pagination f-jcc-aic">
-					<ul class="pagination__list f-jcc-aic">
-						<li class="mob-hide"><a href="">Предыдущая</a></li>
-						<li><a href="">1</a></li>
-						<li class="active"><a href="">2</a></li>
-						<li><a href="">3</a></li>
-						<li><a href="">...</a></li>
-						<li><a href="">999</a></li>
-						<li class="mob-hide"><a href="">Следующая</a></li>
-					</ul>
+					<div class="imageFeedback__item">
+						<div class="imageFeedback__wrap">
+							<img src="img/reviews/04.webp" alt="">
+						</div>
+					</div>
+					<div class="imageFeedback__item">
+						<div class="imageFeedback__wrap">
+							<img src="img/reviews/05.webp" alt="">
+						</div>
+					</div>
+					<div class="imageFeedback__item">
+						<div class="imageFeedback__wrap">
+							<img src="img/reviews/03.webp" alt="">
+						</div>
+					</div>
+					<div class="imageFeedback__item">
+						<div class="imageFeedback__wrap">
+							<video playsinline poster="img/other/p-01.jpg" disablepictureinpicture src="video/v-01.mp4" mute></video>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
+		<div class="feedback__item p-32-0">
+			<div class="f-jcsb-aic mb-16">
+				<div class="f-aic">
+					<div class="userImage mr-16">
+						<!-- <img src="img/people/02.jpg" alt=""> -->
+						<span>О</span>
+					</div>
+					<p class="text-extra-small">Ольга Димитриченко</p>
+				</div>
+				<div class="feedback__info">
+					<p class="darkGray mr-16 ws-n">22 ноября 2020</p>
+					<div class="js-rating rating" data-rating="4"></div>
+				</div>
+			</div>
+			<div class="feedback__content nlc-mb-16">
+				<div>
+					<p class="text-extra-small mb-8">Достоинства</p>
+					<p>Отличный состав. Отличный вариант для подарка подружкам.</p>
+				</div>
+				<div>
+					<p class="text-extra-small mb-8">Недостатки</p>
+					<p>Нет</p>
+				</div>
+				<div>
+					<p>Купила сыворотку по рекомендации коллеги. У неё ресницы заметно стали длиннее и гуще. Я только начала пользоваться. Набор понравился, все подробно описано, есть линеечка, с помощью которой можно увидеть изменения в росте ресниц. Нужно приложить к ресницам и сфоткать до начала пользования. Ну и после курса использования так же. В наборе есть тушь для ресниц.</p>
+				</div>
+				<div class="imageFeedback js-detect-grid">
+					<div class="imageFeedback__item">
+						<div class="imageFeedback__wrap">
+							<img src="img/reviews/01.webp" alt="">
+						</div>
+					</div>
+					<div class="imageFeedback__item">
+						<div class="imageFeedback__wrap">
+							<video playsinline poster="img/other/p-02.jpg" disablepictureinpicture src="video/v-02.mp4" mute></video>
+						</div>
+					</div>
+					<div class="imageFeedback__item">
+						<div class="imageFeedback__wrap">
+							<img src="img/reviews/02.webp" alt="">
+						</div>
+					</div>
+					<div class="imageFeedback__item">
+						<div class="imageFeedback__wrap">
+							<img src="img/reviews/07.webp" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="feedbackSliderControls">
+			<button class="btnRound sliderBtn btn-close js-close-SliderReviews">
+				<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#close"/></svg>
+			</button>
+			<button class="btnRound sliderBtn btn-prev">	
+				<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
+			</button>
+			<button class="btnRound sliderBtn btn-next">
+				<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
+			</button>
+		</div>
+		<div class="pagination f-jcc-aic">
+			<ul class="pagination__list f-jcc-aic">
+				<li class="mob-hide"><a href="">Предыдущая</a></li>
+				<li><a href="">1</a></li>
+				<li class="active"><a href="">2</a></li>
+				<li><a href="">3</a></li>
+				<li><a href="">...</a></li>
+				<li><a href="">999</a></li>
+				<li class="mob-hide"><a href="">Следующая</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
 		<div class="main-p-32-0">
-			<div class="container">
-				<p class="text-huge p-16">Никаких рисков, только надёжность.</p>
-				<div class="d-flex-w">
-					<div class="col-3 p-16">
-						<div class="cardTerms v1">
-							<img src="img/sprite/fill-sprite.svg#delivery" alt="">
-							<p class="text-medium">Бесплатная доставка от 2 000 ₽</p>
-						</div>
-					</div>
-					<div class="col-3 p-16">
-						<div class="cardTerms v2">
-							<img src="img/sprite/fill-sprite.svg#revers" alt="">
-							<p class="text-medium">Легкий возврат</p>
-						</div>
-					</div>
-					<div class="col-3 p-16">
-						<div class="cardTerms v3">
-							<img src="img/sprite/fill-sprite.svg#security" alt="">
-							<p class="text-medium">Гарантия 90 дней</p>
-						</div>
-					</div>
+	<div class="container">
+		<p class="text-huge p-16">Никаких рисков, только надёжность.</p>
+		<div class="d-flex-w">
+			<div class="col-3 p-16">
+				<div class="cardTerms v1">
+					<img src="img/sprite/fill-sprite.svg#delivery" alt="">
+					<p class="text-medium">Бесплатная доставка от 2 000 ₽</p>
+				</div>
+			</div>
+			<div class="col-3 p-16">
+				<div class="cardTerms v2">
+					<img src="img/sprite/fill-sprite.svg#revers" alt="">
+					<p class="text-medium">Легкий возврат</p>
+				</div>
+			</div>
+			<div class="col-3 p-16">
+				<div class="cardTerms v3">
+					<img src="img/sprite/fill-sprite.svg#security" alt="">
+					<p class="text-medium">Гарантия 90 дней</p>
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
 		<div class="useful">
-			<div class="container">
-				<div class="p-16">
-					<p class="text-huge mb-8">Вам может пригодиться:</p>
-					<p class="darkGray">Чаще всего покупают вместе с Toplash lash and brow</p>
+	<div class="container">
+		<div class="p-16">
+			<p class="text-huge mb-8">Вам может пригодиться:</p>
+			<p class="darkGray">Чаще всего покупают вместе с Toplash lash and brow</p>
+		</div>
+		<div class="useful__body">
+			<button class="btnRound sliderBtn btn-prev">
+				<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
+			</button>
+			<button class="btnRound sliderBtn btn-next">
+				<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
+			</button>
+			<div class="useful__row js-slider-useful slider-style-default">
+				<div class="useful__col">
+					<div class="useful__card">
+						<a href="https://site.com">
+							<div class="useful__image">
+								<div class="useful__imageWrap">
+									<img src="img/card/Mascara.jpg" alt="">
+								</div>
+							</div>
+							<div class="useful__text nlc-mb-12 d-flex fdc flex-1">
+								<div class="f-jcsb-aic">
+									<div class="js-rating rating" data-rating="5"></div>
+									<p class="text-footnote darkGray">874 отзывов</p>
+								</div>
+								<p class="text-medium">Toplash Extra Ebony Mascara</p>
+								<p class="text-footnote flex-1">Тушь с эффектом удлинения</p>
+								<div class="f-aic">
+									<p class="text-extra-small">890 ₽</p>
+								</div>
+							</div>
+						</a>
+						<div class="useful__btn">
+							<button class="btn w-100">
+								<svg class="w24 mr-8"><use xlink:href="img/sprite/icons-sprite.svg#bag"/></svg>
+								<span>В корзину</span>
+							</button>
+						</div>
+					</div>
 				</div>
-				<div class="useful__body">
-					<button class="btnRound sliderBtn btn-prev">
-						<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
-					</button>
-					<button class="btnRound sliderBtn btn-next">
-						<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
-					</button>
-					<div class="useful__row js-slider-useful slider-style-default">
-						<div class="useful__col">
-							<div class="useful__card">
-								<a href="https://site.com">
-									<div class="useful__image">
-										<div class="useful__imageWrap">
-											<img src="img/card/Mascara.jpg" alt="">
-										</div>
-									</div>
-									<div class="useful__text nlc-mb-12 d-flex fdc flex-1">
-										<div class="f-jcsb-aic">
-											<div class="js-rating rating" data-rating="5"></div>
-											<p class="text-footnote darkGray">874 отзывов</p>
-										</div>
-										<p class="text-medium">Toplash Extra Ebony Mascara</p>
-										<p class="text-footnote flex-1">Тушь с эффектом удлинения</p>
-										<div class="f-aic">
-											<p class="text-extra-small">890 ₽</p>
-										</div>
-									</div>
-								</a>
-								<div class="useful__btn">
-									<button class="btn w-100">
-										<svg class="w24 mr-8"><use xlink:href="img/sprite/icons-sprite.svg#bag"/></svg>
-										<span>В корзину</span>
-									</button>
+				<div class="useful__col">
+					<div class="useful__card">
+						<p class="useful__label label label_red">Распродажа</p>
+						<a href="https://site2.com">
+							<div class="useful__image">
+								<div class="useful__imageWrap">
+									<img src="img/card/Eyeliner.jpg" alt="">
 								</div>
 							</div>
+							<div class="useful__text nlc-mb-12 d-flex fdc flex-1">
+								<div class="f-jcsb-aic">
+									<div class="js-rating rating" data-rating="2"></div>
+									<p class="text-footnote darkGray">295 отзывов</p>
+								</div>
+								<p class="text-medium">Toplash Eyeliner and Wing Stamp</p>
+								<p class="text-footnote flex-1">Подводка и штамп для стрелок</p>
+								<div class="f-aic">
+									<div class="oldPrice mr-8">
+										<svg><use xlink:href="img/sprite/icons-sprite.svg#vector"/></svg>
+										<span>750 ₽</span>
+									</div>
+									<p class="text-extra-small">890 ₽</p>
+								</div>
+							</div>
+						</a>
+						<div class="useful__btn">
+							<button class="btn w-100">
+								<svg class="w24 mr-8"><use xlink:href="img/sprite/icons-sprite.svg#bag"/></svg>
+								<span>В корзину</span>
+							</button>
 						</div>
-						<div class="useful__col">
-							<div class="useful__card">
-								<p class="useful__label label label_red">Распродажа</p>
-								<a href="https://site2.com">
-									<div class="useful__image">
-										<div class="useful__imageWrap">
-											<img src="img/card/Eyeliner.jpg" alt="">
-										</div>
-									</div>
-									<div class="useful__text nlc-mb-12 d-flex fdc flex-1">
-										<div class="f-jcsb-aic">
-											<div class="js-rating rating" data-rating="2"></div>
-											<p class="text-footnote darkGray">295 отзывов</p>
-										</div>
-										<p class="text-medium">Toplash Eyeliner and Wing Stamp</p>
-										<p class="text-footnote flex-1">Подводка и штамп для стрелок</p>
-										<div class="f-aic">
-											<div class="oldPrice mr-8">
-												<svg><use xlink:href="img/sprite/icons-sprite.svg#vector"/></svg>
-												<span>750 ₽</span>
-											</div>
-											<p class="text-extra-small">890 ₽</p>
-										</div>
-									</div>
-								</a>
-								<div class="useful__btn">
-									<button class="btn w-100">
-										<svg class="w24 mr-8"><use xlink:href="img/sprite/icons-sprite.svg#bag"/></svg>
-										<span>В корзину</span>
-									</button>
+					</div>
+				</div>
+				<div class="useful__col">
+					<div class="useful__card">
+						<p class="useful__label label">Набор</p>
+						<a href="https://site3.com">
+							<div class="useful__image">
+								<div class="useful__imageWrap">
+									<img src="img/set/03.jpg" alt="">
 								</div>
 							</div>
-						</div>
-						<div class="useful__col">
-							<div class="useful__card">
-								<p class="useful__label label">Набор</p>
-								<a href="https://site3.com">
-									<div class="useful__image">
-										<div class="useful__imageWrap">
-											<img src="img/set/03.jpg" alt="">
-										</div>
+							<div class="useful__text nlc-mb-12 d-flex fdc flex-1">
+								<div class="f-jcsb-aic">
+									<div class="js-rating rating" data-rating="3"></div>
+									<p class="text-footnote darkGray">1 368 отзывов</p>
+								</div>
+								<p class="text-medium">Toplash Lash Set</p>
+								<p class="text-footnote flex-1">Набор для ухода за ресницами</p>
+								<div class="f-aic">
+									<div class="oldPrice mr-8">
+										<svg><use xlink:href="img/sprite/icons-sprite.svg#vector"/></svg>
+										<span>750 ₽</span>
 									</div>
-									<div class="useful__text nlc-mb-12 d-flex fdc flex-1">
-										<div class="f-jcsb-aic">
-											<div class="js-rating rating" data-rating="3"></div>
-											<p class="text-footnote darkGray">1 368 отзывов</p>
-										</div>
-										<p class="text-medium">Toplash Lash Set</p>
-										<p class="text-footnote flex-1">Набор для ухода за ресницами</p>
-										<div class="f-aic">
-											<div class="oldPrice mr-8">
-												<svg><use xlink:href="img/sprite/icons-sprite.svg#vector"/></svg>
-												<span>750 ₽</span>
-											</div>
-											<p class="text-extra-small">890 ₽</p>
-										</div>
-									</div>
-								</a>
-								<div class="useful__btn">
-									<a class="btn w-100" href="https://fiss.com">
-										<svg class="w24 mr-8"><use xlink:href="img/sprite/icons-sprite.svg#bag"/></svg>
-										<span>В корзину</span>
-									</a>
+									<p class="text-extra-small">890 ₽</p>
 								</div>
 							</div>
+						</a>
+						<div class="useful__btn">
+							<a class="btn w-100" href="https://fiss.com">
+								<svg class="w24 mr-8"><use xlink:href="img/sprite/icons-sprite.svg#bag"/></svg>
+								<span>В корзину</span>
+							</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
 		<div class="main-p-32-16 f-jcc-aic">
 			<button class="btn btn-inv js-goto-top md4-w-100">Вернуться наверх</button>
 		</div>

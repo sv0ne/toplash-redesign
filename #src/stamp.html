@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/select2.min.css">
+	<script src="js/jquery-3.5.1.min.js"></script>
+	<script src="js/slick.min.js"></script>
+	<script src="js/select2.min.js"></script>
+	<script src="js/script.js"></script>
+	<title>Штамп</title>
+</head>
+<body>
+	@@include('blocks/common/header.html')
+	@@include('blocks/productPage/product.html', {"isPageSet": false})
+	<div class="main-pb-64">
+		@@include('blocks/productPage/reviews.html')
+	</div>
+	@@include('blocks/productPage/result21.html', {
+		"imageSrc": "img/result21/04.jpg",
+		"title": "Идеальные стрелки за несколько секунд — это легко!",
+		"text": ["We are committed to creating thoughtful, modern hair care treatments that serve to empower and embrace natural beauty.", "Always clean ingredients, backed by science and filled with passion."]
+	})
+	<div class="main-p-32-0">
+		@@include('blocks/productPage/whyToplash.html',{
+			items: {
+				"1": {
+					"icon": "green-fire",
+					"cardClass": "v4",
+					"label": "Натуральный состав",
+					"text": "Препарат прошёл исследования. Все компоненты абсолютно безопасны и гепоалергенны."
+				},
+				"2": {
+					"icon": "euro",
+					"cardClass": "v5",
+					"label": "Европейское качество",
+					"text": "Топлаш прошёл все исследования Европейской комиссии и рекомендован к использованию."
+				},
+				"3": {
+					"icon": "big-ok",
+					"cardClass": "v6",
+					"label": "Гарантированный эффект",
+					"text": "Все препараты проходят тестирование и показывают заметный эффект у подавляющего большенства женщин."
+				}
+			}
+		})
+	</div>
+	@@include('blocks/productPage/stamp-block-X.html')
+	<div class="main-p-64-0">
+		@@include('blocks/productPage/warrantyWork.html',{
+			"imageSrc": "img/guarantee/03.jpg"
+		})
+		@@include('blocks/productPage/faq.html')
+	</div>
+	<div class="main-pt-32-pb-16">
+		@@include('blocks/productPage/stories.html')
+		@@include('blocks/productPage/feedback.html')
+		@@include('blocks/productPage/terms.html')
+		@@include('blocks/productPage/useful.html')
+		<div class="main-p-32-16 f-jcc-aic">
+			<button class="btn btn-inv js-goto-top md4-w-100">Вернуться наверх</button>
+		</div>
+	</div>
+	@@include('blocks/common/footer.html')
+	<script>
+		pathSprite = "img/sprite/icons-sprite.svg"; // Путь к спрайту с иконками
+	</script>
+</body>
+</html>
