@@ -984,6 +984,24 @@ $(".js-goto-set").click(function(e){
 	$('.set[data-id="'+setId+'"]').addClass('active');
 });
 
+// Копирование текста в буфер обмена
+function copy_in_buffer(txt) {
+	var $tmp = $("<textarea>");
+	$("body").append($tmp);
+	$tmp.val(txt).select();
+	document.execCommand("copy");
+	$tmp.remove();
+}
+
+// Клик на скопировать ссылку
+$(".js-copy-text").click(function(){
+	let txt = $(this).data('copy-text');
+	let msg = $(this).data('copy-message');
+	copy_in_buffer(txt);
+	$('.simpleMessage').remove();
+	$body.append('<div class="simpleMessage">'+msg+'</div>');
+});
+
 /////////////////////////////////////////////////////////////////////////////////////////
 
 	$(document).on("click", function(e){

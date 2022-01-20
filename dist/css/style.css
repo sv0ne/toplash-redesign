@@ -9,30 +9,6 @@
 }
 
 @font-face {
-  font-family: "FuturaPT-Heavy";
-  font-display: swap;
-  src: url("../fonts/FuturaPT-Heavy.woff") format("woff"), url("../fonts/FuturaPT-Heavy.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "FuturaPT-Medium";
-  font-display: swap;
-  src: url("../fonts/FuturaPT-Medium.woff") format("woff"), url("../fonts/FuturaPT-Medium.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "FuturaPT-ExtraBold";
-  font-display: swap;
-  src: url("../fonts/FuturaPT-ExtraBold.woff") format("woff"), url("../fonts/FuturaPT-ExtraBold.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "FuturaPT-Book";
   font-display: swap;
   src: url("../fonts/FuturaPT-Book.woff") format("woff"), url("../fonts/FuturaPT-Book.woff2") format("woff2");
@@ -49,9 +25,33 @@
 }
 
 @font-face {
+  font-family: "FuturaPT-ExtraBold";
+  font-display: swap;
+  src: url("../fonts/FuturaPT-ExtraBold.woff") format("woff"), url("../fonts/FuturaPT-ExtraBold.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaPT-Heavy";
+  font-display: swap;
+  src: url("../fonts/FuturaPT-Heavy.woff") format("woff"), url("../fonts/FuturaPT-Heavy.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "FuturaPT-Light";
   font-display: swap;
   src: url("../fonts/FuturaPT-Light.woff") format("woff"), url("../fonts/FuturaPT-Light.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaPT-Medium";
+  font-display: swap;
+  src: url("../fonts/FuturaPT-Medium.woff") format("woff"), url("../fonts/FuturaPT-Medium.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -450,6 +450,18 @@ hr {
   fill: #ABB2BA !important;
 }
 
+.green {
+  color: #17CF7B;
+}
+
+.bg-bgeen {
+  background-color: #17CF7B !important;
+}
+
+.white {
+  color: #FFFFFF;
+}
+
 .d-flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -555,6 +567,18 @@ hr {
       flex-wrap: wrap;
 }
 
+.d-flex-md3-w {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.col-2 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+}
+
 .col-3 {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 33.333%;
@@ -584,10 +608,10 @@ hr {
 }
 
 .posa,
+.userImage img,
 .cardImage img,
 .cardImage:after,
 .sliderBig__body,
-.userImage img,
 .cost__background,
 .about__text,
 .stories__body,
@@ -628,6 +652,25 @@ hr {
       -ms-flex-align: center;
           align-items: center;
   background-color: #FFFFFF;
+}
+
+.imageArea {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.imageArea img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .ta-c {
@@ -1123,6 +1166,7 @@ ul.list-ul li:before {
 .inputText input[type="text"] + label,
 .inputText input[type="password"] + label,
 .inputText textarea + label {
+  max-width: calc(100% - 16px);
   position: absolute;
   left: 12px;
   top: calc(50% - 12px);
@@ -1139,6 +1183,12 @@ ul.list-ul li:before {
   overflow: hidden;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
+}
+
+.inputText input[type="text"]:disabled + label,
+.inputText input[type="password"]:disabled + label,
+.inputText textarea:disabled + label {
+  background-color: transparent;
 }
 
 .inputText input:not(:-moz-placeholder-shown) + label, .inputText textarea:not(:-moz-placeholder-shown) + label {
@@ -1169,12 +1219,113 @@ ul.list-ul li:before {
   opacity: 0;
 }
 
+.inputText.hidePlaceholder input:not(:-moz-placeholder-shown) + label, .inputText.hidePlaceholder textarea:not(:-moz-placeholder-shown) + label {
+  display: none;
+}
+
+.inputText.hidePlaceholder input:not(:-ms-input-placeholder) + label, .inputText.hidePlaceholder textarea:not(:-ms-input-placeholder) + label {
+  display: none;
+}
+
+.inputText.hidePlaceholder input:focus + label,
+.inputText.hidePlaceholder textarea:focus + label,
+.inputText.hidePlaceholder input:not(:placeholder-shown) + label,
+.inputText.hidePlaceholder textarea:not(:placeholder-shown) + label {
+  display: none;
+}
+
+.inputBtn {
+  display: inline-block;
+  text-decoration: none !important;
+  cursor: pointer;
+  background-color: #E81F76;
+  color: #FFFFFF;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.inputBtn:hover {
+  opacity: 0.8;
+}
+
+.inputTextBtn {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.inputTextBtn .inputText {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.inputTextBtn .inputText input[type="text"],
+.inputTextBtn .inputText input[type="password"],
+.inputTextBtn .inputText textarea {
+  border-radius: 12px 0px 0px 12px;
+}
+
+.inputTextBtn .inputBtn {
+  border-radius: 0px 12px 12px 0px;
+}
+
 .showHidePassword {
   position: absolute;
   right: 16px;
   top: 16px;
   fill: #ABB2BA;
   cursor: pointer;
+}
+
+.simpleMessage {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  -webkit-transform: translate(-50%, calc(105% + 16px));
+      -ms-transform: translate(-50%, calc(105% + 16px));
+          transform: translate(-50%, calc(105% + 16px));
+  background-color: #E81F76;
+  color: #FFFFFF;
+  padding: 16px;
+  border-radius: 12px;
+  -webkit-animation: simpleMessage 2s forwards 0s ease;
+          animation: simpleMessage 2s forwards 0s ease;
+}
+
+@-webkit-keyframes simpleMessage {
+  20% {
+    -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+  }
+
+  80% {
+    -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+  }
+
+  100% {
+    -webkit-transform: translate(-50%, calc(105% + 16px));
+            transform: translate(-50%, calc(105% + 16px));
+  }
+}
+
+@keyframes simpleMessage {
+  20% {
+    -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+  }
+
+  80% {
+    -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+  }
+
+  100% {
+    -webkit-transform: translate(-50%, calc(105% + 16px));
+            transform: translate(-50%, calc(105% + 16px));
+  }
 }
 
 .inputCheckbox input[type="checkbox"] {
@@ -1210,6 +1361,46 @@ ul.list-ul li:before {
 .inputCheckbox input[type="checkbox"]:checked + label .st-2 {
   visibility: visible;
   fill: #E81F76;
+}
+
+.userImage {
+  border-radius: 99px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 40px;
+          flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.userImage span {
+  background-color: #E81F76;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #FFFFFF;
+}
+
+.userImage img + span {
+  display: none;
 }
 
 .breadcrumbs__link:not(:first-child) {
@@ -1587,6 +1778,13 @@ ul.list-ul li:before {
   height: 100%;
 }
 
+.lottery__svg {
+  width: 290px;
+  height: 200px;
+  margin-top: -132px;
+  margin-bottom: 30px;
+}
+
 .reviews__row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1767,34 +1965,6 @@ ul.list-ul li:before {
 
 .cardReviews__footer {
   height: 80px;
-}
-
-.userImage {
-  border-radius: 99px;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 40px;
-          flex: 0 0 40px;
-  width: 40px;
-  height: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  overflow: hidden;
-  position: relative;
-}
-
-.userImage.notImage {
-  background-color: #E81F76;
-}
-
-.userImage span {
-  color: #FFFFFF;
 }
 
 .result21 {
@@ -3382,21 +3552,6 @@ ul.list-ul li:before {
   top: 88px;
 }
 
-.easyEarn__row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.easyEarn__col {
-  padding: 16px;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 50%;
-          flex: 0 0 50%;
-}
-
 .easyEarn__card {
   border-radius: 24px;
   background-color: #3372FF;
@@ -3484,7 +3639,6 @@ ul.list-ul li:before {
 }
 
 .stickyBlock > * {
-  position: -webkit-sticky;
   position: sticky;
   top: 16px;
 }
@@ -4521,6 +4675,24 @@ ol.list-ol li:before,
         flex-wrap: wrap;
   }
 
+  .d-flex-md3-w {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+
+  .md3-fdcr {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+
+  .col-2 {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+  }
+
   .col-3 {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 100%;
@@ -4859,12 +5031,6 @@ ol.list-ol li:before,
             flex: 0 0 100%;
   }
 
-  .easyEarn__col {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 100%;
-            flex: 0 0 100%;
-  }
-
   .easyEarn__tail {
     width: 51.5px;
     height: 22.5px;
@@ -5028,6 +5194,12 @@ ol.list-ol li:before,
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
+  }
+
+  .lottery__svg {
+    margin-top: -101px;
+    width: 200px;
+    height: 138px;
   }
 
   .imageFeedback__duration {

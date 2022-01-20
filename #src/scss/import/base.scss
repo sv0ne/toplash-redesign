@@ -209,6 +209,11 @@ hr{
 
 .darkGray{color: $darkGray;}
 .fillDarkGray{fill: $darkGray !important;}
+.green{color: $green;}
+.bg-bgeen{background-color: $green !important;}
+.white{
+	color: $white;
+}
 
 ///////////////////////// FLEX ////////////////////////////
 
@@ -255,6 +260,26 @@ hr{
 .d-flex-w{
 	display: flex;
 	flex-wrap: wrap;
+}
+
+.d-flex-md3-w{
+	display: flex;
+	@media (max-width:$md3+px) {
+	    flex-wrap: wrap;
+	}
+}
+
+.md3-fdcr{
+	@media (max-width:$md3+px) {
+	    flex-direction: column-reverse;
+	}
+}
+
+.col-2{
+	flex: 0 0 50%;
+	@media (max-width:$md3+px) {
+	    flex: 0 0 100%;
+	}
 }
 
 .col-3{
@@ -318,6 +343,18 @@ hr{
 	justify-content: center;
 	align-items: center;
 	background-color: $white;
+}
+
+.imageArea{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	img{
+		max-width: 100%;
+		max-height: 100%;
+	}
 }
 
 .ta-c{text-align: center;}
@@ -698,6 +735,7 @@ ul.list-ul{
 		}
 	}
 	input[type="text"] + label, input[type="password"] + label, textarea + label{
+		max-width: calc(100% - 16px);
 		position: absolute;
 		left: 12px;
 		top: calc(50% - 12px);
@@ -711,6 +749,9 @@ ul.list-ul{
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+	}
+	input[type="text"]:disabled + label, input[type="password"]:disabled + label, textarea:disabled + label{
+		background-color: transparent;
 	}
 	input:focus, textarea:focus, input:not(:placeholder-shown), textarea:not(:placeholder-shown){
 		//padding: 26px 16px 6px 16px;
@@ -729,6 +770,38 @@ ul.list-ul{
 	::-webkit-input-placeholder {
 	  opacity: 0;
 	}
+	&.hidePlaceholder{
+		input:focus + label, textarea:focus + label, input:not(:placeholder-shown) + label, textarea:not(:placeholder-shown) + label{
+			display: none;
+		}
+	}
+}
+
+.inputBtn{
+	display: inline-block;
+	text-decoration: none !important;
+	cursor: pointer;
+	background-color: $red;
+	color: $white;
+	border-radius: 12px;
+	padding: 16px;
+	&:hover{
+		opacity: 0.8;
+	}
+}
+
+.inputTextBtn{
+	width: 100%;
+	display: flex;
+	.inputText{
+		flex: 1;
+		input[type="text"], input[type="password"], textarea{
+			border-radius: 12px 0px 0px 12px;
+		}
+	}
+	.inputBtn{
+		border-radius: 0px 12px 12px 0px;
+	}
 }
 
 .showHidePassword{
@@ -737,6 +810,24 @@ ul.list-ul{
 	top: 16px;
 	fill: $darkGray;
 	cursor: pointer;
+}
+
+.simpleMessage{
+	position: fixed;
+	bottom: 16px;
+	left: 50%;
+	transform: translate(-50%, calc(105% + 16px));
+	background-color: $red;
+	color: $white;
+	padding: 16px;
+	border-radius: 12px;
+	animation: simpleMessage 2s forwards 0s ease;
+}
+
+@keyframes simpleMessage {
+ 	20% { transform: translate(-50%, 0%);}
+ 	80% { transform: translate(-50%, 0%);}
+ 	100% { transform: translate(-50%, calc(105% + 16px));}
 }
 
 .inputCheckbox{
@@ -756,6 +847,34 @@ ul.list-ul{
 	input[type="checkbox"]:checked + label{
 		.st-1{visibility: hidden;}
 		.st-2{visibility: visible; fill: $red;}
+	}
+}
+
+.userImage {
+	border-radius: 99px;
+	flex: 0 0 40px;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	position: relative;
+	span{
+		background-color: $red;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $white;
+		@extend .text-big;
+	}
+	img{
+		@extend .posa;
+	}
+	img + span{
+		display: none;
 	}
 }
 

@@ -256,6 +256,22 @@
 }
 
 
+////////////////////////// lottery //////////////////////////
+
+.lottery{
+	&__svg{
+		width: 290px;
+		height: 200px;
+		margin-top: -132px;
+		margin-bottom: 30px;
+		@media (max-width:$md4+px) {
+			margin-top: -101px;
+		    width: 200px;
+			height: 138px;
+		}
+	}
+}
+
 ////////////////////////// review ///////////////////////////
 
 .reviews{
@@ -408,28 +424,6 @@
 	}
 	&__footer{
 		height: 80px;
-	}
-}
-
-.userImage {
-	border-radius: 99px;
-	flex: 0 0 40px;
-	width: 40px;
-	height: 40px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-	position: relative;
-	&.notImage{
-		background-color: $red;
-	}
-	span{
-		color: $white;
-		@extend .text-big;
-	}
-	img{
-		@extend .posa;
 	}
 }
 
@@ -1950,17 +1944,6 @@
 }
 
 .easyEarn {
-	&__row {
-		display: flex;
-		flex-wrap: wrap;
-	}
-	&__col {
-		padding: 16px;
-		flex: 0 0 50%;
-		@media (max-width:$md3+px) {
-		    flex: 0 0 100%;
-		}
-	}
 	&__card{
 		border-radius: 24px;
 		background-color: $blue;
