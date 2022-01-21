@@ -17,14 +17,18 @@
 			<svg class="w24 mr-8"><use xlink:href="img/sprite/icons-sprite.svg#bag"/></svg>
 			<span>В корзину</span>
 		</button>
+		<button class="btn btn-green">Подтвердить заказ</button>
+		<button class="btn btn-green btn-little">Подтвердить заказ</button>
 		<button class="btn btn-inv">
 			<span>Читать все отзывы</span>
 		</button>
 		<a href="" class="btnSec">Войти</a>
+		<p class="label-3">1</p>
 		<button class="btnRound">
 			<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
 		</button>
 		<button class="inputBtn">Мне повезёт!</button>
+		<button class="inputBtn inputBtn_gray">Применить</button>
 		<div class="inputTextBtn">
 			<div class="inputText">
 				<input type="text" autocomplete="off" name="name" placeholder=" ">
@@ -39,6 +43,27 @@
 		<a href="" class="link">обычная ссылка</a>
 		<p class="label-2">Опубликовано: 28.12.2021</p>
 		<div class="js-rating rating" data-rating="3"></div>
+		<div class="inputPlusminus">
+			<button>
+				<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#minus"></use></svg>
+			</button>
+			<input type="number" autocomplete="off" name="">
+			<button>
+				<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#plus"></use></svg>
+			</button>
+		</div>
+		<div class="inputRadio">
+			<input type="radio" id="payment-method-1" data-id="receipt" name="payment-method" value="payment-method-1" checked="">
+			<label for="payment-method-1">
+				<p>Оплата при получении</p>		
+			</label>
+		</div>
+		<div class="inputRadio">
+			<input type="radio" id="payment-method-2" data-id="receipt" name="payment-method" value="payment-method-2" checked="">
+			<label for="payment-method-2">
+				<p>Оплата по карте</p>		
+			</label>
+		</div>
 		<div class="inputText">
 			<input type="text" autocomplete="off" name="name" placeholder=" ">
 			<label for="sv-input-name">Имя*</label>

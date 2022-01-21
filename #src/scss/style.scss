@@ -79,7 +79,8 @@ $boxShadow: 0px 0px 40px rgba(69, 76, 84, 0.08);
 @import "import/site"; // Последовательная верстка всего сайта
 @import "import/text"; // Для теста
 @import "import/_select2-user"; // Изменения в стилях select2
-@import "import/_scroll"; // Изменения в стилях select2
+@import "import/_scroll";
+//@import "import/_popups";
 @import "import/test"; // Для теста
 
 // --------------------------------------------------------

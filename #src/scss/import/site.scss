@@ -451,6 +451,31 @@
 				margin-bottom: 16px;
 			}
 		}
+		&.mod-md-mb-32{
+			@media (max-width:$md_1045+px) {
+				.col-2:first-child{
+					margin-bottom: 32px;
+				}
+			}
+		}
+	}
+}
+
+///////////////////////// history ///////////////////////////
+
+.history{
+	svg{
+		fill: $white;
+	}
+	&__item{
+		border-radius: 12px;
+		text-decoration: none !important;
+		@media (max-width:$md1+px) {
+			border-radius: 0px;
+		}
+		&:hover{
+			box-shadow: $boxShadow;
+		}
 	}
 }
 
@@ -520,6 +545,27 @@
 		width: 11px;
 		height: 11px;
 		margin-right: 51px;
+	}
+}
+
+///////////////////// breadcrumbs //////////////////////////
+
+.breadcrumbs {
+	&__link {
+		&:not(:first-child){
+			padding-left: 32px;
+			position: relative;
+			&:before{
+				position: absolute;
+				content: "";
+				top: calc(50% - 10px);
+				left: 5px;
+				width: 24px;
+				height: 24px;
+				background: url('../img/sprite/icons-sprite.svg#chevrone') 0 0 / cover no-repeat;
+				background-position: 50% 50%;
+			}
+		}
 	}
 }
 
@@ -2042,14 +2088,6 @@
 	}
 }
 
-.stickyBlock{
-	height: 100%;
-	> * {
-		position: sticky;
-		top: 16px;
-	}
-}
-
 ///////////////////////// serum ///////////////////////////
 
 .serum{
@@ -2341,4 +2379,111 @@
 	}
 }
 
-///////////////////////////////////////////////////////////
+/////////////////////// fixedCard /////////////////////////
+
+.fixedCard{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: $white;
+	z-index: 200;
+	box-shadow: $boxShadow;
+	display: none;
+	&.active{
+		display: block;
+	}
+	&__row{
+		@media (max-width:$md3+px) {
+		    flex-direction: column;
+		    .nlc-mb-8{
+		    	width: 100%;
+		    }
+		    .btn{
+		    	margin-top: 8px;
+		    	width: 100%;
+		    }
+		}
+	}
+	&__text{
+		@media (max-width:$md3+px) {
+			width: 100%;
+		    display: flex;
+		    justify-content: space-between;
+		    align-items: center;
+		    .text-medium{
+		    	font-family: "FuturaPT-Heavy";
+  				font-size: 18px;
+  				line-height: 24px;
+		    }
+		}
+		@media (min-width:$md3+px) {
+		    > *:not(:last-child){
+		    	margin-bottom: 8px;
+		    }
+		}
+	}
+}
+
+////////////////////////// Корзина /////////////////////////////
+
+.cart{
+	&__row {
+		display: flex;
+		@media (max-width:$md3+px) {
+		    display: block;
+		}
+	}
+	&__col {
+		padding: 16px;
+		&.mod-col-1{
+			flex: 1;
+		}
+		&.mod-col-2{
+			flex: 0 0 392px;
+		}
+	}
+}
+
+.cartProduct {
+	border: 2px solid $lightGray;
+	border-radius: 12px;
+	padding: 12px;
+	display: flex;
+	align-items: center;
+	&__row{
+		flex: 1;
+		display: flex;
+		align-items: center;
+		@media (max-width:1080+px) {
+		    flex-wrap: wrap;
+		}
+	}
+	&__col {
+		padding: 12px;
+		&.mod-col-2{
+			@media (min-width:$md3+px) and (max-width:1080+px) {
+				flex: 0 0 100%;
+			}
+		}
+	}
+}
+
+.imageComm{
+	overflow: hidden;
+	img{
+		min-height: 100px;
+		width: 100%;
+	}
+}
+
+.cartOrder {
+	border: 2px solid $lightGray;
+	border-radius: 24px;
+	padding: 16px;
+	&__sale {
+		border-radius: 12px;
+		background-color: $lightGray;
+		padding: 16px;
+	}
+}

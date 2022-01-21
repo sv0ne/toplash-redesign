@@ -109,6 +109,7 @@ hr{
 .pl-0{padding-left: 0 !important;}
 
 .m-0--16{margin: 0 -16px;}
+.m0--8{margin: 0 -8px;}
 
 .main-p-32-16{
 	padding: 32px 16px;
@@ -208,11 +209,54 @@ hr{
 	}
 }
 
-/////////////////////// COLORS, ba ////////////////////////////
+/////////////// ЧАСТО ИСПОЛЬЗУЕМЫЕ СТИЛИ /////////////////////
+
+.posa{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.text-trim{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.ta-c{text-align: center;}
+.ta-r{text-align: right;}
+
+.dn{ display: none !important;}
+.md3-dn{
+	@media (max-width:$md3+px) {
+	    display: none !important;
+	}
+}
+.md4-dn{
+	@media (max-width:$md4+px) {
+	    display: none !important;
+	}
+}
+.md4-w-100{
+	@media (max-width:$md4+px) {
+	    width: 100%;
+	}
+}
+.op-0{opacity: 0 !important;}
+.o-h{overflow: hidden;}
+.ws-n{white-space: nowrap;}
+.w-100{width: 100%;}
+.m0-auto{margin: 0 auto;}
+.mxWidth-655{max-width: 655px;}
+
+//////////////// COLOR, FILL, BACKGROUND //////////////////
 
 .darkGray{color: $darkGray;}
 .white{color: $white;}
 .green{color: $green;}
+.red{color: $red;}
 
 .fillDarkGray{fill: $darkGray !important;}
 
@@ -226,17 +270,13 @@ hr{
 .d-inline-flex{display: inline-flex;}
 .fww{flex-wrap: wrap;}
 .fdc{flex-direction: column;}
-.md3-fww{
-	@media (max-width:$md3+px) {
-    	flex-wrap: wrap;
-	}
-}
 
 .aic{align-items: center;}
 .aifs{align-items: flex-start;}
 .aife{align-items: flex-end;}
 
 .jcc{justify-content: center;}
+.jcfe{justify-content: flex-end;}
 .jcsb{justify-content: space-between;}
 
 .f-aic{
@@ -274,12 +314,6 @@ hr{
 	}
 }
 
-.md3-fdcr{
-	@media (max-width:$md3+px) {
-	    flex-direction: column-reverse;
-	}
-}
-
 .col-2{
 	flex: 0 0 50%;
 	@media (max-width:$md3+px) {
@@ -310,10 +344,27 @@ hr{
 	}
 }
 
-.flex-1{flex: 1;}
-.m0--8{margin: 0 -8px;}
+.md3-fww{
+	@media (max-width:$md3+px) {
+    	flex-wrap: wrap;
+	}
+}
 
-// ---------------- flex - разметки ------------------ //
+.md4-fww{
+	@media (max-width:$md4+px) {
+    	flex-wrap: wrap;
+	}
+}
+
+.md3-fdcr{
+	@media (max-width:$md3+px) {
+	    flex-direction: column-reverse;
+	}
+}
+
+.flex-1{flex: 1;}
+
+// ---------- flex - разметки ------------ //
 
 .flexMod-1{
 	&__colMin{
@@ -324,21 +375,7 @@ hr{
 	}
 }
 
-///////////////////// БЛОКИ ЛЕГКИЕ ////////////////////////
-
-.posa{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
-.text-trim{
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
+/////////////////////// КАРТИНКИ //////////////////////////
 
 .image-hw-80{
 	height: 80px;
@@ -348,6 +385,24 @@ hr{
 	justify-content: center;
 	align-items: center;
 	background-color: $white;
+	img{
+		max-width: 100%;
+		max-height: 100%;
+	}
+}
+
+.image-hw-120{
+	height: 120px;
+	width: 120px;
+	flex: 0 0 120px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: $white;
+	img{
+		max-width: 100%;
+		max-height: 100%;
+	}
 }
 
 .imageArea{
@@ -370,36 +425,65 @@ hr{
 	}
 }
 
-.ta-c{text-align: center;}
+.iconRound, .label-3{
+	background-color: $lightGray;
+	border-radius: 99px;
+	flex: 0 0 40px;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.label-3{
+	color: $darkGray;
+	@extend .text-big;
+}
 
-.dn{ display: none !important;}
-.md4-dn{
-	@media (max-width:$md4+px) {
-	    display: none !important;
+.svgWithState{
+	.st-2{visibility: hidden; opacity: 0;}
+	&.active{
+		.st-1{visibility: hidden; opacity: 0;}
+		.st-2{visibility: visible; opacity: 1;}
 	}
 }
-.md4-w-100{
-	@media (max-width:$md4+px) {
-	    width: 100%;
+
+.logoImage{
+	flex: 0 0 80px;
+	height: 32px;
+	width: 80px;
+	display: block;
+}
+
+.userImage {
+	border-radius: 99px;
+	flex: 0 0 40px;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	position: relative;
+	span{
+		background-color: $red;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $white;
+		@extend .text-big;
+	}
+	img{
+		@extend .posa;
+	}
+	img + span{
+		display: none;
 	}
 }
-.op-0{opacity: 0 !important;}
-.o-h{overflow: hidden;}
-.ws-n{white-space: nowrap;}
-.w-100{width: 100%;}
-.m0-auto{margin: 0 auto;}
-.mxWidth-655{max-width: 655px;}
 
-.error{
-	color: $red;
-}
-
-.link{
-	color: $red;
-	@extend .text-default;
-}
-
-//////////////////// БЛОКИ СЛОЖНЫЕ ////////////////////////
+//////////////////// КНОПКИ, ССЫЛКИ ///////////////////////
 
 .btn{
 	padding: 10px 62px;
@@ -426,6 +510,13 @@ hr{
 			background-color: $red;
 			color: $white;
 		}
+	}
+	&.btn-green{
+		border: 2px solid $green;
+		background-color: $green;
+	}
+	&.btn-little{
+		padding: 6px 22px;
 	}
 	&.p10{
 		padding: 10px;
@@ -504,15 +595,6 @@ a.btn{
 	}
 }
 
-.varticalDevider{
-	position: relative;
-	height: 24px;
-	width: 2px;
-	background-color: $darkGray;
-	opacity: 0.5;
-	border-radius: 99px;
-}
-
 .btnRound{
 	display: flex;
 	justify-content: center;
@@ -577,82 +659,41 @@ a.btn{
 	}
 }
 
-.iconRound{
-	background-color: $lightGray;
-	border-radius: 99px;
-	width: 40px;
-	height: 40px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.label{
-	background-color: $black;
-	border-radius: 8px;
-	padding: 4px 16px;
+.inputBtn{
 	display: inline-block;
+	text-decoration: none !important;
+	cursor: pointer;
+	background-color: $red;
 	color: $white;
-	@extend .text-extra-small;
-	&_red{
-		background-color: $red;
-		border-color: $red;
-	}
-}
-
-.label-2{
-	display: inline-block;
-	padding: 8px 16px;
-	color: $darkGray;
 	border-radius: 12px;
-	background-color: $lightGray;
-}
-
-.svgWithState{
-	.st-2{visibility: hidden; opacity: 0;}
-	&.active{
-		.st-1{visibility: hidden; opacity: 0;}
-		.st-2{visibility: visible; opacity: 1;}
+	padding: 16px;
+	&:hover{
+		opacity: 0.8;
 	}
-}
-
-.logoImage{
-	flex: 0 0 80px;
-	height: 32px;
-	width: 80px;
-	display: block;
-}
-
-.oldPrice{
-	display: inline-block;
-	position: relative;
-	span{
-		@extend .text-extra-small;
+	&_gray{
+		background-color: $lightGray;
 		color: $darkGray;
 	}
+}
+
+.btnIcon{
+	background-color: transparent;
 	svg{
-		position: absolute;
-		width: 54px;
-		height: 10.93px;
-		left: calc(50% - 54px/2 - 7.69px);
-		top: calc(50% - 10.93px/2 + 2.6px);
-		fill: $red;
-		transform: rotate(-6.24deg);
+		fill: $lightRed;
+	}
+	&:hover{
+		svg{
+			fill: $red;
+		}
 	}
 }
 
-.rating{
-	display: flex;
-	padding: 2px 0;
-	> *:not(:last-child){
-		margin-right: 2px;
-	}
-	svg{
-		width: 12px;
-		height: 12px;
-		fill: $red;
-	}
+.link{
+	color: $red;
+	@extend .text-default;
 }
+
+///////////////////////////// INPUT ///////////////////////////////////
 
 .switch {
 	display: flex;
@@ -685,58 +726,6 @@ a.btn{
 		border-color: $red;
 	}
 }
-
-ol.list-ol{
-	> *:not(:last-child){
-		margin-bottom: 16px;
-	}
-	counter-reset: myCounter;
-	li{
-		padding-left: 40px;
-		list-style: none;
-		position: relative;
-		&:before{
-			position: absolute;
-			top: 0;
-			left: 16px;
-			counter-increment: myCounter;
-			content: counter(myCounter)".";
-			color: $red;
-			@extend .text-extra-small;
-		}
-	}
-	&.mod-pl-0{
-		li{
-			padding-left: 24px;
-			&:before{
-				left: 0px;
-			}
-		}
-	}
-}
-
-ul.list-ul{
-	> *:not(:last-child){
-		margin-bottom: 16px;
-	}
-	li{
-		padding-left: 32px;
-		list-style: none;
-		position: relative;
-		&:before{
-			content: "";
-			position: absolute;
-			top: 8px;
-			left: 16px;
-			width: 8px;
-			height: 8px;
-			background-color: $red;
-			border-radius: 99px;
-		}
-	}
-}
-
-// --------------------- inputs --------------------------//
 
 .inputText{
 	position: relative;
@@ -798,19 +787,6 @@ ul.list-ul{
 	}
 }
 
-.inputBtn{
-	display: inline-block;
-	text-decoration: none !important;
-	cursor: pointer;
-	background-color: $red;
-	color: $white;
-	border-radius: 12px;
-	padding: 16px;
-	&:hover{
-		opacity: 0.8;
-	}
-}
-
 .inputTextBtn{
 	width: 100%;
 	display: flex;
@@ -825,33 +801,10 @@ ul.list-ul{
 	}
 }
 
-.showHidePassword{
-	position: absolute;
-	right: 16px;
-	top: 16px;
-	fill: $darkGray;
-	cursor: pointer;
-}
-
-.simpleMessage{
-	position: fixed;
-	bottom: 16px;
-	left: 50%;
-	transform: translate(-50%, calc(105% + 16px));
-	background-color: $red;
-	color: $white;
-	padding: 16px;
-	border-radius: 12px;
-	animation: simpleMessage 2s forwards 0s ease;
-}
-
-@keyframes simpleMessage {
- 	20% { transform: translate(-50%, 0%);}
- 	80% { transform: translate(-50%, 0%);}
- 	100% { transform: translate(-50%, calc(105% + 16px));}
-}
-
 .inputCheckbox{
+	> * {
+		cursor: pointer;
+	}
 	input[type="checkbox"]{
 		visibility: hidden;
 		display: none;
@@ -871,56 +824,141 @@ ul.list-ul{
 	}
 }
 
-.userImage {
-	border-radius: 99px;
-	flex: 0 0 40px;
-	width: 40px;
-	height: 40px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-	position: relative;
-	span{
-		background-color: $red;
-		width: 100%;
-		height: 100%;
+.inputRadio{
+	input[type="radio"]{
+		visibility: hidden;
+		display: none;
+	}
+	input[type="radio"] + label{
 		display: flex;
 		align-items: center;
-		justify-content: center;
-		color: $white;
-		@extend .text-big;
+		border-radius: 12px;
+		position: relative;
+		cursor: pointer;
+		padding-left: 40px;
+		&:after, &:before{
+			content: "";
+			position: absolute;
+			border-radius: 50%;
+		}
+		&:after{
+			top: calc(50% - 12px);
+			left: 0px;
+			width: 24px;
+			height: 24px;
+			border: 2px solid $lightGray;
+		}
+		&:before{
+			z-index: 2;
+			top: calc(50% - 6px);
+			left: 6px;
+			width: 12px;
+			height: 12px;
+			background-color: $white;
+		}
 	}
-	img{
-		@extend .posa;
-	}
-	img + span{
-		display: none;
+	input[type="radio"]:checked + label{
+		&:after{
+			border: none;
+			background-color: $red;
+		}
 	}
 }
 
-//-------------------- breadcrumbs -----------------------//
+// Убрать стрелки у input[type="number"]
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
-.breadcrumbs {
-	&__link {
-		&:not(:first-child){
-			padding-left: 32px;
-			position: relative;
+.inputPlusminus{
+	display: flex;
+	input{
+		text-align: center;
+		border: 2px solid $lightGray;
+		margin: 0;
+		max-width: 80px;
+		border-radius: 0px;
+		outline: none;
+		&:focus{
+			outline: none;
+		}
+		@extend .text-default;
+	}
+	button{
+		padding: 8px;
+		background-color: $lightGray;
+		display: flex;
+		color: $white;
+		font-size: 15px;
+		line-height: 18px;
+		border-radius: 8px 0px 0px 8px;
+		&:last-child{
+			border-radius: 0px 8px 8px 0px;
+		}
+		svg{
+			fill: $black;
+		}
+		&:hover{
+			opacity: 0.8;
+		}
+	}
+}
+
+//////////////////////////// СПИСКИ /////////////////////////////////////
+
+ol.list-ol{
+	> *:not(:last-child){
+		margin-bottom: 16px;
+	}
+	counter-reset: myCounter;
+	li{
+		padding-left: 40px;
+		list-style: none;
+		position: relative;
+		&:before{
+			position: absolute;
+			top: 0;
+			left: 16px;
+			counter-increment: myCounter;
+			content: counter(myCounter)".";
+			color: $red;
+			@extend .text-extra-small;
+		}
+	}
+	&.mod-pl-0{
+		li{
+			padding-left: 24px;
 			&:before{
-				position: absolute;
-				content: "";
-				top: calc(50% - 10px);
-				left: 5px;
-				width: 24px;
-				height: 24px;
-				background: url('../img/sprite/icons-sprite.svg#chevrone') 0 0 / cover no-repeat;
-				background-position: 50% 50%;
+				left: 0px;
 			}
 		}
 	}
 }
 
-//---------------------- slick ------------------------//
+ul.list-ul{
+	> *:not(:last-child){
+		margin-bottom: 16px;
+	}
+	li{
+		padding-left: 32px;
+		list-style: none;
+		position: relative;
+		&:before{
+			content: "";
+			position: absolute;
+			top: 8px;
+			left: 16px;
+			width: 8px;
+			height: 8px;
+			background-color: $red;
+			border-radius: 99px;
+		}
+	}
+}
+
+//////////////////////////////// slick /////////////////////////////////
 
 .slider-style-default{
 	.slick-track{
@@ -989,7 +1027,7 @@ ul.list-ul{
 	}
 }
 
-//------------------ Карточки (card) -------------------//
+/////////////////////////// Карточки (card) /////////////////////////////
 
 .card-v1{
 	box-shadow: $boxShadow;
@@ -1037,5 +1075,113 @@ ul.list-ul{
 		color: $white;
 	}
 }
+//////////////// ДОПОЛНИТЕЛЬНЫЕ ЭЛЕМЕНТЫ, LABEL, LIST ///////////////////
 
-//--------------------------------------------------------
+.varticalDevider{
+	position: relative;
+	height: 24px;
+	width: 2px;
+	background-color: $darkGray;
+	opacity: 0.5;
+	border-radius: 99px;
+}
+
+.label{
+	background-color: $black;
+	border-radius: 8px;
+	padding: 4px 16px;
+	display: inline-block;
+	color: $white;
+	@extend .text-extra-small;
+	&_red{
+		background-color: $red;
+		border-color: $red;
+	}
+}
+
+.label-2{
+	display: inline-block;
+	padding: 8px 16px;
+	color: $darkGray;
+	border-radius: 12px;
+	background-color: $lightGray;
+}
+
+.oldPrice{
+	display: inline-block;
+	position: relative;
+	span{
+		@extend .text-extra-small;
+		color: $darkGray;
+	}
+	svg{
+		position: absolute;
+		width: 54px;
+		height: 10.93px;
+		left: calc(50% - 54px/2 - 7.69px);
+		top: calc(50% - 10.93px/2 + 2.6px);
+		fill: $red;
+		transform: rotate(-6.24deg);
+	}
+}
+
+.rating{
+	display: flex;
+	padding: 2px 0;
+	> *:not(:last-child){
+		margin-right: 2px;
+	}
+	svg{
+		width: 12px;
+		height: 12px;
+		fill: $red;
+	}
+}
+
+.error{
+	color: $red;
+}
+
+.showHidePassword{
+	position: absolute;
+	right: 16px;
+	top: 16px;
+	fill: $darkGray;
+	cursor: pointer;
+}
+
+.simpleMessage{
+	position: fixed;
+	bottom: 16px;
+	left: 50%;
+	transform: translate(-50%, calc(105% + 16px));
+	background-color: $red;
+	color: $white;
+	padding: 16px;
+	border-radius: 12px;
+	animation: simpleMessage 2s forwards 0s ease;
+}
+
+@keyframes simpleMessage {
+ 	20% { transform: translate(-50%, 0%);}
+ 	80% { transform: translate(-50%, 0%);}
+ 	100% { transform: translate(-50%, calc(105% + 16px));}
+}
+
+.stickyBlock{
+	height: 100%;
+	> * {
+		position: sticky;
+		top: 16px;
+	}
+}
+
+.sticky-min-md3{
+	position: sticky;
+	top: 16px;
+	@media (max-width:$md3+px) {
+	    position: static;
+	}
+}
+
+///////////////////////////////////////////////////////////////////

@@ -19,6 +19,13 @@ $(document).ready(function () {
 		dropdownResize();
 	});
 
+	// Действия при скролле
+	$(window).scroll(function(){
+  	let scrollTop = $(window).scrollTop();
+  	startingVideoOnScroll(scrollTop);
+  	fixedElementOnScroll(scrollTop);
+	});
+
 	@@include('_select2-user.js');
 	@@include('_scroll.js');
 	@@include('_popup.js');
@@ -300,7 +307,7 @@ $(document).on(isMobile ? "touchend" : "mousedown", function (e) {
 	}
 });
 
-/////////////////////// Блок историй (подобие инстаграм) ///////////////////////////
+///////////////////////// Блок историй (подобие инстаграм) /////////////////////////////
 
 const TIME_SLIDE_DURATION = 5000; // Длительность слайда с картинкой
 let isInitStoriesSlider = false;
@@ -471,8 +478,9 @@ let videoSerum = $('.js-video-serum');
 let btnControlVideoSerum = $(".js-toggle-video-serum");
 let isPlayedVideoSerum = null;
  // Запустить видео при доскролле до видео
-$(window).scroll(function(){
-  let scrollTop = $(window).scrollTop();
+function startingVideoOnScroll(scrollTop) {
+	if(animateItem.length === 0){return false;}
+
 	let topAnimateItem = animateItem.offset().top - h;
 	if(scrollTop > (topAnimateItem + 40)){
 		if(isPlayedVideoSerum === null){
@@ -480,7 +488,7 @@ $(window).scroll(function(){
 			playStopVideoSerum();
 		}
 	}
-});
+}
 
 // Запустить/Остановить видео в блоке serum
 function playStopVideoSerum() {
@@ -500,7 +508,11 @@ btnControlVideoSerum.click(function(){
 	playStopVideoSerum();
 });
 
-////////////////////////////////// Прочее //////////////////////////////////////////////
+//////////////////////////////////// Корзина ///////////////////////////////////////////
+
+
+
+///////////////////////////////////// Прочее ///////////////////////////////////////////
 
 let isLess_md4;
 // Логика dropdown
@@ -626,6 +638,17 @@ $(".js-personal-edit").click(function(){
 	$(this).closest('.js-validation-form').find('input').removeAttr('disabled');
 	$(this).closest('.js-validation-form').find('.js-form-submit').removeClass('dn');
 });
+
+
+let isFixedCard = false;
+let fixedCard = $('.js-fixed-card');
+// Фиксируем карточку товара
+function fixedElementOnScroll(scrollTop) {
+	if((scrollTop > h && isFixedCard === false) || (scrollTop < h && isFixedCard === true)){
+		isFixedCard = !isFixedCard;
+		fixedCard.toggleClass('active', isFixedCard);
+	}
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////
 

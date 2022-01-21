@@ -31,6 +31,7 @@ img/sprite/icons-sprite.svg#instagram
 img/sprite/icons-sprite.svg#lil-1
 img/sprite/icons-sprite.svg#lil-2
 img/sprite/icons-sprite.svg#lil-3
+img/sprite/icons-sprite.svg#minus
 img/sprite/icons-sprite.svg#no
 img/sprite/icons-sprite.svg#ok
 img/sprite/icons-sprite.svg#pause
@@ -38,6 +39,7 @@ img/sprite/icons-sprite.svg#play-2
 img/sprite/icons-sprite.svg#play
 img/sprite/icons-sprite.svg#play_w16in24
 img/sprite/icons-sprite.svg#plus
+img/sprite/icons-sprite.svg#remove
 img/sprite/icons-sprite.svg#show-off
 img/sprite/icons-sprite.svg#show-on
 img/sprite/icons-sprite.svg#star-fill
