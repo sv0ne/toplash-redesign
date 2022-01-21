@@ -430,6 +430,30 @@
 	}
 }
 
+///////////////////////// personal //////////////////////////
+
+.personal{
+	&__header{
+		@media (max-width:$md_1045+px) {
+			flex-direction: column-reverse;
+			align-items: flex-start;
+			justify-content: flex-start;
+			.btnSec{
+				margin-bottom: 16px;
+				width: 100%;
+			}
+		}
+	}
+	&__row{
+		@media (max-width:$md_1045+px) {
+			flex-direction: column;
+			.col-2:first-child{
+				margin-bottom: 16px;
+			}
+		}
+	}
+}
+
 ///////////////////////// result21 //////////////////////////
 
 .result21 {

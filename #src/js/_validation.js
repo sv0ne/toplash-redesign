@@ -1,5 +1,7 @@
 // Валидируем поля формы перед отправкой
 $('.js-validation-form').submit(function (e) {
+	//if($(this).find('.js-personal-edit').length > 0){return false;}
+
 	let isSubmitForm = true;
 	$(this).find("._validate").each(function(){
 		let validateType = $(this).data('validation-type');

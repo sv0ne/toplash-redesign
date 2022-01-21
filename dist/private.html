@@ -67,25 +67,49 @@
 				</div>
 			</div>
 			<div class="flex-1 p-16">
-				<div class="card-v1 nlc-mb-16">
-					<div class="f-jcsb-aic">
-						<div class="f-aic">
+				<form class="card-v1 mod-md-p-16 nlc-mb-16 personal js-validation-form" action="" method="post">
+					<div class="f-jcsb-aic personal__header">
+						<div class="f-aic mr-8">
 							<div class="userImage mr-16">
 								<img src="img/people/03.jpg" alt="">
 								<span>К</span>
 							</div>
 							<p class="text-medium">Виктория</p>
 						</div>
-						<button class="btnSec">Редактировать информацию</button>
+						<button class="btnSec js-personal-edit" type="button">Редактировать информацию</button>
+						<button class="btnSec js-form-submit dn">Сохранить информацию</button>
 					</div>
-					<div>
+					<div class="d-flex-md3-w m-0--16 personal__row">
+						<div class="col-2 p-0-16">
+							<div class="js-validation-block">
+								<p class="mb-8">Email:</p>	
+								<div class="inputText hidePlaceholder">
+									<input class="_validate" data-validation-type='["req", "email"]' type="text" autocomplete="off" name="email" value="example@email.com" placeholder=" " disabled>
+									<label for="sv-input-name"></label>
+								</div>
+								<p class="js-validation-error mt-4 error"></p>
+							</div>
+						</div>
+						<div class="col-2 p-0-16">
+							<div class="js-validation-block">
+								<p class="mb-8">Телефон:</p>	
+								<div class="inputText hidePlaceholder">
+									<input class="_validate" data-validation-type='["req", "tel"]' type="text" autocomplete="off" name="tel" value="+7 123 456 789 0" placeholder=" " disabled>
+									<label for="sv-input-name"></label>
+								</div>
+								<p class="js-validation-error mt-4 error"></p>
+							</div>
+						</div>
+					</div>
+					<div class="js-validation-block">
 						<p class="mb-8">Адрес доставки:</p>	
 						<div class="inputText hidePlaceholder">
-							<input type="text" autocomplete="off" name="name" placeholder=" ">
-							<label for="sv-input-name">Москва, ул. Кузнечная, д.5, кв.18</label>
+							<input class="_validate" data-validation-type='["req"]' type="text" autocomplete="off" name="address" value="Москва, ул. Кузнечная, д.5, кв.18" placeholder=" " disabled>
+							<label for="sv-input-name"></label>
 						</div>
+						<p class="js-validation-error mt-4 error"></p>
 					</div>	
-				</div>
+				</form>
 			</div>
 		</div>
 	</div>

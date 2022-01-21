@@ -17,17 +17,17 @@
 }
 
 @font-face {
-  font-family: "FuturaPT-Demi";
+  font-family: "FuturaPT-ExtraBold";
   font-display: swap;
-  src: url("../fonts/FuturaPT-Demi.woff") format("woff"), url("../fonts/FuturaPT-Demi.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-ExtraBold.woff") format("woff"), url("../fonts/FuturaPT-ExtraBold.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "FuturaPT-ExtraBold";
+  font-family: "FuturaPT-Demi";
   font-display: swap;
-  src: url("../fonts/FuturaPT-ExtraBold.woff") format("woff"), url("../fonts/FuturaPT-ExtraBold.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Demi.woff") format("woff"), url("../fonts/FuturaPT-Demi.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -384,6 +384,10 @@ hr {
 
 .pl-0 {
   padding-left: 0 !important;
+}
+
+.m-0--16 {
+  margin: 0 -16px;
 }
 
 .main-p-32-16 {
@@ -3669,7 +3673,6 @@ ul.list-ul li:before {
 }
 
 .stickyBlock > * {
-  position: -webkit-sticky;
   position: sticky;
   top: 16px;
 }
@@ -4509,6 +4512,35 @@ ol.list-ol li:before,
   .nav__logo .burger {
     display: block;
     margin-right: 24px;
+  }
+
+  .personal__header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+
+  .personal__header .btnSec {
+    margin-bottom: 16px;
+    width: 100%;
+  }
+
+  .personal__row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .personal__row .col-2:first-child {
+    margin-bottom: 16px;
   }
 
   .set__row {

@@ -620,6 +620,13 @@ $(".js-copy-text").click(function(){
 	$body.append('<div class="simpleMessage">'+msg+'</div>');
 });
 
+// Редактировать персональную информацию
+$(".js-personal-edit").click(function(){
+	$(this).addClass('dn');
+	$(this).closest('.js-validation-form').find('input').removeAttr('disabled');
+	$(this).closest('.js-validation-form').find('.js-form-submit').removeClass('dn');
+});
+
 /////////////////////////////////////////////////////////////////////////////////////////
 
 	$(document).on("click", function(e){
