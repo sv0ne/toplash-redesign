@@ -2462,8 +2462,20 @@
 	&__col {
 		padding: 12px;
 		&.mod-col-2{
-			@media (min-width:$md3+px) and (max-width:1080+px) {
+			@media (max-width:1080+px) {
 				flex: 0 0 100%;
+			}
+		}
+		&.mod-col-3{
+			@media (min-width:$md3+px) and (max-width:966+px), (max-width:600+px) {
+				flex: 0 0 100%;
+			}
+		}
+		&.mod-col-4{
+			@media (min-width:$md3+px) and (max-width:966+px), (max-width:600+px) {
+				.ta-c{
+					text-align: left;
+				}
 			}
 		}
 	}
@@ -2477,13 +2489,47 @@
 	}
 }
 
-.cartOrder {
+.cartSet{
 	border: 2px solid $lightGray;
 	border-radius: 24px;
-	padding: 16px;
-	&__sale {
-		border-radius: 12px;
-		background-color: $lightGray;
-		padding: 16px;
+	.slick-slider{
+		width: 360px;
+		@media (max-width:$md3+px) {
+		    width: 100%;
+		}
+	}
+	.slick-list {
+		overflow: hidden;
+	}
+	.slick-track{
+		display: flex;
 	}
 }
+
+.rowInputs{
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -16px 16px -16px;
+	&__col{
+		padding: 0 16px;
+		flex: 1;
+		min-width: 250px;
+		margin-bottom: 16px;
+	}
+}
+
+
+.cartFixed{
+	&.active{
+		z-index: 205;
+		background-color: $white;
+		margin: 0;
+		position: fixed;
+		bottom: 16px;
+		left: 16px;
+		right: 16px;
+	}
+}
+
+
+/////////////////////////////////////////////////////////////////////

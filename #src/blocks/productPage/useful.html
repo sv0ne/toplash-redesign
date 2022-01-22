@@ -1,8 +1,13 @@
 <div class="useful">
 	<div class="container">
 		<div class="p-16">
-			<p class="text-huge mb-8">Вам может пригодиться:</p>
-			<p class="darkGray">Чаще всего покупают вместе с Toplash lash and brow</p>
+			@@if(pageIsInfo === true){
+				<p class="text-huge">Вдруг вы что-то забыли..?</p>
+			}
+			@@if(pageIsInfo === false){
+				<p class="text-huge mb-8">Вам может пригодиться:</p>
+				<p class="darkGray">Чаще всего покупают вместе с Toplash lash and brow</p>
+			}
 		</div>
 		<div class="useful__body">
 			<button class="btnRound sliderBtn btn-prev">

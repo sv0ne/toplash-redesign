@@ -3,9 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/select2.min.css">
+	<link rel="stylesheet" href="css/style.css">
 	<script src="js/jquery-3.5.1.min.js"></script>
+	<script src="js/maskinput.js"></script>
 	<script src="js/slick.min.js"></script>
 	<script src="js/select2.min.js"></script>
 	<script src="js/script.js"></script>
@@ -19,14 +20,37 @@
 		</button>
 		<button class="btn btn-green">Подтвердить заказ</button>
 		<button class="btn btn-green btn-little">Подтвердить заказ</button>
+		<div class="select-once-2">
+			<select class="js-select-once-2" name="adress" data-placeholder="Выберите свой адрес">
+				<option value=""></option>
+				<option value="1">Колаколовский переулок д2/32</option>
+				<option value="2">Мечниковский проспект 17 кв 2129</option>
+				<option value="3">Подзаборная 322</option>
+			</select>
+		</div>
 		<button class="btn btn-inv">
 			<span>Читать все отзывы</span>
 		</button>
 		<a href="" class="btnSec">Войти</a>
+		<div class="select-once-1">
+			<select class="js-select-once-1" name="sortReviews" data-placeholder="">
+				<option value="rand">Вариант номер 1</option>
+				<option value="series">Вариант номер 2 длинный текст</option>
+				<option value="series">Вариант номер 3</option>
+			</select>
+		</div>
 		<p class="label-3">1</p>
+		<div class="label-4">
+			<p class="text-extra-small">Блок для текста</p>
+		</div>
 		<button class="btnRound">
 			<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
 		</button>
+		<div class="cardSimple p-16">
+			<p class="green">Контейнер с параметрами:</p>
+			<p>border: 2px solid $lightGray;</p>
+			<p>border-radius: 24px;</p>
+		</div>
 		<button class="inputBtn">Мне повезёт!</button>
 		<button class="inputBtn inputBtn_gray">Применить</button>
 		<div class="inputTextBtn">
@@ -39,6 +63,20 @@
 		<p class="label">Сроки доставки: 1-7 рабочих дней</p>
 		<p class="label label_red">Распродажа</p>
 		<a href="" class="btn-2">Вход</a>
+		<div class="f-aic">
+			<div class="oldPrice mr-8">
+				<svg><use xlink:href="img/sprite/icons-sprite.svg#vector"></use></svg>
+				<span>750 ₽</span>
+			</div>
+			<p class="text-extra-small">890 ₽</p>
+		</div>
+		<div class="f-aic">
+			<div class="oldPrice text-default mr-8">
+				<svg><use xlink:href="img/sprite/icons-sprite.svg#vector"></use></svg>
+				<span>750 ₽</span>
+			</div>
+			<p class="text-extra-small">890 ₽</p>
+		</div>
 		<a href="" class="btn-2 btn-2_active">Регистрация</a>
 		<a href="" class="link">обычная ссылка</a>
 		<p class="label-2">Опубликовано: 28.12.2021</p>

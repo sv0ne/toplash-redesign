@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('blocks/common/head.html',{
+	"title": "Toplash"
+})
+<body>
+	@@include('blocks/common/header.html')
+	<div class="container">
+		<div class="p-16">
+			<p class="text-huge">Заказ №18105</p>
+			<p class="darkGray">Ожидает оплату</p>
+		</div>
+		<div class="cart__row">
+			<div class="cart__col mod-col-1 nlc-mb-32">
+				<div class="cartProduct">
+					<div class="cartProduct__col">
+						<div class="image-hw-80">
+							<img src="img/card/01.png" alt="">
+						</div>
+					</div>
+					<div class="cartProduct__row">
+						<div class="cartProduct__col mod-col-2">
+							<p class="text-medium mb-4">Toplash Eyeliner and Wing Stamp</p>
+							<p class="text-footnote">Подводка и штамп для стрелок</p>
+						</div>
+						<div class="cartProduct__col mod-col-3">
+							<div class="inputPlusminus">
+								<button class="js-submit-without-validate">
+									<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#minus"></use></svg>
+								</button>
+								<input type="number" name="count" autocomplete="off" name="">
+								<button class="js-submit-without-validate">
+									<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#plus"></use></svg>
+								</button>
+							</div>
+						</div>
+						<div class="cartProduct__col mod-col-4 flex-1 ws-n">
+							<p class="text-extra-small mb-4 ta-c">16 084 ₽</p>
+							<p class="darkGray ta-c">13 042 ₽/шт.</p>
+						</div>
+					</div>
+				</div>
+				<p class="text-big">Информация о получателе</p>
+				<div class="nlc-mb-16 mb-32">
+					<div class="f-jcsb-aic">
+						<p>Дата заказа</p>
+						<p>	21.01.2022 в 11:25</p>
+					</div>
+					<div class="f-jcsb-aic">
+						<p>Имя</p>
+						<p>Username</p>
+					</div>
+					<div class="f-jcsb-aic">
+						<p>Фамилия</p>
+						<p>User2ndname</p>
+					</div>
+					<div class="f-jcsb-aic">
+						<p>Email</p>
+						<p>email@email.com</p>
+					</div>
+					<div class="f-jcsb-aic">
+						<p>Телефон</p>
+						<p>+77777777777</p>
+					</div>
+					<div class="f-jcsb-aic">
+						<p>Адрес доставки</p>
+						<p>г. Москва, Красная пл, д.1</p>
+					</div>
+					<div class="f-jcsb-aic">
+						<p>Комментарий</p>
+						<p>Пример комментария</p>
+					</div>
+				</div>
+			</div>
+			<div class="cart__col mod-col-2">
+				<div class="cardSimple p-16 nlc-mb-16">
+					<div class="f-jcsb-aic">
+						<p>Товары, 2 шт.</p>
+						<p>6 084 ₽ </p>
+					</div>
+					<div class="f-jcsb-aic">
+						<p>Скидка</p>
+						<p class="red">1,2 ₽</p>
+					</div>
+					<div>
+						<div class="f-jcsb-aic">
+							<p>Доставка</p>
+							<p class="green">Бесплатная</p>
+						</div>
+						<p class="darkGray text-footnote mt-4">Бесплатная при покупке от 3 000 ₽ или оплате картой</p>
+					</div>
+					<div class="f-jcsb-aic">
+						<p class="text-medium">Итого</p>
+						<p class="text-medium">5 706 ₽ </p>
+					</div>
+					<div class="label-4">
+						<p class="text-extra-small">Вы можете оплатить заказ сейчас картой или при получении наличными или картой</p>
+					</div>
+					<button class="btn w-100">Оплатить картой</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main-pb-64">
+		@@include('blocks/productPage/useful.html', {"pageIsInfo": true})
+	</div>
+	@@include('blocks/common/footer.html')
+	<script>
+		pathSprite = "img/sprite/icons-sprite.svg"; // Путь к спрайту с иконками
+	</script>
+</body>
+</html>

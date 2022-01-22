@@ -101,6 +101,7 @@ hr{
 .p-0-16{padding: 0 16px;}
 .p-16-0{padding: 16px 0;}
 .p-16-8{padding: 16px 8px;}
+.p-8-16{padding: 8px 16px;}
 .p-0-8{padding: 0 8px;}
 .p-32-0{padding: 32px 0;}
 .p-32{padding: 32px;}
@@ -168,7 +169,7 @@ hr{
 }
 
 .nlc-mb-32{
-	> *:not(:last-child){
+	> *:not(:last-child):not(.not-nlc){
 		margin-bottom: 32px;
 	}
 }
@@ -395,6 +396,20 @@ hr{
 	height: 120px;
 	width: 120px;
 	flex: 0 0 120px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: $white;
+	img{
+		max-width: 100%;
+		max-height: 100%;
+	}
+}
+
+.image-hw-200{
+	height: 200px;
+	width: 200px;
+	flex: 0 0 200px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -729,6 +744,13 @@ a.btn{
 
 .inputText{
 	position: relative;
+	input:-webkit-autofill {
+	    -webkit-box-shadow: inset 0 0 0 50px white; /* цвет вашего фона */
+	    -webkit-text-fill-color: black; /* цвет текста */
+	    & + label{
+	    	top: 8px;
+	    }
+	}
 	input[type="text"], input[type="password"], textarea{
 		border: 2px solid $divider;
 		border-radius: 12px;
@@ -750,7 +772,7 @@ a.btn{
 		left: 12px;
 		top: calc(50% - 12px);
 		padding: 0 4px;
-		background-color: $white;
+		background-color: $white !important;
 		pointer-events: none;
 		font-size: 20px;
 		line-height: 24px;
@@ -1029,6 +1051,11 @@ ul.list-ul{
 
 /////////////////////////// Карточки (card) /////////////////////////////
 
+.cardSimple {
+	border: 2px solid $lightGray;
+	border-radius: 24px;
+}
+
 .card-v1{
 	box-shadow: $boxShadow;
 	border-radius: 24px;
@@ -1107,6 +1134,12 @@ ul.list-ul{
 	background-color: $lightGray;
 }
 
+.label-4{
+	border-radius: 12px;
+	background-color: $lightGray;
+	padding: 16px;
+}
+
 .oldPrice{
 	display: inline-block;
 	position: relative;
@@ -1122,6 +1155,11 @@ ul.list-ul{
 		top: calc(50% - 10.93px/2 + 2.6px);
 		fill: $red;
 		transform: rotate(-6.24deg);
+	}
+	&.text-default{
+		span{
+			@extend .text-default;
+		}
 	}
 }
 
@@ -1140,6 +1178,14 @@ ul.list-ul{
 
 .error{
 	color: $red;
+}
+
+.shadow{
+	box-shadow: $boxShadow;
+}
+
+.brad-12{
+	border-radius: 12px;
 }
 
 .showHidePassword{

@@ -17,6 +17,7 @@ $(document).ready(function () {
 		h = $(window).outerHeight();
 		initSlider();
 		dropdownResize();
+		moveDOMelement();
 	});
 
 	// Действия при скролле
@@ -24,14 +25,23 @@ $(document).ready(function () {
   	let scrollTop = $(window).scrollTop();
   	startingVideoOnScroll(scrollTop);
   	fixedElementOnScroll(scrollTop);
+  	fixedCardOnScroll(scrollTop);
 	});
 
 	//////////////////////////////////////////// Select2 ////////////////////////////////////////////
 
 // Селект похожий на обычный
-$('.js-select-once-modify').select2({ 
+$('.js-select-once-1').select2({ 
 	minimumResultsForSearch: -1,
-	dropdownCssClass: "select2-modify",
+	width: 'auto',
+	dropdownCssClass: "select-once-1-dropdown",
+});
+
+// Селект похожий на обычный
+$('.js-select-once-2').select2({ 
+	minimumResultsForSearch: -1,
+	width: 'auto',
+	dropdownCssClass: "select-once-2-dropdown",
 });;
 	/*Когда у скролла есть wrapScroll ему нужно задать высоту 
 так как его дочерний элемент абсолютно позиционирован */
@@ -245,6 +255,8 @@ $(".js-popup-close").click(function(e){
 });;
 	// Валидируем поля формы перед отправкой
 $('.js-validation-form').submit(function (e) {
+	if($(e.originalEvent.submitter).hasClass('js-submit-without-validate') === true){return true;}
+
 	let isSubmitForm = true;
 	$(this).find("._validate").each(function(){
 		let validateType = $(this).data('validation-type');
@@ -264,11 +276,11 @@ $('.js-validation-form').submit(function (e) {
 	if(isSubmitForm === false){
 		$(this).find('.js-form-submit').addClass('disabled');
 	}
-	return isSubmitForm;	
+	return isSubmitForm;
 });
 
 // Про фокусе поля убираем у него ошибку
-$(".js-validation-form ._validate").focus(function(){
+$(".js-validation-form ._validate").on("focus change", function(){
 	if($(this).hasClass('_error')){
 		$(this).removeClass('_error');
 		$(this).closest('.js-validation-block').find('.js-validation-error').text('');
@@ -315,6 +327,10 @@ let validator = {
 		let firstPasswordValue = $('.js-password-match').val();
 		if(firstPasswordValue !== value){return "passwordNotMatch";}
 		return true;
+	},
+	reqAddress: function (value) {
+		if(value === ""){return "requiredAddress";}
+		return true;
 	}
 };
 
@@ -342,7 +358,8 @@ let errorMessage = {
 	"passwordOnlyLatin": "Пароль должен содержать только латинские буквы и цифры",
 	"passwordWithoutCharacters": "Пароль не должен содержать спецсимволы (),/- []",
 	"passwordFirstSymbolLeter": "Пароль должен начинаться с буквы",
-	"passwordNotMatch": "Пароли не совпадают"
+	"passwordNotMatch": "Пароли не совпадают",
+	"requiredAddress" : "Выберите адрес доставки",
 };;
 
 //////////////////////// Показать картинки отзывов ////////////////////////////
@@ -395,6 +412,26 @@ function closeSliderReviews() {
 }
 
 /////////////////////////////// Простые слайдеры  //////////////////////////////////////
+
+// Отследить инициализацию слайдера в корзине
+$('.js-cartSlider').on('init', function(event, slick){
+  $('.js-cartSlider-slideCount').text(slick.slideCount);
+});
+
+// Слайдер в корзине
+$('.js-cartSlider').slick({
+	prevArrow: $('.js-cartSlider-control.btn-prev'),
+	nextArrow: $('.js-cartSlider-control.btn-next'),
+});
+
+
+$('.js-cartSlider-slideCount').text();
+// Узнать текущий слайд для слайдера в корзине
+$('.js-cartSlider').on('afterChange', function(event, slick, currentSlide, nextSlide){
+	let currentNumberSlide = (currentSlide ? currentSlide : 0) + 1;
+	$('.js-cartSlider-currentSlide').text(currentNumberSlide);
+	$('.js-cartSlider-slideCount').text(slick.slideCount);
+});
 
 // Слайдер-банер на главной странице
 $('.js-slider-baner').slick({
@@ -824,7 +861,41 @@ btnControlVideoSerum.click(function(){
 
 //////////////////////////////////// Корзина ///////////////////////////////////////////
 
+$('.js-mask-tel').mask("+7(999)999-99-99"); // Маска для телефонов
 
+let isFixedTotality = false;
+let totalityFixed = $('.js-totalityFixed');
+let anchorTotalityFixed = $('.js-totalityFixed-anchor');
+// Фиксируем блок пожтверждения заказа при доскролле до него
+function fixedCardOnScroll(scrollTop) {
+	if(totalityFixed.length === 0 || w > BREAKPOINT_md3){return false;}
+
+	let topAnchor = anchorTotalityFixed.offset().top;
+	let aF = scrollTop+h;
+	if((aF > topAnchor && isFixedTotality === false) || (aF < topAnchor && isFixedTotality === true)){
+		isFixedTotality = !isFixedTotality;
+		totalityFixed.toggleClass('active', isFixedTotality);
+	}
+}
+
+// В зависимости от разрешения экрана меняем расположение блоков местами
+var movementBlockStateDESC = true;
+function moveDOMelement (){
+	if(w < BREAKPOINT_md3 && movementBlockStateDESC === true){
+		$(".js-movement-block").each(function(){
+			var id = $(this).closest('.js-movement-block-to-desc').data('id');
+			$(this).appendTo('.js-movement-block-to-mob[data-id='+id+']');
+			movementBlockStateDESC = false;
+		});
+	}else if(w > BREAKPOINT_md3 && movementBlockStateDESC === false){
+		$(".js-movement-block").each(function(){
+			var id = $(this).closest('.js-movement-block-to-mob').data('id');
+			$(this).appendTo('.js-movement-block-to-desc[data-id='+id+']');
+			movementBlockStateDESC = true;
+		});
+	}
+}
+moveDOMelement();
 
 ///////////////////////////////////// Прочее ///////////////////////////////////////////
 

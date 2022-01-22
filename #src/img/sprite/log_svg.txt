@@ -19,6 +19,7 @@ img/sprite/fill-sprite.svg#serum10
 img/sprite/fill-sprite.svg#serum25
 img/sprite/fill-sprite.svg#serum60
 img/sprite/icons-sprite.svg#arrow
+img/sprite/icons-sprite.svg#bag-ok
 img/sprite/icons-sprite.svg#bag
 img/sprite/icons-sprite.svg#burger-show
 img/sprite/icons-sprite.svg#checkbox-active

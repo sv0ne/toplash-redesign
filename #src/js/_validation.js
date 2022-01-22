@@ -1,5 +1,7 @@
 // Валидируем поля формы перед отправкой
 $('.js-validation-form').submit(function (e) {
+	if($(e.originalEvent.submitter).hasClass('js-submit-without-validate') === true){return true;}
+
 	let isSubmitForm = true;
 	$(this).find("._validate").each(function(){
 		let validateType = $(this).data('validation-type');
@@ -19,11 +21,11 @@ $('.js-validation-form').submit(function (e) {
 	if(isSubmitForm === false){
 		$(this).find('.js-form-submit').addClass('disabled');
 	}
-	return isSubmitForm;	
+	return isSubmitForm;
 });
 
 // Про фокусе поля убираем у него ошибку
-$(".js-validation-form ._validate").focus(function(){
+$(".js-validation-form ._validate").on("focus change", function(){
 	if($(this).hasClass('_error')){
 		$(this).removeClass('_error');
 		$(this).closest('.js-validation-block').find('.js-validation-error').text('');
@@ -70,6 +72,10 @@ let validator = {
 		let firstPasswordValue = $('.js-password-match').val();
 		if(firstPasswordValue !== value){return "passwordNotMatch";}
 		return true;
+	},
+	reqAddress: function (value) {
+		if(value === ""){return "requiredAddress";}
+		return true;
 	}
 };
 
@@ -97,5 +103,6 @@ let errorMessage = {
 	"passwordOnlyLatin": "Пароль должен содержать только латинские буквы и цифры",
 	"passwordWithoutCharacters": "Пароль не должен содержать спецсимволы (),/- []",
 	"passwordFirstSymbolLeter": "Пароль должен начинаться с буквы",
-	"passwordNotMatch": "Пароли не совпадают"
+	"passwordNotMatch": "Пароли не совпадают",
+	"requiredAddress" : "Выберите адрес доставки",
 };

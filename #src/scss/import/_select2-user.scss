@@ -1,68 +1,23 @@
-///////////////////////////////////////////////////////////
-//////// Основные изменения стилей для select2 ////////////
-///////////////////////////////////////////////////////////
 
-//////////////// Для выпадающих списков ///////////////////
+////////////////////////// select-once-1 //////////////////////////
 
-.select2-dropdown.select2-dropdown--below{
-	border-radius: 12px !important;
-	border: 1px solid $lightGray !important;
-	box-shadow: 0px 0px 16px rgba(69, 76, 84, 0.1);
-	margin-top: 4px;
-	.select2-results__option{
-		padding: 12px;
-		color: $black;
-		@extend .text-extra-small;
-		&--highlighted{
-			color: $black !important;
-			background: none !important;
-		}
-		&--selected{
-			display: none;
-		}
-		&:hover{
-			color: $black;
-			background: rgba(136, 136, 158, 0.05) !important;
-			border-radius: 12px !important;
-		}
-	}
-}
-
-.select2-dropdown.select2-modify.select2-dropdown--below{
-	//border: none !important;
-	.select2-results__option{
-		font-weight: 700;
-	}
-}
-
-.user-select2-selection-once{
-	flex: 1;
-	display: flex;
+.select-once-1{
 	.select2-container{
-		flex: 1;
-		&.select2-container--disabled{
-			opacity: 0.5;
-			.select2-selection{
-				background-color: $white;
-			}
-		}
+		max-width: 240px;
 	}
 	.select2-selection{ // Селект блок
-		border: 1px solid $lightGray !important;
-		border-radius: 12px !important;
-		height: 34px !important;
+		border: none;
+		height: 40px;
 		.select2-selection__rendered{ // Селект текст
-			margin-top: 7px;
-			color: $black !important;
-			padding-left: 12px !important;
-			padding-right: 32px !important;
+			padding: 8px 40px 8px 8px;
+			color: $black;
 			@extend .text-extra-small;
 
 		}
 		.select2-selection__arrow{ // Стрелочка
 			b{display: none;}
-			height: 30px !important;
-			width: 24px !important;
+			height: 30px;
+			width: 24px;
 			margin-right:4px;
 			margin-top: 6px;
 			transition: all 0.1s ease 0s;
@@ -73,7 +28,7 @@
 				width: 2px;
 				height: 8px;
 				border-radius: 2px;
-				background-color: $black !important;
+				background-color: $black;
 			}
 			&:after{
 				left: 8px;
@@ -90,13 +45,109 @@
 			transform: rotate(180deg);
 		}
 	}
-	&.modify-selection{
-		flex: 0 0 240px;
-		.select2-selection{
-			border: none !important;
-			.select2-selection__rendered{
-				font-weight: 700;
+}
+.select-once-1-dropdown{
+	border-radius: 12px !important;
+	border: 1px solid $lightGray;
+	box-shadow: $boxShadow;
+	margin-top: 4px;
+	.select2-results__option{
+		padding: 12px;
+		color: $black;
+		@extend .text-extra-small;
+		&--highlighted{
+			color: $black !important;
+			background: none !important;
+		}
+		&--selected{
+			display: none;
+		}
+		&:hover{
+			color: $black;
+			background: $lightGray !important;
+			border-radius: 12px !important;
+		}
+	}
+}
+
+////////////////////////// select-once-2 //////////////////////////
+
+.select-once-2{
+	//width: 100%;
+	.select2-container{
+		width: 100% !important;
+	}
+	.select2-selection{ // Селект блок
+		border: 2px solid $divider;
+		border-radius: 12px !important;
+		height: 56px;
+		.select2-selection__rendered{ // Селект текст
+			padding: 15px 48px 16px 16px;
+			color: $black;
+			font-family: "FuturaPT-Book";
+			font-size: 20px;
+			line-height: 24px;
+		}
+		.select2-selection__arrow{ // Стрелочка
+			b{display: none;}
+			height: 30px;
+			width: 24px;
+			margin-right:12px;
+			margin-top: 12px;
+			transition: all 0.1s ease 0s;
+			&:after, &:before{
+				position: absolute;
+				content: "";
+				top: 11px;
+				width: 2px;
+				height: 8px;
+				border-radius: 2px;
+				background-color: $black;
+			}
+			&:after{
+				left: 8px;
+				transform: rotate(-45deg);
+			}
+			&:before{
+				left: 13px;
+				transform: rotate(45deg);
 			}
 		}
+	}
+	.select2-container--open{ // Селект открыт
+		.select2-selection__arrow{
+			transform: rotate(180deg);
+		}
+	}
+}
+.select-once-2-dropdown{
+	border-radius: 12px !important;
+	border: 1px solid $lightGray;
+	box-shadow: $boxShadow;
+	margin-top: 4px;
+	.select2-results__option{
+		padding: 12px;
+		color: $black;
+		font-family: "FuturaPT-Book";
+		font-size: 20px;
+		line-height: 24px;
+		&--highlighted{
+			color: $black !important;
+			background: none !important;
+		}
+		&--selected{
+			display: none;
+		}
+		&:hover{
+			color: $black;
+			background: $lightGray !important;
+			border-radius: 12px !important;
+		}
+	}
+}
+
+.js-select-once-2._validate._error + span{
+	.select2-selection{
+		border-color: $lightRed;
 	}
 }

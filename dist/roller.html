@@ -3,9 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/select2.min.css">
+	<link rel="stylesheet" href="css/style.css">
 	<script src="js/jquery-3.5.1.min.js"></script>
+	<script src="js/maskinput.js"></script>
 	<script src="js/slick.min.js"></script>
 	<script src="js/select2.min.js"></script>
 	<script src="js/script.js"></script>
@@ -260,8 +261,8 @@
 		<button class="js-scroll-button btnRound btn-prev" data-scroll-id="2">
 			<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#arrow"/></svg>
 		</button>
-		<div class="user-select2-selection-once modify-selection">
-			<select class="js-select-once-modify" name="sortReviews" data-placeholder="">
+		<div class="select-once-1">
+			<select class="js-select-once-1" name="sortReviews" data-placeholder="">
 				<option value="rand">В случайном порядке</option>
 				<option value="series">Сначала последние</option>
 			</select>
@@ -1050,8 +1051,11 @@
 		<div class="useful">
 	<div class="container">
 		<div class="p-16">
-			<p class="text-huge mb-8">Вам может пригодиться:</p>
-			<p class="darkGray">Чаще всего покупают вместе с Toplash lash and brow</p>
+			
+			
+				<p class="text-huge mb-8">Вам может пригодиться:</p>
+				<p class="darkGray">Чаще всего покупают вместе с Toplash lash and brow</p>
+			
 		</div>
 		<div class="useful__body">
 			<button class="btnRound sliderBtn btn-prev">
