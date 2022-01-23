@@ -9,6 +9,8 @@ img/sprite/fill-sprite.svg#cost_no
 img/sprite/fill-sprite.svg#cost_ok
 img/sprite/fill-sprite.svg#delivery
 img/sprite/fill-sprite.svg#euro
+img/sprite/fill-sprite.svg#gift-red-circles
+img/sprite/fill-sprite.svg#gift-white-circles
 img/sprite/fill-sprite.svg#gift
 img/sprite/fill-sprite.svg#green-fire
 img/sprite/fill-sprite.svg#left-triangle
@@ -28,6 +30,7 @@ img/sprite/icons-sprite.svg#chevrone
 img/sprite/icons-sprite.svg#close
 img/sprite/icons-sprite.svg#equals
 img/sprite/icons-sprite.svg#facebook
+img/sprite/icons-sprite.svg#info
 img/sprite/icons-sprite.svg#instagram
 img/sprite/icons-sprite.svg#lil-1
 img/sprite/icons-sprite.svg#lil-2

@@ -192,7 +192,7 @@ var popup = $(".popup");
 var lastOpen = false;
 
 // Показать попапы при клике
-$(document).on("click", ".popup-click", function(e){
+$(document).on("click", ".js-popup-open", function(e){
 	e.preventDefault();
 	if($(this).hasClass('disabled')){return false;}
 	openPopup($(this).data('popupid'));
@@ -204,6 +204,7 @@ function openPopup(popupID) {
 		if(lastOpen !== false){close_popup();}
 		lastOpen = popupID;
 		$('#'+popupID).addClass('open');
+		bodyLock();
 	}else{
 		close_popup();
 	}
@@ -211,11 +212,11 @@ function openPopup(popupID) {
 
 // Скрыть попапы при клике вне попапа и вне области вызова попапа
 $(document).on(isMobile ? "touchend" : "mousedown", function (e) {
-	var popupTarget = $(".popup-click").has(e.target).length;
+	var popupTarget = $(".js-popup-open").has(e.target).length;
 	// Если (клик вне попапа && попап имеет класс open)
-    if (popup.has(e.target).length === 0 && popup.hasClass('open') && popupTarget === 0){
-       	close_popup();
-    }
+    if (popup.has(e.target).length === 0 && popup.hasClass('open') && popupTarget === 0 && $('.js-open-popup-lottery').has(e.target).length === 0){
+	    close_popup();
+	}
 });
 
 // Скрыть попап при нажатии на клавишу "Esc"
@@ -331,6 +332,11 @@ let validator = {
 	reqAddress: function (value) {
 		if(value === ""){return "requiredAddress";}
 		return true;
+	},
+	bankCard: function (value) {
+		if(value === ""){return true;}
+		if(/[-0-9]{16}/.test(value) === false){return "wrongWankCard";}
+		return true;
 	}
 };
 
@@ -360,6 +366,7 @@ let errorMessage = {
 	"passwordFirstSymbolLeter": "Пароль должен начинаться с буквы",
 	"passwordNotMatch": "Пароли не совпадают",
 	"requiredAddress" : "Выберите адрес доставки",
+	"wrongWankCard": "Поле должно содержать 16 цифр"
 };;
 
 //////////////////////// Показать картинки отзывов ////////////////////////////
@@ -862,6 +869,7 @@ btnControlVideoSerum.click(function(){
 //////////////////////////////////// Корзина ///////////////////////////////////////////
 
 $('.js-mask-tel').mask("+7(999)999-99-99"); // Маска для телефонов
+$('.js-mask-card').mask("9999-9999-9999-9999"); // Маска для банковских карточек
 
 let isFixedTotality = false;
 let totalityFixed = $('.js-totalityFixed');
@@ -896,6 +904,221 @@ function moveDOMelement (){
 	}
 }
 moveDOMelement();
+
+//////////////////////////////// Логика колеса-крутилки ///////////////////////////////
+
+// Получить случайное число в диапазоне 
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
+}
+
+var chance = [["10%", 30],["275 p.", 30],["8%", 10],["230 p.", 30],["5%", 1],["20%", 5],["180 p.", 10],["12%", 30],["115 p.", 1],["450 p.", 5]];
+// Считаем вероятности и выдаем дроп ID
+function giveDrop() {
+	var lengthChance = 0, dropID;
+	var lineChance = [0];
+	for(var i = 0; i < chance.length; i++){
+		lengthChance += chance[i][1];
+		lineChance[i+1] = lengthChance;
+	}
+	var randomNumber = getRandomIntInclusive(1, lengthChance);
+	for (var i = 1; i < lineChance.length; i++) {
+		if(randomNumber > lineChance[i-1] && randomNumber <= lineChance[i]){
+			dropID = i - 1;
+		}
+	}
+	return dropID;
+}
+
+// Возвращает градусы на которых должно остановиться колесо
+function degWheel(dropID) {
+	var dropStep = 360 / chance.length;
+	var percent10 = dropStep * 20 / 100;
+	var dropDEGstart = (dropID * dropStep) + percent10;
+	var dropDEGend = ((dropID * dropStep) + dropStep) - percent10;
+	var dropDEG = getRandomIntInclusive(Math.round(dropDEGstart), Math.round(dropDEGend));
+	return dropDEG;
+}
+
+// Узнать силу вращения
+function speedWheel() {
+	if(w < BREAKPOINT_md4){
+		var heightRunner = $('#js-runner').width();
+		var heightParent = $('#js-gradient').width();
+	}else{
+		var heightRunner = $('#js-runner').height();
+		var heightParent = $('#js-gradient').height();
+	}
+	
+	var diffRunner = heightParent - heightRunner;
+	var speed = diffRunner * 100 / heightParent;
+	return Math.round(speed);
+}
+
+const minWheel = 5;  // Минимально кругов при минимальной скорости
+const maxWheel = 30; // Максимально кругов при максимальной скорости
+const minTime = 5000; // Минимальное время вращения
+const maxTime = 7000; // Максимальное время вращения
+// Высчитываем время вращения и конечное аоложение колеса
+function positionWheel(speed, dropDEG) {
+	var diff = (maxWheel - minWheel) / 100;
+	var wheelCount = Math.round(minWheel + (diff * speed));
+	var totalDeg = (wheelCount * 360) + dropDEG;
+
+	var diffTime = (maxTime - minTime) / 100;
+	var timeCount = Math.round(minTime + (diffTime * speed));
+	return [timeCount, totalDeg];
+}
+
+// Последовательные действия для колеса-крутилки
+function sequentialActionsWheel() {
+	blockWheel = true;
+	var dropID = giveDrop();
+	var dropDEG = degWheel(dropID);
+	var speed = speedWheel();
+	var position = positionWheel(speed, dropDEG);
+
+	// Вращаем колесо
+	$("#animated").attr("style", "--circle-deg:"+position[1]+"deg; --circle-time:"+position[0]+"ms;");
+	$("#animated").attr("class", "active");
+
+	// Печатаем значение выпавшего дропа в нужные места и показываем попап "Вы получили скидку"
+	$('#js-sv-drop-id').val(dropID);
+	$('#js-sv-drop-value').val(chance[dropID][0]);
+	$('#js-discount-type').text(chance[dropID][0]);
+	setTimeout(function() {
+		openPopup('prizeReceive');
+	}, position[0] + 100);
+	
+}
+
+// Нажатие на кнопку "Вращать"
+$("#js-stopRunner").click(function(e){
+	if(blockWheel === false){
+		$('#js-runner').addClass('paused');
+		sequentialActionsWheel();
+	}
+});
+
+var blockWheel = true;
+// Запускаем все необходимое для правельной работы колеса-крутилки
+function initWheel() {
+	if(w < BREAKPOINT_md4){
+		$('#js-runner').addClass('activeMOB');
+	}else{
+		$('#js-runner').addClass('activeDESC');
+	}
+	blockWheel = false;
+}
+
+///////// Логика попапа ухода со страницы, получить подарок, анимировать title  //////////////
+
+const startDelay = 60; // задержка (сек.) - После открытия сайта
+const leavingDelay = 60; // задержка (сек.) - После ухода с сайта
+
+// Паказать скрыть анимированно всплывашку "Ваш подарок"
+function showGift() {
+	if(localStorage.getItem('get-gift') == null){
+		if($('.animate-display').hasClass('show-anim')){
+			$('.animate-display').addClass('closing-anim');
+			setTimeout(function() {
+				$('.animate-display').removeClass('show-anim closing-anim');
+			}, 300);
+		}else{
+			$('.animate-display').addClass('show-anim');
+		}
+	}
+}
+
+// Скрыть всплывашку "Ваш подарок"
+$(".targetPrize").click(function(){
+	showGift();
+});
+
+var bbW = false;
+// Oткрыть попап с лотереей
+$('.js-open-popup-lottery').on(isMobile ? "touchend" : "mousedown", function (e) {
+	if($(e.target).hasClass('targetPrize') === false){
+		initWheel();
+		openPopup('lottery');
+		bbW = true;
+		$('.animate-display').addClass('closing-anim');
+		setTimeout(function() {
+			$('.animate-display').removeClass('show-anim closing-anim');
+		}, 300);
+	}
+});
+
+var popupLeaving = 'userLeaving';
+var existUser = true;
+var timer_llk;
+var blockMouseLeaving = true;
+setTimeout(function() {blockMouseLeaving = false; }, 10000);
+// Отслеживаем уход со страницы
+$(document).on("mouseleave", function(){
+	if(blockMouseLeaving === true){return false;}
+	if($('#'+popupLeaving).length !== 0 && $("#prizeReceive").hasClass('open') === false){
+		if(sessionStorage.getItem('vizit') == null){
+			if($('#'+popupLeaving).hasClass('open') === false){
+				openPopup(popupLeaving);
+			}
+			sessionStorage.setItem('vizit', 'vizit');
+		}
+		existUser = false;
+		clearTimeout(timer_llk);
+		timer_llk = setTimeout(function() {noUser();}, leavingDelay * 1000);
+	}
+});
+
+$(document).on("mouseenter", function(){
+	if(existUser === false){
+		existUser = true;
+	}
+});
+
+// Запоминаем если пользователь получил подарок
+$(".js-get-gift").submit(function(){
+	localStorage.setItem('get-gift', 'exist');
+});
+
+// Пользователь ушел со страницы и отсутствовал минуту
+function noUser() {
+	if(existUser === false){
+		if($('.animate-display').hasClass('show-anim') === false && bbW === false){showGift();}
+		if(animTitle === false){animateTitle();}
+	}
+}
+
+var titleDefault = $('title').text();
+var titleAnimate = $('title').data('title');
+if(titleAnimate != undefined){
+	titleAnimate = titleAnimate.split("||");
+}
+var titleLoop = 0;
+var animTitle = false;
+// Анимируем title
+function animateTitle() {
+	if(localStorage.getItem('get-gift') == null){
+		if(titleAnimate == undefined){return false;}
+		$('title').text(titleAnimate[titleLoop]);
+		titleLoop++;
+		if(titleLoop >= titleAnimate.length){titleLoop = 0;}
+		if(existUser === false){
+			animTitle = true;
+			setTimeout(function() {animateTitle();}, 1500);
+		}else{
+			animTitle = false;
+			$('title').text(titleDefault);
+		}
+	}
+}
+
+// Показать через минуту всплывашку про подарок
+if($('.animate-display').length !== 0){
+	setTimeout(function() {if(!$('.animate-display').hasClass('show-anim')){showGift();}}, startDelay * 1000);
+}
 
 ///////////////////////////////////// Прочее ///////////////////////////////////////////
 

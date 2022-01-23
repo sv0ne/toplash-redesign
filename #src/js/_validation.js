@@ -76,6 +76,11 @@ let validator = {
 	reqAddress: function (value) {
 		if(value === ""){return "requiredAddress";}
 		return true;
+	},
+	bankCard: function (value) {
+		if(value === ""){return true;}
+		if(/[-0-9]{16}/.test(value) === false){return "wrongWankCard";}
+		return true;
 	}
 };
 
@@ -105,4 +110,5 @@ let errorMessage = {
 	"passwordFirstSymbolLeter": "Пароль должен начинаться с буквы",
 	"passwordNotMatch": "Пароли не совпадают",
 	"requiredAddress" : "Выберите адрес доставки",
+	"wrongWankCard": "Поле должно содержать 16 цифр"
 };

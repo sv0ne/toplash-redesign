@@ -4,7 +4,7 @@ var popup = $(".popup");
 var lastOpen = false;
 
 // Показать попапы при клике
-$(document).on("click", ".popup-click", function(e){
+$(document).on("click", ".js-popup-open", function(e){
 	e.preventDefault();
 	if($(this).hasClass('disabled')){return false;}
 	openPopup($(this).data('popupid'));
@@ -16,6 +16,7 @@ function openPopup(popupID) {
 		if(lastOpen !== false){close_popup();}
 		lastOpen = popupID;
 		$('#'+popupID).addClass('open');
+		bodyLock();
 	}else{
 		close_popup();
 	}
@@ -23,11 +24,11 @@ function openPopup(popupID) {
 
 // Скрыть попапы при клике вне попапа и вне области вызова попапа
 $(document).on(isMobile ? "touchend" : "mousedown", function (e) {
-	var popupTarget = $(".popup-click").has(e.target).length;
+	var popupTarget = $(".js-popup-open").has(e.target).length;
 	// Если (клик вне попапа && попап имеет класс open)
-    if (popup.has(e.target).length === 0 && popup.hasClass('open') && popupTarget === 0){
-       	close_popup();
-    }
+    if (popup.has(e.target).length === 0 && popup.hasClass('open') && popupTarget === 0 && $('.js-open-popup-lottery').has(e.target).length === 0){
+	    close_popup();
+	}
 });
 
 // Скрыть попап при нажатии на клавишу "Esc"

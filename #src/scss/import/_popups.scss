@@ -1,310 +1,316 @@
 .popup {
+	width: 100%;
 	position: fixed;
+	z-index: -1;
 	top: 0;
 	left: 0;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	opacity: 0;
 	visibility: hidden;
-	background-color: rgba(0, 0, 0, 0.3);
-	z-index:0;
-	padding: 0 32px;
-	@media (max-width:$md3+px) {
-	    align-items: flex-end;
-	    padding: 0 16px;
-	}
-	@media (max-width:$md4+px) {
-	    padding: 0 8px;
-	}
-	&__wrap{
-		padding: 4px 4px 4px 0px;
-   		border-radius: 32px;
-   		overflow: hidden;
-   		box-shadow: 0px 0px 16px rgba(34, 35, 51, 0.1);
-   		position: relative;
-   		max-width: 640px;
+	::-webkit-scrollbar {
+    	width: 8px;
+    	height: 8px;
+   		background-color: #fff;
    		@media (max-width:$md3+px) {
-   		    border-radius: 32px 32px 0px 0px;
+   		    display: none;
    		}
 	}
-	&__body {
-		max-height: calc(100vh - 92px);
-		overflow-y: auto;
-		height: auto;
-		background-color: $white;
-		padding: 8px 0px 4px 8px;
-		position: relative;
-		z-index: 3;
+
+	::-webkit-scrollbar-thumb {
+	    background-color: rgba(136,136,158, 0.4);
+	    border-radius: 4px;
+	    @media (max-width:$md3+px) {
+   		    display: none;
+   		}
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+	    background-color: rgba(136,136,158, 0.5);
+	}
+
+	scrollbar-color: #999 #ccc;
+  	scrollbar-width: thin;
+	
+  	&.p-center{
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+	&.p-overlay{
 		@media (max-width:$md3+px) {
-		    padding: 8px 4px 4px 8px;
-		}
-		&.body-center{
-			width: 540px;
-			box-shadow: 0px 4px 16px rgba(34, 35, 51, 0.2);
-			border-radius: 32px;
-			padding: 32px;
-			@media (max-width:$md3+px) {
-			    border-radius: 32px 32px 0px 0px;
-			    padding: 32px;
-			}
-		}
-	}
-	&__closer{
-		position: absolute;
-		right: 16px;
-		top: 16px;
-		z-index: 20;
-		border: 2px solid $lightGrey;
-		&:hover{
-			opacity: 0.8;
-		}
-	}
-	&.p-ib{ 
-		@media (min-width:$md3+px) {
-			position: absolute;
-		    display: inline-block;
-			width: auto;
-			height: auto;
-			top: 24px;
-			left: 50px;
-			background-color: transparent;
-			padding: 0px;
+		    height: 100%;
+			background-color: rgba(0, 0, 0, 0.5);
+			display: flex;
+			align-items: flex-end;
 			.popup__body{
-				padding: 16px;
+				border-radius: 12px 12px 0 0;
 				position: relative;
-				width: 100%;
-				transition: all 0s ease 0.1s;
-				box-shadow: 0px 0px 16px rgba(34, 35, 51, 0.1);
+				max-height: calc(100vh - 128px) !important;
 			}
-			&.fixed{
-				position: fixed;
+			.popup__wrap{
+				border-radius: 12px 12px 0 0;
 			}
 		}
 	}
 	&.open{
 		opacity: 1;
 		visibility: visible;
-		z-index: 100;
+		z-index: 1000;
+		.popup__wrap{
+			transform: translateY(0%);
+			transition: all 0.3s ease 0s;
+		}
+	}
+	&__wrap{
 		@media (max-width:$md3+px) {
-			&.withWrap{
-				.popup__wrap{
-			    	animation: openerS 0.3s forwards 0s ease;
-			    }
-			}
-			&:not(.withWrap){
-				.popup__body{
-		    		animation: openerS 0.3s forwards 0s ease;
-		    	}
-			}
-		    
+		    flex: 1;
+		    transition: all 0.3s ease 0s;
+	        transform: translateY(110%);
 		}
-	}
-
-	@keyframes openerS {
-		0% {transform: translateY(100%);}
-		100% {transform: translateY(0px);}
-	}
-
-	@extend .superScroller;
-}
-
-#top-tens-game{
-	.popup__wrap:after{
-		content: "";
-		position: absolute;
-		top: 228px;
-		left: 0;
-		width: 100%;
-		height: calc(100% - 228px);
+		position: relative;
 		background-color: $white;
+		border-radius: 12px;
+		overflow: hidden;
+		filter: drop-shadow(0px 2px 8px rgba(43, 43, 66, 0.08));
 	}
-	&.scrolled{
-		.topTensGame__header{
-			transition: all 0.2s ease 0s;
-			height: 74px;
-			img{
-				transform: translateY(-100px);
-			}
-			p{
-				transform: translateY(-6.5px);
-			}
+	&__body {
+		max-height: calc(100vh - 64px);
+		width: 540px;
+		position: relative;
+		border-radius: 12px;
+		background-color: $white;
+		margin-top: -8px;
+		z-index: 20;
+		overflow: auto;
+		@media (max-width:$md3+px) {
+		    width: 100%;
 		}
-		.topTensGame{
-			transition: all 0.2s ease 0s;
-			margin-top: 170px;
+	}
+	&__close{
+		padding: 12px;
+		z-index: 4;
+		position: absolute;
+		cursor: pointer;
+		top: 4px;
+		right: -4px;
+	}
+	&__header {
+		border-radius: 12px 12px 0px 0px;
+		position: relative;
+		overflow: hidden;
+		img{
+			width: 100%;
+			height: auto;
 		}
-		.popup__wrap:after{
-			top: 74px;
-			height: calc(100% - 74px);
+	}
+	&__gift{
+		width: 36.75%;
+		left: 50%;
+		pointer-events: none;
+		position: absolute;
+		z-index: 70;
+		padding-top: 25.45%;
+		transform: translate(-50%, calc(-100% + 52px));
+		img{
+			@extend .posa;
 		}
 	}
 }
 
-.topTensGame{
-	transition: all 0.2s ease 0s;
-	margin-top: 228px;
-	&__header{
+////////////////////////// Попап prizeReceive //////////////////////////
+
+#prizeReceive{
+	.popup__wrap{
+		overflow: visible;
+	}
+}
+
+///////////////////////////// Попап lottery ////////////////////////////
+
+.gamePlay{
+	height: 300px;
+	@media (max-width:$md4+px) {
+	    height: auto;
+	}
+	&__row{
+		height: 300px;
+		display: flex;
+		justify-content: center;
+		@media (max-width:$md4+px) {
+		  flex-direction: column;
+		  height: auto;
+		}
+	}
+	&__col{
+		&.mod-col-1{
+			@media (max-width:$md4+px) {
+			    padding: 28.6px;
+			}
+		}
+		&.mod-col-2{}
+	}
+	&__wheel{
+		height: 100%;
+		display: flex;
+		svg{
+			width: 100%;
+			height: 100%;
+		}
+		#animated{
+			transform-origin: 50% 50%;
+			&.active{
+				animation-timing-function: ease-out;
+				animation: rotatecircle var(--circle-time) 0s forwards;
+			}
+		}
+	}
+	&__panel{
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		@media (max-width:$md4+px) {
+		    flex-direction: row;
+		    margin-top: 16px;
+		}
+	}
+	&__scale{
+		flex: 1;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 16px;
+		@media (max-width:$md4+px) {
+		    margin-bottom: 0;
+		    justify-content: center;
+		    margin-right: 16px;
+		}
+		p{
+			@extend .text-footnote;
+			color: $darkGray;
+		}
+	}
+	&__textDesc{
+		@media (max-width:$md4+px) {
+		    display: none;
+		}
+	}
+	&__gradient{
+		flex: 1;
+		width: 16px;
+		border-radius: 99px;
+		background: linear-gradient(180deg, $red 0%, #9029F8 26.56%, #00D1FF 50.52%, #0BD5A1 100%);
+		margin: 8px;
+		position: relative;
+		border: 1px solid $divider;
+		overflow: hidden;
+		@media (max-width:$md4+px) {
+		    flex: 0 0 16px;
+		    margin: 0 0 8px 0;
+		    width: 100%;
+		    background: linear-gradient(270deg, $red 0%, #9029F8 26.56%, #00D1FF 50.52%, #0BD5A1 100%);
+		}
+	}
+	&__runner{
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
-		z-index: 10;
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
-		transition: all 0.2s ease 0s;
-		height: 232px;
-		img{
-			width: 200px;
-			height: 200px;
-			display: inline-block;
-			margin: 16px auto -43px auto;
-		}
-		p{
-			position: sticky;
-			top: 0;
-			z-index: 1;
-		}
-	}
-	&__item{}
-}
-
-.topTensGame__item, .supercell__item{
-	.card-v9{
-		padding: 0px;
-		min-width: auto;
-		&__body{
-			border: none;
-			padding: 8px;
-			@media (min-width:$md3+px) {
-			    display: flex;
-			    flex-wrap: wrap;
-			}
-		}
-		&__description{
-			@media (min-width:$md3+px) {
-			    flex: 1;
-			    .mt-8{
-			    	margin-top: 0;
-			    }
-			}
-		}
-		&__image{
-			@media (min-width:$md3+px) {
-			    flex: 0 0 100px;
-			    height: 100px;
-			    margin-right: 16px;
-			}
-		}
-		&:hover{
-			background-color: $lightGrey;
-			.list-tag .list-tag-toggle button{
-				border: 2px solid #EAEAF3;
-			}
-			.list-tag li a{
-				border: 2px solid #EAEAF3;
-				background-color: #EAEAF3;
-			}
-		}
-	}
-	.list-tag{
-		margin-top: 12px !important;
-		@media (min-width:$md3+px) {
-		    flex: 0 0 100%;
-		    li{
-				&:nth-child(3){display: block;}
-				&:nth-child(4){display: block;}
-				&:nth-child(5){display: block;}
-			}
-		}
-	}
-}
-
-#preview{
-	.popup__body{
-		padding: 0;
-		border-radius: 32px;
-		@media (max-width:$md3+px) {
-		    border-radius: 32px 32px 0px 0px;
-		}
-	}
-	.card-v2{
-		border: 0;
-		width: 328px;
-		@media (max-width:$md3+px) {
-		    width: auto;
-		}
-	}
-	&.open{
-		@media (min-width:$md3+px) {
-		    transform: scale(0.8) translateY(-100px);
-			opacity: 0;
-			animation: preview 0.3s forwards 0s ease;
-		}
-		
-	}
-}
-
-@keyframes preview {
-	0{ transform: scale(0.8) translateY(-100px); opacity: 0;}
-	100%{transform: scale(1) translateY(0px); opacity: 1;}
-}
-
-#more{
-	width: 304px;
-	.popup__body{
-		box-shadow: 0px 4px 16px rgba(34, 35, 51, 0.2);
-		border-radius: 24px;
-		padding: 8px;
-		.menu__list a, .menu__list button{
-			padding: 18px 0px 18px 8px;
-		}
-	}
-	@media (max-width:$md3+px) {
-	    top: 0 !important;
-	    left: 0 !important;
-	    width: 100%;
-	    .popup__body{
-	    	width: 100%;
-	    	border-radius: 24px 24px 0px 0px;
-	    }
-	}
-}
-
-.instruction{
-	&__header{
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding-bottom: 8px;
-	}
-}
-
-.likeGame {
-	&__controls {
-		display: flex;
-		margin: 0 -8px;
-	}
-	&__btn {
-		flex: 1;
+		height: 0%;
 		background-color: $white;
-		border: 2px solid rgba(139, 142, 193, 0.1);
-		border-radius: 32px;
-		padding: 16px;
-		margin: 0 8px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		img{
-			width: 64px;
-			height: 64px;
-			margin-bottom: 8px;
+		@media (max-width:$md4+px) {
+		    height: 100%;
+		   	right: 0;
+		   	left: auto;
 		}
-		&:hover{
-			background-color: $lightGrey;
+		&.activeDESC{
+			animation: runnerdesc 2s infinite 0s linear;
+		}
+		&.activeMOB{
+			animation: runnermob 2s infinite 0s linear;
+		}
+		&.paused{
+			animation-play-state:paused;
+		}
+	}
+	&__text-mob{
+		display: none;
+		@media (max-width:$md4+px) {
+		    width: 100%;
+			display: flex;
+			justify-content: space-between;
 		}
 	}
 }
+
+@keyframes rotatecircle {
+	0%{transform: rotate(0deg);}
+ 	100% {transform: rotate(var(--circle-deg));}
+}
+
+@keyframes runnerdesc {
+	0%{height: 0%;}
+	50%{height: 100%;}
+ 	100% {height: 00%;}
+}
+@keyframes runnermob {
+	0%{width: 0%;}
+	50%{width: 100%;}
+ 	100% {width: 0%;}
+}
+
+//////////////////// Попап "Забрать приз" ////////////////////////
+
+.pickupPrize {
+	position: fixed;
+	bottom: 40px;
+	right: 32px;
+	width: 328px;
+	z-index: 300;
+	background-color: $white;
+	border: 1px solid $lightGray;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
+	border-radius: 12px;
+	cursor: pointer;
+	@media (max-width:$md3+px) {
+	    right: 16px;
+	    bottom: 24px;
+	    left: 16px;
+	    width: auto;
+	}
+	&__image{
+		position: absolute;
+		top: -52px;
+		right: 0px;
+		width: 130px;
+		height: 90px;
+	}
+}
+
+.animate-display{
+	visibility: hidden;
+	opacity: 0;
+	&.show-anim{
+		visibility: visible;
+		animation: show_pickupPrize 0.2s ease 0s forwards;
+	}
+	&.closing-anim{
+		animation: hide_pickupPrize 0.2s ease 0s forwards;
+	}
+}
+
+@keyframes show_pickupPrize {
+	0%{ transform: translateY(20px); opacity: 0; }
+	50%{ transform: translateY(0px); opacity: 0.5; }
+ 	100% { transform: translateY(10px); opacity: 1; }
+}
+
+@keyframes hide_pickupPrize {
+	0%{ transform: translateY(10px); opacity: 1; }
+	50%{ transform: translateY(0px); opacity: 0.5; }
+ 	100% { transform: translateY(20px); opacity: 0; }
+}
+
+///////////////////////////////////////////////////////////////

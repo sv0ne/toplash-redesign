@@ -166,33 +166,6 @@
 	}
 }
 
-.horizontalScroller{
-	::-webkit-scrollbar {
-    	width: 12px;
-    	height: 12px;
-   		background-color: $lightGray;
-   		border-radius: 8px;
-   		@media (max-width:$md3+px) {
-   		    display: none;
-   		}
-	}
-
-	::-webkit-scrollbar-thumb {
-	    background-color: rgba(171, 178, 186, 0.5);
-	    border-radius: 8px;
-	    @media (max-width:$md3+px) {
-   		    display: none;
-   		}
-	}
-
-	::-webkit-scrollbar-thumb:hover {
-	    background-color: $darkGray;
-	}
-
-	scrollbar-color: #999#333;
-    scrollbar-width: thin;
-}
-
 .sliderBig{
 	width: 100%;
 	padding-top: 100%;
@@ -330,6 +303,31 @@
 		}
 		img{
 			margin: 0 auto 20px auto;
+		}
+	}
+	&.mod-inPopup{
+		.reviewCategory{
+			&__row{
+				margin: -8px;
+			}
+			&__col{
+				flex:1;
+				p{
+					@extend .text-footnote;
+					line-height: 20px;
+				}
+				@media (max-width:520+px) {
+				    flex: 0 0 50%;
+				}
+			}
+			&__item{
+				img{
+					margin: 0 auto 8px auto;
+					&.mod-ozon{
+						height: 18px;
+					}
+				}
+			}
 		}
 	}
 }
@@ -883,10 +881,10 @@
 }
 
 .js-dropdown-item .btnRound{
-		transition: all 0.3s ease 0s;
-	}
+	transition: all 0.3s ease 0s;
+}
 .js-dropdown-item.active {
-	.dropdown__head{
+	.js-dropdown-head{
 		color: $red;
 	}
 	.btnRound{

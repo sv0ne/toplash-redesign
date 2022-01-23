@@ -19,7 +19,7 @@
 						<p class="text-huge">18%</p>
 						<p class="text-footnote">Вы сможете потратить ваши бонусы при следующей покупке.</p>
 					</div>
-					<button class="btnSec">История начислений</button>
+					<button class="btnSec js-popup-open" data-popupid="accrualHistory">История начислений</button>
 				</div>
 			</div>
 			<div class="flex-1 p-16">
@@ -226,11 +226,89 @@
 						<li>Скидывайте нам скриншот.</li>
 						<li>После проверки гарантировано получайте реальные деньги на карту.</li>
 					</ol>
-					<button class="btn md4-w-100">Отправить скриншот</button>
+					<button class="btn md4-w-100 js-popup-open" data-popupid="screenshot">Отправить скриншот</button>
 				</div>
 			</div>
 		</div>
 	</div>
 	@@include('blocks/common/footer.html')
+	<div class="popup-page">
+		<div class="popup p-center p-overlay" id="accrualHistory">
+			<div class="popup__wrap">
+				<div class="popup__body p-8 m-0">
+					<div class="p-8 f-jcsb-aic">
+						<p class="text-medium">История начислений</p>
+						<div class="p-12">
+							<button type="button" class="btn-3 js-popup-close">
+								<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#close"/></svg>
+							</button>
+						</div>
+					</div>
+					<div class="f-jcsb p-8 aifs">
+						<div>
+							<p>3% от реферальной покупки</p>
+							<p class="darkGray">11.12.2021</p>
+						</div>
+						<p class="text-extra-small green">+85 баллов</p>
+					</div>
+					<div class="f-jcsb p-8 aifs">
+						<div>
+							<p>3% от вашей покупки</p>
+							<p class="darkGray">02.12.2021</p>
+						</div>
+						<p class="text-extra-small green">+42 балла</p>
+					</div>
+					<div class="f-jcsb p-8 aifs">
+						<div>
+							<p>Регистрация</p>
+							<p class="darkGray">01.12.2021</p>
+						</div>
+						<p class="text-extra-small green">+50 баллов</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="popup p-center p-overlay" id="screenshot">
+			<div class="popup__wrap">
+				<form class="popup__body p-8 m-0 js-validation-form" action="" method="post">
+					<div class="p-8 f-jcsb-aic">
+						<p class="text-medium">Отправить скриншот</p>
+						<div class="p-12">
+							<button type="button" class="btn-3 js-popup-close">
+								<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#close"/></svg>
+							</button>
+						</div>
+					</div>
+					<div class="p-8 f-jcsb aifs">
+						<svg class="w16 fillDarkGray mt-4 mr-16"><use xlink:href="img/sprite/icons-sprite.svg#info"/></svg>
+						<p class="darkGray">Прикрепите одно или несколько изображений комментариев, а также ссылки на страницы, где они размещены и после проверки модераторами вы получите вознаграждение.</p>
+					</div>
+					<div class="p-8">
+						<p class="mb-8">Укажите номер карты, на которую будет перечислено вознаграждение:</p>
+						<div class="js-validation-block">
+							<div class="inputText">
+								<input class="_validate js-mask-card" data-validation-type='["req", "bankCard"]' type="text" autocomplete="off" name="card" placeholder=" ">
+								<label>Введите номер карты</label>
+							</div>
+							<p class="js-validation-error mt-4 error"></p>
+						</div>
+					</div>
+					<div class="p-8 mb-28">
+						<div class="js-validation-block mb-16">
+							<div class="inputText">
+								<input class="_validate" data-validation-type='["req"]' type="text" autocomplete="off" name="link" placeholder=" ">
+								<label>Вставьте ссылку на страницу</label>
+							</div>
+							<p class="js-validation-error mt-4 error"></p>
+						</div>
+						<button class="btnSec w-100">Загрузить скриншот</button>
+					</div>
+					<div class="p-8 f-jcc-aic">
+						<button class="btn md4-w-100 js-form-submit">Отправить</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
