@@ -1,14 +1,6 @@
 @charset "UTF-8";
 
 @font-face {
-  font-family: "FuturaPT-Bold";
-  font-display: swap;
-  src: url("../fonts/FuturaPT-Bold.woff") format("woff"), url("../fonts/FuturaPT-Bold.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "FuturaPT-Book";
   font-display: swap;
   src: url("../fonts/FuturaPT-Book.woff") format("woff"), url("../fonts/FuturaPT-Book.woff2") format("woff2");
@@ -44,6 +36,14 @@
   font-family: "FuturaPT-Light";
   font-display: swap;
   src: url("../fonts/FuturaPT-Light.woff") format("woff"), url("../fonts/FuturaPT-Light.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaPT-Bold";
+  font-display: swap;
+  src: url("../fonts/FuturaPT-Bold.woff") format("woff"), url("../fonts/FuturaPT-Bold.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -1268,6 +1268,11 @@ a.btn:hover {
   border-color: #E81F76;
 }
 
+.inputFile input {
+  visibility: hidden;
+  display: none;
+}
+
 .inputText {
   position: relative;
 }
@@ -1314,7 +1319,7 @@ a.btn:hover {
   left: 12px;
   top: calc(50% - 12px);
   padding: 0 4px;
-  background-color: #FFFFFF !important;
+  background-color: #FFFFFF;
   pointer-events: none;
   font-size: 20px;
   line-height: 24px;
@@ -1891,11 +1896,13 @@ ul.list-ul li:before {
 }
 
 .stickyBlock > * {
+  position: -webkit-sticky;
   position: sticky;
   top: 16px;
 }
 
 .sticky-min-md3 {
+  position: -webkit-sticky;
   position: sticky;
   top: 16px;
 }
@@ -5259,66 +5266,6 @@ ol.list-ol li:before,
             transform: translateY(20px);
     opacity: 0;
   }
-}
-
-.lg-0 {
-  background: -webkit-gradient(linear, left top, left bottom, from(#83CCFD), to(#45A0E6));
-  background: -o-linear-gradient(top, #83CCFD 0%, #45A0E6 100%);
-  background: linear-gradient(180deg, #83CCFD 0%, #45A0E6 100%);
-}
-
-.lg-1 {
-  background: -webkit-gradient(linear, left top, left bottom, from(#FF808A), to(#FF3344));
-  background: -o-linear-gradient(top, #FF808A 0%, #FF3344 100%);
-  background: linear-gradient(180deg, #FF808A 0%, #FF3344 100%);
-}
-
-.lg-2 {
-  background: -webkit-gradient(linear, left top, left bottom, from(#FFE37E), to(#F0BC00));
-  background: -o-linear-gradient(top, #FFE37E 0%, #F0BC00 100%);
-  background: linear-gradient(180deg, #FFE37E 0%, #F0BC00 100%);
-}
-
-.lg-3 {
-  background: -webkit-gradient(linear, left top, left bottom, from(#88E8E6), to(#3CC2BD));
-  background: -o-linear-gradient(top, #88E8E6 0%, #3CC2BD 100%);
-  background: linear-gradient(180deg, #88E8E6 0%, #3CC2BD 100%);
-}
-
-.lg-4 {
-  background: -webkit-gradient(linear, left top, left bottom, from(#D766FF), to(#9600CC));
-  background: -o-linear-gradient(top, #D766FF 0%, #9600CC 100%);
-  background: linear-gradient(180deg, #D766FF 0%, #9600CC 100%);
-}
-
-.lg-5 {
-  background: -webkit-gradient(linear, left top, left bottom, from(#1AD7FF), to(#00A5E6));
-  background: -o-linear-gradient(top, #1AD7FF 0%, #00A5E6 100%);
-  background: linear-gradient(180deg, #1AD7FF 0%, #00A5E6 100%);
-}
-
-.lg-6 {
-  background: -webkit-gradient(linear, left top, left bottom, from(#EEAC75), to(#D59165));
-  background: -o-linear-gradient(top, #EEAC75 0%, #D59165 100%);
-  background: linear-gradient(180deg, #EEAC75 0%, #D59165 100%);
-}
-
-.lg-7 {
-  background: -webkit-gradient(linear, left top, left bottom, from(#FF7790), to(#F73558));
-  background: -o-linear-gradient(top, #FF7790 0%, #F73558 100%);
-  background: linear-gradient(180deg, #FF7790 0%, #F73558 100%);
-}
-
-.lg-8 {
-  background: -webkit-gradient(linear, left top, left bottom, from(#FFDA7A), to(#F1A64D));
-  background: -o-linear-gradient(top, #FFDA7A 0%, #F1A64D 100%);
-  background: linear-gradient(180deg, #FFDA7A 0%, #F1A64D 100%);
-}
-
-.lg-9 {
-  background: -webkit-gradient(linear, left top, left bottom, from(#64FFB5), to(#00A656));
-  background: -o-linear-gradient(top, #64FFB5 0%, #00A656 100%);
-  background: linear-gradient(180deg, #64FFB5 0%, #00A656 100%);
 }
 
 @media (min-width: 551.98px) {

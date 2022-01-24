@@ -199,7 +199,7 @@
 				<div class="inputTextBtn">
 					<div class="inputText">
 						<input type="text" autocomplete="off" name="name" disabled placeholder=" ">
-						<label for="sv-input-name">toplash.ru/reflink</label>
+						<label>toplash.ru/reflink</label>
 					</div>
 					<button class="inputBtn js-copy-text" data-copy-text="toplash.ru/reflink" data-copy-message="Ссылка скопированна">Скопировать</button>
 				</div>
@@ -270,7 +270,7 @@
 		</div>
 		<div class="popup p-center p-overlay" id="screenshot">
 			<div class="popup__wrap">
-				<form class="popup__body p-8 m-0 js-validation-form" action="" method="post">
+				<form class="popup__body p-8 m-0 js-validation-form" enctype="multipart/form-data" action="" method="post">
 					<div class="p-8 f-jcsb-aic">
 						<p class="text-medium">Отправить скриншот</p>
 						<div class="p-12">
@@ -301,7 +301,15 @@
 							</div>
 							<p class="js-validation-error mt-4 error"></p>
 						</div>
-						<button class="btnSec w-100">Загрузить скриншот</button>
+						<div class="js-validation-block">
+							<div class="inputFile">
+								<input type="file" class="_validate" data-validation-type='["reqImage"]' name="user-image" id="i-user-image" accept="image/jpeg,image/png">
+								<label for="i-user-image" class="btnSec w-100">Изменить фотографию</label>
+							</div>
+							<p class="js-validation-error mt-4 error" id="image-file-error"></p>
+						</div>
+						<p id="user-image-name" class="p-16-0 dn"></p>
+						<div id="formPreview" class="image-hw-80 dn"></div>
 					</div>
 					<div class="p-8 f-jcc-aic">
 						<button class="btn md4-w-100 js-form-submit">Отправить</button>

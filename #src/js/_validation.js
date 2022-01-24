@@ -81,6 +81,10 @@ let validator = {
 		if(value === ""){return true;}
 		if(/[-0-9]{16}/.test(value) === false){return "wrongWankCard";}
 		return true;
+	},
+	reqImage: function (value) {
+		if(value === ""){return "requiredImage";}
+		return true;
 	}
 };
 
@@ -110,5 +114,6 @@ let errorMessage = {
 	"passwordFirstSymbolLeter": "Пароль должен начинаться с буквы",
 	"passwordNotMatch": "Пароли не совпадают",
 	"requiredAddress" : "Выберите адрес доставки",
-	"wrongWankCard": "Поле должно содержать 16 цифр"
+	"wrongWankCard": "Поле должно содержать 16 цифр",
+	"requiredImage": "Необходимо прикрепить скриншот"
 };

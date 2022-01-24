@@ -781,6 +781,13 @@ a.btn{
 	}
 }
 
+.inputFile{
+	input{visibility: hidden; display: none;}
+	label{
+		
+	}
+}
+
 .inputText{
 	position: relative;
 	input:-webkit-autofill {
@@ -813,7 +820,7 @@ a.btn{
 		left: 12px;
 		top: calc(50% - 12px);
 		padding: 0 4px;
-		background-color: $white !important;
+		background-color: $white;
 		pointer-events: none;
 		font-size: 20px;
 		line-height: 24px;

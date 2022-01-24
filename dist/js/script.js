@@ -337,6 +337,10 @@ let validator = {
 		if(value === ""){return true;}
 		if(/[-0-9]{16}/.test(value) === false){return "wrongWankCard";}
 		return true;
+	},
+	reqImage: function (value) {
+		if(value === ""){return "requiredImage";}
+		return true;
 	}
 };
 
@@ -366,7 +370,8 @@ let errorMessage = {
 	"passwordFirstSymbolLeter": "Пароль должен начинаться с буквы",
 	"passwordNotMatch": "Пароли не совпадают",
 	"requiredAddress" : "Выберите адрес доставки",
-	"wrongWankCard": "Поле должно содержать 16 цифр"
+	"wrongWankCard": "Поле должно содержать 16 цифр",
+	"requiredImage": "Необходимо прикрепить скриншот"
 };;
 
 //////////////////////// Показать картинки отзывов ////////////////////////////
@@ -1118,6 +1123,46 @@ function animateTitle() {
 // Показать через минуту всплывашку про подарок
 if($('.animate-display').length !== 0){
 	setTimeout(function() {if(!$('.animate-display').hasClass('show-anim')){showGift();}}, startDelay * 1000);
+}
+
+
+//////////////////////////// Обрабатываем загрузку картинки /////////////////////////////
+
+$("#i-user-image").change(function(){
+	$('#image-file-error').text('');
+	if($(this)[0].files[0] !== undefined){
+		let isUpload = uploadFile($(this)[0].files[0]);
+		if(isUpload === true){
+			$('#user-image-name').removeClass('dn').text($(this)[0].files[0].name);
+		}
+	}
+});
+
+function uploadFile(file) { // Загрузка файла
+	// Проверка типа файла
+	if(!['image/jpeg','image/png','image/gif'].includes(file.type)){
+		$('#image-file-error').text('Разрешены только изображения.');
+		$("#i-user-image").val('');
+		return false;
+	}
+
+	// Проверить размер файла (меньше 2 МБ)
+	if(file.size > 2 * 1024 * 1024){
+		$('#image-file-error').text('Файл должен быть менее 2 МБ.');
+		return false;
+	}
+
+	// Когда картинка загружена показываем ее в блоке preview
+	var reader = new FileReader();
+	reader.onload = function (e) { // Когда картинка загружена	
+		$('#formPreview').removeClass('dn').html(`<img src="${e.target.result}" alt="Фото">`);
+	};
+	reader.onerror = function (e) {
+		alert('Ошибка');
+	};
+	reader.readAsDataURL(file);
+
+	return true;
 }
 
 ///////////////////////////////////// Прочее ///////////////////////////////////////////
