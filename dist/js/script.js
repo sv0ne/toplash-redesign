@@ -1133,6 +1133,7 @@ $("#i-user-image").change(function(){
 	if($(this)[0].files[0] !== undefined){
 		let isUpload = uploadFile($(this)[0].files[0]);
 		if(isUpload === true){
+			$('.js-image-downloader').text($('.js-image-downloader').data('text-change'));
 			$('#user-image-name').removeClass('dn').text($(this)[0].files[0].name);
 		}
 	}
@@ -1297,7 +1298,9 @@ let isFixedCard = false;
 let fixedCard = $('.js-fixed-card');
 // Фиксируем карточку товара
 function fixedElementOnScroll(scrollTop) {
-	if((scrollTop > h && isFixedCard === false) || (scrollTop < h && isFixedCard === true)){
+	let tt = $(document).height() - h - (fixedCard.height() * 2);
+	if((scrollTop > h && scrollTop < tt && isFixedCard === false) || 
+		 ((scrollTop < h || scrollTop > tt) && isFixedCard === true)){
 		isFixedCard = !isFixedCard;
 		fixedCard.toggleClass('active', isFixedCard);
 	}

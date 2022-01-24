@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('blocks/common/head.html',{
+	"title": "Toplash"
+})
+<body>
+	@@include('blocks/common/header.html')
+	<div class="container p-16 nlc-mb-16">
+		<p class="text-medium">Стили текста</p>
+		<div class="cardSimple p-16 nlc-mb-16">
+			<p class="text-huge">Стиль текста с классом text-huge</p>
+			<p class="text-big">Стиль текста с классом text-big</p>
+			<p class="text-medium">Стиль текста с классом text-medium</p>
+			<p class="text-default">Стиль текста с классом text-default</p>
+			<p class="text-small">Стиль текста с классом text-small</p>
+			<p class="text-extra-small">Стиль текста с классом text-extra-small</p>
+			<p class="text-control">Стиль текста с классом text-control</p>
+			<p class="text-footnote">Стиль текста с классом text-footnote</p>
+		</div>
+		
+		<p class="text-medium">Списки</p>
+		<div class="cardSimple p-16 nlc-mb-16">
+			<ul class="list-ul">
+				<li>Текст 1</li>
+				<li>Текст 2</li>
+				<li>Текст 3</li>
+			</ul>
+			<ol class="list-ol">
+				<li>Текст 1</li>
+				<li>Текст 2</li>
+				<li>Текст 3</li>
+			</ol>
+		</div>
+		<p>Обычный текст с <a href="" class="link">ссылкой</a></p>
+		<p>Еще один пример <a href="" class="link-2 darkGray text-footnote">ссылки</a></p>
+	</div>
+
+	@@include('blocks/common/footer.html')
+</body>
+</html>

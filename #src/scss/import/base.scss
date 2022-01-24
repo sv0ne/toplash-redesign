@@ -474,6 +474,13 @@ hr{
 	height: 32px;
 	width: 80px;
 	display: block;
+	&.mod-inHeader{
+		@media (min-width:$md3+px) {
+		    flex: 0 0 120px;
+			height: 48px;
+			width: 120px;
+		}
+	}
 }
 
 .userImage {
@@ -583,6 +590,7 @@ a.btn{
 	padding: 8px 24px;
 	border-radius: 99px;
 	background-color: $lightGray;
+	cursor: pointer;
 	color: $black;
 	svg{
 		fill: $black;
@@ -595,11 +603,16 @@ a.btn{
 	}
 	&.btnCart{
 		color: $darkGray;
+		cursor: default;
 		svg{fill: $darkGray;}
+		&:hover{
+			background-color: $lightGray;
+		}
 		.varticalDevider{
 			margin: 0 12px;
 		}
 		&.active{
+			cursor: pointer;
 			background-color: $red;
 			color: $white;
 			svg{fill: $white;}
@@ -751,14 +764,24 @@ a.btn{
 
 .switch {
 	display: flex;
+	flex-wrap: wrap;
 	margin: 0 -8px;
-	@media (max-width:$md_1150+px) {
-	    flex-wrap: wrap;
-	}
 	&__item {
 		padding: 0 8px;
-		flex: 1 1 auto;
+		flex: 33.333%;
 		margin-bottom: 16px;
+		@media (max-width:1300px) {
+			flex: 0 0 50%;
+		    &:last-child{
+		    	flex: 0 0 100%;
+		    }
+		}
+		@media (min-width:$md3+px) and (max-width:900px) {
+		    flex: 0 0 100%;
+		}
+		@media (max-width:500px) {
+		    flex: 0 0 100%;
+		}
 	}
 	input{
 		display: none;
@@ -783,9 +806,6 @@ a.btn{
 
 .inputFile{
 	input{visibility: hidden; display: none;}
-	label{
-		
-	}
 }
 
 .inputText{
@@ -972,6 +992,17 @@ input::-webkit-inner-spin-button {
 		}
 		&:hover{
 			opacity: 0.8;
+		}
+	}
+	&.disabled{
+		button{
+			cursor: default;
+			svg{
+				fill: $darkGray;
+			}
+			&:hover{
+				opacity: 1;
+			}
 		}
 	}
 }
