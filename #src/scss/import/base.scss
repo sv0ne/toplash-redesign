@@ -114,6 +114,7 @@ hr{
 .p-0-16-16-16{padding: 0 16px 16px 16px;}
 .p-72-16-16-16{padding: 72px 16px 16px 16px;}
 .pl-0{padding-left: 0 !important;}
+.pb-16{padding-bottom: 16px;}
 
 .m-0--16{margin: 0 -16px;}
 .m0--8{margin: 0 -8px;}
@@ -143,6 +144,13 @@ hr{
 	padding: 64px 0;
 	@media (max-width:$md3+px) {
 	    padding: 32px 0;
+	}
+}
+
+.main-pt-64{
+	padding-top: 64px;
+	@media (max-width:$md3+px) {
+	    padding-top: 32px;
 	}
 }
 

@@ -2502,6 +2502,11 @@
 			flex: 0 0 392px;
 		}
 	}
+	&__btnSec{
+		@media (max-width:$md4+px) {
+		    margin: 16px 0 0 0;
+		}
+	}
 }
 
 .cartProduct {

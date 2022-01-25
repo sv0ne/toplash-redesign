@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
 @font-face {
-  font-family: "FuturaPT-Book";
+  font-family: "FuturaPT-Bold";
   font-display: swap;
-  src: url("../fonts/FuturaPT-Book.woff") format("woff"), url("../fonts/FuturaPT-Book.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Bold.woff") format("woff"), url("../fonts/FuturaPT-Bold.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -17,17 +17,25 @@
 }
 
 @font-face {
-  font-family: "FuturaPT-Heavy";
+  font-family: "FuturaPT-Demi";
   font-display: swap;
-  src: url("../fonts/FuturaPT-Heavy.woff") format("woff"), url("../fonts/FuturaPT-Heavy.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Demi.woff") format("woff"), url("../fonts/FuturaPT-Demi.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "FuturaPT-Bold";
+  font-family: "FuturaPT-Book";
   font-display: swap;
-  src: url("../fonts/FuturaPT-Bold.woff") format("woff"), url("../fonts/FuturaPT-Bold.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Book.woff") format("woff"), url("../fonts/FuturaPT-Book.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaPT-Heavy";
+  font-display: swap;
+  src: url("../fonts/FuturaPT-Heavy.woff") format("woff"), url("../fonts/FuturaPT-Heavy.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -44,14 +52,6 @@
   font-family: "FuturaPT-Medium";
   font-display: swap;
   src: url("../fonts/FuturaPT-Medium.woff") format("woff"), url("../fonts/FuturaPT-Medium.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "FuturaPT-Demi";
-  font-display: swap;
-  src: url("../fonts/FuturaPT-Demi.woff") format("woff"), url("../fonts/FuturaPT-Demi.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -410,6 +410,10 @@ hr {
   padding-left: 0 !important;
 }
 
+.pb-16 {
+  padding-bottom: 16px;
+}
+
 .m-0--16 {
   margin: 0 -16px;
 }
@@ -432,6 +436,10 @@ hr {
 
 .main-p-64-0 {
   padding: 64px 0;
+}
+
+.main-pt-64 {
+  padding-top: 64px;
 }
 
 .main-pb-64 {
@@ -5739,6 +5747,10 @@ ol.list-ol li:before,
     padding: 32px 0;
   }
 
+  .main-pt-64 {
+    padding-top: 32px;
+  }
+
   .main-pb-64 {
     padding-bottom: 32px;
   }
@@ -6489,6 +6501,10 @@ ol.list-ol li:before,
 
   .footer__dropdown .btnRound {
     display: inline-block;
+  }
+
+  .cart__btnSec {
+    margin: 16px 0 0 0;
   }
 
   .gamePlay {

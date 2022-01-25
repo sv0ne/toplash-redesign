@@ -6,41 +6,37 @@
 <body>
 	@@include('blocks/common/header.html')
 	@@include('blocks/productPage/product.html', {"isPageSet": true})
-	<div class="main-pb-64">
-		@@include('blocks/productPage/reviews.html')
-	</div>
-	<div class="main-p-32-0">
-		@@include('blocks/productPage/whyToplash.html',{
-			items: {
-				"1": {
-					"icon": "green-fire",
-					"cardClass": "v4",
-					"label": "Натуральный состав",
-					"text": "Препарат прошёл исследования. Все компоненты абсолютно безопасны и гепоалергенны."
-				},
-				"2": {
-					"icon": "euro",
-					"cardClass": "v5",
-					"label": "Европейское качество",
-					"text": "Топлаш прошёл все исследования Европейской комиссии и рекомендован к использованию."
-				},
-				"3": {
-					"icon": "big-ok",
-					"cardClass": "v6",
-					"label": "Гарантированный эффект",
-					"text": "Все препараты проходят тестирование и показывают заметный эффект у подавляющего большенства женщин."
-				}
+	@@include('blocks/productPage/reviews.html')
+	@@include('blocks/productPage/whyToplash.html',{
+		items: {
+			"1": {
+				"icon": "green-fire",
+				"cardClass": "v4",
+				"label": "Натуральный состав",
+				"text": "Препарат прошёл исследования. Все компоненты абсолютно безопасны и гепоалергенны."
+			},
+			"2": {
+				"icon": "euro",
+				"cardClass": "v5",
+				"label": "Европейское качество",
+				"text": "Топлаш прошёл все исследования Европейской комиссии и рекомендован к использованию."
+			},
+			"3": {
+				"icon": "big-ok",
+				"cardClass": "v6",
+				"label": "Гарантированный эффект",
+				"text": "Все препараты проходят тестирование и показывают заметный эффект у подавляющего большенства женщин."
 			}
-		})
-	</div>
+		}
+	})
 	@@include('blocks/productPage/set-block-X.html')
-	<div class="main-p-64-0">
+	<div class="main-pt-64">
 		@@include('blocks/productPage/warrantyWork.html',{
 			"imageSrc": "img/guarantee/06.jpg"
 		})
 		@@include('blocks/productPage/faq.html')
 	</div>
-	<div class="main-pt-32-pb-16">
+	<div class="pb-16">
 		@@include('blocks/productPage/stories.html')
 		@@include('blocks/productPage/feedback.html')
 		@@include('blocks/productPage/terms.html')

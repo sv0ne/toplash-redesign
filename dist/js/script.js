@@ -879,13 +879,16 @@ $('.js-mask-card').mask("9999-9999-9999-9999"); // Маска для банко�
 let isFixedTotality = false;
 let totalityFixed = $('.js-totalityFixed');
 let anchorTotalityFixed = $('.js-totalityFixed-anchor');
-// Фиксируем блок пожтверждения заказа при доскролле до него
+let totalityHeight = totalityFixed.outerHeight();
+// Фиксируем блок подтверждения заказа при доскролле до него
 function fixedCardOnScroll(scrollTop) {
 	if(totalityFixed.length === 0 || w > BREAKPOINT_md3){return false;}
 
-	let topAnchor = anchorTotalityFixed.offset().top;
-	let aF = scrollTop+h;
-	if((aF > topAnchor && isFixedTotality === false) || (aF < topAnchor && isFixedTotality === true)){
+	let bottomAnchor = $(document).height() - h - (totalityFixed.height() * 5);
+	let topAnchor = anchorTotalityFixed.offset().top - h;
+
+	if((scrollTop > topAnchor && scrollTop < bottomAnchor && isFixedTotality === false) || 
+		 ((scrollTop < topAnchor || scrollTop > (bottomAnchor+totalityHeight+32)) && isFixedTotality === true)){
 		isFixedTotality = !isFixedTotality;
 		totalityFixed.toggleClass('active', isFixedTotality);
 	}
@@ -1298,9 +1301,9 @@ let isFixedCard = false;
 let fixedCard = $('.js-fixed-card');
 // Фиксируем карточку товара
 function fixedElementOnScroll(scrollTop) {
-	let tt = $(document).height() - h - (fixedCard.height() * 2);
-	if((scrollTop > h && scrollTop < tt && isFixedCard === false) || 
-		 ((scrollTop < h || scrollTop > tt) && isFixedCard === true)){
+	let bottomAnchor = $(document).height() - h - (fixedCard.height() * 2);
+	if((scrollTop > h && scrollTop < bottomAnchor && isFixedCard === false) || 
+		 ((scrollTop < h || scrollTop > bottomAnchor) && isFixedCard === true)){
 		isFixedCard = !isFixedCard;
 		fixedCard.toggleClass('active', isFixedCard);
 	}
