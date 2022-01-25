@@ -1,6 +1,14 @@
 @charset "UTF-8";
 
 @font-face {
+  font-family: "FuturaPT-Book";
+  font-display: swap;
+  src: url("../fonts/FuturaPT-Book.woff") format("woff"), url("../fonts/FuturaPT-Book.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "FuturaPT-Bold";
   font-display: swap;
   src: url("../fonts/FuturaPT-Bold.woff") format("woff"), url("../fonts/FuturaPT-Bold.woff2") format("woff2");
@@ -20,14 +28,6 @@
   font-family: "FuturaPT-Demi";
   font-display: swap;
   src: url("../fonts/FuturaPT-Demi.woff") format("woff"), url("../fonts/FuturaPT-Demi.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "FuturaPT-Book";
-  font-display: swap;
-  src: url("../fonts/FuturaPT-Book.woff") format("woff"), url("../fonts/FuturaPT-Book.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -578,6 +578,10 @@ hr {
 
 .bg-red {
   background-color: #E81F76 !important;
+}
+
+.bg-gold {
+  background-color: #EAB969 !important;
 }
 
 .bg-lightGray {
@@ -1981,13 +1985,17 @@ ul.list-ul li:before {
   margin-right: 16px;
 }
 
-.nav__menu > *:not(.btnSec) {
-  padding: 8px;
+.nav__menu > *:not(.parent-btnSec) {
   border-radius: 12px;
+}
+
+.nav__menu > *:not(.parent-btnSec) a {
+  display: inline-block;
+  padding: 8px;
   text-decoration: none;
 }
 
-.nav__menu > *:not(.btnSec):hover {
+.nav__menu > *:not(.parent-btnSec):hover {
   background-color: #F1F5F9;
 }
 
@@ -2666,8 +2674,8 @@ ul.list-ul li:before {
 }
 
 .unique__table table td.image1 img {
-  margin-top: -23%;
-  max-width: 188px;
+  margin-top: -53%;
+  max-width: 150px;
   width: auto;
 }
 
@@ -2678,6 +2686,7 @@ ul.list-ul li:before {
 }
 
 .unique__table table td.image2 img {
+  margin-top: -53%;
   max-width: 107px;
   width: auto;
 }
@@ -5938,6 +5947,14 @@ ol.list-ol li:before,
     text-align: left;
   }
 
+  .unique__table table td.image1 img {
+    margin-top: -73%;
+  }
+
+  .unique__table table td.image2 img {
+    margin-top: -73%;
+  }
+
   .warrantyWork__row {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -6264,6 +6281,12 @@ ol.list-ol li:before,
   }
 }
 
+@media (max-width: 700px) {
+  .unique__table table td.image1 {
+    padding: 0 16px;
+  }
+}
+
 @media (max-width: 608.98px) {
   .reviews__item {
     -webkit-box-flex: 0;
@@ -6392,6 +6415,7 @@ ol.list-ol li:before,
     -webkit-box-shadow: none;
             box-shadow: none;
     width: 100%;
+    border-radius: 12px 12px 0px 0px;
     -webkit-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
@@ -6413,6 +6437,14 @@ ol.list-ol li:before,
     margin-top: -101px;
     width: 200px;
     height: 138px;
+  }
+
+  .unique__table table td.image1 img {
+    margin-top: -90%;
+  }
+
+  .unique__table table td.image2 img {
+    margin-top: -90%;
   }
 
   .warrantyWork__text {

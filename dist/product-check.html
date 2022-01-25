@@ -17,7 +17,7 @@
 	<div class="rkl p-8 ta-c">
 		<p class="text-extra-small">Save 10% for the first purchase with promocode: TLNEWYEAR2022 </p>
 	</div>
-	<nav class="nav">
+	<div class="nav">
 		<div class="container">
 			<div class="nav__body">
 				<div class="nav__logo">
@@ -27,18 +27,21 @@
 							<use class="st-active" xlink:href="img/sprite/icons-sprite.svg#close"/>
 						</svg>
 					</button>
-					<img loading="lazy" src="img/Toplash-logo.svg" alt="" class="logoImage mod-inHeader">
+					<a href="">
+					<img loading="lazy" src="img/Toplash-logo.svg" alt="" class="logoImage mod-inHeader"></a>
 				</div>
 				<div class="nav__content f-aic">
 					<div class="nav__overlayMenu js-overlayMenu"></div>
-					<div class="nav__menu js-menu">
-						<a href="https://noname.site">Купить Toplash</a>
-						<a href="">FAQ</a>
-						<a href="">Отзывы</a>
-						<a href="">Профессионалам</a>
-						<a href="">Проверка продукции</a>
-						<a href="" class="btnSec">Войти</a>
-					</div>
+					<nav>
+						<ul class="nav__menu js-menu">
+							<li><a href="https://noname.site">Купить Toplash</a></li>
+							<li><a href="">FAQ</a></li>
+							<li><a href="">Отзывы</a></li>
+							<li><a href="">Профессионалам</a></li>
+							<li><a href="">Проверка продукции</a></li>
+							<li class="parent-btnSec"><a href="" class="btnSec">Войти</a></li>
+						</ul>
+					</nav>
 					<a href="" class="btnSec btnCart"> <!-- class "active" если в корзине что-то есть -->
 						<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#bag"/></svg>
 						<span class="ml-8 btnCartText">Корзина</span>
@@ -48,7 +51,7 @@
 				</div>
 			</div>
 		</div>
-	</nav>
+	</div>
 </header>
 	<div class="p-16-0 container">
 		<div class="d-flex-md3-w p-8 aic md3-fdcr">

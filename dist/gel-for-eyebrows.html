@@ -17,7 +17,7 @@
 	<div class="rkl p-8 ta-c">
 		<p class="text-extra-small">Save 10% for the first purchase with promocode: TLNEWYEAR2022 </p>
 	</div>
-	<nav class="nav">
+	<div class="nav">
 		<div class="container">
 			<div class="nav__body">
 				<div class="nav__logo">
@@ -27,18 +27,21 @@
 							<use class="st-active" xlink:href="img/sprite/icons-sprite.svg#close"/>
 						</svg>
 					</button>
-					<img loading="lazy" src="img/Toplash-logo.svg" alt="" class="logoImage mod-inHeader">
+					<a href="">
+					<img loading="lazy" src="img/Toplash-logo.svg" alt="" class="logoImage mod-inHeader"></a>
 				</div>
 				<div class="nav__content f-aic">
 					<div class="nav__overlayMenu js-overlayMenu"></div>
-					<div class="nav__menu js-menu">
-						<a href="https://noname.site">Купить Toplash</a>
-						<a href="">FAQ</a>
-						<a href="">Отзывы</a>
-						<a href="">Профессионалам</a>
-						<a href="">Проверка продукции</a>
-						<a href="" class="btnSec">Войти</a>
-					</div>
+					<nav>
+						<ul class="nav__menu js-menu">
+							<li><a href="https://noname.site">Купить Toplash</a></li>
+							<li><a href="">FAQ</a></li>
+							<li><a href="">Отзывы</a></li>
+							<li><a href="">Профессионалам</a></li>
+							<li><a href="">Проверка продукции</a></li>
+							<li class="parent-btnSec"><a href="" class="btnSec">Войти</a></li>
+						</ul>
+					</nav>
 					<a href="" class="btnSec btnCart"> <!-- class "active" если в корзине что-то есть -->
 						<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#bag"/></svg>
 						<span class="ml-8 btnCartText">Корзина</span>
@@ -48,7 +51,7 @@
 				</div>
 			</div>
 		</div>
-	</nav>
+	</div>
 </header>
 	<div class="product">
 	<div class="container">
@@ -307,7 +310,7 @@
 									<img loading="lazy" class="h24" src="img/reviewers/ozon.svg" alt="">
 								</a>
 								<a href="https://ssilka-na-tovar">
-									<img loading="lazy" class="w80" src="img/card/01.png" alt="">
+									<img loading="lazy" class="w80" src="img/card/01.jpg" alt="">
 								</a>	
 							</div>
 						</div>
@@ -340,7 +343,7 @@
 									<img loading="lazy" class="h24" src="img/reviewers/WB.svg" alt="">
 								</a>
 								<a href="https://ssilka-na-tovar">
-									<img loading="lazy" class="w80" src="img/card/02.png" alt="">
+									<img loading="lazy" class="w80" src="img/card/02.jpg" alt="">
 								</a>	
 							</div>
 						</div>
@@ -373,7 +376,7 @@
 									<img loading="lazy" class="h24" src="img/reviewers/ym.svg" alt="">
 								</a>
 								<a href="https://ssilka-na-tovar">
-									<img loading="lazy" class="w80" src="img/card/03.png" alt="">
+									<img loading="lazy" class="w80" src="img/card/03.jpg" alt="">
 								</a>	
 							</div>
 						</div>
@@ -406,7 +409,7 @@
 									<img loading="lazy" class="h24" src="img/reviewers/ir.png" alt="">
 								</a>
 								<a href="https://ssilka-na-tovar">
-									<img loading="lazy" class="w80" src="img/cart/c-01.png" alt="">
+									<img loading="lazy" class="w80" src="img/set/01.jpg" alt="">
 								</a>	
 							</div>
 						</div>
@@ -439,7 +442,7 @@
 									<img loading="lazy" class="h24" src="img/reviewers/ir.png" alt="">
 								</a>
 								<a href="https://ssilka-na-tovar">
-									<img loading="lazy" class="w80" src="img/card/02.png" alt="">
+									<img loading="lazy" class="w80" src="img/card/02.jpg" alt="">
 								</a>	
 							</div>
 						</div>
@@ -472,7 +475,7 @@
 									<img loading="lazy" class="h24" src="img/reviewers/ozon.svg" alt="">
 								</a>
 								<a href="https://ssilka-na-tovar">
-									<img loading="lazy" class="w80" src="img/card/01.png" alt="">
+									<img loading="lazy" class="w80" src="img/card/01.jpg" alt="">
 								</a>	
 							</div>
 						</div>
@@ -505,7 +508,7 @@
 									<img loading="lazy" class="h24" src="img/reviewers/WB.svg" alt="">
 								</a>
 								<a href="https://ssilka-na-tovar">
-									<img loading="lazy" class="w80" src="img/card/02.png" alt="">
+									<img loading="lazy" class="w80" src="img/card/02.jpg" alt="">
 								</a>	
 							</div>
 						</div>
@@ -538,7 +541,7 @@
 									<img loading="lazy" class="h24" src="img/reviewers/ym.svg" alt="">
 								</a>
 								<a href="https://ssilka-na-tovar">
-									<img loading="lazy" class="w80" src="img/card/03.png" alt="">
+									<img loading="lazy" class="w80" src="img/card/03.jpg" alt="">
 								</a>	
 							</div>
 						</div>
@@ -571,7 +574,7 @@
 									<img loading="lazy" class="h24" src="img/reviewers/ir.png" alt="">
 								</a>
 								<a href="https://ssilka-na-tovar">
-									<img loading="lazy" class="w80" src="img/card/03.png" alt="">
+									<img loading="lazy" class="w80" src="img/card/03.jpg" alt="">
 								</a>	
 							</div>
 						</div>
@@ -680,10 +683,10 @@
 						<tr>
 							<td class="bg-lightGray"></td>
 							<td class="image1 bg-green brad-t">
-								<img loading="lazy" src="img/card/01.png" alt="">
+								<img loading="lazy" src="img/comparison/02.webp" alt="">
 							</td>
 							<td class="image2 bg-lightGray">
-								<img loading="lazy" src="img/card/gel.png" alt="">
+								<img loading="lazy" src="img/comparison/02_b.webp" alt="">
 							</td>
 						</tr>
 						<tr>
@@ -860,7 +863,7 @@
 								</li>
 								<li class="scroll__item">
 									<div class="about__item" data-id="5">
-										<img loading="lazy" src="img/other/v-04.jpg" alt="">
+										<img loading="lazy" src="img/devOnly/v-04.jpg" alt="">
 									</div>
 								</li>
 								<li class="scroll__item">
@@ -885,7 +888,7 @@
 								</li>
 								<li class="scroll__item">
 									<div class="about__item" data-id="10">
-										<img loading="lazy" src="img/other/v-06.jpg" alt="">
+										<img loading="lazy" src="img/devOnly/v-06.jpg" alt="">
 									</div>
 								</li>
 							</ul>
@@ -917,10 +920,10 @@
 						<img data-lazy="img/other/01.jpg" src="" alt="">
 					</div>
 					<div class="stories__item" data-id="2" data-sub-id="1">
-						<img data-lazy="img/other/01_v2.jpg" src="" alt="">
+						<img data-lazy="img/devOnly/bb_01_v2.jpg" src="" alt="">
 					</div>
 					<div class="stories__item" data-id="2" data-sub-id="2">
-						<img data-lazy="img/other/01_v3.jpg" src="" alt="">
+						<img data-lazy="img/devOnly/bb_01_v3.jpg" src="" alt="">
 						<div class="stories__link">
 							<a href="" class="btn p10 w-100"><span>Хочу так же!</span></a>
 						</div>
@@ -947,7 +950,7 @@
 						<img data-lazy="img/other/10.jpg" src="" alt="">
 					</div>
 					<div class="stories__item" data-id="7" data-sub-id="1">
-						<img data-lazy="img/other/10_v2.jpg" src="" alt="">
+						<img data-lazy="img/devOnly/bb_10_v2.jpg" src="" alt="">
 					</div>
 					<div class="stories__item" data-id="8">
 						<img data-lazy="img/other/11.jpg" src="" alt="">
@@ -1023,7 +1026,7 @@
 					</div>
 					<div class="imageFeedback__item">
 						<div class="imageFeedback__wrap">
-							<video playsinline poster="img/other/p-01.jpg" disablepictureinpicture src="video/v-01.mp4" mute></video>
+							<video playsinline poster="img/devOnly/p-01.jpg" disablepictureinpicture src="video/v-01.mp4" mute></video>
 						</div>
 					</div>
 				</div>
@@ -1063,7 +1066,7 @@
 					</div>
 					<div class="imageFeedback__item">
 						<div class="imageFeedback__wrap">
-							<video playsinline poster="img/other/p-02.jpg" disablepictureinpicture src="video/v-02.mp4" mute></video>
+							<video playsinline poster="img/devOnly/p-02.jpg" disablepictureinpicture src="video/v-02.mp4" mute></video>
 						</div>
 					</div>
 					<div class="imageFeedback__item">
@@ -1150,7 +1153,7 @@
 						<a href="https://site.com">
 							<div class="useful__image">
 								<div class="useful__imageWrap">
-									<img loading="lazy" src="img/card/Mascara.jpg" alt="">
+									<img loading="lazy" src="img/card/03.jpg" alt="">
 								</div>
 							</div>
 							<div class="useful__text nlc-mb-12 d-flex fdc flex-1">
@@ -1179,7 +1182,7 @@
 						<a href="https://site2.com">
 							<div class="useful__image">
 								<div class="useful__imageWrap">
-									<img loading="lazy" src="img/card/Eyeliner.jpg" alt="">
+									<img loading="lazy" src="img/card/04.jpg" alt="">
 								</div>
 							</div>
 							<div class="useful__text nlc-mb-12 d-flex fdc flex-1">
