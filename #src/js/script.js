@@ -815,7 +815,7 @@ function uploadFile(file) { // Загрузка файла
 	// Когда картинка загружена показываем ее в блоке preview
 	var reader = new FileReader();
 	reader.onload = function (e) { // Когда картинка загружена	
-		$('#formPreview').removeClass('dn').html(`<img src="${e.target.result}" alt="Фото">`);
+		$('#formPreview').removeClass('dn').html(`<img loading="lazy" src="${e.target.result}" alt="Фото">`);
 	};
 	reader.onerror = function (e) {
 		alert('Ошибка');
