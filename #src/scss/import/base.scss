@@ -68,6 +68,12 @@ hr{
 	background-color: $divider;
 }
 
+h1, h2{
+	> span{
+		display: block;
+	}
+} 
+
 ///////////////////// MARGIN-PADDING //////////////////////
 
 .m-4{margin: 4px;}

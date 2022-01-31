@@ -1,6 +1,11 @@
 <div class="about main-p-32-0">
 	<div class="container">
-		<p class="text-huge p-16">Популярные блогеры о Toplash.</p>
+		@@if(pageIsHome == "false"){
+			<p class="text-huge p-16">Популярные блогеры о Toplash.</p>
+		}
+		@@if(pageIsHome == "true"){
+			<h2 class="text-huge p-16">Популярные блогеры о Toplash.</h2>
+		}
 		<div class="stories js-stories">
 			<div class="stories__scroll">
 				<div class="about__scroll horizontalScroller">
