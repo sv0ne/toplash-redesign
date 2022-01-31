@@ -12,7 +12,7 @@
 	@@include('blocks/productPage/result21.html', {
 		"imageSrc": "img/result21/04.jpg",
 		"title": "Идеальные стрелки за несколько секунд — это легко!",
-		"text": ["We are committed to creating thoughtful, modern hair care treatments that serve to empower and embrace natural beauty.", "Always clean ingredients, backed by science and filled with passion."]
+		"text": "textStamp"
 	})
 	<div class="main-p-32-0">
 		@@include('blocks/productPage/whyToplash.html',{
@@ -27,7 +27,7 @@
 					"icon": "euro",
 					"cardClass": "v5",
 					"label": "Европейское качество",
-					"text": "Топлаш прошёл все исследования Европейской комиссии и рекомендован к использованию."
+					"text": "Продукция бренда Toplash производится на территории Европейского союза, имеет сертификаты COA и CPNP."
 				},
 				"3": {
 					"icon": "big-ok",
@@ -43,7 +43,9 @@
 		@@include('blocks/productPage/warrantyWork.html',{
 			"imageSrc": "img/guarantee/03.jpg"
 		})
-		@@include('blocks/productPage/faq.html')
+		@@include('blocks/productPage/faq.html',{
+			"page": "stamp"
+		})
 	</div>
 	<div class="pb-16">
 		@@include('blocks/productPage/stories.html')

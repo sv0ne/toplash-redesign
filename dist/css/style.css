@@ -1,17 +1,17 @@
 @charset "UTF-8";
 
 @font-face {
-  font-family: "FuturaPT-Book";
+  font-family: "FuturaPT-Bold";
   font-display: swap;
-  src: url("../fonts/FuturaPT-Book.woff") format("woff"), url("../fonts/FuturaPT-Book.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Bold.woff") format("woff"), url("../fonts/FuturaPT-Bold.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "FuturaPT-Bold";
+  font-family: "FuturaPT-Book";
   font-display: swap;
-  src: url("../fonts/FuturaPT-Bold.woff") format("woff"), url("../fonts/FuturaPT-Bold.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Book.woff") format("woff"), url("../fonts/FuturaPT-Book.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -2646,6 +2646,8 @@ ul.list-ul li:before {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 
 .unique__table {
@@ -2705,6 +2707,16 @@ ul.list-ul li:before {
 
 .unique__table table tr:last-child > td {
   padding-bottom: 16px;
+}
+
+.unique__table.table-2 .image1 img,
+.unique__table.table-3 .image1 img {
+  margin-top: -23%;
+}
+
+.unique__table.table-2 .image2 img,
+.unique__table.table-3 .image2 img {
+  margin-top: -23%;
 }
 
 .warrantyWork__body {
@@ -5953,6 +5965,16 @@ ol.list-ol li:before,
 
   .unique__table table td.image2 img {
     margin-top: -73%;
+  }
+
+  .unique__table.table-2 .image1 img,
+  .unique__table.table-3 .image1 img {
+    margin-top: -23%;
+  }
+
+  .unique__table.table-2 .image2 img,
+  .unique__table.table-3 .image2 img {
+    margin-top: -23%;
   }
 
   .warrantyWork__row {

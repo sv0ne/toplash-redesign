@@ -12,7 +12,7 @@
 	@@include('blocks/productPage/result21.html', {
 		"imageSrc": "img/result21/01.jpg",
 		"title": "Результат за 21 день — это реально!",
-		"text": ["We are committed to creating thoughtful, modern hair care treatments that serve to empower and embrace natural beauty.", "Always clean ingredients, backed by science and filled with passion."]
+		"text": "textProductPage"
 	})
 	<div class="main-p-32-0">
 		@@include('blocks/productPage/stick.html',{
@@ -31,29 +31,33 @@
 					"icon": "euro",
 					"cardClass": "v5",
 					"label": "Европейское качество",
-					"text": "Топлаш прошёл все исследования Европейской комиссии и рекомендован к использованию."
+					"text": "Продукция бренда Toplash производится на территории Европейского союза, имеет сертификаты COA и CPNP."
 				},
 				"3": {
 					"icon": "brow",
 					"cardClass": "v6",
 					"label": "Альтернатива наращиванию",
-					"text": "Свои, настоящие ресницы всего за 21 день — наращивание попросту больше не нужно."
+					"text": "Свои, натуральные ресницы всего за 21 день. Наращивать ресницы больше не потребуется."
 				}
 			}
 		})
 		@@include('blocks/productPage/effectSerum.html')
 	</div>
 	@@include('blocks/productPage/unique.html',{
+		"title": "Что делает Toplash уникальным?",
 		"classTableBG": "bg-red",
+		"classTable": "table-1",
 		"img1": "img/comparison/01.webp",
 		"img2": "img/comparison/01_b.webp",
-		"pageIsNotMascara": true
+		"page": "productPage"
 	})
 	<div class="main-p-64-0">
 		@@include('blocks/productPage/warrantyWork.html',{
 			"imageSrc": "img/guarantee/01.jpg"
 		})
-		@@include('blocks/productPage/faq.html')
+		@@include('blocks/productPage/faq.html',{
+			"page": "productPage"
+		})
 	</div>
 	@@include('blocks/productPage/cost.html')
 	<div class="main-pt-32-pb-16">

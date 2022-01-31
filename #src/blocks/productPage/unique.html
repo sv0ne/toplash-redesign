@@ -8,8 +8,19 @@
 						<svg class="topLil__2"><use xlink:href="img/sprite/icons-sprite.svg#lil-1"/></svg>
 					</div>
 					<div>
-						<p class="text-huge mb-32">Что делает Toplash уникальным?</p>
-						<p>Наша формула на основе пептида поддерживает естественный цикл обновления, делающий ваши ресницы длиннее, гуще и здоровее.</p>
+						<p class="text-huge mb-32">@@title</p>
+						@@if(page === "productPage"){
+							<p class="mb-16">Наша формула на основе Myristoyl Pentapeptide-17 поддерживает естественный цикл обновления и продлевает фазу роста волоска.</p>
+							<p>Помогая вашим ресничкам становиться длиннее, гуще и здоровее.</p>
+						}
+						@@if(page === "gel"){
+							<p class="mb-16">Когда мы думали об идеальном геле для бровей, то представляли мультифункциональное средство, которое придется по вкусу каждому, кто мечтает об идеальной укладке бровей, бонусом получая интенсивный уход за ними.</p>
+							<p>Так и "родился" прозрачный гель Toplash Fix and Grow brow gel. Мы считаем, что каждый человек – прекрасен в своей индивидуальности, и желаем лишь подчеркнуть то, чем одарила вас природа!</p>
+						}
+						@@if(page === "mascara"){
+							<p class="mb-16">Мы совершенно одержимы всем, что связано с выразительным взглядом! Ваши результаты от использования Toplash & Brow вдохновили нас на создание туши для ресниц Toplash Extra Ebony Mascara, которая подчеркнет ваши достижения. С нашей новой тушью вы получите все и сразу: удлинение, изгиб, объем и экстрачерное покрытие.</p>
+							<p>Состав для нас очень важен, поэтому, помимо красивого эффекта, ресницы получат увлажнение – и будут защищены от обезвоживания за счет таких компонентов, как Витамин Е и Пантенол. Кератин, который также входит в состав средства, будет работать на восстановление и укрепление волосков. </p>
+						}
 					</div>
 					<div class="bottomLil">
 						<svg class="bottomLil__1"><use xlink:href="img/sprite/icons-sprite.svg#lil-2"/></svg>
@@ -18,7 +29,7 @@
 				</div>
 			</div>
 			<div class="unique__col col-2">
-				<div class="unique__table">
+				<div class="unique__table @@classTable">
 					<table>
 						<tr>
 							<td class="bg-lightGray"></td>
@@ -29,12 +40,12 @@
 								<img loading="lazy" src="@@img2" alt="">
 							</td>
 						</tr>
-						<tr>
-							<td class="brad-tl">Гипоаллергенный состав</td>
-							<td class="@@classTableBG"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
-							<td class="brad-tr"><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
-						</tr>
-						@@if(pageIsNotMascara === true){
+						@@if(page === "productPage"){
+							<tr>
+								<td class="brad-tl">Гипоаллергенный состав</td>
+								<td class="@@classTableBG"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
+								<td class="brad-tr"><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
+							</tr>
 							<tr>
 								<td>Природный рост</td>
 								<td class="@@classTableBG"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
@@ -45,22 +56,66 @@
 								<td class="@@classTableBG"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
 								<td><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
 							</tr>
-						}
-						<tr>
-							<td>Долгосрочные результаты</td>
-							<td class="@@classTableBG"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
-							<td><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
-						</tr>
-						<tr>
-							<td>Безвреден для глаз</td>
-							<td class="@@classTableBG"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
-							<td><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
-						</tr>
-						<tr>
-							<td>Гарантия результата</td>
-							<td class="@@classTableBG"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
-							<td><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
-						</tr>
+							<tr>
+								<td>Долгосрочные результаты</td>
+								<td class="@@classTableBG"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
+								<td><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
+							</tr>
+							<tr>
+								<td>Безвреден для глаз</td>
+								<td class="@@classTableBG"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
+								<td><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
+							</tr>
+							<tr>
+								<td>Гарантия результата</td>
+								<td class="@@classTableBG"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
+								<td><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
+							</tr>
+					    }
+					    @@if(page === "gel"){
+							<tr>
+								<td class="brad-tl">Гипоаллергенный состав</td>
+								<td class="@@classTableBG"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
+								<td class="brad-tr"><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
+							</tr>
+							<tr>
+								<td>Натуральные компоненты</td>
+								<td class="@@classTableBG"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
+								<td><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
+							</tr>
+							<tr>
+								<td>Двойное действие</td>
+								<td class="@@classTableBG"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
+								<td><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
+							</tr>
+							<tr>
+								<td>Безвредно для глаз и кожи</td>
+								<td class="@@classTableBG"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
+								<td><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
+							</tr>
+					    }
+					    @@if(page === "mascara"){
+							<tr>
+								<td class="brad-tl">Витамин Е и кератин</td>
+								<td class="@@classTableBG"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
+								<td class="brad-tr"><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
+							</tr>
+							<tr>
+								<td>Стойкая к дождю и снегу</td>
+								<td class="@@classTableBG"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
+								<td><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
+							</tr>
+							<tr>
+								<td>Гипоаллергенный состав</td>
+								<td class="@@classTableBG"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
+								<td><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
+							</tr>
+							<tr>
+								<td>Безвредна для глаз</td>
+								<td class="@@classTableBG"><svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#ok"/></svg></td>
+								<td><svg class="w24 fillDarkGray"><use xlink:href="img/sprite/icons-sprite.svg#no"/></svg></td>
+							</tr>
+					    }
 					</table>
 				</div>
 			</div>

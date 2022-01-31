@@ -19,7 +19,7 @@
 				"icon": "euro",
 				"cardClass": "v5",
 				"label": "Европейское качество",
-				"text": "Топлаш прошёл все исследования Европейской комиссии и рекомендован к использованию."
+				"text": "Продукция бренда Toplash производится на территории Европейского союза, имеет сертификаты COA и CPNP."
 			},
 			"3": {
 				"icon": "big-ok",
@@ -34,7 +34,9 @@
 		@@include('blocks/productPage/warrantyWork.html',{
 			"imageSrc": "img/guarantee/07.jpg"
 		})
-		@@include('blocks/productPage/faq.html')
+		@@include('blocks/productPage/faq.html',{
+			"page": "roller"
+		})
 	</div>
 	<div class="pb-16">
 		@@include('blocks/productPage/stories.html')

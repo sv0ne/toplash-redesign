@@ -12,7 +12,7 @@
 	@@include('blocks/productPage/result21.html', {
 		"imageSrc": "img/result21/03.jpg",
 		"title": "Удлиняющий эффект невозможно не заметить!",
-		"text": ["We are committed to creating thoughtful, modern hair care treatments that serve to empower and embrace natural beauty.", "Always clean ingredients, backed by science and filled with passion."]
+		"text": "textMascara"
 	})
 	<div class="main-p-32-0">
 		@@include('blocks/productPage/stick.html',{
@@ -31,7 +31,7 @@
 					"icon": "euro",
 					"cardClass": "v5",
 					"label": "Европейское качество",
-					"text": "Топлаш прошёл все исследования Европейской комиссии и рекомендован к использованию."
+					"text": "Продукция бренда Toplash производится на территории Европейского союза, имеет сертификаты COA и CPNP."
 				},
 				"3": {
 					"icon": "big-ok",
@@ -43,16 +43,20 @@
 		})
 	</div>
 	@@include('blocks/productPage/unique.html',{
+		"title": "Что делает тушь Toplash Mascara. уникальной?",
 		"classTableBG": "bg-gold",
+		"classTable": "table-3",
 		"img1": "img/comparison/03.webp",
 		"img2": "img/comparison/03_b.webp",
-		"pageIsNotMascara": false
+		"page": "mascara"
 	})
 	<div class="main-pt-64">
 		@@include('blocks/productPage/warrantyWork.html',{
 			"imageSrc": "img/guarantee/04.jpg"
 		})
-		@@include('blocks/productPage/faq.html')
+		@@include('blocks/productPage/faq.html',{
+			"page": "mascara"
+		})
 	</div>
 	<div class="pb-16">
 		@@include('blocks/productPage/stories.html')
