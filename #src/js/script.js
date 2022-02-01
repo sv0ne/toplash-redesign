@@ -95,7 +95,6 @@ $('.js-cartSlider').slick({
 	nextArrow: $('.js-cartSlider-control.btn-next'),
 });
 
-
 $('.js-cartSlider-slideCount').text();
 // Узнать текущий слайд для слайдера в корзине
 $('.js-cartSlider').on('afterChange', function(event, slick, currentSlide, nextSlide){
@@ -967,6 +966,17 @@ function fixedElementOnScroll(scrollTop) {
 		fixedCard.toggleClass('active', isFixedCard);
 	}
 }
+
+function ibg(){ // Превращает картинку img в background-image
+		let ibg=document.querySelectorAll(".ibg");
+		for (var i = 0; i < ibg.length; i++) {
+			if(ibg[i].querySelector('img')){
+				ibg[i].style.backgroundImage = 'url('+ibg[i].querySelector('img').getAttribute('src')+')';
+			}
+		}
+	}
+ibg();
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
