@@ -542,6 +542,17 @@ if(isMobile === false){
 		parent.find('.useful__dots span').removeClass('active');
 		parent.find('.useful__dots span:eq('+index+')').addClass('active');
 	});
+
+	// В слайдере уходе ховера с картинки, делаем активной первую картинку
+	$(document).on("mouseleave", ".useful__card", function(){
+		let imageWrap = $(this).find('.useful__imageWrap.initImage');
+		if(imageWrap.length !== 0){
+			imageWrap.find('img').removeClass('active');
+			imageWrap.find('img:first-child').addClass('active');
+			imageWrap.closest('.useful__image').find('.useful__dots span').removeClass('active');
+			imageWrap.closest('.useful__image').find('.useful__dots span:first-child').addClass('active');
+		}
+	});
 }
 
 // Функция ниже позволяет отфильтровать слайды пу указанному классу (.filter)
