@@ -9,17 +9,17 @@
 }
 
 @font-face {
-  font-family: "FuturaPT-ExtraBold";
+  font-family: "FuturaPT-Book";
   font-display: swap;
-  src: url("../fonts/FuturaPT-ExtraBold.woff") format("woff"), url("../fonts/FuturaPT-ExtraBold.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Book.woff") format("woff"), url("../fonts/FuturaPT-Book.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "FuturaPT-Book";
+  font-family: "FuturaPT-ExtraBold";
   font-display: swap;
-  src: url("../fonts/FuturaPT-Book.woff") format("woff"), url("../fonts/FuturaPT-Book.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-ExtraBold.woff") format("woff"), url("../fonts/FuturaPT-ExtraBold.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -1944,13 +1944,11 @@ ul.list-ul li:before {
 }
 
 .stickyBlock > * {
-  position: -webkit-sticky;
   position: sticky;
   top: 16px;
 }
 
 .sticky-min-md3 {
-  position: -webkit-sticky;
   position: sticky;
   top: 16px;
 }
@@ -3706,6 +3704,9 @@ ul.list-ul li:before {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
 }
 
 .useful__card > a {
@@ -3720,6 +3721,15 @@ ul.list-ul li:before {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.useful__card:hover {
+  -webkit-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+  -webkit-transform: translateY(-8px);
+      -ms-transform: translateY(-8px);
+          transform: translateY(-8px);
 }
 
 .useful__body {
