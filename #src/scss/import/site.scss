@@ -1788,9 +1788,20 @@
 	}
 	&__body{
 		position: relative;
+		overflow: hidden;
 		.sliderBtn{
 			@media (min-width:$md2+px) {
 			    display: none;
+			}
+		}
+		.btnRound.btn-next{
+			&:after{
+				content: '';
+				position: absolute;
+				top: -2px;
+				right: -20px;
+				width: 30px;
+				height: 40px;
 			}
 		}
 	}

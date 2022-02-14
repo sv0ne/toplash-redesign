@@ -25,14 +25,6 @@
 }
 
 @font-face {
-  font-family: "FuturaPT-Demi";
-  font-display: swap;
-  src: url("../fonts/FuturaPT-Demi.woff") format("woff"), url("../fonts/FuturaPT-Demi.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
   font-family: "FuturaPT-Heavy";
   font-display: swap;
   src: url("../fonts/FuturaPT-Heavy.woff") format("woff"), url("../fonts/FuturaPT-Heavy.woff2") format("woff2");
@@ -52,6 +44,14 @@
   font-family: "FuturaPT-Medium";
   font-display: swap;
   src: url("../fonts/FuturaPT-Medium.woff") format("woff"), url("../fonts/FuturaPT-Medium.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaPT-Demi";
+  font-display: swap;
+  src: url("../fonts/FuturaPT-Demi.woff") format("woff"), url("../fonts/FuturaPT-Demi.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -3734,6 +3734,16 @@ ul.list-ul li:before {
 
 .useful__body {
   position: relative;
+  overflow: hidden;
+}
+
+.useful__body .btnRound.btn-next:after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -20px;
+  width: 30px;
+  height: 40px;
 }
 
 .useful__label {

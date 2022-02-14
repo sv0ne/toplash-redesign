@@ -954,9 +954,14 @@ $(".js-copy-text").click(function(){
 	let txt = $(this).data('copy-text');
 	let msg = $(this).data('copy-message');
 	copy_in_buffer(txt);
-	$('.simpleMessage').remove();
-	$body.append('<div class="simpleMessage">'+msg+'</div>');
+	showAlertPupup(msg);
 });
+
+// Показать всплывашку снизу поцентру экрана
+function showAlertPupup(message) {
+	$('.simpleMessage').remove();
+	$body.append('<div class="simpleMessage">'+message+'</div>');
+}
 
 // Редактировать персональную информацию
 $(".js-personal-edit").click(function(){
