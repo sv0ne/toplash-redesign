@@ -797,7 +797,6 @@ if($('.animate-display').length !== 0){
 	setTimeout(function() {if(!$('.animate-display').hasClass('show-anim')){showGift();}}, startDelay * 1000);
 }
 
-
 //////////////////////////// Обрабатываем загрузку картинки /////////////////////////////
 
 $("#i-user-image").change(function(){

@@ -1030,13 +1030,12 @@ ol.list-ol{
 	}
 	counter-reset: myCounter;
 	li{
-		padding-left: 40px;
+		padding-left: 16px;
 		list-style: none;
 		position: relative;
 		&:before{
-			position: absolute;
-			top: 0;
-			left: 16px;
+			position: relative;
+			padding-right: 8px;
 			counter-increment: myCounter;
 			content: counter(myCounter)".";
 			color: $red;
@@ -1049,6 +1048,16 @@ ol.list-ol{
 			&:before{
 				left: 0px;
 			}
+		}
+	}
+	&.multi-column{
+		column-count:3;
+		padding-right: 16px;
+		@media (max-width:$md2+px) {
+		    column-count:2;
+		}
+		@media (max-width:$md3+px) {
+		    column-count:1;
 		}
 	}
 }
