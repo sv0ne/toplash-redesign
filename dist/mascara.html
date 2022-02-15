@@ -27,46 +27,48 @@
 	<title>Тушь</title>
 </head>
 <body>
+	<div class="wrapper">
 	<header>
-	<div class="rkl p-8 ta-c">
-		<p class="text-extra-small">Save 10% for the first purchase with promocode: TLNEWYEAR2022 </p>
-	</div>
-	<div class="nav">
-		<div class="container">
-			<div class="nav__body">
-				<div class="nav__logo">
-					<button class="burger js-burger">
-						<svg class="w24">
-							<use class="st-not-active" xlink:href="img/sprite/icons-sprite.svg#burger-show"/>
-							<use class="st-active" xlink:href="img/sprite/icons-sprite.svg#close"/>
-						</svg>
-					</button>
-					<a href="">
-					<img loading="lazy" src="img/Toplash-logo.svg" alt="" class="logoImage mod-inHeader"></a>
-				</div>
-				<div class="nav__content f-aic">
-					<div class="nav__overlayMenu js-overlayMenu"></div>
-					<nav>
-						<ul class="nav__menu js-menu">
-							<li><a href="https://noname.site">Купить Toplash</a></li>
-							<li><a href="">FAQ</a></li>
-							<li><a href="">Отзывы</a></li>
-							<li><a href="">Профессионалам</a></li>
-							<li><a href="">Проверка продукции</a></li>
-							<li class="parent-btnSec"><a href="" class="btnSec">Войти</a></li>
-						</ul>
-					</nav>
-					<a href="" class="btnSec btnCart"> <!-- class "active" если в корзине что-то есть -->
-						<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#bag"/></svg>
-						<span class="ml-8 btnCartText">Корзина</span>
-						<span class="varticalDevider"></span>
-						<span>0</span>
-					</a>
+		<div class="rkl p-8 ta-c">
+			<p class="text-extra-small">Save 10% for the first purchase with promocode: TLNEWYEAR2022 </p>
+		</div>
+		<div class="nav">
+			<div class="container">
+				<div class="nav__body">
+					<div class="nav__logo">
+						<button class="burger js-burger">
+							<svg class="w24">
+								<use class="st-not-active" xlink:href="img/sprite/icons-sprite.svg#burger-show"/>
+								<use class="st-active" xlink:href="img/sprite/icons-sprite.svg#close"/>
+							</svg>
+						</button>
+						<a href="">
+						<img loading="lazy" src="img/Toplash-logo.svg" alt="" class="logoImage mod-inHeader"></a>
+					</div>
+					<div class="nav__content f-aic">
+						<div class="nav__overlayMenu js-overlayMenu"></div>
+						<nav>
+							<ul class="nav__menu js-menu">
+								<li><a href="https://noname.site">Купить Toplash</a></li>
+								<li><a href="">FAQ</a></li>
+								<li><a href="">Отзывы</a></li>
+								<li><a href="">Профессионалам</a></li>
+								<li><a href="">Проверка продукции</a></li>
+								<li class="parent-btnSec"><a href="" class="btnSec">Войти</a></li>
+							</ul>
+						</nav>
+						<a href="" class="btnSec btnCart"> <!-- class "active" если в корзине что-то есть -->
+							<svg class="w24"><use xlink:href="img/sprite/icons-sprite.svg#bag"/></svg>
+							<span class="ml-8 btnCartText">Корзина</span>
+							<span class="varticalDevider"></span>
+							<span>0</span>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</header>
+	</header>
+
 	<div class="product">
 	<div class="container">
 		<div class="product__row">
@@ -1109,7 +1111,7 @@
 				<li><a href="">1</a></li>
 				<li class="active"><a href="">2</a></li>
 				<li><a href="">3</a></li>
-				<li><a href="">...</a></li>
+				<li class="clear"><span>...</span></li>
 				<li><a href="">999</a></li>
 				<li class="mob-hide"><a href="">Следующая</a></li>
 			</ul>
@@ -1265,8 +1267,7 @@
 		<div class="main-p-32-8">
 			<div class="p-8">
 				<p class="text-footnote darkGray mb-16">* Гарантия 90 дней<br>Мы уверены в эффективности средства для роста ресниц и бровей Toplash, ведь она доказана не только клиническими испытаниями*, но и подтверждена отзывами тысяч довольных покупательниц, число которых постоянно растет.</p>
-
-<p class="text-footnote darkGray">Мы не можем гарантировать 100% эффективность абсолютно для всех из-за индивидуальных особенностей организма. Но мы можем и гарантируем возврат денег в течение 90 дней с момента получения вами заказа, в случае если по каким-либо причинам Toplash или любой другой продукт нашего бренда вам не подойдет, и вы решите прекратить его использование. Мы рады получать от вас отзывы о нашей продукции, ваше мнение для нас очень важно.</p>
+				<p class="text-footnote darkGray">Мы не можем гарантировать 100% эффективность абсолютно для всех из-за индивидуальных особенностей организма. Но мы можем и гарантируем возврат денег в течение 90 дней с момента получения вами заказа, в случае если по каким-либо причинам Toplash или любой другой продукт нашего бренда вам не подойдет, и вы решите прекратить его использование. Мы рады получать от вас отзывы о нашей продукции, ваше мнение для нас очень важно.</p>
 			</div>
 			<nav class="breadcrumbs">
 				<ul class="d-flex p-8" itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -1378,6 +1379,8 @@
 		</div>
 	</div>
 </footer>
+
+</div>
 	<script>
 		pathSprite = "img/sprite/icons-sprite.svg"; // Путь к спрайту с иконками
 	</script>

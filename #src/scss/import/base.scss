@@ -43,6 +43,9 @@ svg{
 		height: 124px;
 		display: block;
 	}
+	&.round180{
+		transform: rotate(180deg);
+	}
 }
 
 img, video{
@@ -283,6 +286,7 @@ h1, h2{
 
 .bg-green{background-color: $green !important;}
 .bg-red{background-color: $red !important;}
+.bg-white{background-color: $white !important;}
 .bg-gold{background-color: $gold !important;}
 .bg-lightGray{background-color: $lightGray !important;}
 
@@ -1085,6 +1089,16 @@ ul.list-ul{
 			height: 8px;
 			background-color: $red;
 			border-radius: 99px;
+		}
+	}
+	&.multi-column{
+		column-count:3;
+		padding-right: 16px;
+		@media (max-width:$md2+px) {
+		    column-count:2;
+		}
+		@media (max-width:$md3+px) {
+		    column-count:1;
 		}
 	}
 }

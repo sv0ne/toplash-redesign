@@ -576,6 +576,15 @@
 	}
 }
 
+.faqPage{
+	background-color: $white;
+	.result21__image{
+		img{
+			max-width: 100%;
+		}
+	}
+}
+
 ///////////////////// breadcrumbs //////////////////////////
 
 .breadcrumbs {
@@ -1497,7 +1506,7 @@
 			border-radius: 8px;
 			list-style: none;
 			margin: 0 8px;
-			a{
+			a, span{
 				display: inline-block;
 				padding: 2px 10px;
 				text-decoration: none;
@@ -1511,7 +1520,7 @@
 					color: $white;
 				}
 			}
-			&:hover:not(.active){
+			&:hover:not(.active):not(.clear){
 				background-color: $divider;
 			}
 			&.mob-hide{
@@ -1871,6 +1880,48 @@
 		overflow: hidden;
 		padding: 16px 32px 16px 8px;
 	}
+}
+
+//////////////////////// collections //////////////////////////
+
+.collections{
+	.useful__body{
+		padding: 16px 0;
+	}
+	&__row{
+		display: flex;
+		flex-wrap: wrap;
+		@media (max-width:$md2+px) {
+		    padding: 8px;
+		}
+	}
+	&__col{
+		flex: 0 0 33.333%;
+		padding: 16px;
+		@media (max-width:$md2+px) {
+		    flex: 0 0 50%;
+		    padding: 8px;
+		}
+		@media (max-width:665+px) {
+		    flex: 0 0 100%;
+		}
+	}
+}
+
+.hover-image-slider .useful__imageWrap:not(.initImage) img {
+  display: none;
+}
+
+.hover-image-slider .useful__imageWrap:not(.initImage) img:first-child {
+  display: block;
+}
+
+.hover-image-slider .useful__imageWrap.initImage img{
+  display: none;
+}
+
+.hover-image-slider .useful__imageWrap.initImage img.active{
+  display: block;
 }
 
 //////////////////////// popular //////////////////////////

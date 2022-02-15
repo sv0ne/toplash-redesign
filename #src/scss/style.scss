@@ -61,9 +61,8 @@ $boxShadow: 0px 0px 40px rgba(69, 76, 84, 0.08);
 	width: 100%;
 	min-height: 100%;
 	overflow: hidden;
-	&.loaded{
-
-	}
+	display: flex;
+	flex-direction: column;
 }
 
 // --------------------------------------------------------
