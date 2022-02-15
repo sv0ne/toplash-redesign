@@ -982,7 +982,8 @@ function fixedElementOnScroll(scrollTop) {
 	}
 }
 
-function ibg(){ // Превращает картинку img в background-image
+// Превращает картинку img в background-image
+function ibg(){ 
 		let ibg=document.querySelectorAll(".ibg");
 		for (var i = 0; i < ibg.length; i++) {
 			if(ibg[i].querySelector('img')){
@@ -991,6 +992,15 @@ function ibg(){ // Превращает картинку img в background-image
 		}
 	}
 ibg();
+
+// Для блок-инпутов inputTextBtn если инпут не пустой тогда кпопка красная
+$(".js-inputTextBtn-change input").on("input", function(){
+	if($(this).val() === ""){
+		$(this).closest('.js-inputTextBtn-change').find('.inputBtn').addClass('inputBtn_gray');
+	}else{
+		$(this).closest('.js-inputTextBtn-change').find('.inputBtn').removeClass('inputBtn_gray');
+	}
+});
 
 
 /////////////////////////////////////////////////////////////////////////////////////////
