@@ -1915,6 +1915,8 @@ ul.list-ul li:before {
   color: #FFFFFF;
   padding: 16px;
   border-radius: 12px;
+  text-align: center;
+  z-index: 9999;
   -webkit-animation: simpleMessage 2s forwards 0s ease;
           animation: simpleMessage 2s forwards 0s ease;
 }
@@ -6482,6 +6484,10 @@ ol.list-ol li:before,
 
   .card-v1.mod-md-p-16 {
     padding: 16px;
+  }
+
+  .simpleMessage {
+    width: calc(100% - 32px);
   }
 
   .nav__overlayMenu.active {

@@ -1334,7 +1334,12 @@ ul.list-ul{
 	color: $white;
 	padding: 16px;
 	border-radius: 12px;
+	text-align: center;
+	z-index: 9999;
 	animation: simpleMessage 2s forwards 0s ease;
+	@media (max-width:$md4+px) {
+	    width: calc(100% - 32px);
+	}
 }
 
 @keyframes simpleMessage {

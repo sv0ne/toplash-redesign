@@ -997,7 +997,7 @@ ibg();
 
 	$(document).on("click", function(e){
 		if(e.ctrlKey){
-			console.log(timeoutNextSlide);
+			//showAlertPupup("Товар успешно добавлен в корзину");
 		}
 	});
 });
