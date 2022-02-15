@@ -956,10 +956,18 @@ h2 > span {
   color: #E81F76;
 }
 
+.btn.btn-inv svg use {
+  fill: #E81F76;
+}
+
 .btn.btn-inv:hover {
   opacity: 1;
   background-color: #E81F76;
   color: #FFFFFF;
+}
+
+.btn.btn-inv:hover svg use {
+  fill: #FFFFFF;
 }
 
 .btn.btn-green {

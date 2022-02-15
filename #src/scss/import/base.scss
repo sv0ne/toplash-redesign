@@ -548,10 +548,16 @@ h1, h2{
 	&.btn-inv{
 		background-color: $white;
 		color: $red;
+		svg use{
+			fill: $red;
+		}
 		&:hover{
 			opacity: 1;
 			background-color: $red;
 			color: $white;
+			svg use{
+				fill: $white;
+			}
 		}
 	}
 	&.btn-green{
