@@ -582,6 +582,12 @@ $(".js-filter-slider .scroll__item a").click(function(e){
 // Узнать ID слайда с презентацией
 let slidePresentationID = $('.sliderBig__item .js-presentation-video').parent().index();
 
+/* Отследить инициализацию слайдера js-sliderBig. Чтобы избежать мигания картинок, до 
+   инициализации слайдера скрываем все слайды кроме первого */
+$('.js-sliderBig').on('init', function(event, slick){
+  $('.js-sliderBig').removeClass('preInit');
+});
+
 // Инициализация слайдера
 $('.js-sliderBig').slick({
 	prevArrow: $('.product .sliderBtn.btn-prev'),

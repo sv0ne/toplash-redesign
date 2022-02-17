@@ -2157,6 +2157,10 @@ ul.list-ul.multi-column {
 			}*/
 }
 
+.sliderBig__body.preInit .sliderBig__item {
+  display: none;
+}
+
 .sliderBig__item {
   border: 2px solid #EAF0F6;
   position: relative;

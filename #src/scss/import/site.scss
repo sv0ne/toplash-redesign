@@ -184,6 +184,11 @@
 				-webkit-animation-play-state: paused;
 			}*/
 		}
+		&.preInit{
+			.sliderBig__item{
+				display: none;	
+			}
+		}
 	}
 	&__item{
 		border: 2px solid $divider;
