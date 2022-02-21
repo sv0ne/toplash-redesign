@@ -2635,6 +2635,7 @@
 	&__col {
 		padding: 12px;
 		&.mod-col-2{
+			flex: 1;
 			@media (max-width:1080+px) {
 				flex: 0 0 100%;
 			}
@@ -2645,6 +2646,7 @@
 			}
 		}
 		&.mod-col-4{
+			flex: 0 0 140px !important;
 			@media (min-width:$md3+px) and (max-width:966+px), (max-width:600+px) {
 				.ta-c{
 					text-align: left;

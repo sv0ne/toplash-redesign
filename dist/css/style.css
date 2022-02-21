@@ -9,6 +9,14 @@
 }
 
 @font-face {
+  font-family: "FuturaPT-ExtraBold";
+  font-display: swap;
+  src: url("../fonts/FuturaPT-ExtraBold.woff") format("woff"), url("../fonts/FuturaPT-ExtraBold.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "FuturaPT-Book";
   font-display: swap;
   src: url("../fonts/FuturaPT-Book.woff") format("woff"), url("../fonts/FuturaPT-Book.woff2") format("woff2");
@@ -17,9 +25,9 @@
 }
 
 @font-face {
-  font-family: "FuturaPT-ExtraBold";
+  font-family: "FuturaPT-Demi";
   font-display: swap;
-  src: url("../fonts/FuturaPT-ExtraBold.woff") format("woff"), url("../fonts/FuturaPT-ExtraBold.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Demi.woff") format("woff"), url("../fonts/FuturaPT-Demi.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -44,14 +52,6 @@
   font-family: "FuturaPT-Medium";
   font-display: swap;
   src: url("../fonts/FuturaPT-Medium.woff") format("woff"), url("../fonts/FuturaPT-Medium.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "FuturaPT-Demi";
-  font-display: swap;
-  src: url("../fonts/FuturaPT-Demi.woff") format("woff"), url("../fonts/FuturaPT-Demi.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -165,7 +165,6 @@ h6 {
 .wrapper {
   width: 100%;
   min-height: 100%;
-  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1981,14 +1980,17 @@ ul.list-ul.multi-column {
 
 .stickyBlock {
   height: 100%;
+  position: relative;
 }
 
 .stickyBlock > * {
+  position: -webkit-sticky;
   position: sticky;
   top: 16px;
 }
 
 .sticky-min-md3 {
+  position: -webkit-sticky;
   position: sticky;
   top: 16px;
 }
@@ -4569,6 +4571,18 @@ ul.list-ul.multi-column {
   padding: 12px;
 }
 
+.cartProduct__col.mod-col-2 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.cartProduct__col.mod-col-4 {
+  -webkit-box-flex: 0 !important;
+      -ms-flex: 0 0 140px !important;
+          flex: 0 0 140px !important;
+}
+
 .imageComm {
   overflow: hidden;
 }
@@ -5906,6 +5920,12 @@ ol.list-ol li:before,
 }
 
 @media (max-width: 767.98px) {
+  .wrapper {
+    overflow: hidden;
+    /* Выше 768 мы его убираем чтобы сработал 
+	    position sticky у блока .stickyBlock */
+  }
+
   .main-p-32-16 {
     padding: 16px;
   }

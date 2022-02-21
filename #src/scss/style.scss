@@ -60,9 +60,12 @@ $boxShadow: 0px 0px 40px rgba(69, 76, 84, 0.08);
 .wrapper{
 	width: 100%;
 	min-height: 100%;
-	overflow: hidden;
 	display: flex;
 	flex-direction: column;
+	@media (max-width:$md3+px) {
+	    overflow: hidden;/* Выше 768 мы его убираем чтобы сработал 
+	    position sticky у блока .stickyBlock */
+	}
 }
 
 // --------------------------------------------------------
