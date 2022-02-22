@@ -74,7 +74,7 @@
 	        <div class="result21__row">
 	            <div class="result21__col">
 	                <div class="result21__image">
-	                    <img loading="lazy" src="img/other/05.jpg" alt="">
+	                    <img class="lazy" style="padding-top: 100%;" data-src="img/other/05.jpg" width="760" alt="">
 	                </div>
 	            </div>
 	            <div class="result21__col">
@@ -226,7 +226,13 @@
 		</div>
 	</div>
 </footer>
+<script src="js/lazyload.min.js"></script>
 
+<script>
+	var lazyLoadInstance = new LazyLoad({
+		elements_selector: ".lazy"
+	});
+</script>
 </div>
 </body>
 </html>

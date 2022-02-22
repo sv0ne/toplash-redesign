@@ -265,6 +265,21 @@ img.maxW-100 {
   max-width: 100%;
 }
 
+.lazy {
+  height: 0px;
+  opacity: 0.5;
+  background-color: #F1F5F9;
+}
+
+.lazy.loaded {
+  height: auto;
+  padding-top: 0px !important;
+  opacity: 1;
+  -webkit-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+
 hr {
   height: 1px;
   background-color: #EAF0F6;
@@ -2557,6 +2572,7 @@ ul.list-ul.multi-column {
 }
 
 .faqPage .result21__image img {
+  width: auto;
   max-width: 100%;
 }
 
