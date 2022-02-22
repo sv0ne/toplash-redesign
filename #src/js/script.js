@@ -1008,6 +1008,21 @@ $(".js-inputTextBtn-change input").on("input", function(){
 	}
 });
 
+// Если это страница ввода кода при входе, включаем таймер до повторной отправки кода
+let $resendCodeText = $('.js-rest-time-resend-code');
+let restSecondToResend = 59;
+if($resendCodeText.length !== 0){
+	let TIMER_CODE = setInterval(function(){
+		$resendCodeText.text(restSecondToResend);
+		restSecondToResend--;
+		if(restSecondToResend === 0){
+			clearInterval(TIMER_CODE);
+			$('.js-rest-time-exist').remove();
+			$('.js-rest-time-missing').removeClass('dn');
+		}
+	}, 1000);
+}
+
 
 /////////////////////////////////////////////////////////////////////////////////////////
 

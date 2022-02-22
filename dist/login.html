@@ -80,29 +80,16 @@
 					<a href="login.html" class="btn-2 btn-2_active mr-16">Вход</a>
 					<a href="registration.html" class="btn-2">Регистрация</a>
 				</div>
+				<p>Введите номер телефона, указанный при регистрации. Мы отправим вам сообщение с кодом, по которому вы сможете войти.</p>
 				<div class="js-validation-block">
 					<div class="inputText">
-						<input class="_validate" data-validation-type='["req", "email"]' type="text" autocomplete="off" name="email" placeholder=" ">
-						<label>Email*</label>
-					</div>
-					<p class="js-validation-error mt-4 error"></p>
-				</div>
-				<div class="js-validation-block js-showHidePasswordParent">
-					<div class="inputText">
-						<input class="_validate js-password-match" data-validation-type='["req", "password"]' type="password" autocomplete="off" name="password" placeholder=" ">
-						<label>Пароль*</label>
-						<svg class="js-showHidePassword showHidePassword w24 svgWithState">
-							<use class="st-1" xlink:href="img/sprite/icons-sprite.svg#show-on"/>
-							<use class="st-2" xlink:href="img/sprite/icons-sprite.svg#show-off"/>
-						</svg>
+						<input class="_validate js-mask-tel" data-validation-type='["req", "tel"]' type="text" autocomplete="off" name="tel" placeholder=" ">
+						<label>Телефон</label>
 					</div>
 					<p class="js-validation-error mt-4 error"></p>
 				</div>
 				<div class="f-jcc-aic">
-					<button class="btn js-form-submit">Войти</button>
-				</div>
-				<div class="f-jcc-aic">
-					<a href="forgot-password.html" class="link">Забыли пароль?</a>
+					<button class="btn js-form-submit">Отправить код</button>
 				</div>
 			</form>
 		</div>

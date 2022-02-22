@@ -13,10 +13,10 @@
 		<div class="f-jcc-aic">
 			<form class="auth__body card-v1 mod-md-p-16 nlc-mb-32 js-validation-form" action="" method="post">
 				<div class="d-flex">
-					<a href="login.html" class="btn-2 btn-2_active mr-16">Вход</a>
-					<a href="registration.html" class="btn-2">Регистрация</a>
+					<a href="login.html" class="btn-2 mr-16">Вход</a>
+					<a href="registration.html" class="btn-2 btn-2_active">Регистрация</a>
 				</div>
-				<p>Введите номер телефона, указанный при регистрации. Мы отправим вам сообщение с кодом, по которому вы сможете войти.</p>
+				<p>Введите номер телефона, который будет использоваться для входа в аккаунт.</p>
 				<div class="js-validation-block">
 					<div class="inputText">
 						<input class="_validate js-mask-tel" data-validation-type='["req", "tel"]' type="text" autocomplete="off" name="tel" placeholder=" ">
@@ -24,8 +24,12 @@
 					</div>
 					<p class="js-validation-error mt-4 error"></p>
 				</div>
+				<div class="auth__line">
+					<div></div>
+					<div class="active"></div>
+				</div>
 				<div class="f-jcc-aic">
-					<button class="btn js-form-submit">Отправить код</button>
+					<button class="btn js-form-submit">Далее</button>
 				</div>
 			</form>
 		</div>
