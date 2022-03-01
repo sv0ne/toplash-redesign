@@ -416,8 +416,11 @@ $(document).on("click", function(e){
 function closeSliderReviews() {
 	$activeSlidersReviews.slick('unslick');
 	$activeSlidersReviews.removeClass('isSliderReviews').addClass("imageFeedback");
-	$activeSlidersReviews.find('video').prop('muted', true).prop('controls', false);
-	$activeSlidersReviews.find('video').get(0).pause();
+	let video = $activeSlidersReviews.find('video');
+	if(video.length !== 0){
+		video.prop('muted', true).prop('controls', false);
+		video.get(0).pause();
+	}
 	$('.feedbackSliderControls').removeClass('active');
 	$body.removeClass('lock');
 	$activeSlidersReviews = null;
