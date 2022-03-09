@@ -787,17 +787,17 @@ function addTimescale(count, itemActive, duration = TIME_SLIDE_DURATION) {
 		html += '<div class="f-jcsb-aic mt-16">';
 			html += '<div class="d-flex">';
 				html += '<svg class="timescale__control svgWithState w24 js-stories-pause">';
-					html += '<use class="st-1" xlink:href="img/sprite/icons-sprite.svg#pause"/>';
-					html += '<use class="st-2" xlink:href="img/sprite/icons-sprite.svg#play_w16in24"/>';
+					html += '<use class="st-1" xlink:href="'+pathSprite+'#pause"/>';
+					html += '<use class="st-2" xlink:href="'+pathSprite+'#play_w16in24"/>';
 				html += '</svg>';
 
 				html += '<svg class="timescale__control svgWithState volumn w24 js-stories-volumn '+isMuted+'">';
-					html += '<use class="st-1" xlink:href="img/sprite/icons-sprite.svg#volumn-on"/>';
-					html += '<use class="st-2" xlink:href="img/sprite/icons-sprite.svg#volumn-off"/>';
+					html += '<use class="st-1" xlink:href="'+pathSprite+'#volumn-on"/>';
+					html += '<use class="st-2" xlink:href="'+pathSprite+'#volumn-off"/>';
 				html += '</svg>';
 			html += '</div>';
 			html += '<svg class="timescale__control close w24 js-close-stories">';
-				html += '<use xlink:href="img/sprite/icons-sprite.svg#close"/>';
+				html += '<use xlink:href="'+pathSprite+'#close"/>';
 			html += '</svg>';
 		html += '</div>';
 	html += '</div>';
