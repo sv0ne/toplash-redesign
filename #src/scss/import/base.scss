@@ -1313,6 +1313,21 @@ ul.list-ul{
 	}
 }
 
+.crossedOut{
+	position: relative;
+	&__svg{
+		position: absolute;
+		width: 54px;
+		height: 10.93px;
+		left: calc(50% - 30px/2 - 7.69px);
+		top: calc(50% - 18.93px/2 + 2.6px);
+		transform: rotate(-24.24deg);
+		use{
+			fill: $red !important;
+		}
+	}
+}
+
 .rating{
 	display: flex;
 	padding: 2px 0;

@@ -17,17 +17,17 @@
 }
 
 @font-face {
-  font-family: "FuturaPT-Demi";
+  font-family: "FuturaPT-ExtraBold";
   font-display: swap;
-  src: url("../fonts/FuturaPT-Demi.woff") format("woff"), url("../fonts/FuturaPT-Demi.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-ExtraBold.woff") format("woff"), url("../fonts/FuturaPT-ExtraBold.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "FuturaPT-ExtraBold";
+  font-family: "FuturaPT-Demi";
   font-display: swap;
-  src: url("../fonts/FuturaPT-ExtraBold.woff") format("woff"), url("../fonts/FuturaPT-ExtraBold.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Demi.woff") format("woff"), url("../fonts/FuturaPT-Demi.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -41,17 +41,17 @@
 }
 
 @font-face {
-  font-family: "FuturaPT-Medium";
+  font-family: "FuturaPT-Light";
   font-display: swap;
-  src: url("../fonts/FuturaPT-Medium.woff") format("woff"), url("../fonts/FuturaPT-Medium.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Light.woff") format("woff"), url("../fonts/FuturaPT-Light.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "FuturaPT-Light";
+  font-family: "FuturaPT-Medium";
   font-display: swap;
-  src: url("../fonts/FuturaPT-Light.woff") format("woff"), url("../fonts/FuturaPT-Light.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Medium.woff") format("woff"), url("../fonts/FuturaPT-Medium.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -1898,6 +1898,25 @@ ul.list-ul.multi-column {
   -webkit-transform: rotate(-6.24deg);
       -ms-transform: rotate(-6.24deg);
           transform: rotate(-6.24deg);
+}
+
+.crossedOut {
+  position: relative;
+}
+
+.crossedOut__svg {
+  position: absolute;
+  width: 54px;
+  height: 10.93px;
+  left: calc(50% - 30px/2 - 7.69px);
+  top: calc(50% - 18.93px/2 + 2.6px);
+  -webkit-transform: rotate(-24.24deg);
+      -ms-transform: rotate(-24.24deg);
+          transform: rotate(-24.24deg);
+}
+
+.crossedOut__svg use {
+  fill: #E81F76 !important;
 }
 
 .rating {
