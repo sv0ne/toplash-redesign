@@ -1,41 +1,45 @@
-// Валидируем поля формы перед отправкой
-$('.js-validation-form').submit(function (e) {
-	if($(e.originalEvent.submitter).hasClass('js-submit-without-validate') === true){return true;}
+// Инициируем обработчики валидации
+function initValidators() {
+	// Валидируем поля формы перед отправкой
+	$('.js-validation-form').submit(function (e) {
+		if($(e.originalEvent.submitter).hasClass('js-submit-without-validate') === true){return true;}
 
-	let isSubmitForm = true;
-	$(this).find("._validate").each(function(){
-		let validateType = $(this).data('validation-type');
-		let value = $(this).val();
-		let error = false;
-		for (var i = 0; i < validateType.length; i++) {
-			let isValid = validator[validateType[i]](value);
-			if(isValid !== true){error = isValid; break;}
+		let isSubmitForm = true;
+		$(this).find("._validate").each(function(){
+			let validateType = $(this).data('validation-type');
+			let value = $(this).val();
+			let error = false;
+			for (var i = 0; i < validateType.length; i++) {
+				let isValid = validator[validateType[i]](value);
+				if(isValid !== true){error = isValid; break;}
+			}
+			if(error !== false){
+				isSubmitForm = false;
+				$(this).addClass('_error');
+				$(this).closest('.js-validation-block').find('.js-validation-error').text(errorMessage[error]);
+			}
+		});
+
+		if(isSubmitForm === false){
+			$(this).find('.js-form-submit').addClass('disabled');
 		}
-		if(error !== false){
-			isSubmitForm = false;
-			$(this).addClass('_error');
-			$(this).closest('.js-validation-block').find('.js-validation-error').text(errorMessage[error]);
-		}
+		return isSubmitForm;
 	});
 
-	if(isSubmitForm === false){
-		$(this).find('.js-form-submit').addClass('disabled');
-	}
-	return isSubmitForm;
-});
+	// Про фокусе поля убираем у него ошибку
+	$(".js-validation-form ._validate").on("focus change", function(){
+		if($(this).hasClass('_error')){
+			$(this).removeClass('_error');
+			$(this).closest('.js-validation-block').find('.js-validation-error').text('');
+		}
 
-// Про фокусе поля убираем у него ошибку
-$(".js-validation-form ._validate").on("focus change", function(){
-	if($(this).hasClass('_error')){
-		$(this).removeClass('_error');
-		$(this).closest('.js-validation-block').find('.js-validation-error').text('');
-	}
-
-	let errorsCount = $(this).closest(".js-validation-form").find('._error').length;
-	if(errorsCount === 0){
-		$(this).closest(".js-validation-form").find('.js-form-submit').removeClass('disabled');
-	}
-});
+		let errorsCount = $(this).closest(".js-validation-form").find('._error').length;
+		if(errorsCount === 0){
+			$(this).closest(".js-validation-form").find('.js-form-submit').removeClass('disabled');
+		}
+	});
+}
+initValidators();
 
 // Все виды валидации
 let validator = {

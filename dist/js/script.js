@@ -214,7 +214,7 @@ function openPopup(popupID) {
 $(document).on(isMobile ? "touchend" : "mousedown", function (e) {
 	var popupTarget = $(".js-popup-open").has(e.target).length;
 	// Если (клик вне попапа && попап имеет класс open)
-    if (popup.has(e.target).length === 0 && popup.hasClass('open') && popupTarget === 0 && $('.js-open-popup-lottery').has(e.target).length === 0){
+    if (popup.has(e.target).length === 0 && popup.hasClass('open') && popupTarget === 0 && $('.js-micropopup-lottery').has(e.target).length === 0){
 	    close_popup();
 	}
 });
@@ -250,48 +250,52 @@ function close_popup() {
 }
 
 // Закрыть попапа при нажатии на кнопки "Close"
-$(".js-popup-close").click(function(e){
+$(document).on("click", ".js-popup-close", function(e){
 	e.preventDefault();
 	close_popup();
 });;
+	// Инициируем обработчики валидации
+function initValidators() {
 	// Валидируем поля формы перед отправкой
-$('.js-validation-form').submit(function (e) {
-	if($(e.originalEvent.submitter).hasClass('js-submit-without-validate') === true){return true;}
+	$('.js-validation-form').submit(function (e) {
+		if($(e.originalEvent.submitter).hasClass('js-submit-without-validate') === true){return true;}
 
-	let isSubmitForm = true;
-	$(this).find("._validate").each(function(){
-		let validateType = $(this).data('validation-type');
-		let value = $(this).val();
-		let error = false;
-		for (var i = 0; i < validateType.length; i++) {
-			let isValid = validator[validateType[i]](value);
-			if(isValid !== true){error = isValid; break;}
+		let isSubmitForm = true;
+		$(this).find("._validate").each(function(){
+			let validateType = $(this).data('validation-type');
+			let value = $(this).val();
+			let error = false;
+			for (var i = 0; i < validateType.length; i++) {
+				let isValid = validator[validateType[i]](value);
+				if(isValid !== true){error = isValid; break;}
+			}
+			if(error !== false){
+				isSubmitForm = false;
+				$(this).addClass('_error');
+				$(this).closest('.js-validation-block').find('.js-validation-error').text(errorMessage[error]);
+			}
+		});
+
+		if(isSubmitForm === false){
+			$(this).find('.js-form-submit').addClass('disabled');
 		}
-		if(error !== false){
-			isSubmitForm = false;
-			$(this).addClass('_error');
-			$(this).closest('.js-validation-block').find('.js-validation-error').text(errorMessage[error]);
-		}
+		return isSubmitForm;
 	});
 
-	if(isSubmitForm === false){
-		$(this).find('.js-form-submit').addClass('disabled');
-	}
-	return isSubmitForm;
-});
+	// Про фокусе поля убираем у него ошибку
+	$(".js-validation-form ._validate").on("focus change", function(){
+		if($(this).hasClass('_error')){
+			$(this).removeClass('_error');
+			$(this).closest('.js-validation-block').find('.js-validation-error').text('');
+		}
 
-// Про фокусе поля убираем у него ошибку
-$(".js-validation-form ._validate").on("focus change", function(){
-	if($(this).hasClass('_error')){
-		$(this).removeClass('_error');
-		$(this).closest('.js-validation-block').find('.js-validation-error').text('');
-	}
-
-	let errorsCount = $(this).closest(".js-validation-form").find('._error').length;
-	if(errorsCount === 0){
-		$(this).closest(".js-validation-form").find('.js-form-submit').removeClass('disabled');
-	}
-});
+		let errorsCount = $(this).closest(".js-validation-form").find('._error').length;
+		if(errorsCount === 0){
+			$(this).closest(".js-validation-form").find('.js-form-submit').removeClass('disabled');
+		}
+	});
+}
+initValidators();
 
 // Все виды валидации
 let validator = {
@@ -1022,7 +1026,7 @@ function sequentialActionsWheel() {
 }
 
 // Нажатие на кнопку "Вращать"
-$("#js-stopRunner").click(function(e){
+$(document).on("click", "#js-stopRunner", function(e){
 	if(blockWheel === false){
 		$('#js-runner').addClass('paused');
 		sequentialActionsWheel();
@@ -1042,81 +1046,49 @@ function initWheel() {
 
 ///////// Логика попапа ухода со страницы, получить подарок, анимировать title  //////////////
 
-const startDelay = 60; // задержка (сек.) - После открытия сайта
-const leavingDelay = 60; // задержка (сек.) - После ухода с сайта
+const downloadPopupDelay = 15; // задержка (сек.) Загрузить ajax-ом попапы через ХХ сек
+const leavingDelay = 60; // задержка (сек.) - После загрузки ajax-ом попапов
 
-// Паказать скрыть анимированно всплывашку "Ваш подарок"
-function showGift() {
-	if(localStorage.getItem('get-gift') == null){
-		if($('.animate-display').hasClass('show-anim')){
-			$('.animate-display').addClass('closing-anim');
-			setTimeout(function() {
-				$('.animate-display').removeClass('show-anim closing-anim');
-			}, 300);
-		}else{
-			$('.animate-display').addClass('show-anim');
-		}
-	}
-}
+// ********* Отслеживаем уход и возвращение на страницу ********** //
 
-// Скрыть всплывашку "Ваш подарок"
-$(".targetPrize").click(function(){
-	showGift();
-});
-
-var bbW = false;
-// Oткрыть попап с лотереей
-$('.js-open-popup-lottery').on(isMobile ? "touchend" : "mousedown", function (e) {
-	if($(e.target).hasClass('targetPrize') === false){
-		initWheel();
-		openPopup('lottery');
-		bbW = true;
-		$('.animate-display').addClass('closing-anim');
-		setTimeout(function() {
-			$('.animate-display').removeClass('show-anim closing-anim');
-		}, 300);
-	}
-});
-
-var popupLeaving = 'userLeaving';
-var existUser = true;
-var timer_llk;
-var blockMouseLeaving = true;
-setTimeout(function() {blockMouseLeaving = false; }, 10000);
+var isExistUser;
+var timer_leaving;
 // Отслеживаем уход со страницы
 $(document).on("mouseleave", function(){
-	if(blockMouseLeaving === true){return false;}
-	if($('#'+popupLeaving).length !== 0 && $("#prizeReceive").hasClass('open') === false){
-		if(sessionStorage.getItem('vizit') == null){
-			if($('#'+popupLeaving).hasClass('open') === false){
-				openPopup(popupLeaving);
-			}
-			sessionStorage.setItem('vizit', 'vizit');
-		}
-		existUser = false;
-		clearTimeout(timer_llk);
-		timer_llk = setTimeout(function() {noUser();}, leavingDelay * 1000);
-	}
+	clearTimeout(timer_leaving);
+	timer_leaving = setTimeout(function() {userLongGone();}, leavingDelay * 1000);
 });
 
+
+// Пользователь вернулся на страницу
 $(document).on("mouseenter", function(){
-	if(existUser === false){
-		existUser = true;
+	clearTimeout(timer_leaving);
+	isExistUser = true;
+});
+
+// Пользователь отсутствовал указанное количество времени
+function userLongGone() {
+	console.log("Пользователь отсутствовал указанное количество времени");
+	isExistUser = false;
+	/* Если попапы получения приза загружены и приз до сих пор не получен и попап "Забрать приз" закрыт
+		 и попап lottery закрыт и попап prizeReceive закрыт то открыть попап "Забрать приз" */
+	if(isLoadedPopupsLottery === true && localStorage.getItem('get-gift') === null && 
+		isOpenMicropopupLottery === false && $("#prizeReceive").hasClass('open') === false && $("#lottery").hasClass('open') === false){
+		show_hide_micropopupLottery(true);
 	}
-});
 
-// Запоминаем если пользователь получил подарок
-$(".js-get-gift").submit(function(){
-	localStorage.setItem('get-gift', 'exist');
-});
+	// Запустить анимацию title если не запущена
+	if(animTitle === false){animateTitle();}
 
-// Пользователь ушел со страницы и отсутствовал минуту
-function noUser() {
-	if(existUser === false){
-		if($('.animate-display').hasClass('show-anim') === false && bbW === false){showGift();}
-		if(animTitle === false){animateTitle();}
+	// Показать попап при уходе если выполняются условия
+	if(sessionStorage.getItem('vizit') == null && isLoadedPopupLeaving === true && $('#userLeaving').hasClass('open') === false && 
+		$("#prizeReceive").hasClass('open') === false && $("#lottery").hasClass('open') === false){
+		openPopup('userLeaving');
+		sessionStorage.setItem('vizit', 'vizit');
 	}
 }
+
+// ********************** Анимируем title ************************ //
 
 var titleDefault = $('title').text();
 var titleAnimate = $('title').data('title');
@@ -1125,14 +1097,13 @@ if(titleAnimate != undefined){
 }
 var titleLoop = 0;
 var animTitle = false;
-// Анимируем title
+// Анимируем title при условии что приз еще не получен и задан data-title для title
 function animateTitle() {
-	if(localStorage.getItem('get-gift') == null){
-		if(titleAnimate == undefined){return false;}
+	if(localStorage.getItem('get-gift') == null && titleAnimate != undefined){
 		$('title').text(titleAnimate[titleLoop]);
 		titleLoop++;
 		if(titleLoop >= titleAnimate.length){titleLoop = 0;}
-		if(existUser === false){
+		if(isExistUser === false){
 			animTitle = true;
 			setTimeout(function() {animateTitle();}, 1500);
 		}else{
@@ -1142,9 +1113,89 @@ function animateTitle() {
 	}
 }
 
-// Показать через минуту всплывашку про подарок
-if($('.animate-display').length !== 0){
-	setTimeout(function() {if(!$('.animate-display').hasClass('show-anim')){showGift();}}, startDelay * 1000);
+// ************** Логика открытия попапов лотереи **************** //
+
+var $micropopupLottery;
+var isOpenMicropopupLottery = false;
+// Показать/скрыть микропопап "Забрать приз"
+function show_hide_micropopupLottery(showPopup) {
+	if(showPopup === false){
+		$micropopupLottery.addClass('closing-anim');
+		setTimeout(function() {
+			$micropopupLottery.removeClass('show-anim closing-anim');
+		}, 300);
+	}else{
+		$micropopupLottery.addClass('show-anim');
+	}
+	isOpenMicropopupLottery = showPopup;
+}
+
+// Скрыть микропопап "Забрать приз" при клике на кнопку "Скрыть"
+$(document).on("click", ".js-hide-micropopup-lottery", function(){
+	show_hide_micropopupLottery(false);
+});
+
+// Клик по попапу "Забрать приз"
+$(document).on(isMobile ? "touchend" : "mousedown", ".js-micropopup-lottery", function (e) {
+	if($(e.target).hasClass('js-hide-micropopup-lottery') === false){
+		initWheel();
+		openPopup('lottery');
+		show_hide_micropopupLottery(false);
+	}
+});
+
+// ********************* Подгрузка попапов *********************** //
+
+var isLoadedPopupsLottery = false;
+var isLoadedPopupLeaving = false;
+// Подгрузка попапов лотереи и ухода со страницы методом load через 15 сек
+setTimeout(function() {
+	$('body').append('<div id="popupsLoaded_1"></div><div id="popupsLoaded_2"></div>');
+	// Если пользователь не получил подорок только тогда грузим попапы лотереи 
+	if(localStorage.getItem('get-gift') === null){
+		$("#popupsLoaded_1").load(pathPopups + " #popups-lottery", function(response, status){
+			commonAction(status, "ВНИМАНИЕ!!! Ошибка при загрузке попапов лотереи");
+			if(status == 'success'){
+				// Запоминаем если пользователь получил подарок
+				$(".js-get-gift").submit(function(){
+					localStorage.setItem('get-gift', 'exist');
+				});
+
+				// Показать микропопап лотереи
+				$micropopupLottery = $('.js-micropopup-lottery');
+				show_hide_micropopupLottery(true);
+
+				// Дополнительная логика
+				isLoadedPopupsLottery = true;
+			}
+		});
+	}
+
+	// Если за текущую сессию пользователь при уходе еще не увидел попап #userLeaving
+	if(sessionStorage.getItem('vizit') == null){
+		$("#popupsLoaded_2").load(pathPopups + " #userLeaving", function(response, status){
+			commonAction(status, "ВНИМАНИЕ!!! Ошибка при загрузке попапа при уходе со страницы");
+			if(status == 'success'){
+				// Дополнительная логика
+				isLoadedPopupLeaving = true;
+			}
+		});
+	}
+}, downloadPopupDelay * 1000);
+
+// Общие действия для 2-х load загрузок
+function commonAction(status, msg){
+	if(status === "error"){
+		console.log(msg);
+	}else{ // Если попапы успешно загружены
+		// Переопределяем попапы
+		popup = $(".popup");
+
+		// Перезапускаем валидаторы
+		$('.js-validation-form').unbind("submit");
+		$(".js-validation-form ._validate").unbind("focus change");
+		initValidators();
+	}
 }
 
 //////////////////////////// Обрабатываем загрузку картинки /////////////////////////////
@@ -1195,7 +1246,7 @@ function dropdown() {
 	const DROPDOWN_SLIDE_DURATION = 300;
 	isLess_md4 = w < BREAKPOINT_md4;
 	// Открыть/закрыть dropdown
-	$('.js-dropdown-head').click(function(){
+	$(document).on("click", ".js-dropdown-head", function(){
 		if($(this).closest('.js-dropdown-item').hasClass('less-md4') && w > BREAKPOINT_md4){return false;}
 		$(this).closest('.js-dropdown-item').toggleClass('active');
 		let active = $(this).closest('.js-dropdown-item').hasClass('active');
@@ -1371,7 +1422,7 @@ if($resendCodeText.length !== 0){
 
 	$(document).on("click", function(e){
 		if(e.ctrlKey){
-			//showAlertPupup("Товар успешно добавлен в корзину");
+			show_hide_micropopupLottery();
 		}
 	});
 });

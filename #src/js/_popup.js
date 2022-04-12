@@ -26,7 +26,7 @@ function openPopup(popupID) {
 $(document).on(isMobile ? "touchend" : "mousedown", function (e) {
 	var popupTarget = $(".js-popup-open").has(e.target).length;
 	// Если (клик вне попапа && попап имеет класс open)
-    if (popup.has(e.target).length === 0 && popup.hasClass('open') && popupTarget === 0 && $('.js-open-popup-lottery').has(e.target).length === 0){
+    if (popup.has(e.target).length === 0 && popup.hasClass('open') && popupTarget === 0 && $('.js-micropopup-lottery').has(e.target).length === 0){
 	    close_popup();
 	}
 });
@@ -62,7 +62,7 @@ function close_popup() {
 }
 
 // Закрыть попапа при нажатии на кнопки "Close"
-$(".js-popup-close").click(function(e){
+$(document).on("click", ".js-popup-close", function(e){
 	e.preventDefault();
 	close_popup();
 });
