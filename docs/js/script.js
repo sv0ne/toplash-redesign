@@ -29,10 +29,355 @@ $(document).ready(function () {
   	hideSeoBlock(scrollTop);
 	});
 
-	@@include('_select2-user.js');
-	@@include('_scroll.js');
-	@@include('_popup.js');
-	@@include('_validation.js');
+	//////////////////////////////////////////// Select2 ////////////////////////////////////////////
+
+// Селект похожий на обычный
+$('.js-select-once-1').select2({ 
+	minimumResultsForSearch: -1,
+	width: 'auto',
+	dropdownCssClass: "select-once-1-dropdown",
+});
+
+// Селект похожий на обычный
+$('.js-select-once-2').select2({ 
+	minimumResultsForSearch: -1,
+	width: 'auto',
+	dropdownCssClass: "select-once-2-dropdown",
+});;
+	/*Когда у скролла есть wrapScroll ему нужно задать высоту 
+так как его дочерний элемент абсолютно позиционирован */
+function setHeightWrapScroll() {
+	if($('.wrapScroll').length !== 0){
+		var scrollHeight = $('.scroll').height();
+		$('.wrapScroll').css('height', scrollHeight+'px');
+	}
+}
+setHeightWrapScroll();
+
+/* ВНИМАНИЕ!!! 
+	Если кнопки скролла внутри блока .scroll то все ок, а если снаружи то для
+	.scroll нужно задать data-scroll-id="" и также и для .scroll__button.btn-prev и 
+	для .scroll__button.btn-next.
+*/
+var ScrollElement = function(elem) {
+	let isResponsive = elem.hasClass('responsive');
+	var body = elem.find('.scroll__body');
+	var wBody = body.width();
+	if(isResponsive === true){
+		let oneElementWidth;
+		if(w > BREAKPOINT_md1){
+			oneElementWidth = (wBody - (3*16)) / 4;
+		}else if(w > BREAKPOINT_872){
+			oneElementWidth = (wBody - (4*16)) / 3;
+		}else if(w > BREAKPOINT_552){
+			oneElementWidth = (wBody - (3*16)) / 2;
+		}else{
+			oneElementWidth = (wBody - (2*16)) / 1;
+		}
+		if(w > BREAKPOINT_md3){elem.find('.cardReviews').css('width', oneElementWidth+'px');}
+	}
+	var scroll = elem.find('.scroll__scroll');
+	var wScroll = scroll.width();
+	var scrollID = elem.data('scroll-id');
+	if(scrollID == undefined){ // Если кнопки управления лежат внутри .scroll
+		var btn_prev = elem.find('.scroll__button.btn-prev');
+		var btn_next = elem.find('.scroll__button.btn-next');
+	}else{ // Если кнопки управления лежат где то снаружи
+		var btn_prev = $('.js-scroll-button.btn-prev[data-scroll-id='+scrollID+']');
+		var btn_next = $('.js-scroll-button.btn-next[data-scroll-id='+scrollID+']');
+	}
+	
+	var overlay_prev = elem.find('.overlayArea-prev');
+	var overlay_next = elem.find('.overlayArea-next');
+	var paddingLeft = parseFloat(scroll.css('padding-left'));
+	var paddingRight = parseFloat(scroll.css('padding-right'));
+
+	// Просчитываем количество проскролла и выдаем scrollPosition
+	var calcPosition = function (action, direction) {
+		var diff = Math.round(scroll.width() +  paddingLeft + paddingRight - body.width());
+		var scrollLeft = Math.round(body.scrollLeft());
+
+		if(action === 'buttonClick'){
+			if(isResponsive){
+				if(w > BREAKPOINT_md1){
+					var stepScroll = (elem.width()+16) * 1;
+				}else if(w < BREAKPOINT_md3){
+					var stepScroll = elem.width() * 0.8;
+				}else{
+					var stepScroll = (elem.width()-16) * 1;
+				}
+			}else{
+				var stepScroll = elem.width() * 0.8;
+			}
+			
+			if(direction === 'next'){
+				scrollLeft += stepScroll;
+				if(scrollLeft > diff){scrollLeft = diff;}
+			}else{
+				scrollLeft -= stepScroll;
+				if(scrollLeft < 0){scrollLeft = 0;}
+			}
+		}
+		if(scrollLeft === 0){
+			scrollPosition('start');
+		}else if(scrollLeft === diff){
+			scrollPosition('finish');
+		}else{
+			scrollPosition('center');
+		}
+		return scrollLeft;
+	}
+
+	// Клик по кнопкам (только для DESKTOP)
+	var buttonClick = function (direction){
+		var scrollLeft = calcPosition('buttonClick', direction);
+		body.stop().animate({scrollLeft:scrollLeft}, 500, 'swing');
+	}
+
+	// Скрыть показать кнопки в зависимости от положения скролла
+	var scrollPosition = function (position) {
+		if(position === 'start'){
+			if(isMobile === false){
+				btn_prev.removeClass('open');
+				btn_next.addClass('open');
+			}
+			overlay_prev.removeClass('open');
+			overlay_next.addClass('open');
+		}else if (position === 'center'){
+			if(isMobile === false){
+				btn_prev.addClass('open');
+				btn_next.addClass('open');
+			}
+			overlay_prev.addClass('open');
+			overlay_next.addClass('open');
+		}else if(position === 'finish'){
+			if(isMobile === false){
+				btn_prev.addClass('open');
+				btn_next.removeClass('open');
+			}
+			overlay_prev.addClass('open');
+			overlay_next.removeClass('open');
+		}else if(position === 'not-scroll'){
+			if(isMobile === false){
+				btn_prev.removeClass('open');
+				btn_next.removeClass('open');
+			}
+			overlay_prev.removeClass('open');
+			overlay_next.removeClass('open');
+		}
+	}
+
+	// Начальное положение скролла (скролл есть или его нет)
+	wScroll > wBody ? scrollPosition('start') : scrollPosition('not-scroll');
+
+	if(isMobile){
+		btn_prev.removeClass('open');
+		btn_next.removeClass('open');
+		
+	}else{
+		btn_next.click(function(){ buttonClick('next'); });
+		btn_prev.click(function(){ buttonClick('prev'); });
+	}
+	body.scroll(function(){calcPosition();});
+}
+
+$(".scroll").each(function(){
+	if(!(w < BREAKPOINT_md4 && $(this).hasClass('js-not-md4'))){
+		new ScrollElement($(this));
+	}
+});
+;
+	/////////////////// Скрипты для попапов ///////////////////////////
+
+var popup = $(".popup");
+var lastOpen = false;
+
+// Показать попапы при клике
+$(document).on("click", ".js-popup-open", function(e){
+	e.preventDefault();
+	if($(this).hasClass('disabled')){return false;}
+	openPopup($(this).data('popupid'));
+});
+
+// Открыть попап
+function openPopup(popupID) {
+	if(lastOpen !== popupID){
+		if(lastOpen !== false){close_popup();}
+		lastOpen = popupID;
+		$('#'+popupID).addClass('open');
+		bodyLock();
+	}else{
+		close_popup();
+	}
+}
+
+// Скрыть попапы при клике вне попапа и вне области вызова попапа
+$(document).on(isMobile ? "touchend" : "mousedown", function (e) {
+	var popupTarget = $(".js-popup-open").has(e.target).length;
+	// Если (клик вне попапа && попап имеет класс open)
+    if (popup.has(e.target).length === 0 && popup.hasClass('open') && popupTarget === 0 && $('.js-micropopup-lottery').has(e.target).length === 0){
+	    close_popup();
+	}
+});
+
+// Скрыть попап при нажатии на клавишу "Esc"
+$(document).on("keydown", function (e) {
+	if(e.which === 27){
+		close_popup();
+
+		// Закрыть слайдер отзывов 
+		if($activeSlidersReviews !== null){closeSliderReviews();}
+
+		// Закрыть сторисы
+		closeStories();
+	}
+});
+
+// Блокировка скролла при открытии попапа
+function bodyLock() {
+	$body.addClass('lock');
+}
+
+// Разблокировка скролла при закрытии попапа
+function bodyUnLock() {
+	$body.removeClass('lock');
+}
+
+// Закрыть popup
+function close_popup() {
+	$(".popup").removeClass('open');
+	bodyUnLock();
+	lastOpen = false;
+}
+
+// Закрыть попапа при нажатии на кнопки "Close"
+$(document).on("click", ".js-popup-close", function(e){
+	e.preventDefault();
+	close_popup();
+});;
+	// Инициируем обработчики валидации
+function initValidators() {
+	// Валидируем поля формы перед отправкой
+	$('.js-validation-form').submit(function (e) {
+		if($(e.originalEvent.submitter).hasClass('js-submit-without-validate') === true){return true;}
+
+		let isSubmitForm = true;
+		$(this).find("._validate").each(function(){
+			let validateType = $(this).data('validation-type');
+			let value = $(this).val();
+			let error = false;
+			for (var i = 0; i < validateType.length; i++) {
+				let isValid = validator[validateType[i]](value);
+				if(isValid !== true){error = isValid; break;}
+			}
+			if(error !== false){
+				isSubmitForm = false;
+				$(this).addClass('_error');
+				$(this).closest('.js-validation-block').find('.js-validation-error').text(errorMessage[error]);
+			}
+		});
+
+		if(isSubmitForm === false){
+			$(this).find('.js-form-submit').addClass('disabled');
+		}
+		return isSubmitForm;
+	});
+
+	// Про фокусе поля убираем у него ошибку
+	$(".js-validation-form ._validate").on("focus change", function(){
+		if($(this).hasClass('_error')){
+			$(this).removeClass('_error');
+			$(this).closest('.js-validation-block').find('.js-validation-error').text('');
+		}
+
+		let errorsCount = $(this).closest(".js-validation-form").find('._error').length;
+		if(errorsCount === 0){
+			$(this).closest(".js-validation-form").find('.js-form-submit').removeClass('disabled');
+		}
+	});
+}
+initValidators();
+
+// Все виды валидации
+let validator = {
+	req: function (value) {
+		if(value === ""){return "required";}
+		return true;
+	},
+	tel: function (value) {
+		if(value === ""){return true;}
+		if(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){8,14}(\s*)?$/.test(value) === false){return "wrongTelephone";}
+		return true;
+	},
+	email: function (value) {
+		if(value === ""){return true;}
+		if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(value) === false){return "wrongEmail";}
+		return true;
+	},
+	name: function (value) {
+		if(value === ""){return true;}
+		if(value.length < 2){return "wrongNameShort";}
+		if(value.length > 100){return "wrongNameLong";}
+		return true;
+	},
+	password: function (value) {
+		if(value === ""){return true;}
+		if(/^[a-zA-Z0-9]+$/.test(value) === false){return "passwordOnlyLatin";}
+		if(/^[^-() /]*$/.test(value) === false){return "passwordWithoutCharacters";}
+		if(value.length < 8){return "wrongPasswordShort";}
+		if(value.length > 100){return "wrongPasswordLong";}
+		if(parseInt(value.substr(0, 1))){return "passwordFirstSymbolLeter";}
+		return true;
+	},
+	passwordMatch: function (value) {
+		let firstPasswordValue = $('.js-password-match').val();
+		if(firstPasswordValue !== value){return "passwordNotMatch";}
+		return true;
+	},
+	reqAddress: function (value) {
+		if(value === ""){return "requiredAddress";}
+		return true;
+	},
+	bankCard: function (value) {
+		if(value === ""){return true;}
+		if(/[-0-9]{16}/.test(value) === false){return "wrongWankCard";}
+		return true;
+	},
+	reqImage: function (value) {
+		if(value === ""){return "requiredImage";}
+		return true;
+	}
+};
+
+// Показать/скрыть пароль
+$(".js-showHidePassword").click(function(){
+	var parent = $(this).closest('.js-showHidePasswordParent');
+	if (parent.find('input').attr('type') === 'password'){
+		parent.find('input').attr('type', 'text');
+		$(this).addClass('active');
+	} else {
+		parent.find('input').attr('type', 'password');
+		$(this).removeClass('active');
+	}
+});
+
+// Все виды ошибок
+let errorMessage = {
+	"required" : "Поле обязательное для заполнения",
+	"wrongTelephone": "Неверный формат номера телефона",
+	"wrongEmail": "Неверный формат электронной почты",
+	"wrongNameShort": "Cлишком короткое значение (мин. 2 символа)",
+	"wrongNameLong": "Cлишком длинное значение (макс. 100 символов)",
+	"wrongPasswordShort": "Пароль должен содержать больше 8 символов",
+	"wrongPasswordLong": "Пароль должен содержать меньше 80 символов",
+	"passwordOnlyLatin": "Пароль должен содержать только латинские буквы и цифры",
+	"passwordWithoutCharacters": "Пароль не должен содержать спецсимволы (),/- []",
+	"passwordFirstSymbolLeter": "Пароль должен начинаться с буквы",
+	"passwordNotMatch": "Пароли не совпадают",
+	"requiredAddress" : "Выберите адрес доставки",
+	"wrongWankCard": "Поле должно содержать 16 цифр",
+	"requiredImage": "Необходимо прикрепить скриншот"
+};;
 
 //////////////////////// Показать картинки отзывов ////////////////////////////
 
