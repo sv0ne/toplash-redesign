@@ -1097,12 +1097,12 @@ ul.list-ul{
 		margin-bottom: 16px;
 	}
 	li{
-		padding-left: 32px;
 		list-style: none;
 		position: relative;
 		&:before{
 			content: "";
-			position: absolute;
+			display: inline-block;
+			margin: 0 8px 0 16px;
 			top: 8px;
 			left: 16px;
 			width: 8px;
