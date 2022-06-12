@@ -1,15 +1,3 @@
-/* Сейчас эта логика отключена, но если что то она работает по принципу подгрузки попапов по ajax.
-	Чтоб всё заработало нужно:
-	1) В файле script.js включить этот файл
-		@@include('_popups-lottery-leaving.js'); //Лотерея, попап при уходе
-	2) на сервере добавить файл popups.html (скопировать его отсюда)
-	3) для всех страниц на сайте в конце body добавить:
-		<script>
-			pathPopups = "popups.html"; // Путь к попапам
-		</script>
-	4) Обновить css и js
- */
-
 //////////////////////////////// Логика колеса-крутилки ///////////////////////////////
 
 // Получить случайное число в диапазоне 
@@ -120,6 +108,11 @@ function initWheel() {
 
 ///////// Логика попапа ухода со страницы, получить подарок, анимировать title  //////////////
 
+const IS_USE_LOTTERY_POPUP = true; // Использовать лотерею
+const IS_USE_LEAVING_POPUP = false; // Использовать попап при уходе
+const IS_USE_TITLE_CHANGER = false; // Использовать анимированный title
+
+
 const downloadPopupDelay = 15; // задержка (сек.) Загрузить ajax-ом попапы через ХХ сек
 const leavingDelay = 60; // задержка (сек.) - После загрузки ajax-ом попапов
 
@@ -142,7 +135,6 @@ $(document).on("mouseenter", function(){
 
 // Пользователь отсутствовал указанное количество времени
 function userLongGone() {
-	console.log("Пользователь отсутствовал указанное количество времени");
 	isExistUser = false;
 	/* Если попапы получения приза загружены и приз до сих пор не получен и попап "Забрать приз" закрыт
 		 и попап lottery закрыт и попап prizeReceive закрыт то открыть попап "Забрать приз" */
@@ -152,7 +144,7 @@ function userLongGone() {
 	}
 
 	// Запустить анимацию title если не запущена
-	if(animTitle === false){animateTitle();}
+	if(animTitle === false && IS_USE_TITLE_CHANGER === true){animateTitle();}
 
 	// Показать попап при уходе если выполняются условия
 	if(sessionStorage.getItem('vizit') == null && isLoadedPopupLeaving === true && $('#userLeaving').hasClass('open') === false && 
@@ -226,7 +218,7 @@ var isLoadedPopupLeaving = false;
 setTimeout(function() {
 	$('body').append('<div id="popupsLoaded_1"></div><div id="popupsLoaded_2"></div>');
 	// Если пользователь не получил подорок только тогда грузим попапы лотереи 
-	if(localStorage.getItem('get-gift') === null){
+	if(localStorage.getItem('get-gift') === null && IS_USE_LOTTERY_POPUP === true){
 		$("#popupsLoaded_1").load(pathPopups + " #popups-lottery", function(response, status){
 			commonAction(status, "ВНИМАНИЕ!!! Ошибка при загрузке попапов лотереи");
 			if(status == 'success'){
@@ -246,7 +238,7 @@ setTimeout(function() {
 	}
 
 	// Если за текущую сессию пользователь при уходе еще не увидел попап #userLeaving
-	if(sessionStorage.getItem('vizit') == null){
+	if(sessionStorage.getItem('vizit') == null && IS_USE_LEAVING_POPUP === true){
 		$("#popupsLoaded_2").load(pathPopups + " #userLeaving", function(response, status){
 			commonAction(status, "ВНИМАНИЕ!!! Ошибка при загрузке попапа при уходе со страницы");
 			if(status == 'success'){

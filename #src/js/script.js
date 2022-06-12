@@ -26,13 +26,13 @@ $(document).ready(function () {
   	startingVideoOnScroll(scrollTop);
   	fixedElementOnScroll(scrollTop);
   	fixedCardOnScroll(scrollTop);
-  	hideSeoBlock(scrollTop);
 	});
 
 	@@include('_select2-user.js');
 	@@include('_scroll.js');
 	@@include('_popup.js');
 	@@include('_validation.js');
+	@@include('_popups-lottery-leaving.js');
 
 //////////////////////// Показать картинки отзывов ////////////////////////////
 
@@ -812,19 +812,6 @@ if($resendCodeText.length !== 0){
 	}, 1000);
 }
 
-let isHideSeoBlock = false;
-// Скрыть контент внутри CEO - блока при скролле страницы на 100px
-function hideSeoBlock(scrollTop){
-	if(isHideSeoBlock === false && scrollTop > 100){
-		isHideSeoBlock = true;
-		$('.js-rtl').addClass('isHideContent');
-	}
-}
-
-// Показать/скрыть контент внутри CEO - блока
-$(".js-showHideRtl").click(function(){
-	$('.js-rtl').toggleClass('isHideContent');
-});
 /////////////////////////////////////////////////////////////////////////////////////////
 
 	$(document).on("click", function(e){
