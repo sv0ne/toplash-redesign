@@ -1316,6 +1316,7 @@ ul.list-ul{
 .crossedOut{
 	position: relative;
 	&__svg{
+		pointer-events: none;
 		position: absolute;
 		width: 54px;
 		height: 10.93px;
@@ -1439,6 +1440,14 @@ ul.list-ul{
 
 	scrollbar-color: #999#333;
     scrollbar-width: thin;
+}
+
+.kostil{
+	&:hover{
+		svg{
+			fill: $black;
+		}
+	}
 }
 
 ///////////////////////////////////////////////////////////////////

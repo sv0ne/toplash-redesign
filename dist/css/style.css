@@ -9,9 +9,9 @@
 }
 
 @font-face {
-  font-family: "FuturaPT-Demi";
+  font-family: "FuturaPT-Book";
   font-display: swap;
-  src: url("../fonts/FuturaPT-Demi.woff") format("woff"), url("../fonts/FuturaPT-Demi.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Book.woff") format("woff"), url("../fonts/FuturaPT-Book.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -25,17 +25,9 @@
 }
 
 @font-face {
-  font-family: "FuturaPT-Book";
+  font-family: "FuturaPT-Demi";
   font-display: swap;
-  src: url("../fonts/FuturaPT-Book.woff") format("woff"), url("../fonts/FuturaPT-Book.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "FuturaPT-Light";
-  font-display: swap;
-  src: url("../fonts/FuturaPT-Light.woff") format("woff"), url("../fonts/FuturaPT-Light.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Demi.woff") format("woff"), url("../fonts/FuturaPT-Demi.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -44,6 +36,14 @@
   font-family: "FuturaPT-Heavy";
   font-display: swap;
   src: url("../fonts/FuturaPT-Heavy.woff") format("woff"), url("../fonts/FuturaPT-Heavy.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaPT-Light";
+  font-display: swap;
+  src: url("../fonts/FuturaPT-Light.woff") format("woff"), url("../fonts/FuturaPT-Light.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -1905,6 +1905,7 @@ ul.list-ul.multi-column {
 }
 
 .crossedOut__svg {
+  pointer-events: none;
   position: absolute;
   width: 54px;
   height: 10.93px;
@@ -2056,6 +2057,10 @@ ul.list-ul.multi-column {
 
 .horizontalScroller ::-webkit-scrollbar-thumb:hover {
   background-color: #ABB2BA;
+}
+
+.kostil:hover svg {
+  fill: #303438;
 }
 
 .nav__body {
