@@ -55,3 +55,10 @@ img/sprite/icons-sprite.svg#vector
 img/sprite/icons-sprite.svg#VK
 img/sprite/icons-sprite.svg#volumn-off
 img/sprite/icons-sprite.svg#volumn-on
+img/sprite/professional-sprite.svg#crown
+img/sprite/professional-sprite.svg#hearts
+img/sprite/professional-sprite.svg#percent
+img/sprite/professional-sprite.svg#piggy
+img/sprite/professional-sprite.svg#rocket
+img/sprite/professional-sprite.svg#weAreKnown_Indicator
+img/sprite/professional-sprite.svg#weAreKnown_top
