@@ -2978,4 +2978,47 @@
 	}
 }
 
+///////////////////////// Будь в курсе! //////////////////////////
+
+.formSubscribe {
+	display: flex;
+	@media (max-width:$md3+px) {
+	    flex-wrap: wrap;
+	}
+	&__text {
+		padding: 32px;
+		flex: 0 0 55.75%;
+		.inputText label{
+			background-color: transparent !important;
+		}
+		@media (max-width:$md3+px) {
+		    flex: 0 0 100%;
+		    padding: 16px;
+		}
+	}
+	&__image {
+		flex: 1;
+		position: relative;
+		@media (max-width:$md3+px) {
+			text-align: center;
+			padding: 16px;
+		}
+		img{
+			@media (min-width:$md3+px) {
+			    position: absolute;
+				max-height: 100%;
+				max-width: 100%;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+			@media (max-width:$md3+px) {
+			    max-height: 250px;
+			    max-width: 100%;
+			}
+		}
+	}
+}
+
+
 //////////////////////////////////////////////////////////////////
