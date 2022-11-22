@@ -5515,7 +5515,8 @@ ol.list-ol li:before,
           transform: translate(-50%, calc(-100% + 52px));
 }
 
-#prizeReceive .popup__wrap {
+#prizeReceive .popup__wrap,
+#prizeReceive2 .popup__wrap {
   overflow: visible;
 }
 
