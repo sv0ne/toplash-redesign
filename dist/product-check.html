@@ -84,17 +84,25 @@
 						</div>
 						<p>Компания Toplash следит за качеством продукции и старается предотвратить любые попытки продажи контрафакта. Пока таких случаев не было.</p>
 						<p>Мы добавили возможность проверить приобретенный вами продукт на оригинальность. Сотрите защитный слой с упаковки и введите его уникальный номер</p>
-						<div>
-							<div class="inputTextBtn">
+						<form class="nlc-mb-16 js-validation-form" action="" method="post">
+							<div class="js-validation-block">
 								<div class="inputText">
-									<input type="text" autocomplete="off" name="name" placeholder=" ">
-									<label for="sv-input-name">Введите код с упаковки</label>
+									<input class="_validate" data-validation-type='["req"]' type="text" autocomplete="off" name="code" placeholder=" ">
+									<label>Введите код с упаковки</label>
 								</div>
-								<button class="inputBtn">Проверить</button>
+								<p class="js-validation-error mt-4 error"></p>
+							</div>
+							<div class="js-validation-block">
+								<div class="inputText">
+									<input class="_validate" data-validation-type='["req", "email"]' type="text" autocomplete="off" name="email" placeholder=" ">
+									<label>Введите свой email</label>
+								</div>
+								<p class="js-validation-error mt-4 error"></p>
 							</div>
 							<p class="green mt-8">Здесь можно выводить результат, если товар подленный - зеленым</p>
 							<p class="red mt-8">если нет или ошибка, красным.</p>
-						</div>
+							<button class="btn js-form-submit">Проверить</button>
+						</form>
 					</div>
 					<div class="bottomLil">
 						<svg class="bottomLil__1"><use xlink:href="img/sprite/icons-sprite.svg#lil-2"></use></svg>
@@ -109,49 +117,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<div class="main-p-32-16 container lottery">
-		<div class="card-v1 mod-md-p-16">
-			<div class="f-jcc-aic">
-				<img loading="lazy" class="lottery__svg" src="img/sprite/fill-sprite.svg#gift" alt="">
-			</div>
-			<p class="text-huge">Лотерея от Топлаш</p>
-			<p class="text-big darkGray mb-16">Узнайте, возможно вы уже победили!</p>
-			<p class="mb-32">Вам представилась уникальная возможность принять участие в лотерее от компании Toplash. Каждый покупатель имеет шанс выиграть от 50 до 3000 рублей на баланс своего аккаунта.</p>
-			<div class="inputTextBtn">
-				<div class="inputText">
-					<input type="text" autocomplete="off" name="name" placeholder=" ">
-					<label for="sv-input-name">Введите код с упаковки</label>
-				</div>
-				<button class="inputBtn">Мне повезёт!</button>
-			</div>
-			<!-- После нажатия на кнопку "Мне повезёт!" идет отравка формы, проверяется код и если он норм то загружается эта же страница но сразу же с открытым попапом который ниже -->
-
-
-			<!-- <div class="popup p-center p-overlay open" id="prizeReceive2">
-				<div class="popup__wrap">
-					<div class="popup__gift">
-						<img loading="lazy" src="img/sprite/fill-sprite.svg#gift-white-circles" alt="">
-					</div>
-					<form class="popup__body js-validation-form" action="" method="post">
-						<div class="p-72-16-16-16 nlc-mb-16">
-							<p class="text-big red ta-c">Юху! Вы получили скидку в {{count}} p. на первую покупку.</p>
-							<p class="ta-c">Подарок готов к отправке! Укажите email для получения промокода.</p>
-							<input type="hidden" name="dropVALUE" value="{{count}}">
-							<div class="js-validation-block">
-								<div class="inputText">
-									<input class="_validate" data-validation-type='["req", "email"]' type="text" autocomplete="off" name="email" placeholder=" ">
-									<label>Email*</label>
-								</div>
-								<p class="js-validation-error mt-4 error"></p>
-							</div>
-							<button class="btn p10 w-100 js-form-submit">Отправить скидочный купон на почту</button>
-							<button type="button" class="link-2 darkGray w-100 text-footnote ta-c js-popup-close">Нет, спасибо. Пожалуй, я заплачу полную стоимость.</button>
-						</div>
-					</form>
-				</div>
-			</div> -->
 		</div>
 	</div>
 	<footer class="footer">
