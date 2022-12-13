@@ -519,21 +519,21 @@ h2 > span {
 }
 
 .posa,
-.userImage img,
-.cardImage img,
-.cardImage:after,
-.sliderBig__body,
-.cost__background,
-.about__text,
-.stories__body,
-.timescale,
-.imageFeedback__wrap,
-.cardSet__imageWrap,
-.useful__imageWrap,
-.useful__hoverArea,
-.serum__video video,
+.popup__gift img,
 .fScreen__slider,
-.popup__gift img {
+.serum__video video,
+.useful__hoverArea,
+.useful__imageWrap,
+.cardSet__imageWrap,
+.imageFeedback__wrap,
+.timescale,
+.stories__body,
+.about__text,
+.cost__background,
+.sliderBig__body,
+.cardImage:after,
+.cardImage img,
+.userImage img {
   position: absolute;
   top: 0;
   left: 0;
@@ -1259,7 +1259,7 @@ a.btn:hover {
   -webkit-transition: all 0.1s ease 0s;
   -o-transition: all 0.1s ease 0s;
   transition: all 0.1s ease 0s;
-  background: #303438;
+  background: rgb(48, 52, 56);
 }
 
 .btn-3 svg {
@@ -1333,7 +1333,7 @@ a.btn:hover {
   margin-bottom: 10px;
 }
 
-.switch input[type="radio"]:checked + label {
+.switch input[type=radio]:checked + label {
   border-color: #E81F76;
 }
 
@@ -1357,8 +1357,8 @@ a.btn:hover {
   top: 8px;
 }
 
-.inputText input[type="text"],
-.inputText input[type="password"],
+.inputText input[type=text],
+.inputText input[type=password],
 .inputText textarea {
   border: 2px solid #EAF0F6;
   border-radius: 12px;
@@ -1374,14 +1374,14 @@ a.btn:hover {
   position: relative;
 }
 
-.inputText input[type="text"]._error,
-.inputText input[type="password"]._error,
+.inputText input[type=text]._error,
+.inputText input[type=password]._error,
 .inputText textarea._error {
   border: 2px solid #FFE6F1;
 }
 
-.inputText input[type="text"] + label,
-.inputText input[type="password"] + label,
+.inputText input[type=text] + label,
+.inputText input[type=password] + label,
 .inputText textarea + label {
   max-width: calc(100% - 16px);
   position: absolute;
@@ -1402,8 +1402,8 @@ a.btn:hover {
      text-overflow: ellipsis;
 }
 
-.inputText input[type="text"]:disabled + label,
-.inputText input[type="password"]:disabled + label,
+.inputText input[type=text]:disabled + label,
+.inputText input[type=password]:disabled + label,
 .inputText textarea:disabled + label {
   background-color: transparent;
 }
@@ -1474,8 +1474,8 @@ a.btn:hover {
           flex: 1;
 }
 
-.inputTextBtn .inputText input[type="text"],
-.inputTextBtn .inputText input[type="password"],
+.inputTextBtn .inputText input[type=text],
+.inputTextBtn .inputText input[type=password],
 .inputTextBtn .inputText textarea {
   border-radius: 12px 0px 0px 12px;
 }
@@ -1488,12 +1488,12 @@ a.btn:hover {
   cursor: pointer;
 }
 
-.inputCheckbox input[type="checkbox"] {
+.inputCheckbox input[type=checkbox] {
   visibility: hidden;
   display: none;
 }
 
-.inputCheckbox input[type="checkbox"] + label {
+.inputCheckbox input[type=checkbox] + label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1502,33 +1502,33 @@ a.btn:hover {
           align-items: flex-start;
 }
 
-.inputCheckbox input[type="checkbox"] + label span {
+.inputCheckbox input[type=checkbox] + label span {
   padding-left: 8px;
 }
 
-.inputCheckbox input[type="checkbox"] + label .st-1 {
+.inputCheckbox input[type=checkbox] + label .st-1 {
   fill: #ABB2BA;
 }
 
-.inputCheckbox input[type="checkbox"] + label .st-2 {
+.inputCheckbox input[type=checkbox] + label .st-2 {
   visibility: hidden;
 }
 
-.inputCheckbox input[type="checkbox"]:checked + label .st-1 {
+.inputCheckbox input[type=checkbox]:checked + label .st-1 {
   visibility: hidden;
 }
 
-.inputCheckbox input[type="checkbox"]:checked + label .st-2 {
+.inputCheckbox input[type=checkbox]:checked + label .st-2 {
   visibility: visible;
   fill: #E81F76;
 }
 
-.inputRadio input[type="radio"] {
+.inputRadio input[type=radio] {
   visibility: hidden;
   display: none;
 }
 
-.inputRadio input[type="radio"] + label {
+.inputRadio input[type=radio] + label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1541,14 +1541,14 @@ a.btn:hover {
   padding-left: 40px;
 }
 
-.inputRadio input[type="radio"] + label:after,
-.inputRadio input[type="radio"] + label:before {
+.inputRadio input[type=radio] + label:after,
+.inputRadio input[type=radio] + label:before {
   content: "";
   position: absolute;
   border-radius: 50%;
 }
 
-.inputRadio input[type="radio"] + label:after {
+.inputRadio input[type=radio] + label:after {
   top: calc(50% - 12px);
   left: 0px;
   width: 24px;
@@ -1556,7 +1556,7 @@ a.btn:hover {
   border: 2px solid #F1F5F9;
 }
 
-.inputRadio input[type="radio"] + label:before {
+.inputRadio input[type=radio] + label:before {
   z-index: 2;
   top: calc(50% - 6px);
   left: 6px;
@@ -1565,7 +1565,7 @@ a.btn:hover {
   background-color: #FFFFFF;
 }
 
-.inputRadio input[type="radio"]:checked + label:after {
+.inputRadio input[type=radio]:checked + label:after {
   border: none;
   background-color: #E81F76;
 }
@@ -1755,7 +1755,7 @@ ul.list-ul.multi-column {
 
 .slider-style-banner .slick-dots li.slick-active:after,
 .sliderBig .slick-dots li.slick-active:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -1896,8 +1896,8 @@ ul.list-ul.multi-column {
   position: absolute;
   width: 54px;
   height: 10.93px;
-  left: calc(50% - 54px/2 - 7.69px);
-  top: calc(50% - 10.93px/2 + 2.6px);
+  left: calc(50% - 27px - 7.69px);
+  top: calc(50% - 5.465px + 2.6px);
   fill: #E81F76;
   -webkit-transform: rotate(-6.24deg);
       -ms-transform: rotate(-6.24deg);
@@ -1913,8 +1913,8 @@ ul.list-ul.multi-column {
   position: absolute;
   width: 54px;
   height: 10.93px;
-  left: calc(50% - 30px/2 - 7.69px);
-  top: calc(50% - 18.93px/2 + 2.6px);
+  left: calc(50% - 15px - 7.69px);
+  top: calc(50% - 9.465px + 2.6px);
   -webkit-transform: rotate(-24.24deg);
       -ms-transform: rotate(-24.24deg);
           transform: rotate(-24.24deg);
@@ -2202,10 +2202,10 @@ ul.list-ul.multi-column {
 
 .sliderBig__body:hover {
   /*.slick-dots > li.slick-active:after{
-				display: none !important;
-				animation-play-state: paused;
-				-webkit-animation-play-state: paused;
-			}*/
+  	display: none !important;
+  	animation-play-state: paused;
+  	-webkit-animation-play-state: paused;
+  }*/
 }
 
 .sliderBig__body.preInit .sliderBig__item {
@@ -2452,12 +2452,12 @@ ul.list-ul.multi-column {
 }
 
 .cardReviews__text.hidden:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 50%;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(white));
-  background: -o-linear-gradient(left, rgba(255, 255, 255, 0), white);
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0), white);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(rgb(255, 255, 255)));
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0), rgb(255, 255, 255));
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgb(255, 255, 255));
   height: 24px;
   bottom: 0;
   right: 0;
@@ -3219,12 +3219,12 @@ ul.list-ul.multi-column {
 }
 
 .stories .btnRound.btn-prev {
-  left: calc(50% - 40px - (328px / 2) - 56px);
+  left: calc(50% - 40px - 164px - 56px);
 }
 
 .stories .btnRound.btn-next {
   right: auto;
-  left: calc(50% + (328px / 2) + 56px);
+  left: calc(50% + 164px + 56px);
 }
 
 .stories .slick-list {
@@ -3332,7 +3332,7 @@ ul.list-ul.multi-column {
   grid-gap: 4px;
   grid-template-columns: 36.5fr 23fr 18fr 22.5fr;
   grid-template-rows: repeat(2, 1fr);
-  grid-template-areas: "post-1 post-2 post-4 post-6"   "post-1 post-3 post-5 post-6";
+  grid-template-areas: "post-1 post-2 post-4 post-6" "post-1 post-3 post-5 post-6";
 }
 
 .imageFeedback > *:first-child {
@@ -3373,7 +3373,7 @@ ul.list-ul.multi-column {
 
 .imageFeedback.child-5 {
   height: 216px;
-  grid-template-areas: "post-1 post-2 post-4 post-5"   "post-1 post-3 post-4 post-5";
+  grid-template-areas: "post-1 post-2 post-4 post-5" "post-1 post-3 post-4 post-5";
 }
 
 .imageFeedback.child-5 .imageFeedback__item {
@@ -3382,7 +3382,7 @@ ul.list-ul.multi-column {
 
 .imageFeedback.child-4 {
   height: 216px;
-  grid-template-areas: "post-1 post-2 post-4 post-4"   "post-1 post-3 post-4 post-4";
+  grid-template-areas: "post-1 post-2 post-4 post-4" "post-1 post-3 post-4 post-4";
 }
 
 .imageFeedback.child-4 .imageFeedback__item {
@@ -3869,7 +3869,7 @@ ul.list-ul.multi-column {
 }
 
 .useful__body .btnRound.btn-next:after {
-  content: '';
+  content: "";
   position: absolute;
   top: -2px;
   right: -20px;
@@ -4053,16 +4053,16 @@ ul.list-ul.multi-column {
 
 .popular:after {
   left: 0;
-  background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(white));
-  background: -o-linear-gradient(right, rgba(255, 255, 255, 0), white);
-  background: linear-gradient(270deg, rgba(255, 255, 255, 0), white);
+  background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(rgb(255, 255, 255)));
+  background: -o-linear-gradient(right, rgba(255, 255, 255, 0), rgb(255, 255, 255));
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0), rgb(255, 255, 255));
 }
 
 .popular:before {
   right: 0;
-  background: -webkit-gradient(linear, right top, left top, from(white), to(rgba(255, 255, 255, 0)));
-  background: -o-linear-gradient(right, white, rgba(255, 255, 255, 0));
-  background: linear-gradient(270deg, white, rgba(255, 255, 255, 0));
+  background: -webkit-gradient(linear, right top, left top, from(rgb(255, 255, 255)), to(rgba(255, 255, 255, 0)));
+  background: -o-linear-gradient(right, rgb(255, 255, 255), rgba(255, 255, 255, 0));
+  background: linear-gradient(270deg, rgb(255, 255, 255), rgba(255, 255, 255, 0));
 }
 
 .auth__body {
@@ -5021,7 +5021,10 @@ ul.list-ul.multi-column {
 .btnSec,
 .link,
 .inputPlusminus input,
-.oldPrice.text-default span {
+.oldPrice.text-default span,
+.oldPrice.btnSec span,
+.oldPrice.link span,
+.inputPlusminus input.oldPrice span {
   font-family: "FuturaPT-Medium";
   font-size: 20px;
   line-height: 24px;
@@ -5034,15 +5037,15 @@ ul.list-ul.multi-column {
 }
 
 .text-extra-small,
+.select-once-1-dropdown .select2-results__option,
+.select-once-1 .select2-selection .select2-selection__rendered,
 .btn-2,
 ol.list-ol li:before,
 .label,
 .oldPrice span,
 .pagination__list li a,
 .pagination__list li span,
-.cardSet__price,
-.select-once-1 .select2-selection .select2-selection__rendered,
-.select-once-1-dropdown .select2-results__option {
+.cardSet__price {
   font-family: "FuturaPT-Heavy";
   font-size: 18px;
   line-height: 24px;
@@ -5068,12 +5071,12 @@ ol.list-ol li:before,
 }
 
 .text-footnote,
+.gamePlay__scale p,
 .inputText input:focus + label,
 .inputText textarea:focus + label,
 .inputText input:not(:placeholder-shown) + label,
 .inputText textarea:not(:placeholder-shown) + label,
-.reviewCategory.mod-inPopup .reviewCategory__col p,
-.gamePlay__scale p {
+.reviewCategory.mod-inPopup .reviewCategory__col p {
   font-family: "FuturaPT-Book";
   font-size: 16px;
   line-height: 16px;
@@ -5364,9 +5367,9 @@ ol.list-ol li:before,
   left: 0px;
   width: 150px;
   pointer-events: none;
-  background: -webkit-gradient(linear, right top, left top, from(rgba(255, 0, 255, 0)), to(magenta));
-  background: -o-linear-gradient(right, rgba(255, 0, 255, 0), magenta);
-  background: linear-gradient(270deg, rgba(255, 0, 255, 0), magenta);
+  background: -webkit-gradient(linear, right top, left top, from(rgba(255, 0, 255, 0)), to(rgb(255, 0, 255)));
+  background: -o-linear-gradient(right, rgba(255, 0, 255, 0), rgb(255, 0, 255));
+  background: linear-gradient(270deg, rgba(255, 0, 255, 0), rgb(255, 0, 255));
   opacity: 0;
   -webkit-transition: all 1.5s ease 0s;
   -o-transition: all 1.5s ease 0s;
@@ -5376,9 +5379,9 @@ ol.list-ol li:before,
 .scroll__overlayArea_right {
   left: auto;
   right: 0px;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 0, 255, 0)), to(magenta));
-  background: -o-linear-gradient(left, rgba(255, 0, 255, 0), magenta);
-  background: linear-gradient(90deg, rgba(255, 0, 255, 0), magenta);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 0, 255, 0)), to(rgb(255, 0, 255)));
+  background: -o-linear-gradient(left, rgba(255, 0, 255, 0), rgb(255, 0, 255));
+  background: linear-gradient(90deg, rgba(255, 0, 255, 0), rgb(255, 0, 255));
 }
 
 .scroll__overlayArea.open {
@@ -5669,7 +5672,7 @@ ol.list-ol li:before,
   }
 
   100% {
-    height: 00%;
+    height: 0%;
   }
 }
 
@@ -5683,7 +5686,7 @@ ol.list-ol li:before,
   }
 
   100% {
-    height: 00%;
+    height: 0%;
   }
 }
 
@@ -6327,7 +6330,7 @@ ol.list-ol li:before,
   .wrapper {
     overflow: hidden;
     /* Выше 768 мы его убираем чтобы сработал 
-	    position sticky у блока .stickyBlock */
+position sticky у блока .stickyBlock */
   }
 
   .main-p-32-16 {
@@ -7431,8 +7434,8 @@ ol.list-ol li:before,
 
 @media (min-width: 479.98px) and (max-width: 860px) {
   .professionalMod4__text {
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.68%, rgba(255, 255, 255, 0)), color-stop(32.58%, white), color-stop(99.47%, #FFFFFF));
-    background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0.68%, white 32.58%, #FFFFFF 99.47%);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0.68%, white 32.58%, #FFFFFF 99.47%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.68%, rgba(255, 255, 255, 0)), color-stop(32.58%, rgb(255, 255, 255)), color-stop(99.47%, #FFFFFF));
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0.68%, rgb(255, 255, 255) 32.58%, #FFFFFF 99.47%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0.68%, rgb(255, 255, 255) 32.58%, #FFFFFF 99.47%);
   }
 }
