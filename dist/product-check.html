@@ -82,8 +82,8 @@
 							<p class="text-huge">Проверка продукции</p>
 							<p class="text-big darkGray">и подарки от Toplash</p>
 						</div>
-						<p>Компания Toplash следит за качеством продукции и старается предотвратить любые попытки продажи контрафакта. Пока таких случаев не было.</p>
-						<p>Мы добавили возможность проверить приобретенный вами продукт на оригинальность. Сотрите защитный слой с упаковки и введите его уникальный номер</p>
+						<p>Мы добавили возможность проверить приобретенный вами продукт на оригинальность. Сотрите защитный слой с упаковки и введите его уникальный номер и принять участие в лотерее от компании Toplash.</p>
+						<p>Каждый покупатель имеет шанс выиграть от 50 до 3000 рублей на баланс своего аккаунта.</p>
 						<form class="nlc-mb-16 js-validation-form" action="" method="post">
 							<div class="js-validation-block">
 								<div class="inputText">
@@ -92,16 +92,26 @@
 								</div>
 								<p class="js-validation-error mt-4 error"></p>
 							</div>
-							<div class="js-validation-block">
-								<div class="inputText">
-									<input class="_validate" data-validation-type='["req", "email"]' type="text" autocomplete="off" name="email" placeholder=" ">
-									<label>Введите свой email</label>
+							<p class="green mt-8">Вы приобрели оригинальный продукт</p>
+							<p class="red mt-8">Возможно в номере ошибка, попробуйте снова или свяжитесь с нами</p>
+							<button class="btn js-form-submit disabled" disabled>Проверить</button>							
+						</form>
+						<form class="check d-flex p-8 shadow brad-12 js-validation-form">
+							<div class="check__col1 p-8 d-flex fdc jcc">
+								<img loading="lazy" width="130" height="90" src="img/sprite/fill-sprite.svg#gift" alt="">
+							</div>
+							<div class="check__col2 p-8 flex-1 nlc-mb-8 js-validation-block">
+								<p class="text-big red">Юху! Вы получили скидку в 200 рублей на следующую покупку.</p>
+								<p>Подарок готов к отправке! Укажите email для получения промокода.</p>
+								<div class="inputTextBtn">
+									<div class="inputText">
+										<input class="_validate" data-validation-type='["req", "email"]' type="text" autocomplete="off" name="email" placeholder=" ">
+										<label>Введите свой email</label>
+									</div>
+									<button class="inputBtn js-form-submit">Отправить</button>
 								</div>
 								<p class="js-validation-error mt-4 error"></p>
 							</div>
-							<p class="green mt-8">Здесь можно выводить результат, если товар подленный - зеленым</p>
-							<p class="red mt-8">если нет или ошибка, красным.</p>
-							<button class="btn js-form-submit">Проверить</button>
 						</form>
 					</div>
 					<div class="bottomLil">

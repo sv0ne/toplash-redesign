@@ -25,17 +25,17 @@
 }
 
 @font-face {
-  font-family: "FuturaPT-Demi";
+  font-family: "FuturaPT-Heavy";
   font-display: swap;
-  src: url("../fonts/FuturaPT-Demi.woff") format("woff"), url("../fonts/FuturaPT-Demi.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Heavy.woff") format("woff"), url("../fonts/FuturaPT-Heavy.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "FuturaPT-Heavy";
+  font-family: "FuturaPT-Demi";
   font-display: swap;
-  src: url("../fonts/FuturaPT-Heavy.woff") format("woff"), url("../fonts/FuturaPT-Heavy.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Demi.woff") format("woff"), url("../fonts/FuturaPT-Demi.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -6215,6 +6215,25 @@ ol.list-ol li:before,
 
   .result21.mod-v2 .result21__col {
     padding-bottom: 0;
+  }
+
+  .check {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+
+  .check .check__col2 {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+  }
+
+  .check .check__col1 {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
 
   .effectSerum__text {
