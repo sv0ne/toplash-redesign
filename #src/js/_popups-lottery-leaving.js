@@ -223,8 +223,19 @@ setTimeout(function() {
 			commonAction(status, "ВНИМАНИЕ!!! Ошибка при загрузке попапов лотереи");
 			if(status == 'success'){
 				// Запоминаем если пользователь получил подарок
-				$(".js-get-gift").submit(function(){
+				$(".js-get-gift").submit(function(e){
+					e.preventDefault();
 					localStorage.setItem('get-gift', 'exist');
+
+					let request = $(this).serialize();
+					$.ajax({
+						url : '/ajax/gen_coupon.php',
+						data: request,
+						success: function() {
+							alert('Мы выслали скидочный купон на вашу почту!');
+						}
+					});
+					$("#prizeReceive").removeClass('open');
 				});
 
 				// Показать микропопап лотереи
