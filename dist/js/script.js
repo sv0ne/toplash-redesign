@@ -1421,6 +1421,14 @@ if($resendCodeText.length !== 0){
 	}, 1000);
 }
 
+// Проверка продукции, скролл до блока "Вы получили скидку" ecли он есть
+const elem = $(".js-goto-form");
+if(elem.length !== 0){
+	setTimeout(function() {
+		$('html, body').animate({scrollTop: elem.offset().top - 200}, 500);
+	}, 500);
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////
 
 	$(document).on("click", function(e){
