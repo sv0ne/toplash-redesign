@@ -25,17 +25,17 @@
 }
 
 @font-face {
-  font-family: "FuturaPT-Heavy";
+  font-family: "FuturaPT-Demi";
   font-display: swap;
-  src: url("../fonts/FuturaPT-Heavy.woff") format("woff"), url("../fonts/FuturaPT-Heavy.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Demi.woff") format("woff"), url("../fonts/FuturaPT-Demi.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "FuturaPT-Demi";
+  font-family: "FuturaPT-Heavy";
   font-display: swap;
-  src: url("../fonts/FuturaPT-Demi.woff") format("woff"), url("../fonts/FuturaPT-Demi.woff2") format("woff2");
+  src: url("../fonts/FuturaPT-Heavy.woff") format("woff"), url("../fonts/FuturaPT-Heavy.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -1278,7 +1278,8 @@ a.btn:hover {
   opacity: 0.8;
 }
 
-.link {
+.link,
+.styledContent a {
   color: #E81F76;
 }
 
@@ -1631,21 +1632,25 @@ input::-webkit-inner-spin-button {
   opacity: 1;
 }
 
-ol.list-ol {
+.list-ol,
+.styledContent ol {
   counter-reset: myCounter;
 }
 
-ol.list-ol > *:not(:last-child) {
+.list-ol > *:not(:last-child),
+.styledContent ol > *:not(:last-child) {
   margin-bottom: 16px;
 }
 
-ol.list-ol li {
+.list-ol li,
+.styledContent ol li {
   padding-left: 16px;
   list-style: none;
   position: relative;
 }
 
-ol.list-ol li:before {
+.list-ol li:before,
+.styledContent ol li:before {
   position: relative;
   padding-right: 8px;
   counter-increment: myCounter;
@@ -1653,31 +1658,37 @@ ol.list-ol li:before {
   color: #E81F76;
 }
 
-ol.list-ol.mod-pl-0 li {
+.list-ol.mod-pl-0 li,
+.styledContent ol.mod-pl-0 li {
   padding-left: 24px;
 }
 
-ol.list-ol.mod-pl-0 li:before {
+.list-ol.mod-pl-0 li:before,
+.styledContent ol.mod-pl-0 li:before {
   left: 0px;
 }
 
-ol.list-ol.multi-column {
+.list-ol.multi-column,
+.styledContent ol.multi-column {
   -webkit-column-count: 3;
      -moz-column-count: 3;
           column-count: 3;
   padding-right: 16px;
 }
 
-ul.list-ul > *:not(:last-child) {
+.list-ul > *:not(:last-child),
+.styledContent ul > *:not(:last-child) {
   margin-bottom: 16px;
 }
 
-ul.list-ul li {
+.list-ul li,
+.styledContent ul li {
   list-style: none;
   position: relative;
 }
 
-ul.list-ul li:before {
+.list-ul li:before,
+.styledContent ul li:before {
   content: "";
   display: inline-block;
   margin: 0 8px 0 16px;
@@ -1689,7 +1700,8 @@ ul.list-ul li:before {
   border-radius: 99px;
 }
 
-ul.list-ul.multi-column {
+.list-ul.multi-column,
+.styledContent ul.multi-column {
   -webkit-column-count: 3;
      -moz-column-count: 3;
           column-count: 3;
@@ -1768,6 +1780,14 @@ ul.list-ul.multi-column {
 .slider-style-banner .slick-dots li button,
 .sliderBig .slick-dots li button {
   display: none;
+}
+
+.simpleSlider {
+  position: relative;
+}
+
+.simpleSlider .slick-list {
+  padding: 0;
 }
 
 .cardSimple {
@@ -5020,10 +5040,12 @@ ul.list-ul.multi-column {
 .text-default,
 .btnSec,
 .link,
+.styledContent a,
 .inputPlusminus input,
 .oldPrice.text-default span,
 .oldPrice.btnSec span,
 .oldPrice.link span,
+.styledContent a.oldPrice span,
 .inputPlusminus input.oldPrice span {
   font-family: "FuturaPT-Medium";
   font-size: 20px;
@@ -5040,7 +5062,8 @@ ul.list-ul.multi-column {
 .select-once-1-dropdown .select2-results__option,
 .select-once-1 .select2-selection .select2-selection__rendered,
 .btn-2,
-ol.list-ol li:before,
+.list-ol li:before,
+.styledContent ol li:before,
 .label,
 .oldPrice span,
 .pagination__list li a,
@@ -6179,13 +6202,15 @@ ol.list-ol li:before,
             flex: 0 0 352px;
   }
 
-  ol.list-ol.multi-column {
+  .list-ol.multi-column,
+  .styledContent ol.multi-column {
     -webkit-column-count: 2;
        -moz-column-count: 2;
             column-count: 2;
   }
 
-  ul.list-ul.multi-column {
+  .list-ul.multi-column,
+  .styledContent ul.multi-column {
     -webkit-column-count: 2;
        -moz-column-count: 2;
             column-count: 2;
@@ -6441,13 +6466,15 @@ position sticky у блока .stickyBlock */
     display: none !important;
   }
 
-  ol.list-ol.multi-column {
+  .list-ol.multi-column,
+  .styledContent ol.multi-column {
     -webkit-column-count: 1;
        -moz-column-count: 1;
             column-count: 1;
   }
 
-  ul.list-ul.multi-column {
+  .list-ul.multi-column,
+  .styledContent ul.multi-column {
     -webkit-column-count: 1;
        -moz-column-count: 1;
             column-count: 1;

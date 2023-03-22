@@ -787,7 +787,7 @@ a.btn{
 	}
 }
 
-.link{
+.link, .styledContent a{
 	color: $red;
 	@extend .text-default;
 }
@@ -1055,7 +1055,7 @@ input::-webkit-inner-spin-button {
 
 //////////////////////////// СПИСКИ /////////////////////////////////////
 
-ol.list-ol{
+.list-ol, .styledContent ol{
 	> *:not(:last-child){
 		margin-bottom: 16px;
 	}
@@ -1093,7 +1093,7 @@ ol.list-ol{
 	}
 }
 
-ul.list-ul{
+.list-ul, .styledContent ul{
 	> *:not(:last-child){
 		margin-bottom: 16px;
 	}
@@ -1193,6 +1193,13 @@ ul.list-ul{
 	}
 }
 
+.simpleSlider{
+	position: relative;
+	.slick-list{
+		padding: 0;
+	}
+}
+
 /////////////////////////// Карточки (card) /////////////////////////////
 
 .cardSimple {
@@ -1247,6 +1254,7 @@ ul.list-ul{
 	}
 }
 //////////////// ДОПОЛНИТЕЛЬНЫЕ ЭЛЕМЕНТЫ, LABEL, LIST ///////////////////
+
 
 .ibg{
 	background-repeat: no-repeat;

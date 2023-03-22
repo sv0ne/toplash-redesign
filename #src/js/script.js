@@ -88,6 +88,12 @@ function closeSliderReviews() {
 
 /////////////////////////////// Простые слайдеры  //////////////////////////////////////
 
+// Простой слайдер
+$('.js-simpleSlider').slick({
+	prevArrow: $('.js-simpleSlider-parent .sliderBtn.btn-prev'),
+	nextArrow: $('.js-simpleSlider-parent .sliderBtn.btn-next'),
+});
+
 // Отследить инициализацию слайдера в корзине
 $('.js-cartSlider').on('init', function(event, slick){
   $('.js-cartSlider-slideCount').text(slick.slideCount);
