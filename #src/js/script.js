@@ -826,6 +826,25 @@ if(elem.length !== 0){
 	}, 500);
 }
 
+// Блок "Топ месяца". Открытие/закрытие выпадающего списка
+$(".js-topOfMonth-trigger").click(function(){
+	let isActive = $(this).hasClass("active");
+	$(this).toggleClass("active", !isActive);
+	$(".js-topOfMonth-content").slideToggle(300);
+});
+
+let isHideTopOfMonthBlock = false;
+// Закрытие блока "Топ месяца" при клике вне блока
+$(document).on(isMobile ? "touchend" : "mouseover", function (e) {
+	if($(".js-topOfMonth-body").has(e.target).length === 0 && isHideTopOfMonthBlock === false){
+	    isHideTopOfMonthBlock = true;
+	    if($(".js-topOfMonth-trigger").hasClass("active")){
+	    	$(".js-topOfMonth-content").slideToggle(150);
+	    	$(".js-topOfMonth-trigger").removeClass("active");
+	  	}
+		}
+});
+
 /////////////////////////////////////////////////////////////////////////////////////////
 
 	$(document).on("click", function(e){
