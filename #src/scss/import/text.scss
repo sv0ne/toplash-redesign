@@ -9,7 +9,8 @@
 }
 
 .text-big{
-  font-family: "FuturaPT-Medium";
+  font-family: "FuturaPT";
+  font-weight: 500;
   font-size: 28px;
   line-height: 36px;
   @media (max-width:$md3+px) {
@@ -19,13 +20,15 @@
 }
 
 .text-medium{
-  font-family: "FuturaPT-Medium";
+  font-family: "FuturaPT";
+  font-weight: 500;
   font-size: 24px;
   line-height: 30px;
 }
 
 .text-default{
-  font-family: "FuturaPT-Medium";
+  font-family: "FuturaPT";
+  font-weight: 500;
   font-size: 20px;
   line-height: 24px;
 }
@@ -44,7 +47,8 @@
 
 
 .text-control{
-  font-family: "FuturaPT-Medium";
+  font-family: "FuturaPT";
+  font-weight: 500;
   font-size: 20px;
   line-height: 24px;
 }
