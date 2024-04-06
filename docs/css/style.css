@@ -4565,11 +4565,13 @@ input::-webkit-inner-spin-button {
   padding: 4px;
 }
 
-.panel__socials a:hover use {
+.panel__socials a:hover use,
+.panel__socials a:hover svg {
   fill: #303438;
 }
 
-.panel__socials use {
+.panel__socials use,
+.panel__socials svg {
   fill: #ABB2BA;
 }
 

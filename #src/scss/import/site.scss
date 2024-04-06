@@ -2568,12 +2568,12 @@
 		a{
 			padding: 4px;
 			&:hover{
-				use{
+				use, svg{
 					fill: $black;
 				}
 			}
 		}
-		use{
+		use, svg{
 			fill: $darkGray;
 		}
 		margin-right: 16px;
